@@ -1,3 +1,5 @@
+<p align="right"><i>Ebooks from Roy, curated by Steven</i></p>
+
 # 📚 英文电子书合集
 
 这是一个精心整理的英文电子书合集。欢迎下载阅读！
