@@ -4,6 +4,8 @@
 
 这是一个精心整理的英文电子书合集。欢迎下载阅读！
 
+您也可以访问我们的项目主页在线浏览本书籍列表：[https://stevenspage.github.io/english_ebooks/](https://stevenspage.github.io/english_ebooks/)
+
 ---
 
 ## 📖 电子书列表
@@ -29,7 +31,7 @@
 7.  **[纠正你的英语错误：避免99%的学习者常犯的错误 (Correct your English errors: avoid 99% of the common mistakes made by learners of English) (Timothy G. Collins)](./ebooks/Correct%20your%20English%20errors%20avoid%2099%20of%20the%20common%20mistakes%20made%20by%20learners%20of%20English%20by%20Collins,%20Timothy%20G.epub)**
     > 蒂莫西·G·柯林斯 (Timothy G. Collins) 的《纠正你的英语错误：避免99%的学习者常犯的错误》 (Correct Your English Errors: Avoid 99% of the Common Mistakes Made by Learners of English) 是一本全面的指南，旨在帮助英语学习者提高他们的口语和写作能力。本书侧重于识别和纠正常见的非母语者错误。
 
-8.  **[分手信 (Dear John) (Nicholas Sparks)](./ebooks/Dear%20John%20(Nicholas%20Sparks)%20(Z-Library).epub)**
+8.  **[分手信 (Dear John) (Nicholas Sparks)](./ebooks/Dear%20John%20(Nicholas%20Sparks).epub)**
     > 尼古拉斯·斯帕克斯 (Nicholas Sparks) 的小说《分手信》 (Dear John) 讲述了约翰·泰里 (John Tyree) 的故事，他是一个在迷茫的青春期后参军的年轻人。在休假回到家乡北卡罗来纳州威尔明顿市时，他遇到了正在为仁人家园做志愿者的大学生萨凡纳·林恩·柯蒂斯 (Savannah Lynn Curtis)。两人在短时间内坠入爱河。
 
 9.  **[灭绝：过时物品纲要 (Extinct: A Compendium of Obsolete Objects)](./ebooks/Extinct%20-%20A%20Compendium%20of%20Obsolete%20Objects%20(%20etc.).epub)**
