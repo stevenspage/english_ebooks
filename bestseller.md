@@ -1,32 +1,32 @@
 # 纽约时报畅销书榜单
 
-这是一个根据纽约时报畅销书榜单整理的列表。
+这是一个根据纽约时报畅销书榜单（精装小说类）整理的列表，旨在提供中文简介和书评，方便中文读者了解和选择。
 
 ---
 
 ## 📖 畅销书列表 (精装小说)
 
-1.  **NOT QUITE DEAD YET** by Holly Jackson
-    > With only a week left to live after a violent attack on Halloween, Jet Mason is determined to solve her own murder.
+1.  **我还没死呢 (NOT QUITE DEAD YET)** by Holly Jackson
+    > 在万圣节遭遇暴力袭击后，杰特·梅森只剩下一周的生命，她决心要在生命耗尽前，侦破这起针对自己的谋杀案。
     >
-    > **书评:** Critics have lauded the book's high-concept plot, calling it a "ticking clock thriller" with a compelling race against time. The premise of a victim solving their own murder has been described as both audacious and ingenious. Many reviews praise the book for its fast-paced narrative and unexpected twists that keep readers engaged.
+    > **书评:** 评论家们对本书高概念的情节设计赞不绝口，称其为一部“分秒必争的惊悚小说”，充满了引人入胜的时间竞赛。受害者亲自侦破自己谋杀案的设定被形容为既大胆又巧妙。许多评论称赞本书节奏明快，情节曲折，让读者欲罢不能。
 
-2.  **THE HAMPTONS LAWYER** by James Patterson and Mike Lupica
-    > The third book in the Jane Smith thriller series. Taking on a celebrity client proves dangerous.
+2.  **汉普顿律师 (THE HAMPTONS LAWYER)** by James Patterson and Mike Lupica
+    > 本书是“简·史密斯惊悚系列”的第三部。故事中，战无不胜的刑事辩护律师简·史密斯接手了一个危险的案子，她需要为一位被指控犯下三重谋杀罪的富豪辩护。
     >
-    > **书评:** Reviewers have praised the book as a "great beach read" that is "unpredictable and hard to put down." The writing collaboration between Patterson and Lupica has been described as "magic," with the authors delivering another great novel in the series. The novel is noted for its fast-paced, twisty plot and the strong, witty character of Jane Smith.
+    > **书评:** 评论家们称赞这本书是“绝佳的夏日读物”，“情节出人意料，令人难以释卷”。帕特森和卢皮卡的合作被形容为“产生了奇妙的化学反应”，两位作者为该系列贡献了又一部伟大的小说。这部小说以其快节奏、曲折的情节和主角简·史密斯坚强、机智的性格而备受瞩目。
 
-3.  **ATMOSPHERE** by Taylor Jenkins Reid
-    > In the summer of 1980, Joan Goodwin begins training with a group of candidates for NASA’s space shuttle program.
+3.  **太空氛围 (ATMOSPHERE)** by Taylor Jenkins Reid
+    > 1980年夏天，学者兼天文学家琼·古德温入选了NASA的新一期宇航员培训班，她的人生轨迹就此改变，开始了一段关于爱与冒险的太空之旅。
     >
-    > **书评:** Reviews for "Atmosphere" are largely positive, with many critics praising it as another fantastic book from Reid. It has been described as an "adventurous and emotional story" and a "cosmic love ballad for space nerds".
+    > **书评:** 对《太空氛围》的评价基本上是正面的，许多评论家称赞它为里德的又一力作。它被描述为一个“充满冒险和情感的故事”和一首“写给太空爱好者的宇宙情歌”。其情感深度和引人入胜的叙事能力获得了广泛好评。
 
-4.  **THE ENCHANTED GREENHOUSE** by Sarah Beth Durst
-    > In this novel set in the world of “The Spellshop,” Terlu Perna must figure out a sorcerer’s secrets to save an island containing magical greenhouses.
+4.  **魔法温室 (THE ENCHANTED GREENHOUSE)** by Sarah Beth Durst
+    > 这本小说的背景设定在《魔咒商店》的世界里。图书管理员特鲁·佩尔纳因孤独而非法创造了一株有感知能力的吊兰，结果被变成了一座木制雕像。多年后，她在一个遍布魔法温室的偏远岛屿上醒来，并必须解开一位巫师的秘密，以拯救这个岛屿。
     >
-    > **书评:** Reviewers have praised the book for its enchanting world-building, with descriptions of singing flowers, honey cakes, and a variety of magical creatures, including tiny pollinating dragons. The novel explores themes of second chances, forgiveness, found family, and self-discovery.
+    > **书评:** 评论家们称赞这本书迷人的世界观设定，其中描绘了会唱歌的花朵、蜂蜜蛋糕和包括迷你喷火龙在内的各种神奇生物。小说探讨了第二次机会、宽恕、重组家庭和自我发现等主题，被认为是一部温馨治愈的“舒适奇幻”佳作。
 
-5.  **ARCANA ACADEMY** by Elise Kova
-    > To get out of prison, Clara Graysword makes a deal with the headmaster of the Arcana Academy to help him steal a tarot card from the king.
+5.  **奥秘学院 (ARCANA ACADEMY)** by Elise Kova
+    > 为了换取自由，因非法绘制魔法塔罗牌而入狱的克拉拉·格雷斯沃德，与奥秘学院神秘的校长凯利斯王子达成了一项危险的协议：她需要假装是他的未婚妻，并帮助他从国王手中偷走一张强大的塔罗牌。
     >
-    > **书评:** "Arcana Academy" is considered a strong start to a new series, leaving readers eager for the next installment. It is recommended for fans of authors like Sarah J. Maas and Rebecca Yarros, and for those who enjoy romantasy with a unique magical twist.
+    > **书评:** 《奥秘学院》被认为是新系列的强势开篇，其独特的塔罗牌魔法系统、黑暗学术氛围和引人入胜的角色获得了广泛赞誉。它被推荐给莎拉·J·马斯和丽贝卡·亚罗斯等作家的粉丝，以及那些喜欢带有独特魔法元素的浪漫奇幻小说的读者。
