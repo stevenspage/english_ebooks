@@ -6,6 +6,8 @@
 
 您也可以访问我们的项目主页在线浏览本书籍列表：[https://stevenspage.github.io/english_ebooks/](https://stevenspage.github.io/english_ebooks/)
 
+您也可以在这里查看最新的[纽约时报畅销书榜单](./bestseller.md)。
+
 ---
 
 ## 📖 电子书列表
