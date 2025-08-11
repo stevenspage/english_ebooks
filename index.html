@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -110,6 +111,7 @@
     .card { 
       background: var(--card); border: 1px solid var(--border); border-radius: 16px; 
       box-shadow: var(--shadow); overflow: hidden; transition: all .3s ease; 
+      position: relative; /* 添加相对定位以容纳标签 */
     }
     .card:hover { 
       transform: translateY(-4px); border-color: var(--primary); 
@@ -117,13 +119,14 @@
     }
     .card a { text-decoration: none; color: inherit; display: block; padding: 16px; }
     .row { display:flex; gap: 14px; align-items:center; }
-         .thumb { 
+    .thumb { 
        width: 48px; height: 48px; border-radius: 12px; 
        background: var(--gradient-primary); 
        display:flex; align-items:center; justify-content:center; 
        font-weight: 700; color: white; font-size: 0.85rem;
        cursor: pointer;
        transition: transform 0.2s ease;
+       flex-shrink: 0;
      }
      
      .thumb:hover {
@@ -165,7 +168,7 @@
     }
     .cover-card a { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; }
     
-         .cover-image { 
+    .cover-image { 
        width: 100%; height: 280px; background: var(--gradient-primary); 
        display: flex; align-items: center; justify-content: center; font-weight: 700; 
        color: white; font-size: 24px; position: relative; overflow: hidden;
@@ -191,97 +194,90 @@
       background: rgba(99, 102, 241, 0.1); color: var(--primary); 
       border: 1px solid rgba(99, 102, 241, 0.2); font-size: 0.75rem; font-weight: 500;
     }
-
     
-              
-
-          
-              .empty { color: var(--muted); padding: 12px; text-align:center; }
-              
-              /* 下载进度条样式 */
-              .download-progress {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                background: rgba(0, 0, 0, 0.8);
-                color: white;
-                padding: 8px 12px;
-                z-index: 20;
-                border-radius: 20px 20px 0 0;
-              }
-              
-              .progress-bar {
-                width: 100%;
-                height: 4px;
-                background: rgba(255, 255, 255, 0.2);
-                border-radius: 2px;
-                overflow: hidden;
-                margin-bottom: 6px;
-              }
-              
-              .progress-fill {
-                height: 100%;
-                background: #10b981;
-                border-radius: 2px;
-                transition: width 0.3s ease;
-                position: relative;
-              }
-              
-              .progress-fill::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-                animation: shimmer 2s infinite;
-              }
-              
-              .progress-text {
-                font-size: 0.75rem;
-                color: white;
-                display: block;
-                text-align: center;
-                font-weight: 500;
-              }
-              
-              /* 下载完成标签样式 */
-              .download-complete-label {
-                position: absolute;
-                top: 12px;
-                right: 12px;
-                background: #10b981;
-                color: white;
-                padding: 6px 12px;
-                border-radius: 20px;
-                font-size: 0.75rem;
-                font-weight: 600;
-                box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-                z-index: 25;
-                animation: fadeInScale 0.5s ease;
-              }
-              
-              .card .download-complete-label {
-                top: 8px;
-                right: 8px;
-                padding: 4px 8px;
-                font-size: 0.7rem;
-              }
-              
-              @keyframes fadeInScale {
-                from { opacity: 0; transform: scale(0.8); }
-                to { opacity: 1; transform: scale(1); }
-              }
-              
-              @keyframes shimmer {
-                0% { background-position: 200% 0; }
-                100% { background-position: -200% 0; }
-              }
-              
-
-
+    .empty { color: var(--muted); padding: 12px; text-align:center; }
+    
+    /* 下载进度条样式 */
+    .download-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 8px 12px;
+      z-index: 20;
+      border-radius: 20px 20px 0 0;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: #10b981;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+      position: relative;
+    }
+    
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shimmer-progress 2s infinite;
+    }
+    
+    .progress-text {
+      font-size: 0.75rem;
+      color: white;
+      display: block;
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    /* 下载完成标签样式 */
+    .download-complete-label {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #10b981;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      z-index: 25;
+      animation: fadeInScale 0.5s ease;
+    }
+    
+    .card .download-complete-label {
+      top: 8px;
+      right: 8px;
+      padding: 4px 8px;
+      font-size: 0.7rem;
+    }
+    
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes shimmer-progress {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
 
     /* Skeleton Shimmer */
     .skeleton-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
@@ -299,158 +295,102 @@
     .thumb.has-cover { color: transparent; background-size: contain; background-position: center; background-repeat: no-repeat; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05); }
 
     /* 10套高端主题配色方案 */
-    
-
-
     /* 2. 星云深空 */
     .theme-nebula {
-      --primary: #8a2be2;
-      --primary-2: #9932cc;
-      --accent: #ff1493;
-      --bg: #f5f3ff;
-      --card: #fefefe;
+      --primary: #8a2be2; --primary-2: #9932cc; --accent: #ff1493; --bg: #f5f3ff; --card: #fefefe;
       --gradient-primary: linear-gradient(135deg, #8a2be2 0%, #9932cc 50%, #ff1493 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(138, 43, 226, 0.12) 0%, rgba(153, 50, 204, 0.12) 50%, rgba(255, 20, 147, 0.12) 100%);
     }
     .theme-nebula.dark {
-      --bg: #1a0b2e;
-      --card: #2d1b3d;
+      --bg: #1a0b2e; --card: #2d1b3d;
       --gradient-primary: linear-gradient(135deg, #4a148c 0%, #6a1b9a 50%, #c2185b 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(74, 20, 140, 0.18) 0%, rgba(106, 27, 154, 0.18) 50%, rgba(194, 24, 91, 0.18) 100%);
     }
-
     /* 3. 深海秘境 */
     .theme-ocean {
-      --primary: #006994;
-      --primary-2: #0088cc;
-      --accent: #20b2aa;
-      --bg: #f0f9ff;
-      --card: #ffffff;
+      --primary: #006994; --primary-2: #0088cc; --accent: #20b2aa; --bg: #f0f9ff; --card: #ffffff;
       --gradient-primary: linear-gradient(135deg, #006994 0%, #0088cc 50%, #20b2aa 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(0, 105, 148, 0.12) 0%, rgba(0, 136, 204, 0.12) 50%, rgba(32, 178, 170, 0.12) 100%);
     }
     .theme-ocean.dark {
-      --bg: #001122;
-      --card: #0a1929;
+      --bg: #001122; --card: #0a1929;
       --gradient-primary: linear-gradient(135deg, #01579b 0%, #0277bd 50%, #00695c 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(1, 87, 155, 0.18) 0%, rgba(2, 119, 189, 0.18) 50%, rgba(0, 105, 92, 0.18) 100%);
     }
-
     /* 4. 翡翠森林 */
     .theme-forest {
-      --primary: #228b22;
-      --primary-2: #32cd32;
-      --accent: #90ee90;
-      --bg: #f0fff0;
-      --card: #ffffff;
+      --primary: #228b22; --primary-2: #32cd32; --accent: #90ee90; --bg: #f0fff0; --card: #ffffff;
       --gradient-primary: linear-gradient(135deg, #228b22 0%, #32cd32 50%, #90ee90 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(34, 139, 34, 0.12) 0%, rgba(50, 205, 50, 0.12) 50%, rgba(144, 238, 144, 0.12) 100%);
     }
     .theme-forest.dark {
-      --bg: #0d1b0d;
-      --card: #1a2e1a;
+      --bg: #0d1b0d; --card: #1a2e1a;
       --gradient-primary: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #388e3c 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(27, 94, 32, 0.18) 0%, rgba(46, 125, 50, 0.18) 50%, rgba(56, 142, 60, 0.18) 100%);
     }
-
     /* 5. 黄昏晚霞 */
     .theme-sunset {
-      --primary: #ff6347;
-      --primary-2: #ff8c00;
-      --accent: #ffd700;
-      --bg: #fff8f0;
-      --card: #ffffff;
+      --primary: #ff6347; --primary-2: #ff8c00; --accent: #ffd700; --bg: #fff8f0; --card: #ffffff;
       --gradient-primary: linear-gradient(135deg, #ff6347 0%, #ff8c00 50%, #ffd700 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(255, 99, 71, 0.12) 0%, rgba(255, 140, 0, 0.12) 50%, rgba(255, 215, 0, 0.12) 100%);
     }
     .theme-sunset.dark {
-      --bg: #1a0f08;
-      --card: #2d1810;
+      --bg: #1a0f08; --card: #2d1810;
       --gradient-primary: linear-gradient(135deg, #d84315 0%, #ef6c00 50%, #f57c00 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(216, 67, 21, 0.18) 0%, rgba(239, 108, 0, 0.18) 50%, rgba(245, 124, 0, 0.18) 100%);
     }
-
     /* 6. 赤焰烈火 */
     .theme-crimson {
-      --primary: #dc143c;
-      --primary-2: #ff0000;
-      --accent: #ff6b35;
-      --bg: #fff5f5;
-      --card: #ffffff;
+      --primary: #dc143c; --primary-2: #ff0000; --accent: #ff6b35; --bg: #fff5f5; --card: #ffffff;
       --gradient-primary: linear-gradient(135deg, #dc143c 0%, #ff0000 50%, #ff6b35 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(220, 20, 60, 0.12) 0%, rgba(255, 0, 0, 0.12) 50%, rgba(255, 107, 53, 0.12) 100%);
     }
     .theme-crimson.dark {
-      --bg: #1a0808;
-      --card: #2d1010;
+      --bg: #1a0808; --card: #2d1010;
       --gradient-primary: linear-gradient(135deg, #b71c1c 0%, #c62828 50%, #d32f2f 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(183, 28, 28, 0.18) 0%, rgba(198, 40, 40, 0.18) 50%, rgba(211, 47, 47, 0.18) 100%);
     }
-
     /* 7. 樱花飞舞 */
     .theme-sakura {
-      --primary: #ffb7c5;
-      --primary-2: #ffc0cb;
-      --accent: #ff69b4;
-      --bg: #fef7f7;
-      --card: #ffffff;
+      --primary: #ffb7c5; --primary-2: #ffc0cb; --accent: #ff69b4; --bg: #fef7f7; --card: #ffffff;
       --gradient-primary: linear-gradient(135deg, #ffb7c5 0%, #ffc0cb 50%, #ff69b4 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(255, 183, 197, 0.12) 0%, rgba(255, 192, 203, 0.12) 50%, rgba(255, 105, 180, 0.12) 100%);
     }
     .theme-sakura.dark {
-      --bg: #1a0f13;
-      --card: #2d1a20;
+      --bg: #1a0f13; --card: #2d1a20;
       --gradient-primary: linear-gradient(135deg, #ad1457 0%, #c2185b 50%, #e91e63 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(173, 20, 87, 0.18) 0%, rgba(194, 24, 91, 0.18) 50%, rgba(233, 30, 99, 0.18) 100%);
     }
-
     /* 8. 铂金雅韵 */
     .theme-platinum {
-      --primary: #8c9eff;
-      --primary-2: #b39ddb;
-      --accent: #e1bee7;
-      --bg: #f8f9fa;
-      --card: #ffffff;
+      --primary: #8c9eff; --primary-2: #b39ddb; --accent: #e1bee7; --bg: #f8f9fa; --card: #ffffff;
       --gradient-primary: linear-gradient(135deg, #8c9eff 0%, #b39ddb 50%, #e1bee7 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(140, 158, 255, 0.12) 0%, rgba(179, 157, 219, 0.12) 50%, rgba(225, 190, 231, 0.12) 100%);
     }
     .theme-platinum.dark {
-      --bg: #121212;
-      --card: #1e1e1e;
+      --bg: #121212; --card: #1e1e1e;
       --gradient-primary: linear-gradient(135deg, #3f51b5 0%, #673ab7 50%, #9c27b0 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(63, 81, 181, 0.18) 0%, rgba(103, 58, 183, 0.18) 50%, rgba(156, 39, 176, 0.18) 100%);
     }
-
     /* 9. 紫水晶 */
     .theme-amethyst {
-      --primary: #9c27b0;
-      --primary-2: #ba68c8;
-      --accent: #ce93d8;
-      --bg: #fce4ec;
-      --card: #ffffff;
+      --primary: #9c27b0; --primary-2: #ba68c8; --accent: #ce93d8; --bg: #fce4ec; --card: #ffffff;
       --gradient-primary: linear-gradient(135deg, #9c27b0 0%, #ba68c8 50%, #ce93d8 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(156, 39, 176, 0.12) 0%, rgba(186, 104, 200, 0.12) 50%, rgba(206, 147, 216, 0.12) 100%);
     }
     .theme-amethyst.dark {
-      --bg: #1a0f1a;
-      --card: #2d1a2d;
+      --bg: #1a0f1a; --card: #2d1a2d;
       --gradient-primary: linear-gradient(135deg, #4a148c 0%, #6a1b9a 50%, #7b1fa2 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(74, 20, 140, 0.18) 0%, rgba(106, 27, 154, 0.18) 50%, rgba(123, 31, 162, 0.18) 100%);
     }
-
     /* 10. 冰川蓝调 */
     .theme-glacier {
-      --primary: #4fc3f7;
-      --primary-2: #81d4fa;
-      --accent: #b3e5fc;
-      --bg: #e1f5fe;
-      --card: #ffffff;
+      --primary: #4fc3f7; --primary-2: #81d4fa; --accent: #b3e5fc; --bg: #e1f5fe; --card: #ffffff;
       --gradient-primary: linear-gradient(135deg, #4fc3f7 0%, #81d4fa 50%, #b3e5fc 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(79, 195, 247, 0.12) 0%, rgba(129, 212, 250, 0.12) 50%, rgba(179, 229, 252, 0.12) 100%);
     }
     .theme-glacier.dark {
-      --bg: #0f1419;
-      --card: #1a252e;
+      --bg: #0f1419; --card: #1a252e;
       --gradient-primary: linear-gradient(135deg, #0277bd 0%, #0288d1 50%, #039be5 100%);
       --gradient-subtle: linear-gradient(135deg, rgba(2, 119, 189, 0.18) 0%, rgba(2, 136, 209, 0.18) 50%, rgba(3, 155, 229, 0.18) 100%);
     }
@@ -465,7 +405,6 @@
     .theme-platinum { background: radial-gradient(circle at 40% 20%, rgba(140,158,255,0.2) 0%, transparent 50%), radial-gradient(circle at 60% 80%, rgba(225,190,231,0.2) 0%, transparent 50%), var(--gradient-subtle), var(--bg); }
     .theme-amethyst { background: radial-gradient(circle at 25% 60%, rgba(156,39,176,0.2) 0%, transparent 50%), radial-gradient(circle at 75% 40%, rgba(206,147,216,0.2) 0%, transparent 50%), var(--gradient-subtle), var(--bg); }
     .theme-glacier { background: radial-gradient(circle at 30% 50%, rgba(79,195,247,0.25) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(179,229,252,0.25) 0%, transparent 50%), var(--gradient-subtle), var(--bg); }
-
 
   </style>
   <!-- epub.js 用于封面解析（本地纯静态可用） -->
@@ -541,16 +480,12 @@
       const saved = localStorage.getItem(colorThemeKey) || 'sunset';
       themeSelector.value = saved;
       
-      // 移除所有主题类
       document.body.className = document.body.className.replace(/theme-\w+/g, '');
-      // 添加当前主题类
       document.body.classList.add(`theme-${saved}`);
       
       themeSelector.addEventListener('change', ()=>{
         const theme = themeSelector.value;
-        // 移除所有主题类
         document.body.className = document.body.className.replace(/theme-\w+/g, '');
-        // 添加新主题类
         document.body.classList.add(`theme-${theme}`);
         localStorage.setItem(colorThemeKey, theme);
       });
@@ -676,7 +611,6 @@
         items.sort((a,b) => (getLastState(b.path)?.updatedAt||0) - (getLastState(a.path)?.updatedAt||0));
       }
 
-      // 根据视图模式设置网格样式
       gridEl.className = currentViewMode === 'cover' ? 'cover-grid' : 'grid';
       gridEl.innerHTML = '';
       emptyEl.style.display = items.length ? 'none' : 'block';
@@ -687,17 +621,15 @@
         const hasProgress = st && typeof st.percentage === 'number';
         
         if (currentViewMode === 'cover') {
-          // 大封面视图
           const card = document.createElement('div');
           card.className = 'cover-card';
           const link = document.createElement('a');
           link.href = `reader.html?book=${encodeURIComponent(it.path)}`;
           
-                     const coverImage = document.createElement('div');
+           const coverImage = document.createElement('div');
            coverImage.className = 'cover-image';
            coverImage.innerHTML = '<div class="fallback">EP</div>';
            
-           // 添加下载进度条到卡片顶部
            const downloadProgress = document.createElement('div');
            downloadProgress.className = 'download-progress';
            downloadProgress.style.display = 'none';
@@ -709,19 +641,35 @@
            `;
            card.appendChild(downloadProgress);
            
-           // 添加下载完成标签
            const downloadLabel = document.createElement('div');
            downloadLabel.className = 'download-complete-label';
            downloadLabel.style.display = 'none';
            downloadLabel.innerHTML = '✓ 已下载';
            card.appendChild(downloadLabel);
            
-           // 点击封面开始下载
+           // --- FIX START ---
+           // 修复: 点击封面时，检查是否已下载
            coverImage.addEventListener('click', (e) => {
+             const downloadKey = `download:${it.path}`;
+             const downloadStatus = localStorage.getItem(downloadKey);
+             let isDownloaded = false;
+             try {
+                if (downloadStatus) {
+                    isDownloaded = JSON.parse(downloadStatus).completed === true;
+                }
+             } catch (err) { /* 忽略损坏的数据 */ }
+
+             if (isDownloaded) {
+               // 如果已下载，不执行任何操作，让链接正常跳转
+               return;
+             }
+
+             // 如果未下载，阻止跳转并开始下载
              e.preventDefault();
              e.stopPropagation();
              startDownload(card, it.path);
            });
+           // --- FIX END ---
           
           const coverInfo = document.createElement('div');
           coverInfo.className = 'cover-info';
@@ -739,13 +687,9 @@
             coverMeta.appendChild(pill);
           }
           
-          
-          
           const format = document.createElement('span');
           format.textContent = '📖 EPUB';
           coverMeta.appendChild(format);
-          
-          
           
           coverInfo.appendChild(coverTitle);
           coverInfo.appendChild(coverMeta);
@@ -754,19 +698,21 @@
           card.appendChild(link);
           gridEl.appendChild(card);
           
-          // 懒加载封面
           observeCover(it.path, coverImage);
         } else {
           // 列表视图
           const card = document.createElement('div');
           card.className = 'card';
+          const linkWrap = document.createElement('a');
+          linkWrap.href = `reader.html?book=${encodeURIComponent(it.path)}`;
+
           const wrap = document.createElement('div');
           wrap.className = 'row';
-                     const thumb = document.createElement('div'); 
+
+           const thumb = document.createElement('div'); 
            thumb.className = 'thumb'; 
            thumb.textContent = 'EP';
            
-           // 添加下载进度条到卡片顶部
            const downloadProgress = document.createElement('div');
            downloadProgress.className = 'download-progress';
            downloadProgress.style.display = 'none';
@@ -778,19 +724,36 @@
            `;
            card.appendChild(downloadProgress);
            
-           // 添加下载完成标签
            const downloadLabel = document.createElement('div');
            downloadLabel.className = 'download-complete-label';
            downloadLabel.style.display = 'none';
            downloadLabel.innerHTML = '✓ 已下载';
            card.appendChild(downloadLabel);
            
-           // 点击封面开始下载
+           // --- FIX START ---
+           // 修复: 点击缩略图时，检查是否已下载
            thumb.addEventListener('click', (e) => {
+             const downloadKey = `download:${it.path}`;
+             const downloadStatus = localStorage.getItem(downloadKey);
+             let isDownloaded = false;
+             try {
+                if (downloadStatus) {
+                    isDownloaded = JSON.parse(downloadStatus).completed === true;
+                }
+             } catch (err) { /* 忽略损坏的数据 */ }
+
+             if (isDownloaded) {
+               // 如果已下载，不执行任何操作，让链接正常跳转
+               return;
+             }
+
+             // 如果未下载，阻止跳转并开始下载
              e.preventDefault();
              e.stopPropagation();
              startDownload(card, it.path);
            });
+           // --- FIX END ---
+
           const content = document.createElement('div'); content.style.flex = '1';
           const title = document.createElement('div'); title.className = 'title'; title.textContent = it.title;
           const meta = document.createElement('div'); meta.className = 'meta';
@@ -799,25 +762,23 @@
             meta.appendChild(pill);
           }
           
-          
-          
           const format = document.createElement('span');
           format.textContent = '📖 EPUB';
           meta.appendChild(format);
           
-          
-          
           content.appendChild(title); content.appendChild(meta);
           wrap.appendChild(thumb); wrap.appendChild(content);
-          const linkWrap = document.createElement('a'); linkWrap.href = `reader.html?book=${encodeURIComponent(it.path)}`; linkWrap.appendChild(wrap);
+          linkWrap.appendChild(wrap);
           card.appendChild(linkWrap);
           gridEl.appendChild(card);
-          // 懒加载封面
+          
           observeCover(it.path, thumb);
         }
       });
 
       clearSkeleton();
+      // 在渲染完成后，检查并更新已下载书籍的UI状态
+      checkDownloadedBooks();
     }
 
     // 快捷键聚焦搜索
@@ -886,7 +847,6 @@
     function blobToDataURL(blob){ return new Promise((res)=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.readAsDataURL(blob); }); }
 
     async function loadCover(bookPath, el){
-      // 先读缓存
       const cached = getCachedCover(bookPath);
       if (cached) { 
         setCoverImage(el, cached);
@@ -894,12 +854,10 @@
       }
       try {
         const book = ePub(bookPath);
-        // 优先尝试官方 API
         if (typeof book.coverUrl === 'function') {
           const url = await book.coverUrl();
           if (url) {
             setCoverImage(el, url);
-            // 尝试通过 archive 获取 blob 以便缓存
             try{
               const meta = await book.loaded.metadata; const coverId = meta && (meta.cover || meta.cover_id || meta['cover-id']);
               if (coverId && book.archive && typeof book.archive.get === 'function') {
@@ -909,7 +867,6 @@
             return;
           }
         }
-        // 退化：从 metadata.cover 获取资源
         const meta = await book.loaded.metadata;
         const coverId = meta && (meta.cover || meta.cover_id || meta['cover-id']);
         if (coverId && book && book.archive && typeof book.archive.get === 'function') {
@@ -926,7 +883,6 @@
 
     function setCoverImage(el, imageUrl) {
       if (el.classList.contains('cover-image')) {
-        // 大封面视图：使用 img 标签
         const fallback = el.querySelector('.fallback');
         if (fallback) fallback.style.display = 'none';
         
@@ -938,43 +894,35 @@
         img.src = imageUrl;
         img.alt = 'Book Cover';
       } else {
-        // 列表视图：使用背景图片
         el.classList.add('has-cover'); 
         el.style.backgroundImage = `url('${imageUrl}')`;
       }
     }
 
-    
-
-         // 下载功能
+     // 下载功能
      function startDownload(card, bookPath) {
        const downloadProgress = card.querySelector('.download-progress');
        const downloadLabel = card.querySelector('.download-complete-label');
        const progressFill = downloadProgress.querySelector('.progress-fill');
        const progressText = downloadProgress.querySelector('.progress-text');
        
-       // 显示下载进度条
        downloadProgress.style.display = 'block';
        downloadLabel.style.display = 'none';
        
-       // 模拟下载进度
        let progress = 0;
        const interval = setInterval(() => {
-         progress += Math.random() * 15 + 5; // 随机增加5-20%
+         progress += Math.random() * 15 + 5;
          if (progress >= 100) {
            progress = 100;
            clearInterval(interval);
            
-           // 下载完成
            progressText.textContent = '下载完成';
            progressFill.style.width = '100%';
            
-           // 延迟隐藏进度条，显示完成标签
            setTimeout(() => {
              downloadProgress.style.display = 'none';
              downloadLabel.style.display = 'block';
              
-             // 保存下载状态到本地存储
              const downloadKey = `download:${bookPath}`;
              localStorage.setItem(downloadKey, JSON.stringify({
                completed: true,
@@ -985,31 +933,37 @@
            progressText.textContent = `下载中 ${Math.round(progress)}%`;
            progressFill.style.width = progress + '%';
          }
-       }, 200 + Math.random() * 300); // 随机间隔200-500ms
+       }, 200 + Math.random() * 300);
      }
      
      // 检查已下载的书籍
      function checkDownloadedBooks() {
        const cards = document.querySelectorAll('.cover-card, .card');
        cards.forEach(card => {
+         // 从 a 标签获取 bookPath
          const link = card.querySelector('a');
-         if (link) {
-           const bookPath = link.href.split('book=')[1];
-           if (bookPath) {
-             const decodedPath = decodeURIComponent(bookPath);
-             const downloadKey = `download:${decodedPath}`;
-             const downloadStatus = localStorage.getItem(downloadKey);
-             
-             if (downloadStatus) {
-               const status = JSON.parse(downloadStatus);
-               if (status.completed) {
-                 const downloadLabel = card.querySelector('.download-complete-label');
-                 if (downloadLabel) {
-                   downloadLabel.style.display = 'block';
-                 }
+         if (!link) return;
+         
+         // 提取路径并解码
+         const href = link.getAttribute('href');
+         if (!href || !href.includes('book=')) return;
+         const bookPathEncoded = href.split('book=')[1];
+         const bookPath = decodeURIComponent(bookPathEncoded);
+
+         // 检查下载状态
+         const downloadKey = `download:${bookPath}`;
+         const downloadStatus = localStorage.getItem(downloadKey);
+         
+         if (downloadStatus) {
+           try {
+             const status = JSON.parse(downloadStatus);
+             if (status.completed) {
+               const downloadLabel = card.querySelector('.download-complete-label');
+               if (downloadLabel) {
+                 downloadLabel.style.display = 'block';
                }
              }
-           }
+           } catch(e) { /* 忽略错误 */ }
          }
        });
      }
@@ -1017,11 +971,11 @@
      searchEl.addEventListener('input', render);
      sortEl.addEventListener('change', render);
      renderSkeleton(6);
-     // 小延迟后渲染（给 skeleton 一点展示时间）
+     
      setTimeout(() => {
        render();
-       // 渲染完成后检查已下载的书籍
-       setTimeout(checkDownloadedBooks, 100);
+       // 渲染完成后再检查，因为checkDownloadedBooks依赖DOM元素
+       // setTimeout(checkDownloadedBooks, 100); // 移动到 render 函数末尾
      }, 0);
   </script>
 </body>
