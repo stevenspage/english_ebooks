@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>阅读电子书</title>
+  <style>
+    :root {
+      --primary: #007bff;
+      --bg: #f5f6f8;
+      --card: #ffffff;
+      --text: #222;
+      --muted: #666;
+      --shadow: 0 4px 16px rgba(0,0,0,0.08);
+      --border: #e6e6e6;
+    }
+    body.dark {
+      --bg: #0f1216;
+      --card: #12171d;
+      --text: #e6edf3;
+      --muted: #9aa7b2;
+      --border: #1f2630;
+      --shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      padding: 12px;
+    }
+    .container { max-width: 1160px; margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom: 10px;
+      padding: 8px 10px; border: 1px solid var(--border); border-radius: 12px;
+      background: rgba(255,255,255,0.6); backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      box-shadow: var(--shadow);
+      transition: transform .25s ease, opacity .25s ease;
+    }
+    .left, .right { display:flex; align-items:center; gap:10px; flex-wrap: wrap; }
+    /* 统一按钮尺寸与样式 */
+    .icon-btn {
+      width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 10px; border: 1px solid var(--border); background:#fff; color: var(--text);
+      cursor: pointer; box-shadow: var(--shadow);
+    }
+    .back { text-decoration: none; }
+    .meta { color: var(--muted); font-size: 0.95rem; }
+    .title-ellipsis { max-width: 52vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .btn, .select {
+      height: 36px; padding: 0 12px; border: 1px solid var(--border); border-radius: 10px; background:#fff; cursor:pointer; color: var(--text);
+      display: inline-flex; align-items: center; gap: 6px; font-size: 14px;
+    }
+    .btn:hover, .icon-btn:hover { background:#f7f7f7; }
+
+    /* 顶栏折叠：彻底移除占位，避免留白 */
+    .collapsed .topbar { display: none; }
+    /* 顶栏切换按钮（方案C与信息卡内显示） */
+    #topbar-toggle { display: none; }
+    .layout-c #topbar-toggle { display: inline-flex; }
+    .info-toggle {
+      width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 8px; border: 1px solid var(--border);
+      background:#fff; color: var(--text); box-shadow: var(--shadow);
+      cursor: pointer; user-select: none;
+    }
+    .sep { width:1px; height:24px; background: var(--border); }
+    .cover-box { width:18px; height:18px; border-radius:4px; background:#ddd; background-size:cover; background-position:center; display:inline-block; }
+
+    .card { background: var(--card); border-radius: 10px; box-shadow: var(--shadow); }
+    .controls { display:flex; align-items:center; gap:10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background:#fff; }
+
+    .progress { display:flex; align-items:center; gap:10px; margin: 6px 0; }
+    .range { flex:1; }
+    input[type=range] { width:100%; }
+    .percent { display:none; }
+
+    /* 使用与进度条一致的视觉风格为返回按钮着色 */
+    .back.icon-btn {
+      background: linear-gradient(135deg, rgba(91,140,255,0.15), rgba(122,92,255,0.20));
+      color: var(--primary);
+      border-color: rgba(91,140,255,0.35);
+    }
+    .back.icon-btn:hover { background: rgba(91,140,255,0.18); }
+
+    /* 选区操作条 */
+    #selbar { display:none; margin: 8px 0; }
+    .hl-chip { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); cursor: pointer; background:#fff; }
+    .hl-yellow { background: rgba(255, 230, 0, 0.35); }
+    .hl-green { background: rgba(46, 204, 113, 0.30); }
+    .hl-pink { background: rgba(255, 99, 132, 0.30); }
+
+    #reader-card { padding: 0; }
+    #viewer-container { position: relative; width: 100%; height: 78vh; border-radius: 10px; overflow: hidden; }
+    /* 骨架层 */
+    #reader-skeleton { position:absolute; inset:0; display:none; background: linear-gradient(90deg, rgba(240,240,240,0.9), rgba(250,250,250,0.9), rgba(240,240,240,0.9)); background-size: 200% 100%; animation: shimmer 1.2s linear infinite; }
+    @keyframes shimmer { 0%{background-position: 200% 0;} 100%{background-position: -200% 0;} }
+    #viewer { width: 100%; height: 100%; }
+    #nav { position: absolute; inset: 0; display: flex; justify-content: space-between; pointer-events: none; }
+    #prev,#next {
+      width: 28%; height: 100%; display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; color: rgba(0,0,0,0.15); cursor: pointer; pointer-events: auto; user-select: none;
+      transition: background-color .2s, color .2s;
+    }
+    #prev:hover,#next:hover { background: rgba(0,0,0,0.05); color: rgba(0,0,0,0.4); }
+
+    /* 侧栏（目录 / 书签） */
+    .drawer {
+      position: fixed; top: 0; bottom: 0; right: -340px; width: 320px; background: #fff; box-shadow: -2px 0 16px rgba(0,0,0,0.1);
+      transition: right .25s ease; padding: 12px; z-index: 50; overflow: auto; border-left: 1px solid var(--border);
+    }
+    .drawer.open { right: 0; }
+    .drawer h3 { margin: 6px 0 10px; font-size: 1.05rem; }
+    .toc-list, .bm-list { list-style: none; padding: 0; margin: 0; }
+    .toc-item, .bm-item { padding: 8px 6px; border-bottom: 1px solid #f0f0f0; cursor: pointer; }
+    .toc-item:hover, .bm-item:hover { background: #fafafa; }
+    .bm-actions { display:flex; gap:8px; }
+    .muted { color: var(--muted); font-size: 12px; }
+    .cover-large { width: 100%; max-height: 50vh; object-fit: contain; border-radius: 8px; background: #f2f2f2; }
+    .meta-table { margin: 8px 0 0; font-size: 14px; }
+    .meta-table dt { color: var(--muted); }
+    .meta-table dd { margin: 0 0 8px; }
+
+    .error { background: #fff3f3; color: #a30000; padding: 12px; border-radius: 8px; margin-top: 10px; display:none; }
+
+    /* 帮助弹窗 */
+    .modal {
+      position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 60;
+      background: rgba(0,0,0,0.35);
+    }
+    .modal.open { display: flex; }
+    .modal-card {
+      width: min(680px, 92vw); max-height: 80vh; overflow: auto;
+      background: var(--card); color: var(--text); border: 1px solid var(--border);
+      border-radius: 12px; box-shadow: var(--shadow); padding: 14px 16px;
+    }
+    .modal-card h3 { margin: 6px 0 10px; }
+    .kbd { display:inline-block; padding: 2px 6px; border-radius: 6px; border: 1px solid var(--border); background:#fff; margin: 0 4px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+    /* 遮罩 */
+    #overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.35); display: none; z-index: 45; }
+
+    /* epub.js 标注颜色（通过自定义类名） */
+    .epubjs-hl.hl-yellow { fill: rgba(255, 230, 0, 0.45) !important; mix-blend-mode: multiply; }
+    .epubjs-hl.hl-green  { fill: rgba(46, 204, 113, 0.45) !important; mix-blend-mode: multiply; }
+    .epubjs-hl.hl-pink   { fill: rgba(255, 99, 132, 0.45) !important; mix-blend-mode: multiply; }
+
+    /* 搜索结果 */
+    #search-results { list-style:none; padding:0; margin: 6px 0 0; }
+    #search-results li { padding: 8px 6px; border-bottom: 1px solid var(--border); cursor: pointer; }
+    #search-results li:hover { background: #fafafa; }
+    .snippet { color: var(--muted); font-size: 12px; }
+
+    /* 顶栏三种布局模式 */
+    /* A: 极简浮动返回 + 居中标题 + 右侧控制 */
+    .layout-a .topbar { align-items: center; }
+    .layout-a .left { gap: 8px; }
+    .layout-a #book-meta { text-align: center; margin: 0 auto; font-weight: 600; }
+    .layout-a .right { margin-left: auto; }
+
+    /* B: 封面徽章 + 书名/作者（面包屑风格） */
+    .layout-b #cover-mini { display: inline-flex !important; }
+    .layout-b #book-meta { display: block; }
+    .layout-b .meta .author { color: var(--muted); font-size: 12px; margin-left: 6px; }
+    .layout-b .left { gap: 8px; }
+
+    /* C: 信息卡片化（标题/作者/进度在卡片中） */
+    #info-card { display: none; margin: 8px 0 6px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); box-shadow: var(--shadow); }
+    #info-card .line1 { display:flex; align-items:center; gap:8px; }
+    #info-card .name { font-weight: 600; }
+    #info-card .author { color: var(--muted); font-size: 12px; }
+    #info-card .progress-mini { margin-left: auto; color: var(--primary); font-size: 12px; }
+    .layout-c #info-card { display: block; }
+    .layout-c #book-meta { display: none; }
+    .layout-c .topbar .back { display: none; }
+    .layout-c #info-card .info-back {
+      width: 30px; height: 30px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 8px; border: 1px solid var(--border);
+      background:#fff; color: var(--text);
+      box-shadow: var(--shadow); cursor: pointer; text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 8px; }
+      #viewer-container { height: 75vh; }
+      #prev,#next { color: rgba(0,0,0,0.08); }
+      .drawer { width: 88%; right: -90%; }
+      .drawer.open { right: 0; }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+</head>
+<body>
+  <div class="container layout-a collapsed" id="layout-root">
+    <div class="topbar">
+      <div class="left">
+        <a class="back icon-btn" href="index.html" title="返回书库">←</a>
+        <div class="meta title-ellipsis" id="book-meta" title="">正在加载…</div>
+      </div>
+      <div class="right controls">
+        <div id="cover-mini" class="btn" style="display:none; gap:6px; align-items:center;" title="封面与信息 (I)">
+          <span class="cover-box"></span>
+          封面
+        </div>
+        <button id="toc-btn" class="btn" title="目录 (T)">📑 目录</button>
+        <button id="bm-btn" class="btn" title="书签 (B)">🔖 书签</button>
+        <button id="add-bm" class="btn" title="添加当前页为书签">＋ 书签</button>
+        <div class="sep"></div>
+        <button id="font-dec" class="btn" title="减小字号 (Alt+-)">A-</button>
+        <button id="font-inc" class="btn" title="增大字号 (Alt+=)">A+</button>
+        <select id="theme" class="select" title="阅读主题">
+          <option value="day">日间</option>
+          <option value="sepia">护眼</option>
+          <option value="night">夜间</option>
+        </select>
+        <button id="toggle-site-theme" class="btn" title="站点主题 (Alt+D)">🌓</button>
+        <button id="help-btn" class="btn" title="帮助 (H)">❓</button>
+        <select id="layout-switch" class="select" title="顶栏布局">
+          <option value="layout-a">A 极简</option>
+          <option value="layout-b">B 徽章</option>
+          <option value="layout-c">C 信息卡</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 信息卡 (方案 C) -->
+    <div id="info-card">
+      <div class="line1">
+        <a class="info-back" href="index.html" title="返回书库">←</a>
+        <button id="topbar-toggle" class="info-toggle" title="顶栏">
+          <span style="display:block; line-height:0;">
+            <span style="display:block; width:16px; height:2px; background:#888; margin:3px 0; border-radius:2px;"></span>
+            <span style="display:block; width:16px; height:2px; background:#888; margin:3px 0; border-radius:2px;"></span>
+            <span style="display:block; width:16px; height:2px; background:#888; margin:3px 0; border-radius:2px;"></span>
+          </span>
+        </button>
+        <span class="name" id="info-name">—</span>
+        <span class="author" id="info-author"></span>
+        <span class="progress-mini" id="info-progress"></span>
+      </div>
+    </div>
+
+    <div class="progress">
+      <input id="slider" class="range" type="range" min="0" max="1000" step="1" value="0" />
+      <div id="percent" class="percent">0%</div>
+    </div>
+
+    <!-- 选区操作（高亮/复制/添加注释） -->
+    <div id="selbar" class="controls">
+      <span>标注：</span>
+      <button data-color="hl-yellow" class="hl-chip hl-yellow">黄色</button>
+      <button data-color="hl-green" class="hl-chip hl-green">绿色</button>
+      <button data-color="hl-pink" class="hl-chip hl-pink">粉色</button>
+      <div class="sep"></div>
+      <button id="copy-selection" class="btn">复制选中</button>
+      <button id="clear-highlights" class="btn">清除本章标注</button>
+    </div>
+
+    <div class="card" id="reader-card">
+      <div id="viewer-container">
+        <div id="viewer"></div>
+        <div id="reader-skeleton" aria-hidden="true"></div>
+        <div id="nav">
+          <div id="prev">‹</div>
+          <div id="next">›</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="error" class="error"></div>
+
+    <!-- 目录抽屉 -->
+    <aside id="drawer-toc" class="drawer">
+      <h3>目录</h3>
+      <ul id="toc" class="toc-list"></ul>
+    </aside>
+
+    <!-- 书签抽屉 -->
+    <aside id="drawer-bm" class="drawer">
+      <h3>我的书签</h3>
+      <ul id="bm-list" class="bm-list"></ul>
+      <div class="muted">点击书签可跳转，或删除。</div>
+
+      <h3 style="margin-top:12px;">全文搜索</h3>
+      <div class="controls" style="padding:8px;">
+        <input id="fulltext-input" class="select" placeholder="输入关键词并回车…" />
+      </div>
+      <ul id="search-results"></ul>
+    </aside>
+
+    <!-- 信息抽屉在上方已定义 -->
+
+    <!-- 遮罩：点击可关闭抽屉 -->
+    <div id="overlay"></div>
+
+    <!-- 封面与元数据抽屉 -->
+    <aside id="drawer-info" class="drawer">
+      <h3>封面与信息</h3>
+      <img id="info-cover" class="cover-large" alt="封面预览"/>
+      <dl id="info-meta" class="meta-table"></dl>
+    </aside>
+  </div>
+
+  <script>
+    // 站点主题：与首页保持一致
+    (function initSiteTheme(){
+      const key = 'site:theme';
+      const saved = localStorage.getItem(key);
+      if (saved) document.body.classList.toggle('dark', saved === 'dark');
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.body.classList.add('dark');
+      const btn = document.getElementById('toggle-site-theme');
+      if (btn) {
+        btn.addEventListener('click', ()=>{
+          const dark = !document.body.classList.contains('dark');
+          document.body.classList.toggle('dark', dark);
+          localStorage.setItem(key, dark ? 'dark' : 'light');
+        });
+      }
+    })();
+
+    function getQueryParam(name) {
+      const url = new URL(window.location.href);
+      const value = url.searchParams.get(name);
+      return value ? decodeURIComponent(value) : null;
+    }
+
+    const bookPath = getQueryParam('book');
+    const errorEl = document.getElementById('error');
+    const metaEl = document.getElementById('book-meta');
+    const percentEl = document.getElementById('percent');
+    const sliderEl = document.getElementById('slider');
+
+    const drawerToc = document.getElementById('drawer-toc');
+    const drawerBm = document.getElementById('drawer-bm');
+    const drawerInfo = document.getElementById('drawer-info');
+    const tocList = document.getElementById('toc');
+    const bmList = document.getElementById('bm-list');
+    const infoCoverEl = document.getElementById('info-cover');
+    const infoMetaEl = document.getElementById('info-meta');
+
+    const storageKeys = {
+      location: (p) => 'reader:lastLocation:' + p,
+      font: (p) => 'reader:fontSize:' + p,
+      theme: (p) => 'reader:theme:' + p,
+      bookmarks: (p) => 'reader:bookmarks:' + p,
+    };
+
+    function safeLoad(key, fallback=null) {
+      try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch { return fallback; }
+    }
+    function safeSave(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+    }
+
+    if (!bookPath) {
+      errorEl.style.display = 'block';
+      errorEl.textContent = '未指定要阅读的书籍。请从首页选择一本书。';
+      document.getElementById('reader-card').style.display = 'none';
+    } else {
+      let book, rendition, locationsReady = false;
+      let currentFont = safeLoad(storageKeys.font(bookPath), 100) || 100;
+      const storedTheme = safeLoad(storageKeys.theme(bookPath), null);
+      let currentTheme = storedTheme || 'sepia';
+
+      try {
+        book = ePub(bookPath);
+        rendition = book.renderTo('viewer', { width: '100%', height: '100%' });
+
+        // 自适应高度：让阅读区域填满剩余视口，避免底端留白
+        const viewerContainer = document.getElementById('viewer-container');
+        function resizeViewer(){
+          try {
+            const rect = viewerContainer.getBoundingClientRect();
+            const gap = 16; // 页面底部预留
+            const h = Math.max(320, Math.floor(window.innerHeight - rect.top - gap));
+            viewerContainer.style.height = h + 'px';
+          } catch {}
+        }
+        window.addEventListener('resize', resizeViewer);
+        // 初次与异步渲染后多次校准
+        setTimeout(resizeViewer, 0);
+
+        // 主题 & 字体
+        rendition.themes.register('day', {
+          body: { background: '#ffffff !important', color: '#222222 !important' },
+          '::selection': { background: '#cce5ff' }
+        });
+        rendition.themes.register('sepia', {
+          body: { background: '#f4ecd8 !important', color: '#5b4636 !important' }
+        });
+        rendition.themes.register('night', {
+          body: { background: '#0e0f12 !important', color: '#e2e2e2 !important' },
+          a: { color: '#7ab6ff !important' }
+        });
+        rendition.themes.fontSize(currentFont + '%');
+        rendition.themes.select(currentTheme);
+
+        // 加载 + 骨架
+        const skeleton = document.getElementById('reader-skeleton');
+        if (skeleton) skeleton.style.display = '';
+        const savedLoc = safeLoad(storageKeys.location(bookPath));
+        if (savedLoc?.cfi) {
+          rendition.display(savedLoc.cfi).catch(() => rendition.display()).finally(() => { if (skeleton) skeleton.style.display = 'none'; });
+        } else {
+          rendition.display().finally(() => { if (skeleton) skeleton.style.display = 'none'; });
+        }
+
+        // 元数据
+        book.loaded.metadata.then(meta => {
+          const title = meta?.title || '未命名书籍';
+          const author = meta?.creator || meta?.author || '';
+          metaEl.textContent = author ? `${title} — ${author}` : title;
+          metaEl.title = title + (author ? ` — ${author}` : '');
+          document.title = title + ' | 阅读电子书';
+          // 更新信息卡
+          const nameEl = document.getElementById('info-name');
+          const authorEl = document.getElementById('info-author');
+          if (nameEl) nameEl.textContent = title;
+          if (authorEl) authorEl.textContent = author ? `· ${author}` : '';
+        }).catch(() => { metaEl.textContent = bookPath.split('/').pop(); metaEl.title = metaEl.textContent; });
+
+        // 封面缩略（阅读页顶栏）
+        (async () => {
+          const mini = document.getElementById('cover-mini');
+          const box = mini ? mini.querySelector('.cover-box') : null;
+          if (!mini || !box) return;
+          try {
+            await book.ready; // 确保打包信息可用
+            // 1) 优先使用 API
+            if (typeof book.coverUrl === 'function') {
+              const url = await book.coverUrl();
+              if (url) {
+                box.style.backgroundImage = `url('${url}')`;
+                const infoCoverEl = document.getElementById('info-cover');
+                if (infoCoverEl) infoCoverEl.src = url;
+                mini.style.display = 'inline-flex';
+                try { const md = await book.loaded.metadata; fillInfoMeta(md); } catch {}
+                return;
+              }
+            }
+            // 2) EPUB3: manifest properties="cover-image"
+            const packaging = book.packaging;
+            let coverHref = null;
+            if (packaging && packaging.manifest) {
+              for (const id in packaging.manifest) {
+                const it = packaging.manifest[id];
+                const props = (it.properties || '').toString();
+                if (props.includes('cover-image')) { coverHref = it.href; break; }
+              }
+              // 3) EPUB2: metadata.cover 指向 manifest id
+              if (!coverHref && packaging.metadata && packaging.metadata.cover) {
+                const id = packaging.metadata.cover;
+                const it = packaging.manifest[id];
+                if (it && it.href) coverHref = it.href;
+              }
+            }
+            if (coverHref && book.archive && typeof book.archive.get === 'function') {
+              const blob = await book.archive.get(coverHref);
+              if (blob) {
+                const url = URL.createObjectURL(blob);
+                box.style.backgroundImage = `url('${url}')`;
+                const infoCoverEl = document.getElementById('info-cover');
+                if (infoCoverEl) infoCoverEl.src = url;
+                mini.style.display = 'inline-flex';
+                try { const md = await book.loaded.metadata; fillInfoMeta(md); } catch {}
+                return;
+              }
+            }
+          } catch {/* 忽略 */}
+        })();
+
+        function fillInfoMeta(md){
+          const infoMetaEl = document.getElementById('info-meta');
+          if (!infoMetaEl || !md) return;
+          infoMetaEl.innerHTML = '';
+          const rows = [
+            ['标题', md.title],
+            ['作者', md.creator || md.author],
+            ['出版社', md.publisher],
+            ['语言', md.language],
+            ['出版时间', md.published || md.date],
+            ['标识符', md.identifier],
+          ].filter(([,v]) => !!v);
+          for (const [k,v] of rows){
+            const dt = document.createElement('dt'); dt.textContent = k;
+            const dd = document.createElement('dd'); dd.textContent = Array.isArray(v) ? v.join(', ') : String(v);
+            infoMetaEl.appendChild(dt); infoMetaEl.appendChild(dd);
+          }
+        }
+
+        // 目录
+        book.loaded.navigation.then(({ toc }) => {
+          renderTOC(toc || []);
+        }).catch(() => { /* 忽略 */ });
+
+        // 生成 locations 用于进度
+        book.ready.then(() => book.locations.generate(1600)).then(() => {
+          locationsReady = true;
+          const loc = rendition.currentLocation();
+          updateProgress(loc);
+        }).catch(() => { locationsReady = false; });
+
+        // 事件：翻页
+        document.getElementById('prev').addEventListener('click', () => rendition.prev());
+        document.getElementById('next').addEventListener('click', () => rendition.next());
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') rendition.prev();
+          if (e.key === 'ArrowRight') rendition.next();
+          if (e.key.toLowerCase() === 'i') document.getElementById('cover-mini').click();
+          if ((e.altKey && (e.key === '-' || e.key === '_'))) document.getElementById('font-dec').click();
+          if ((e.altKey && (e.key === '=' || e.key === '+'))) document.getElementById('font-inc').click();
+          if (e.key.toLowerCase() === 't') document.getElementById('toc-btn').click();
+          if (e.key.toLowerCase() === 'b') document.getElementById('bm-btn').click();
+          if (e.key.toLowerCase() === 'h') document.getElementById('help-btn').click();
+          if (e.altKey && (e.key.toLowerCase() === 'd')) document.getElementById('toggle-site-theme').click();
+        });
+
+        // 事件：位置变更 -> 更新进度 & 保存
+        rendition.on('relocated', (location) => {
+          updateProgress(location);
+          // 保存最后阅读位置
+          safeSave(storageKeys.location(bookPath), {
+            cfi: location?.start?.cfi || location?.end?.cfi || null,
+            percentage: getPercentageFromLocation(location),
+            updatedAt: Date.now()
+          });
+          const pct = getPercentageFromLocation(location);
+          const prog = document.getElementById('info-progress');
+          if (prog && (pct || pct===0)) prog.textContent = `进度 ${Math.round(pct*100)}%`;
+        });
+
+        // 字体
+        document.getElementById('font-inc').addEventListener('click', () => {
+          currentFont = Math.min(180, currentFont + 10);
+          rendition.themes.fontSize(currentFont + '%');
+          safeSave(storageKeys.font(bookPath), currentFont);
+        });
+        document.getElementById('font-dec').addEventListener('click', () => {
+          currentFont = Math.max(80, currentFont - 10);
+          rendition.themes.fontSize(currentFont + '%');
+          safeSave(storageKeys.font(bookPath), currentFont);
+        });
+
+        // 主题
+        const themeSelect = document.getElementById('theme');
+        themeSelect.value = currentTheme;
+        themeSelect.addEventListener('change', () => {
+          currentTheme = themeSelect.value;
+          rendition.themes.select(currentTheme);
+          // 强制刷新当前视图，避免主题被书内样式覆盖或延迟应用
+          const loc = rendition.currentLocation();
+          if (loc?.start?.cfi) rendition.display(loc.start.cfi);
+          safeSave(storageKeys.theme(bookPath), currentTheme);
+        });
+
+        // 顶栏布局切换（A/B/C）+ 顶栏折叠
+        const layoutKey = 'reader:layout';
+        const root = document.getElementById('layout-root');
+        const layoutSwitch = document.getElementById('layout-switch');
+        const savedLayout = localStorage.getItem(layoutKey) || 'layout-a';
+        root.classList.remove('layout-a','layout-b','layout-c');
+        root.classList.add(savedLayout);
+        layoutSwitch.value = savedLayout;
+        layoutSwitch.addEventListener('change', ()=>{
+          const v = layoutSwitch.value;
+          root.classList.remove('layout-a','layout-b','layout-c');
+          root.classList.add(v);
+          localStorage.setItem(layoutKey, v);
+        });
+
+        // 折叠/展开顶栏
+        const toggleBtn = document.getElementById('topbar-toggle');
+        const COLLAPSE_KEY = 'reader:topbar:collapsed';
+        const savedCollapse = localStorage.getItem(COLLAPSE_KEY);
+        if (savedCollapse === 'false') root.classList.remove('collapsed');
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', ()=>{
+            const collapsed = root.classList.toggle('collapsed');
+            localStorage.setItem(COLLAPSE_KEY, String(collapsed));
+          });
+        }
+
+        // 点击页面自动收起顶栏（排除顶栏/信息卡/抽屉/帮助弹窗区域）
+        function collapseTopbar(){
+          if (!root.classList.contains('collapsed')) {
+            root.classList.add('collapsed');
+            localStorage.setItem(COLLAPSE_KEY, 'true');
+          }
+        }
+        document.addEventListener('click', (e)=>{
+          const t = e.target;
+          if (t.closest('.topbar') || t.closest('#info-card') || t.closest('.drawer') || t.closest('#help-modal')) return;
+          collapseTopbar();
+        }, { capture: true });
+        // 收起顶栏：内容区点击（iframe 内）
+        rendition.on('rendered', (_section, view) => {
+          try { view.document.addEventListener('click', collapseTopbar, { capture: true }); } catch {}
+        });
+        // 默认不再强制跟随站点主题，避免覆盖用户选择
+
+        // 进度滑块
+        sliderEl.addEventListener('input', (e) => {
+          const pct = (Number(e.target.value) || 0) / 1000;
+          percentEl.textContent = Math.round(pct * 100) + '%';
+        });
+        sliderEl.addEventListener('change', (e) => {
+          if (!locationsReady) return;
+          const pct = (Number(e.target.value) || 0) / 1000;
+          try {
+            const cfi = book.locations.cfiFromPercentage(pct);
+            if (cfi) rendition.display(cfi);
+          } catch {}
+        });
+
+        // 目录抽屉 & 书签抽屉 & 信息抽屉
+        const overlay = document.getElementById('overlay');
+        function openDrawer(which){
+          drawerToc.classList.toggle('open', which==='toc');
+          drawerBm.classList.toggle('open', which==='bm');
+          drawerInfo.classList.toggle('open', which==='info');
+          const anyOpen = which==='toc' || which==='bm' || which==='info';
+          overlay.style.display = anyOpen ? 'block' : 'none';
+        }
+        function closeDrawers(){ openDrawer(null); }
+
+        document.getElementById('toc-btn').addEventListener('click', () => {
+          openDrawer(drawerToc.classList.contains('open') ? null : 'toc');
+        });
+        document.getElementById('bm-btn').addEventListener('click', () => {
+          openDrawer(drawerBm.classList.contains('open') ? null : 'bm');
+        });
+        document.getElementById('cover-mini').addEventListener('click', () => {
+          openDrawer(drawerInfo.classList.contains('open') ? null : 'info');
+        });
+        overlay.addEventListener('click', closeDrawers);
+        // ESC 关闭抽屉
+        document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeDrawers(); });
+
+        // 添加书签
+        document.getElementById('add-bm').addEventListener('click', () => {
+          const loc = rendition.currentLocation();
+          const cfi = loc?.start?.cfi || loc?.end?.cfi;
+          if (!cfi) return;
+          const pct = getPercentageFromLocation(loc);
+          const tocItem = findTocItemForCfi(book, loc?.start?.cfi);
+          const label = (tocItem?.label || '当前位置') + ' · ' + Math.round((pct || 0) * 100) + '%';
+          const list = safeLoad(storageKeys.bookmarks(bookPath), []);
+          // 去重
+          if (!list.some(b => b.cfi === cfi)) {
+            list.push({ cfi, label, createdAt: Date.now() });
+            safeSave(storageKeys.bookmarks(bookPath), list);
+            renderBookmarks(list);
+            drawerBm.classList.add('open');
+          }
+        });
+
+        // 首次渲染书签
+        renderBookmarks(safeLoad(storageKeys.bookmarks(bookPath), []));
+
+      } catch (err) {
+        errorEl.style.display = 'block';
+        errorEl.textContent = '加载电子书失败：' + (err?.message || err);
+        document.getElementById('reader-card').style.display = 'none';
+      }
+
+      function renderTOC(toc) {
+        tocList.innerHTML = '';
+        if (!toc || !toc.length) {
+          const li = document.createElement('li');
+          li.className = 'toc-item muted';
+          li.textContent = '无目录';
+          tocList.appendChild(li);
+          return;
+        }
+        const flat = flattenToc(toc);
+        flat.forEach(item => {
+          const li = document.createElement('li');
+          li.className = 'toc-item';
+          li.style.paddingLeft = (item.depth * 12 + 6) + 'px';
+          li.textContent = item.label || item.href;
+          li.title = item.label || item.href;
+          li.addEventListener('click', () => {
+            rendition.display(item.href);
+            drawerToc.classList.remove('open');
+          });
+          tocList.appendChild(li);
+        });
+      }
+
+      function flattenToc(nodes, depth=0, out=[]) {
+        (nodes || []).forEach(n => {
+          out.push({ label: n.label, href: n.href, depth });
+          if (n.subitems && n.subitems.length) flattenToc(n.subitems, depth+1, out);
+        });
+        return out;
+      }
+
+      function renderBookmarks(list) {
+        bmList.innerHTML = '';
+        if (!list.length) {
+          const li = document.createElement('li');
+          li.className = 'bm-item muted';
+          li.textContent = '暂无书签';
+          bmList.appendChild(li);
+          return;
+        }
+        list.forEach((b, idx) => {
+          const li = document.createElement('li');
+          li.className = 'bm-item';
+          const row = document.createElement('div');
+          row.style.display = 'flex';
+          row.style.alignItems = 'center';
+          row.style.justifyContent = 'space-between';
+          row.style.gap = '8px';
+          const title = document.createElement('div');
+          title.textContent = b.label || ('书签 ' + (idx+1));
+          const actions = document.createElement('div');
+          actions.className = 'bm-actions';
+          const go = document.createElement('button'); go.className = 'btn'; go.textContent = '前往';
+          const del = document.createElement('button'); del.className = 'btn'; del.textContent = '删除';
+          go.addEventListener('click', () => { rendition.display(b.cfi); drawerBm.classList.remove('open'); });
+          del.addEventListener('click', () => {
+            const arr = safeLoad(storageKeys.bookmarks(bookPath), []);
+            const next = arr.filter(x => x.cfi !== b.cfi);
+            safeSave(storageKeys.bookmarks(bookPath), next);
+            renderBookmarks(next);
+          });
+          actions.appendChild(go); actions.appendChild(del);
+          row.appendChild(title); row.appendChild(actions);
+          li.appendChild(row);
+          bmList.appendChild(li);
+        });
+      }
+
+      function getPercentageFromLocation(location) {
+        try {
+          if (!location) return 0;
+          const cfi = location?.start?.cfi || location?.end?.cfi;
+          if (!cfi || !book.locations) return 0;
+          if (!locationsReady) return 0;
+          return book.locations.percentageFromCfi(cfi) || 0;
+        } catch { return 0; }
+      }
+
+      function updateProgress(location) {
+        const pct = getPercentageFromLocation(location);
+        if (pct || pct === 0) {
+          percentEl.textContent = Math.round(pct * 100) + '%';
+          sliderEl.value = Math.round(pct * 1000);
+        }
+      }
+
+      function findTocItemForCfi(book, cfi) {
+        // 简化实现：返回当前可视章节名（如果可得）
+        try {
+          if (!cfi) return null;
+          const nav = book.navigation || book.loaded?.navigation?.value;
+          if (!nav || !nav.toc) return null;
+          const flat = flattenToc(nav.toc);
+          // 最简单策略：根据 href 片段匹配当前 spine href（epub.js 未提供直接 cfi -> href 的同步API）
+          const loc = rendition.currentLocation();
+          const href = loc?.start?.href;
+          if (!href) return null;
+          return flat.find(i => (i.href || '').split('#')[0] === href.split('#')[0]) || null;
+        } catch { return null; }
+      }
+    }
+  </script>
+
+  <!-- 帮助弹窗 -->
+  <div id="help-modal" class="modal" aria-modal="true" role="dialog">
+    <div class="modal-card">
+      <h3>快捷键与技巧</h3>
+      <div>
+        <p><span class="kbd">←</span> / <span class="kbd">→</span> 翻页</p>
+        <p><span class="kbd">Alt</span> + <span class="kbd">-</span> / <span class="kbd">Alt</span> + <span class="kbd">=</span> 调整字号</p>
+        <p><span class="kbd">T</span> 打开/关闭目录 · <span class="kbd">B</span> 打开/关闭书签</p>
+        <p><span class="kbd">H</span> 打开/关闭帮助 · <span class="kbd">Alt</span> + <span class="kbd">D</span> 切换站点主题</p>
+        <p>拖动进度条可快速定位 · 顶栏采用毛玻璃效果增强可读性</p>
+      </div>
+      <div style="margin-top:10px; display:flex; justify-content:flex-end; gap:8px;">
+        <button id="help-close" class="btn">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function helpModalInit(){
+      const modal = document.getElementById('help-modal');
+      const openBtn = document.getElementById('help-btn');
+      const closeBtn = document.getElementById('help-close');
+      const toggle = () => modal.classList.toggle('open');
+      if (openBtn) openBtn.addEventListener('click', toggle);
+      if (closeBtn) closeBtn.addEventListener('click', toggle);
+      modal.addEventListener('click', (e) => { if (e.target === modal) toggle(); });
+    })();
+  </script>
+</body>
+</html>
