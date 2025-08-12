@@ -144,7 +144,6 @@ body {
 }
 
 /* Grid Layout */
-/* Grid Styles */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -174,13 +173,9 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* 卡片链接基础样式 */
-.card a, .cover-card a {
+.card a {
   text-decoration: none;
   color: inherit;
-}
-
-.card a {
   display: block;
   padding: 16px;
 }
@@ -191,7 +186,6 @@ body {
   align-items: center;
 }
 
-/* 缩略图样式 */
 .thumb { 
   width: 48px;
   height: 48px;
@@ -212,7 +206,6 @@ body {
   transform: scale(1.1);
 }
 
-/* 有封面的缩略图 */
 .thumb.has-cover {
   color: transparent;
   background-size: contain;
@@ -222,16 +215,15 @@ body {
 }
 
 /* Typography */
-/* 标题样式 */
-.title, .cover-title { 
+.title { 
   font-weight: 600;
   line-height: 1.4;
   color: var(--text);
   font-size: 0.95rem;
 }
 
-/* 元数据样式 */
-.meta, .cover-meta { 
+.meta { 
+  margin-top: 8px;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -239,39 +231,28 @@ body {
   font-size: 0.8rem;
 }
 
-.meta {
-  margin-top: 8px;
-}
-
-.cover-meta {
-  flex-wrap: wrap;
-}
-
-/* 标签样式 */
 .badge {
   color: var(--text-secondary);
   font-weight: 500;
 }
 
-/* 通用标签样式 */
-.chip, .pill { 
-  border-radius: 999px;
-  font-weight: 500;
-}
-
 .chip { 
   padding: 8px 14px;
+  border-radius: 999px;
   border: 1px solid var(--border);
   color: var(--text);
   background: var(--card);
+  font-weight: 500;
   font-size: 0.875rem;
 }
 
 .pill { 
   padding: 4px 10px;
+  border-radius: 999px;
   background: rgba(255, 99, 71, 0.1);
   color: var(--primary);
   border: 1px solid rgba(255, 99, 71, 0.2);
+  font-weight: 500;
 }
 
 .cover-pill {
@@ -470,22 +451,21 @@ body {
   align-items: center;
 }
 
-/* 定义骨架屏加载动画基类 */
-[class*="sk-"] {
+.sk-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   background: linear-gradient(90deg, #eee, #f5f5f5, #eee);
   background-size: 200% 100%;
   animation: shimmer var(--shimmer-duration) linear infinite;
 }
 
-.sk-thumb {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-}
-
 .sk-line {
   height: 12px;
   border-radius: 8px;
+  background: linear-gradient(90deg, #eee, #f5f5f5, #eee);
+  background-size: 200% 100%;
+  animation: shimmer var(--shimmer-duration) linear infinite;
 }
 
 .sk-line.w70 {
@@ -509,44 +489,39 @@ body {
 }
 
 /* Responsive Styles */
-/* Responsive Breakpoints */
 @media (max-width: 900px) {
-  /* 网格布局调整为2列 */
-  .grid, .skeleton-grid {
+  .grid {
     grid-template-columns: repeat(2, minmax(0,1fr));
   }
-  
   .cover-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 16px;
   }
+  .skeleton-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
 }
 
 @media (max-width: 620px) {
-  /* 网格布局调整为1列 */
-  .grid, .skeleton-grid {
+  .grid {
     grid-template-columns: 1fr;
   }
-  
-  /* 输入框和选择框宽度调整 */
   .input, .select {
     min-width: 160px;
   }
-  
-  /* 顶部导航栏样式调整 */
   .hero {
     position: static;
     border-bottom: none;
     border-radius: 0 0 20px 20px;
   }
-  
-  /* 封面网格调整 */
   .cover-grid {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 14px;
   }
-  
   .cover-image {
     height: 220px;
+  }
+  .skeleton-grid {
+    grid-template-columns: 1fr;
   }
 }
