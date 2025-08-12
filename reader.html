@@ -35,9 +35,17 @@
       padding: 12px;
     }
     .container { max-width: 1160px; margin: 0 auto; }
+    
+    /* MODIFIED: .topbar 样式修改为绝对定位，作为下拉菜单 */
     .topbar {
-      position: sticky; top: 0; z-index: 20;
-      display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom: 10px;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 20;
+      display:flex; align-items:center; justify-content:space-between; gap:8px;
+      margin-bottom: 0; /* 不再需要外边距 */
       padding: 8px 10px; border: 1px solid var(--border); border-radius: 12px;
       background: var(--card);
       box-shadow: var(--shadow);
@@ -63,8 +71,12 @@
       border-color: var(--primary);
     }
 
-    /* 顶栏折叠：彻底移除占位，避免留白 */
-    .collapsed .topbar { display: none; }
+    /* MODIFIED: 折叠规则改为 transform，实现平滑下拉动画 */
+    .collapsed .topbar {
+      transform: translateY(-10px);
+      opacity: 0;
+      pointer-events: none;
+    }
     /* 顶栏切换按钮（方案C与信息卡内显示） */
     #topbar-toggle { display: none; }
     .layout-c #topbar-toggle { display: inline-flex; }
@@ -175,7 +187,17 @@
     .layout-b .left { gap: 8px; }
 
     /* C: 信息卡片化（标题/作者/进度在卡片中） */
-    #info-card { display: none; margin: 8px 0 6px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); box-shadow: var(--shadow); }
+    /* MODIFIED: #info-card 添加 relative 定位，作为 .topbar 的定位父级 */
+    #info-card {
+      position: relative; 
+      display: none; 
+      margin: 8px 0 6px; 
+      padding: 10px 12px; 
+      border: 1px solid var(--border); 
+      border-radius: 12px; 
+      background: var(--card); 
+      box-shadow: var(--shadow);
+    }
     #info-card .line1 { display:flex; align-items:center; gap:8px; }
     #info-card .name { font-weight: 600; }
     #info-card .author { color: var(--muted); font-size: 12px; }
@@ -204,31 +226,8 @@
 </head>
 <body>
   <div class="container layout-c collapsed" id="layout-root">
-    <div class="topbar">
-      <div class="left">
-        <a class="back icon-btn" href="index.html" title="返回书库">←</a>
-        <div class="meta title-ellipsis" id="book-meta" title="">正在加载…</div>
-      </div>
-      <div class="right controls">
-        <div id="cover-mini" class="btn" style="display:none; gap:6px; align-items:center;" title="封面与信息 (I)">
-          <span class="cover-box"></span>
-          封面
-        </div>
-        <button id="toc-btn" class="btn" title="目录 (T)">📑 目录</button>
-        <button id="bm-btn" class="btn" title="书签 (B)">🔖 书签</button>
-        <button id="add-bm" class="btn" title="添加当前页为书签">＋ 书签</button>
-        <div class="sep"></div>
-        <button id="font-dec" class="btn" title="减小字号 (Alt+-)">A-</button>
-        <button id="font-inc" class="btn" title="增大字号 (Alt+=)">A+</button>
-        <select id="theme" class="select" title="阅读主题">
-          <option value="day">日间</option>
-          <option value="sepia">护眼</option>
-          <option value="night">夜间</option>
-        </select>
-        <button id="toggle-site-theme" class="btn" title="站点主题 (Alt+D)">🌓</button>
-        <button id="help-btn" class="btn" title="帮助 (H)">❓</button>
-      </div>
-    </div>
+    
+    <!-- NOTE: .topbar 元素已被移动到下方的 #info-card 内部 -->
 
     <!-- 信息卡 (方案 C) -->
     <div id="info-card">
@@ -244,6 +243,33 @@
         <span class="name" id="info-name">—</span>
         <span class="author" id="info-author"></span>
         <span class="progress-mini" id="info-progress"></span>
+      </div>
+
+      <!-- MODIFIED: .topbar 移动到这里，作为 #info-card 的子元素 -->
+      <div class="topbar">
+        <div class="left">
+          <a class="back icon-btn" href="index.html" title="返回书库">←</a>
+          <div class="meta title-ellipsis" id="book-meta" title="">正在加载…</div>
+        </div>
+        <div class="right controls">
+          <div id="cover-mini" class="btn" style="display:none; gap:6px; align-items:center;" title="封面与信息 (I)">
+            <span class="cover-box"></span>
+            封面
+          </div>
+          <button id="toc-btn" class="btn" title="目录 (T)">📑 目录</button>
+          <button id="bm-btn" class="btn" title="书签 (B)">🔖 书签</button>
+          <button id="add-bm" class="btn" title="添加当前页为书签">＋ 书签</button>
+          <div class="sep"></div>
+          <button id="font-dec" class="btn" title="减小字号 (Alt+-)">A-</button>
+          <button id="font-inc" class="btn" title="增大字号 (Alt+=)">A+</button>
+          <select id="theme" class="select" title="阅读主题">
+            <option value="day">日间</option>
+            <option value="sepia">护眼</option>
+            <option value="night">夜间</option>
+          </select>
+          <button id="toggle-site-theme" class="btn" title="站点主题 (Alt+D)">🌓</button>
+          <button id="help-btn" class="btn" title="帮助 (H)">❓</button>
+        </div>
       </div>
     </div>
 
