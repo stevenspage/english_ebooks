@@ -13,6 +13,9 @@
       --muted: #666;
       --shadow: 0 4px 16px rgba(0,0,0,0.08);
       --border: #e6e6e6;
+      
+      /* 为顶栏添加一个特定的背景色 */
+      --topbar-bg: #ffffff;
     }
     body.dark {
       --bg: #0f1216;
@@ -21,6 +24,7 @@
       --muted: #9aa7b2;
       --border: #1f2630;
       --shadow: 0 10px 30px rgba(0,0,0,0.45);
+      --topbar-bg: #12171d;
     }
     * { box-sizing: border-box; }
     body {
@@ -35,8 +39,7 @@
       position: sticky; top: 0; z-index: 20;
       display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom: 10px;
       padding: 8px 10px; border: 1px solid var(--border); border-radius: 12px;
-      background: rgba(255,255,255,0.6); backdrop-filter: saturate(180%) blur(10px);
-      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      background: var(--card);
       box-shadow: var(--shadow);
       transition: transform .25s ease, opacity .25s ease;
     }
@@ -55,7 +58,10 @@
       height: 36px; padding: 0 12px; border: 1px solid var(--border); border-radius: 10px; background:#fff; cursor:pointer; color: var(--text);
       display: inline-flex; align-items: center; gap: 6px; font-size: 14px;
     }
-    .btn:hover, .icon-btn:hover { background:#f7f7f7; }
+    .btn:hover, .icon-btn:hover { 
+      background: var(--bg);
+      border-color: var(--primary);
+    }
 
     /* 顶栏折叠：彻底移除占位，避免留白 */
     .collapsed .topbar { display: none; }
@@ -77,7 +83,7 @@
     .progress { display:flex; align-items:center; gap:10px; margin: 6px 0; }
     .range { flex:1; }
     input[type=range] { width:100%; }
-    .percent { display:none; }
+    .percent { display: block; min-width: 80px; text-align: right; font-size: 14px; color: var(--muted); }
 
     /* 使用与进度条一致的视觉风格为返回按钮着色 */
     .back.icon-btn {
@@ -197,7 +203,7 @@
   <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
 </head>
 <body>
-  <div class="container layout-a collapsed" id="layout-root">
+  <div class="container layout-c collapsed" id="layout-root">
     <div class="topbar">
       <div class="left">
         <a class="back icon-btn" href="index.html" title="返回书库">←</a>
@@ -221,11 +227,6 @@
         </select>
         <button id="toggle-site-theme" class="btn" title="站点主题 (Alt+D)">🌓</button>
         <button id="help-btn" class="btn" title="帮助 (H)">❓</button>
-        <select id="layout-switch" class="select" title="顶栏布局">
-          <option value="layout-a">A 极简</option>
-          <option value="layout-b">B 徽章</option>
-          <option value="layout-c">C 信息卡</option>
-        </select>
       </div>
     </div>
 
@@ -251,18 +252,32 @@
       <div id="percent" class="percent">0%</div>
     </div>
 
-    <!-- 选区操作（高亮/复制/添加注释） -->
-    <div id="selbar" class="controls">
-      <span>标注：</span>
-      <button data-color="hl-yellow" class="hl-chip hl-yellow">黄色</button>
-      <button data-color="hl-green" class="hl-chip hl-green">绿色</button>
-      <button data-color="hl-pink" class="hl-chip hl-pink">粉色</button>
-      <div class="sep"></div>
-      <button id="copy-selection" class="btn">复制选中</button>
-      <button id="clear-highlights" class="btn">清除本章标注</button>
-    </div>
+         <!-- 选区操作（高亮/复制/添加注释） -->
+     <div id="selbar" class="controls">
+       <span>标注：</span>
+       <button data-color="hl-yellow" class="hl-chip hl-yellow">黄色</button>
+       <button data-color="hl-green" class="hl-chip hl-green">绿色</button>
+       <button data-color="hl-pink" class="hl-chip hl-pink">粉色</button>
+       <div class="sep"></div>
+       <button id="copy-selection" class="btn">复制选中</button>
+       <button id="clear-highlights" class="btn">清除本章标注</button>
+     </div>
 
-    <div class="card" id="reader-card">
+     <!-- 下载状态显示 -->
+     <div id="download-status" class="card" style="display: none; margin-bottom: 16px; padding: 20px; text-align: center;">
+       <div id="download-cover" style="width: 200px; height: 280px; margin: 0 auto 20px; background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: bold;">
+         <span id="cover-text">EP</span>
+       </div>
+       <h3 id="download-title" style="margin: 0 0 16px; color: var(--text);">正在加载电子书...</h3>
+       <div id="download-progress-container" style="width: 100%; max-width: 400px; margin: 0 auto;">
+         <div id="download-progress-bar" style="width: 100%; height: 8px; background: rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden; margin-bottom: 12px;">
+           <div id="download-progress-fill" style="width: 0%; height: 100%; background: #10b981; border-radius: 4px; transition: width 0.3s ease; position: relative;"></div>
+         </div>
+         <div id="download-progress-text" style="color: var(--muted); font-size: 14px;">准备下载...</div>
+       </div>
+     </div>
+
+     <div class="card" id="reader-card">
       <div id="viewer-container">
         <div id="viewer"></div>
         <div id="reader-skeleton" aria-hidden="true"></div>
@@ -358,19 +373,125 @@
       try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
     }
 
+    let book, rendition, locationsReady = false;
+
     if (!bookPath) {
       errorEl.style.display = 'block';
       errorEl.textContent = '未指定要阅读的书籍。请从首页选择一本书。';
       document.getElementById('reader-card').style.display = 'none';
     } else {
-      let book, rendition, locationsReady = false;
-      let currentFont = safeLoad(storageKeys.font(bookPath), 100) || 100;
-      const storedTheme = safeLoad(storageKeys.theme(bookPath), null);
-      let currentTheme = storedTheme || 'sepia';
+      // 检查下载状态
+      const downloadKey = `download:${bookPath}`;
+      const downloadStatus = localStorage.getItem(downloadKey);
+      const isDownloaded = downloadStatus && JSON.parse(downloadStatus).completed;
+      
+      // 如果未下载，显示下载界面
+      if (!isDownloaded) {
+        showDownloadInterface();
+        startDownloadProcess();
+      } else {
+        // 已下载，直接加载电子书
+        loadEbook();
+      }
+      
+      function showDownloadInterface() {
+        document.getElementById('download-status').style.display = 'block';
+        document.getElementById('reader-card').style.display = 'none';
+        
+        // 设置书名
+        const fileName = bookPath.split('/').pop().replace('.epub', '');
+        document.getElementById('download-title').textContent = fileName;
+      }
+      
+      function startDownloadProcess() {
+        // 尝试加载封面
+        loadCoverForDownload();
+        
+        // 模拟下载进度
+        let progress = 0;
+        const progressFill = document.getElementById('download-progress-fill');
+        const progressText = document.getElementById('download-progress-text');
+        
+        const interval = setInterval(() => {
+          progress += Math.random() * 15 + 5; // 随机增加5-20%
+          if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            
+            // 下载完成
+            progressText.textContent = '下载完成！正在打开电子书...';
+            progressFill.style.width = '100%';
+            
+            // 保存下载状态
+            localStorage.setItem(downloadKey, JSON.stringify({
+              completed: true,
+              completedAt: Date.now()
+            }));
+            
+            // 延迟后隐藏下载界面，显示阅读器
+            setTimeout(() => {
+              document.getElementById('download-status').style.display = 'none';
+              document.getElementById('reader-card').style.display = 'block';
+              loadEbook();
+            }, 1500);
+          } else {
+            progressText.textContent = `下载中 ${Math.round(progress)}%`;
+            progressFill.style.width = progress + '%';
+          }
+        }, 200 + Math.random() * 300); // 随机间隔200-500ms
+      }
+      
+      async function loadCoverForDownload() {
+        try {
+          const book = ePub(bookPath);
+          const coverEl = document.getElementById('download-cover');
+          const coverText = document.getElementById('cover-text');
+          
+          // 优先尝试官方 API
+          if (typeof book.coverUrl === 'function') {
+            const url = await book.coverUrl();
+            if (url) {
+              coverEl.style.backgroundImage = `url('${url}')`;
+              coverText.style.display = 'none';
+              return;
+            }
+          }
+          
+          // 退化：从 metadata.cover 获取资源
+          const meta = await book.loaded.metadata;
+          const coverId = meta && (meta.cover || meta.cover_id || meta['cover-id']);
+          if (coverId && book.archive && typeof book.archive.get === 'function') {
+            const blob = await book.archive.get(coverId);
+            if (blob) {
+              const dataUrl = await blobToDataURL(blob);
+              coverEl.style.backgroundImage = `url('${dataUrl}')`;
+              coverText.style.display = 'none';
+              return;
+            }
+          }
+        } catch(e) { 
+          // 忽略错误，使用默认封面
+        }
+      }
+      
+      function blobToDataURL(blob) {
+        return new Promise((res) => {
+          const r = new FileReader();
+          r.onload = () => res(r.result);
+          r.readAsDataURL(blob);
+        });
+      }
+      
+      // 全局变量，供所有函数使用
+      
+      function loadEbook() {
+        let currentFont = safeLoad(storageKeys.font(bookPath), 100) || 100;
+        const storedTheme = safeLoad(storageKeys.theme(bookPath), null);
+        let currentTheme = storedTheme || 'sepia';
 
-      try {
-        book = ePub(bookPath);
-        rendition = book.renderTo('viewer', { width: '100%', height: '100%' });
+        try {
+          book = ePub(bookPath);
+          rendition = book.renderTo('viewer', { width: '100%', height: '100%' });
 
         // 自适应高度：让阅读区域填满剩余视口，避免底端留白
         const viewerContainer = document.getElementById('viewer-container');
@@ -559,26 +680,14 @@
           safeSave(storageKeys.theme(bookPath), currentTheme);
         });
 
-        // 顶栏布局切换（A/B/C）+ 顶栏折叠
-        const layoutKey = 'reader:layout';
+        // 强制设置为信息卡模式
         const root = document.getElementById('layout-root');
-        const layoutSwitch = document.getElementById('layout-switch');
-        const savedLayout = localStorage.getItem(layoutKey) || 'layout-a';
-        root.classList.remove('layout-a','layout-b','layout-c');
-        root.classList.add(savedLayout);
-        layoutSwitch.value = savedLayout;
-        layoutSwitch.addEventListener('change', ()=>{
-          const v = layoutSwitch.value;
-          root.classList.remove('layout-a','layout-b','layout-c');
-          root.classList.add(v);
-          localStorage.setItem(layoutKey, v);
-        });
+        root.classList.remove('layout-a', 'layout-b', 'layout-c');
+        root.classList.add('layout-c');
 
         // 折叠/展开顶栏
         const toggleBtn = document.getElementById('topbar-toggle');
         const COLLAPSE_KEY = 'reader:topbar:collapsed';
-        const savedCollapse = localStorage.getItem(COLLAPSE_KEY);
-        if (savedCollapse === 'false') root.classList.remove('collapsed');
         if (toggleBtn) {
           toggleBtn.addEventListener('click', ()=>{
             const collapsed = root.classList.toggle('collapsed');
@@ -598,9 +707,42 @@
           if (t.closest('.topbar') || t.closest('#info-card') || t.closest('.drawer') || t.closest('#help-modal')) return;
           collapseTopbar();
         }, { capture: true });
-        // 收起顶栏：内容区点击（iframe 内）
+        // 收起顶栏：内容区点击（iframe 内） & 移动端滑动翻页
         rendition.on('rendered', (_section, view) => {
-          try { view.document.addEventListener('click', collapseTopbar, { capture: true }); } catch {}
+          try { 
+            view.document.addEventListener('click', collapseTopbar, { capture: true }); 
+
+            // 滑动翻页逻辑
+            let touchstartX = 0;
+            let touchendX = 0;
+            let touchstartY = 0;
+            let touchendY = 0;
+            const swipeThreshold = 50; // 最小滑动距离
+            const swipeYThreshold = 100; // Y轴最大容忍滑动距离
+
+            view.document.addEventListener('touchstart', e => {
+              touchstartX = e.changedTouches[0].screenX;
+              touchstartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+
+            view.document.addEventListener('touchend', e => {
+              touchendX = e.changedTouches[0].screenX;
+              touchendY = e.changedTouches[0].screenY;
+              
+              const deltaX = touchendX - touchstartX;
+              const deltaY = touchendY - touchstartY;
+
+              // 检查是否为有效的水平滑动
+              if (Math.abs(deltaX) > swipeThreshold && Math.abs(deltaY) < swipeYThreshold) {
+                if (deltaX < 0) { // 向左滑
+                  rendition.next();
+                } else { // 向右滑
+                  rendition.prev();
+                }
+              }
+            }, { passive: true });
+
+          } catch {}
         });
         // 默认不再强制跟随站点主题，避免覆盖用户选择
 
@@ -668,8 +810,10 @@
         errorEl.textContent = '加载电子书失败：' + (err?.message || err);
         document.getElementById('reader-card').style.display = 'none';
       }
+    }
 
-      function renderTOC(toc) {
+    // 辅助函数定义
+    function renderTOC(toc) {
         tocList.innerHTML = '';
         if (!toc || !toc.length) {
           const li = document.createElement('li');
@@ -749,10 +893,30 @@
       }
 
       function updateProgress(location) {
-        const pct = getPercentageFromLocation(location);
-        if (pct || pct === 0) {
+        if (!locationsReady || !location || !location.start) return;
+
+        try {
+          const cfi = location.start.cfi;
+          const currentPage = book.locations.locationFromCfi(cfi);
+          const totalPages = book.locations.total;
+          
+          if (currentPage > 0 && totalPages) {
+            percentEl.textContent = `${currentPage} / ${totalPages}`;
+          } else if (totalPages) {
+            percentEl.textContent = `共 ${totalPages} 页`;
+          } else {
+            const pct = getPercentageFromLocation(location);
+            percentEl.textContent = Math.round(pct * 100) + '%';
+          }
+          
+          const pct = getPercentageFromLocation(location);
+          if (pct || pct === 0) {
+            sliderEl.value = Math.round(pct * 1000);
+          }
+        } catch (e) {
+          // Fallback to percentage if page calculation fails
+          const pct = getPercentageFromLocation(location);
           percentEl.textContent = Math.round(pct * 100) + '%';
-          sliderEl.value = Math.round(pct * 1000);
         }
       }
 
@@ -771,6 +935,7 @@
         } catch { return null; }
       }
     }
+  </script>
   </script>
 
   <!-- 帮助弹窗 -->

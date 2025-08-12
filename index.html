@@ -5,15 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Library</title>
   <link rel="stylesheet" href="styles/main.css" />
-
-
-
-
-
-
   <!-- epub.js 用于封面解析（本地纯静态可用） -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+  <script type="module" src="scripts/main.js"></script>
 </head>
 <body>
   <div class="hero">
@@ -80,7 +75,6 @@
     "A stranger in the mirror (Sheldon Sidney) .epub",
     "Airport (Arthur Hailey) .epub",
     "Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly (Evy Poumpouras) .epub",
-    "Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader (Tom Hougaard) .epub",
     "Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader (Tom Hougaard).epub",
     "Contact (Carl Sagan) .epub",
     "Correct your English errors avoid 99 of the common mistakes made by learners of English by Collins, Timothy G.epub",
@@ -188,50 +182,16 @@
           const link = document.createElement('a');
           link.href = `reader.html?book=${encodeURIComponent(it.path)}`;
           
-           const coverImage = document.createElement('div');
-           coverImage.className = 'cover-image';
-           coverImage.innerHTML = '<div class="fallback">EP</div>';
-           
-           const downloadProgress = document.createElement('div');
-           downloadProgress.className = 'download-progress';
-           downloadProgress.style.display = 'none';
-           downloadProgress.innerHTML = `
-             <div class="progress-bar">
-               <div class="progress-fill" style="width: 0%"></div>
-             </div>
-             <span class="progress-text">准备下载...</span>
-           `;
-           card.appendChild(downloadProgress);
-           
-           const downloadLabel = document.createElement('div');
-           downloadLabel.className = 'download-complete-label';
-           downloadLabel.style.display = 'none';
-           downloadLabel.innerHTML = '✓ 已下载';
-           card.appendChild(downloadLabel);
-           
-           // --- FIX START ---
-           // 修复: 点击封面时，检查是否已下载
-           coverImage.addEventListener('click', (e) => {
-             const downloadKey = `download:${it.path}`;
-             const downloadStatus = localStorage.getItem(downloadKey);
-             let isDownloaded = false;
-             try {
-                if (downloadStatus) {
-                    isDownloaded = JSON.parse(downloadStatus).completed === true;
-                }
-             } catch (err) { /* 忽略损坏的数据 */ }
-
-             if (isDownloaded) {
-               // 如果已下载，不执行任何操作，让链接正常跳转
-               return;
-             }
-
-             // 如果未下载，阻止跳转并开始下载
-             e.preventDefault();
-             e.stopPropagation();
-             startDownload(card, it.path);
-           });
-           // --- FIX END ---
+          const coverImage = document.createElement('div');
+          coverImage.className = 'cover-image';
+          coverImage.innerHTML = '<div class="fallback">EP</div>';
+          
+          // 使用辅助函数创建下载UI
+          const { container: downloadUI } = createDownloadUI();
+          card.appendChild(downloadUI);
+          
+          // 使用辅助函数处理点击事件
+          coverImage.addEventListener('click', (e) => handleCoverClick(e, it.path, card));
           
           const coverInfo = document.createElement('div');
           coverInfo.className = 'cover-info';
@@ -275,46 +235,12 @@
            thumb.className = 'thumb'; 
            thumb.textContent = 'EP';
            
-           const downloadProgress = document.createElement('div');
-           downloadProgress.className = 'download-progress';
-           downloadProgress.style.display = 'none';
-           downloadProgress.innerHTML = `
-             <div class="progress-bar">
-               <div class="progress-fill" style="width: 0%"></div>
-             </div>
-             <span class="progress-text">准备下载...</span>
-           `;
-           card.appendChild(downloadProgress);
+           // 使用辅助函数创建下载UI
+           const { container: downloadUI } = createDownloadUI();
+           card.appendChild(downloadUI);
            
-           const downloadLabel = document.createElement('div');
-           downloadLabel.className = 'download-complete-label';
-           downloadLabel.style.display = 'none';
-           downloadLabel.innerHTML = '✓ 已下载';
-           card.appendChild(downloadLabel);
-           
-           // --- FIX START ---
-           // 修复: 点击缩略图时，检查是否已下载
-           thumb.addEventListener('click', (e) => {
-             const downloadKey = `download:${it.path}`;
-             const downloadStatus = localStorage.getItem(downloadKey);
-             let isDownloaded = false;
-             try {
-                if (downloadStatus) {
-                    isDownloaded = JSON.parse(downloadStatus).completed === true;
-                }
-             } catch (err) { /* 忽略损坏的数据 */ }
-
-             if (isDownloaded) {
-               // 如果已下载，不执行任何操作，让链接正常跳转
-               return;
-             }
-
-             // 如果未下载，阻止跳转并开始下载
-             e.preventDefault();
-             e.stopPropagation();
-             startDownload(card, it.path);
-           });
-           // --- FIX END ---
+           // 使用辅助函数处理点击事件
+           thumb.addEventListener('click', (e) => handleCoverClick(e, it.path, card));
 
           const content = document.createElement('div'); content.style.flex = '1';
           const title = document.createElement('div'); title.className = 'title'; title.textContent = it.title;
@@ -367,44 +293,121 @@
     }
 
     // 封面缓存工具
-    const COVER_INDEX_KEY = 'cover:index:v1';
-    const COVER_DATA_PREFIX = 'cover:data:v1:';
-    const COVER_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 天
+    const CoverCache = {
+      INDEX_KEY: 'cover:index:v1',
+      DATA_PREFIX: 'cover:data:v1:',
+      TTL_MS: 30 * 24 * 60 * 60 * 1000, // 30 天
+      MAX_ENTRIES: 40,
 
-    function getNow(){ return Date.now(); }
-    function getIndex(){ try{ return JSON.parse(localStorage.getItem(COVER_INDEX_KEY)||'{}'); }catch{ return {}; } }
-    function setIndex(idx){ try{ localStorage.setItem(COVER_INDEX_KEY, JSON.stringify(idx)); }catch{} }
-    function getCoverKey(path){ return COVER_DATA_PREFIX + path; }
-    function getCachedCover(path){
-      try{
-        const idx = getIndex();
-        const it = idx[path];
-        if (!it) return null;
-        if ((getNow() - it.ts) > COVER_TTL_MS) { removeCover(path); return null; }
-        const data = localStorage.getItem(getCoverKey(path));
-        return data || null;
-      }catch{ return null; }
+      // 安全的localStorage操作
+      store: {
+        get(key) {
+          try {
+            return localStorage.getItem(key);
+          } catch {
+            return null;
+          }
+        },
+        set(key, value) {
+          try {
+            localStorage.setItem(key, value);
+            return true;
+          } catch {
+            return false;
+          }
+        },
+        remove(key) {
+          try {
+            localStorage.removeItem(key);
+            return true;
+          } catch {
+            return false;
+          }
+        }
+      },
+
+      // 获取封面数据key
+      getKey(path) { 
+        return this.DATA_PREFIX + path; 
+      },
+
+      // 获取索引数据
+      getIndex() {
+        const data = this.store.get(this.INDEX_KEY) || '{}';
+        try {
+          return JSON.parse(data);
+        } catch {
+          return {};
+        }
+      },
+
+      // 更新索引数据
+      setIndex(idx) {
+        this.store.set(this.INDEX_KEY, JSON.stringify(idx));
+      },
+
+      // 获取缓存的封面
+      get(path) {
+        const idx = this.getIndex();
+        const entry = idx[path];
+        if (!entry) return null;
+
+        if ((Date.now() - entry.ts) > this.TTL_MS) {
+          this.remove(path);
+          return null;
+        }
+
+        return this.store.get(this.getKey(path));
+      },
+
+      // 设置封面缓存
+      set(path, dataUrl) {
+        if (this.store.set(this.getKey(path), dataUrl)) {
+          const idx = this.getIndex();
+          idx[path] = { ts: Date.now() };
+          this.setIndex(idx);
+          this.trim();
+          return true;
+        }
+        return false;
+      },
+
+      // 移除封面缓存
+      remove(path) {
+        if (this.store.remove(this.getKey(path))) {
+          const idx = this.getIndex();
+          delete idx[path];
+          this.setIndex(idx);
+          return true;
+        }
+        return false;
+      },
+
+      // 清理过期缓存
+      trim() {
+        const idx = this.getIndex();
+        const entries = Object.entries(idx)
+          .sort((a, b) => b[1].ts - a[1].ts);
+
+        if (entries.length <= this.MAX_ENTRIES) return;
+
+        entries
+          .slice(this.MAX_ENTRIES)
+          .forEach(([path]) => this.remove(path));
+      }
+    };
+
+    // 替换原来的函数调用
+    function getCachedCover(path) {
+      return CoverCache.get(path);
     }
-    function setCachedCover(path, dataUrl){
-      try{
-        localStorage.setItem(getCoverKey(path), dataUrl);
-        const idx = getIndex(); idx[path] = { ts: getNow() }; setIndex(idx);
-        trimCoverCache(40);
-      }catch{}
+
+    function setCachedCover(path, dataUrl) {
+      return CoverCache.set(path, dataUrl);
     }
-    function removeCover(path){
-      try{
-        localStorage.removeItem(getCoverKey(path));
-        const idx = getIndex(); delete idx[path]; setIndex(idx);
-      }catch{}
-    }
-    function trimCoverCache(max){
-      try{
-        const idx = getIndex();
-        const entries = Object.entries(idx).sort((a,b)=> b[1].ts - a[1].ts);
-        if (entries.length <= max) return;
-        for (let i=max;i<entries.length;i++) removeCover(entries[i][0]);
-      }catch{}
+
+    function removeCover(path) {
+      return CoverCache.remove(path);
     }
     function blobToDataURL(blob){ return new Promise((res)=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.readAsDataURL(blob); }); }
 
@@ -444,17 +447,16 @@
     }
 
     function setCoverImage(el, imageUrl) {
-      if (el.classList.contains('cover-image')) {
+      const isCoverImage = el.classList.contains('cover-image');
+      
+      if (isCoverImage) {
         const fallback = el.querySelector('.fallback');
         if (fallback) fallback.style.display = 'none';
         
-        let img = el.querySelector('img');
-        if (!img) {
-          img = document.createElement('img');
-          el.appendChild(img);
-        }
+        const img = el.querySelector('img') || document.createElement('img');
         img.src = imageUrl;
         img.alt = 'Book Cover';
+        if (!el.contains(img)) el.appendChild(img);
       } else {
         el.classList.add('has-cover'); 
         el.style.backgroundImage = `url('${imageUrl}')`;
@@ -500,45 +502,81 @@
      
      // 检查已下载的书籍
      function checkDownloadedBooks() {
-       const cards = document.querySelectorAll('.cover-card, .card');
-       cards.forEach(card => {
-         // 从 a 标签获取 bookPath
+       document.querySelectorAll('.cover-card, .card').forEach(card => {
          const link = card.querySelector('a');
-         if (!link) return;
+         if (!link?.href.includes('book=')) return;
          
-         // 提取路径并解码
-         const href = link.getAttribute('href');
-         if (!href || !href.includes('book=')) return;
-         const bookPathEncoded = href.split('book=')[1];
-         const bookPath = decodeURIComponent(bookPathEncoded);
-
-         // 检查下载状态
-         const downloadKey = `download:${bookPath}`;
-         const downloadStatus = localStorage.getItem(downloadKey);
-         
-         if (downloadStatus) {
-           try {
-             const status = JSON.parse(downloadStatus);
-             if (status.completed) {
-               const downloadLabel = card.querySelector('.download-complete-label');
-               if (downloadLabel) {
-                 downloadLabel.style.display = 'block';
-               }
-             }
-           } catch(e) { /* 忽略错误 */ }
+         const bookPath = decodeURIComponent(link.href.split('book=')[1]);
+         if (checkDownloadStatus(bookPath)) {
+           const label = card.querySelector('.download-complete-label');
+           if (label) label.style.display = 'block';
          }
        });
      }
      
-     searchEl.addEventListener('input', render);
-     sortEl.addEventListener('change', render);
-     renderSkeleton(6);
+     // UI 创建辅助函数
+    function createDownloadUI() {
+      const container = document.createElement('div');
+      
+      const progress = document.createElement('div');
+      progress.className = 'download-progress';
+      progress.style.display = 'none';
+      progress.innerHTML = `
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <span class="progress-text">准备下载...</span>
+      `;
+      
+      const label = document.createElement('div');
+      label.className = 'download-complete-label';
+      label.style.display = 'none';
+      label.innerHTML = '✓ 已下载';
+      
+      container.appendChild(progress);
+      container.appendChild(label);
+      return { container, progress, label };
+    }
+
+    // 下载状态检查辅助函数
+    function checkDownloadStatus(path) {
+      const downloadKey = `download:${path}`;
+      const downloadStatus = localStorage.getItem(downloadKey);
+      let isDownloaded = false;
+      try {
+        if (downloadStatus) {
+          isDownloaded = JSON.parse(downloadStatus).completed === true;
+        }
+      } catch (err) { /* 忽略损坏的数据 */ }
+      return isDownloaded;
+    }
+
+    // 点击处理辅助函数
+    function handleCoverClick(e, path, card) {
+      if (checkDownloadStatus(path)) {
+        return; // 已下载，允许正常跳转
+      }
+      e.preventDefault();
+      e.stopPropagation();
+      startDownload(card, path);
+    }
+
+    // 添加防抖函数
+    function debounce(fn, delay) {
+      let timer;
+      return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), delay);
+      };
+    }
+
+    // 使用防抖处理搜索
+    searchEl.addEventListener('input', debounce(render, 300));
+    sortEl.addEventListener('change', render);
+    renderSkeleton(6);
      
-     setTimeout(() => {
-       render();
-       // 渲染完成后再检查，因为checkDownloadedBooks依赖DOM元素
-       // setTimeout(checkDownloadedBooks, 100); // 移动到 render 函数末尾
-     }, 0);
+    // 初始渲染
+    requestAnimationFrame(render);
   </script>
 </body>
 </html>
