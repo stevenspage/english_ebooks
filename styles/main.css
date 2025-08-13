@@ -144,7 +144,6 @@ body {
 }
 
 /* Grid Layout */
-/* Grid Styles */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -247,11 +246,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* 标签样式 */
-.badge {
-  color: var(--text-secondary);
-  font-weight: 500;
-}
+
 
 /* 通用标签样式 */
 .chip, .pill { 
@@ -509,7 +504,6 @@ body {
 }
 
 /* Responsive Styles */
-/* Responsive Breakpoints */
 @media (max-width: 900px) {
   /* 网格布局调整为2列 */
   .grid, .skeleton-grid {

@@ -24,9 +24,9 @@
             <span style="display:block; width:16px; height:2px; background:#888; margin:3px 0; border-radius:2px;"></span>
           </span>
         </button>
-        <span class="name" id="info-name">—</span>
-        <span class="author" id="info-author"></span>
-        <span class="progress-mini" id="info-progress"></span>
+                 <span class="name" id="info-name">—</span>
+         <span class="author" id="info-author"></span>
+         <button class="download-btn" id="download-btn" title="下载电子书到本地">⬇</button>
       </div>
 
       <!-- MODIFIED: .topbar 移动到这里，作为 #info-card 的子元素 -->
@@ -610,8 +610,79 @@
           }
         });
 
-        // 首次渲染书签
-        renderBookmarks(safeLoad(storageKeys.bookmarks(bookPath), []));
+                 // 首次渲染书签
+         renderBookmarks(safeLoad(storageKeys.bookmarks(bookPath), []));
+         
+         // 下载按钮功能
+         const downloadBtn = document.getElementById('download-btn');
+         if (downloadBtn) {
+           downloadBtn.addEventListener('click', async () => {
+             try {
+               // 显示下载中状态
+               downloadBtn.textContent = '⏳';
+               downloadBtn.disabled = true;
+               
+               // 获取电子书数据 - 使用正确的方法
+               let bookData;
+               if (book.archive && typeof book.archive.get === 'function') {
+                 // 如果 archive.get 方法存在，使用它
+                 bookData = await book.archive.get();
+               } else if (book.archive && book.archive.url) {
+                 // 如果 archive.url 存在，直接使用
+                 bookData = book.archive.url;
+               } else {
+                 // 尝试从原始路径获取
+                 const response = await fetch(bookPath);
+                 if (!response.ok) {
+                   throw new Error('无法获取电子书数据');
+                 }
+                 bookData = await response.blob();
+               }
+               
+               if (!bookData) {
+                 throw new Error('无法获取电子书数据');
+               }
+               
+               // 创建下载链接
+               let blob;
+               if (bookData instanceof Blob) {
+                 blob = bookData;
+               } else if (typeof bookData === 'string') {
+                 // 如果是 URL，需要先获取数据
+                 const response = await fetch(bookData);
+                 blob = await response.blob();
+               } else {
+                 throw new Error('不支持的电子书数据格式');
+               }
+               
+               const url = URL.createObjectURL(blob);
+               const a = document.createElement('a');
+               a.href = url;
+               a.download = bookPath.split('/').pop() || 'book.epub';
+               document.body.appendChild(a);
+               a.click();
+               document.body.removeChild(a);
+               
+               // 清理URL对象
+               URL.revokeObjectURL(url);
+               
+               // 恢复按钮状态
+               downloadBtn.textContent = '✅';
+               setTimeout(() => {
+                 downloadBtn.textContent = '⬇';
+                 downloadBtn.disabled = false;
+               }, 2000);
+               
+             } catch (error) {
+               console.error('下载失败:', error);
+               downloadBtn.textContent = '❌';
+               setTimeout(() => {
+                 downloadBtn.textContent = '⬇';
+                 downloadBtn.disabled = false;
+               }, 2000);
+             }
+           });
+         }
 
       } catch (err) {
         errorEl.style.display = 'block';
