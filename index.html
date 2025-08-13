@@ -419,6 +419,26 @@
         setCoverImage(el, cached);
         return; 
       }
+
+      // 优先从 covers/ 文件夹加载
+      const baseName = bookPath.substring(bookPath.lastIndexOf('/') + 1).replace(/\.epub$/i, '');
+      const coverExtensions = ['.jpeg', '.jpg', '.png'];
+      for (const ext of coverExtensions) {
+        const coverUrl = `./covers/${baseName}${ext}`;
+        try {
+          const response = await fetch(coverUrl, { method: 'HEAD' });
+          if (response.ok) {
+            setCoverImage(el, coverUrl);
+            // 将有效的URL存入缓存
+            setCachedCover(bookPath, coverUrl);
+            return;
+          }
+        } catch (e) {
+          // 网络错误或 fetch 失败，继续尝试下一个
+        }
+      }
+
+      // 如果 covers/ 中没有，则回退到从 epub 文件提取
       try {
         const book = ePub(bookPath);
         if (typeof book.coverUrl === 'function') {
