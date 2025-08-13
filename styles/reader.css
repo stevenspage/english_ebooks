@@ -121,12 +121,8 @@ body {
   pointer-events: none;
 }
 
-/* 顶栏切换按钮（方案C与信息卡内显示） */
+/* 顶栏切换按钮 */
 #topbar-toggle { 
-  display: none; 
-}
-
-.layout-c #topbar-toggle { 
   display: inline-flex; 
 }
 
@@ -294,6 +290,29 @@ input[type=range] {
 #prev:hover, #next:hover { 
   background: rgba(0,0,0,0.05); 
   color: rgba(0,0,0,0.4); 
+}
+
+/* 点击后立即恢复默认状态，避免影响阅读 */
+#prev:active, #next:active {
+  background: rgba(0,0,0,0.15);
+  color: rgba(0,0,0,0.15);
+}
+
+/* 移动端优化：完全透明的遮罩，提升阅读体验 */
+@media (max-width: 768px) {
+  #nav #prev, #nav #next {
+    color: transparent !important; /* 完全透明的默认状态 */
+  }
+  
+  #nav #prev:hover, #nav #next:hover {
+    background: rgba(0,0,0,0.01) !important; /* 极轻微提示 */
+    color: rgba(0,0,0,0.1) !important;
+  }
+  
+  #nav #prev:active, #nav #next:active {
+    background: transparent !important; /* 完全透明的点击状态 */
+    color: transparent !important;
+  }
 }
 
 /* 侧栏（目录 / 书签） */
@@ -528,10 +547,6 @@ input[type=range] {
   
   #viewer-container { 
     height: 75vh; 
-  }
-  
-  #prev, #next { 
-    color: rgba(0,0,0,0.08); 
   }
   
   .drawer { 

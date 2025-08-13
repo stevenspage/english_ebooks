@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
 </head>
 <body>
-  <div class="container layout-c collapsed" id="layout-root">
+  <div class="container collapsed" id="layout-root">
     
     <!-- NOTE: .topbar 元素已被移动到下方的 #info-card 内部 -->
 
@@ -490,10 +490,8 @@
           safeSave(storageKeys.theme(bookPath), currentTheme);
         });
 
-        // 强制设置为信息卡模式
+        // 设置根容器样式
         const root = document.getElementById('layout-root');
-        root.classList.remove('layout-a', 'layout-b', 'layout-c');
-        root.classList.add('layout-c');
 
         // 折叠/展开顶栏
         const toggleBtn = document.getElementById('topbar-toggle');
