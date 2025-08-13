@@ -1,12 +1,19 @@
-<p align="right"><i>Ebooks from Roy, curated by Steven</i></p>
+<p align="right" style="font-size: 1em; color: #0366d6; font-weight: bold;">Ebooks from Roy, curated by Steven</p>
 
-# 📚 英文电子书合集
-
-这是一个精心整理的英文电子书合集。欢迎下载阅读！
-
-您也可以访问我们的项目主页在线浏览本书籍列表：[https://stevenspage.github.io/english_ebooks/](https://stevenspage.github.io/english_ebooks/)
-
-您也可以在这里查看最新的[纽约时报畅销书榜单](./bestseller.md)。
+<div align="center">
+  <h1>📚 英文电子书合集</h1>
+  <p>
+    <strong>一份精心整理的英文原版电子书收藏，助您提升英语阅读能力，领略文学魅力。</strong>
+  </p>
+  <p align="center">
+    <a href="https://stevenspage.github.io/english_ebooks/">
+      <img src="https://img.shields.io/badge/在线浏览-My Library-blue?style=for-the-badge" alt="在线浏览">
+    </a>
+    <a href="./bestseller.md">
+      <img src="https://img.shields.io/badge/查看-纽约时报畅销书榜-green?style=for-the-badge" alt="纽约时报畅销书榜">
+    </a>
+  </p>
+</div>
 
 ---
 
