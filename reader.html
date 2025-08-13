@@ -5,8 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>阅读电子书</title>
   <link rel="stylesheet" href="styles/reader.css" />
-  <script src="./scripts/jszip.min.js"></script>
-  <script src="./scripts/epub.min.js"></script>
+  <style>
+    .loading-status {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--muted, #888);
+      text-align: center;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
 </head>
 <body>
   <div class="container collapsed" id="layout-root">
@@ -90,7 +98,15 @@
      <div class="card" id="reader-card">
       <div id="viewer-container">
         <div id="viewer"></div>
-        <div id="reader-skeleton" aria-hidden="true"></div>
+        <div id="reader-skeleton" aria-hidden="true">
+          <div class="loading-content">
+            <div class="loading-indicator">正在加载电子书，请稍候…</div>
+            <div class="loading-progress-bar">
+              <div class="loading-progress-fill"></div>
+            </div>
+            <div id="loading-status-text" class="loading-status">正在初始化...</div>
+          </div>
+        </div>
         <div id="nav">
           <div id="prev">‹</div>
           <div id="next">›</div>
@@ -133,17 +149,6 @@
   </div>
 
   <script>
-    // 注册 Service Worker
-    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then(registration => {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, err => {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
-    }
-
     // 站点主题：与首页保持一致
     (function initSiteTheme(){
       const key = 'site:theme';
@@ -310,9 +315,24 @@
         const storedTheme = safeLoad(storageKeys.theme(bookPath), null);
         let currentTheme = storedTheme || 'sepia';
 
+        const skeleton = document.getElementById('reader-skeleton');
+        const progressFill = skeleton.querySelector('.loading-progress-fill');
+
+        function updateLoadingProgress(percentage) {
+          if (progressFill) {
+            progressFill.style.width = `${percentage}%`;
+          }
+        }
+
         try {
+          updateLoadingProgress(0);
+          if (skeleton) skeleton.classList.add('visible');
+          
           book = ePub(bookPath);
+          updateLoadingProgress(15);
+
           rendition = book.renderTo('viewer', { width: '100%', height: '100%' });
+          updateLoadingProgress(30);
 
         // 自适应高度：让阅读区域填满剩余视口，避免底端留白
         const viewerContainer = document.getElementById('viewer-container');
@@ -344,17 +364,24 @@
         rendition.themes.select(currentTheme);
 
         // 加载 + 骨架
-        const skeleton = document.getElementById('reader-skeleton');
-        if (skeleton) skeleton.style.display = '';
         const savedLoc = safeLoad(storageKeys.location(bookPath));
-        if (savedLoc?.cfi) {
-          rendition.display(savedLoc.cfi).catch(() => rendition.display()).finally(() => { if (skeleton) skeleton.style.display = 'none'; });
-        } else {
-          rendition.display().finally(() => { if (skeleton) skeleton.style.display = 'none'; });
-        }
+        const displayPromise = savedLoc?.cfi 
+          ? rendition.display(savedLoc.cfi) 
+          : rendition.display();
+        
+        displayPromise.catch(() => {
+          // 如果CFI加载失败，尝试无参数display
+          return rendition.display();
+        }).finally(() => { 
+          updateLoadingProgress(100);
+          setTimeout(() => {
+            if (skeleton) skeleton.classList.remove('visible'); 
+          }, 300);
+        });
 
         // 元数据
         book.loaded.metadata.then(meta => {
+          updateLoadingProgress(40);
           const title = meta?.title || '未命名书籍';
           const author = meta?.creator || meta?.author || '';
           metaEl.textContent = author ? `${title} — ${author}` : title;
@@ -438,11 +465,13 @@
 
         // 目录
         book.loaded.navigation.then(({ toc }) => {
+          updateLoadingProgress(60);
           renderTOC(toc || []);
         }).catch(() => { /* 忽略 */ });
 
         // 生成 locations 用于进度
         book.ready.then(() => book.locations.generate(1600)).then(() => {
+          updateLoadingProgress(85);
           locationsReady = true;
           const loc = rendition.currentLocation();
           updateProgress(loc);
@@ -700,6 +729,14 @@
         errorEl.textContent = '加载电子书失败：' + (err?.message || err);
         document.getElementById('reader-card').style.display = 'none';
       }
+    }
+
+    // Service Worker 注册（需 http/https 环境，file:// 无效）
+    // 用于部署“自杀式”worker，清理旧的worker
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      navigator.serviceWorker.register('sw.js').catch((err) => {
+        console.error('Service Worker registration failed:', err);
+      });
     }
 
     // 辅助函数定义
