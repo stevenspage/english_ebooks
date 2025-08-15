@@ -9,9 +9,6 @@
     <a href="https://stevenspage.github.io/english_ebooks/">
       <img src="https://img.shields.io/badge/在线浏览-My Library-blue?style=for-the-badge" alt="在线浏览">
     </a>
-    <a href="./bestseller.md">
-      <img src="https://img.shields.io/badge/查看-纽约时报畅销书榜-green?style=for-the-badge" alt="纽约时报畅销书榜">
-    </a>
   </p>
 </div>
 

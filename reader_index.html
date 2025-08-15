@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Library</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <!-- epub.js 用于封面解析（本地纯静态可用） -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+</head>
+<body>
+  <div class="hero">
+    <div class="wrap">
+      <div class="brand">
+        <h1>My Library</h1>
+        <div class="sub">快速搜索、排序、继续阅读</div>
+      </div>
+      <div class="actions">
+        <span id="count" class="chip">…</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="toolbar">
+      <input id="search" class="input" placeholder="搜索书名… (按 / 或 F 聚焦)" />
+      <select id="sort" class="select">
+        <option value="name-asc">按名称 A→Z</option>
+        <option value="name-desc">按名称 Z→A</option>
+        <option value="recent">按最近阅读</option>
+      </select>
+
+      <button id="view-toggle" class="btn-view" title="切换视图">
+        <span class="view-icon">⊞</span>
+      </button>
+    </div>
+
+    <section>
+      <div id="skeleton" class="skeleton-grid" aria-hidden="true"></div>
+      <div id="book-grid" class="grid" style="display:none;"></div>
+      <div id="empty" class="empty" style="display:none;">书库为空。将 .epub 放入 ebooks/ 并运行脚本同步。</div>
+    </section>
+  </div>
+
+  <script>
+    // 视图模式设置
+    const viewModeKey = 'site:viewMode';
+
+    // 视图模式
+    let currentViewMode = localStorage.getItem(viewModeKey) || 'list';
+    (function initViewToggle(){
+      const viewToggle = document.getElementById('view-toggle');
+      const viewIcon = viewToggle.querySelector('.view-icon');
+      
+      function updateViewIcon() {
+        viewIcon.textContent = currentViewMode === 'list' ? '⊞' : '≡';
+        viewToggle.title = currentViewMode === 'list' ? '切换到封面视图' : '切换到列表视图';
+      }
+      
+      updateViewIcon();
+      
+      viewToggle.addEventListener('click', ()=>{
+        currentViewMode = currentViewMode === 'list' ? 'cover' : 'list';
+        localStorage.setItem(viewModeKey, currentViewMode);
+        updateViewIcon();
+        render();
+      });
+    })();
+
+    // 由脚本自动维护，请勿手动修改
+    const bookFiles = [
+    "A stranger in the mirror (Sheldon Sidney) .epub",
+    "Airport (Arthur Hailey) .epub",
+    "Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly (Evy Poumpouras) .epub",
+    "Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader (Tom Hougaard) .epub",
+    "Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader (Tom Hougaard).epub",
+    "Contact (Carl Sagan) .epub",
+    "Correct your English errors avoid 99 of the common mistakes made by learners of English by Collins, Timothy G.epub",
+    "Dear John (Nicholas Sparks).epub",
+    "Extinct - A Compendium of Obsolete Objects ( etc.).epub",
+    "From the Ground Up_ A Journey to Reimagine the Promise of America - Howard Schultz.epub",
+    "Green Mile (King Stephen) .epub",
+    "How Not to Drown in a Glass of Water (Angie Cruz) .epub",
+    "If You Tell (Olsen, Gregg) (Z-Library).epub",
+    "Klara and The Sun (Kazuo Ishiguro) .epub",
+    "Me Before You A Novel (Moyes Jojo) .epub",
+    "Mr. Mercedes (Stephen King) .epub",
+    "My Friends (Hisham Matar) (Z-Library).epub",
+    "Outlive - The Science and Art of Longevity (Peter Attia, MD) .epub",
+    "Private Client Wills, Trusts and Estate Planning (Lesley King) .epub",
+    "Project Hail Mary (Andy Weir) .epub",
+    "Quit (Annie Duke) .epub",
+    "Rich AF The Winning Money Mindset That Will Change Your Life (Vivian Tu) .epub",
+    "Shoe Dog A Memoir by the Creator of Nike (Knight, Phil) .epub",
+    "Sincerely, Carter (Whitney G) .epub",
+    "Start With Why_ How Great Leaders Inspire Everyone to Take Action_nodrm.epub",
+    "The Bridges of Madison County (Waller, Robert James) .epub",
+    "The Family Office A Comprehensive Guide for Advisers, Practitioners, and Students (William I. Woodson Edward V. Marshall).epub",
+    "The Godfather (Mario Puzo) .epub",
+    "The Graveyard Book (Neil Gaiman) .epub",
+    "The Let Them Theory • A Life-Changing Tool That Millions of People Can’t Stop Talking About (Mel Robbins) .epub",
+    "The Longest Ride (Sparks Nicholas) .epub",
+    "The Naked Face (Sidney Sheldon) .epub",
+    "The New Yorker Stories (Beattie Ann) .epub",
+    "The Oligarchs Daughter (Joseph Finder).epub",
+    "The Psychology of Money (Morgan Housel) .epub",
+    "The Sum of All Fears (Tom Clancy) .epub",
+    "The Trading Game A Confession (Gary Stevenson) .epub",
+    "What I Talk About When I Talk About Running (Ha... .epub",
+    "中式英语之鉴(北京外国语大学硕士研究生考试指定参考用书)(图文版).epub"
+];
+
+    const basePath = "./ebooks/";
+    // Service Worker 注册（需 http/https 环境，file:// 无效）
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      navigator.serviceWorker.register('sw.js').catch(()=>{});
+    }
+    const gridEl = document.getElementById('book-grid');
+    const skeletonEl = document.getElementById('skeleton');
+    const emptyEl = document.getElementById('empty');
+    const searchEl = document.getElementById('search');
+    const sortEl = document.getElementById('sort');
+    const countEl = document.getElementById('count');
+
+    function fileNameToTitle(name) { return name ? name.replace(/\.epub$/i, '') : ''; }
+    function getLastState(bookPath) {
+      try { const raw = localStorage.getItem('reader:lastLocation:' + bookPath); return raw ? JSON.parse(raw) : null; } catch { return null; }
+    }
+    function fmtPercent(p) { if (p==null || isNaN(p)) return ''; const v = Math.max(0, Math.min(100, Math.round(p*100))); return v + '%'; }
+
+    function renderSkeleton(count = 6) {
+      skeletonEl.innerHTML = '';
+      for (let i=0;i<count;i++) {
+        const card = document.createElement('div'); card.className = 'skeleton-card';
+        const row = document.createElement('div'); row.className = 'skeleton-row';
+        const th = document.createElement('div'); th.className = 'sk-thumb';
+        const box = document.createElement('div'); box.style.flex = '1';
+        const l1 = document.createElement('div'); l1.className = 'sk-line w70';
+        const l2 = document.createElement('div'); l2.className = 'sk-line w40';
+        box.appendChild(l1); box.appendChild(l2);
+        row.appendChild(th); row.appendChild(box);
+        card.appendChild(row);
+        skeletonEl.appendChild(card);
+      }
+      skeletonEl.style.display = '';
+      gridEl.style.display = 'none';
+    }
+
+    function clearSkeleton() {
+      skeletonEl.style.display = 'none';
+      gridEl.style.display = '';
+    }
+
+    function render() {
+      const q = (searchEl.value || '').toLowerCase().trim();
+      let items = bookFiles.map(f => ({ title: fileNameToTitle(f), file: f, path: basePath + f }));
+      const total = items.length;
+      if (q) items = items.filter(it => it.title.toLowerCase().includes(q));
+
+      const sortBy = sortEl.value;
+      if (sortBy === 'name-asc' || sortBy === 'name-desc') {
+        items.sort((a,b) => a.title.localeCompare(b.title, 'zh-Hans-CN'));
+        if (sortBy === 'name-desc') items.reverse();
+      } else if (sortBy === 'recent') {
+        items.sort((a,b) => (getLastState(b.path)?.updatedAt||0) - (getLastState(a.path)?.updatedAt||0));
+      }
+
+      gridEl.className = currentViewMode === 'cover' ? 'cover-grid' : 'grid';
+      gridEl.innerHTML = '';
+      emptyEl.style.display = items.length ? 'none' : 'block';
+      countEl.textContent = `共 ${total} 本 · 显示 ${items.length} 本`;
+
+      items.forEach(it => {
+        const st = getLastState(it.path);
+        const hasProgress = st && typeof st.percentage === 'number';
+        
+        if (currentViewMode === 'cover') {
+          const card = document.createElement('div');
+          card.className = 'cover-card';
+          const link = document.createElement('a');
+          link.href = `reader.html?book=${encodeURIComponent(it.path)}`;
+          
+          const coverImage = document.createElement('div');
+          coverImage.className = 'cover-image';
+          coverImage.innerHTML = '<div class="fallback">EP</div>';
+          
+          // 使用辅助函数创建下载UI
+          const { container: downloadUI } = createDownloadUI();
+          card.appendChild(downloadUI);
+          
+          // 使用辅助函数处理点击事件
+          coverImage.addEventListener('click', (e) => handleCoverClick(e, it.path, card));
+          
+          const coverInfo = document.createElement('div');
+          coverInfo.className = 'cover-info';
+          
+          const coverTitle = document.createElement('div');
+          coverTitle.className = 'cover-title';
+          coverTitle.textContent = it.title.slice(0, 32);
+          
+          const coverMeta = document.createElement('div');
+          coverMeta.className = 'cover-meta';
+          if (hasProgress) {
+            const pill = document.createElement('span');
+            pill.className = 'cover-pill';
+            pill.textContent = fmtPercent(st.percentage);
+            coverMeta.appendChild(pill);
+          }
+          
+          const format = document.createElement('span');
+          format.textContent = '📖 EPUB';
+          coverMeta.appendChild(format);
+          
+          coverInfo.appendChild(coverTitle);
+          coverInfo.appendChild(coverMeta);
+          link.appendChild(coverImage);
+          link.appendChild(coverInfo);
+          card.appendChild(link);
+          gridEl.appendChild(card);
+          
+          observeCover(it.path, coverImage);
+        } else {
+          // 列表视图
+          const card = document.createElement('div');
+          card.className = 'card';
+          const linkWrap = document.createElement('a');
+          linkWrap.href = `reader.html?book=${encodeURIComponent(it.path)}`;
+
+          const wrap = document.createElement('div');
+          wrap.className = 'row';
+
+           const thumb = document.createElement('div'); 
+           thumb.className = 'thumb'; 
+           thumb.textContent = 'EP';
+           
+           // 使用辅助函数创建下载UI
+           const { container: downloadUI } = createDownloadUI();
+           card.appendChild(downloadUI);
+           
+           // 使用辅助函数处理点击事件
+           thumb.addEventListener('click', (e) => handleCoverClick(e, it.path, card));
+
+          const content = document.createElement('div'); content.style.flex = '1';
+          const title = document.createElement('div'); title.className = 'title'; title.textContent = it.title;
+          const meta = document.createElement('div'); meta.className = 'meta';
+          if (hasProgress) {
+            const pill = document.createElement('span'); pill.className = 'pill'; pill.textContent = '继续 ' + fmtPercent(st.percentage);
+            meta.appendChild(pill);
+          }
+          
+          const format = document.createElement('span');
+          format.textContent = '📖 EPUB';
+          meta.appendChild(format);
+          
+          content.appendChild(title); content.appendChild(meta);
+          wrap.appendChild(thumb); wrap.appendChild(content);
+          linkWrap.appendChild(wrap);
+          card.appendChild(linkWrap);
+          gridEl.appendChild(card);
+          
+          observeCover(it.path, thumb);
+        }
+      });
+
+      clearSkeleton();
+      // 在渲染完成后，检查并更新已下载书籍的UI状态
+      checkDownloadedBooks();
+    }
+
+    // 快捷键聚焦搜索
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' || e.key.toLowerCase() === 'f') {
+        if (document.activeElement !== searchEl) { e.preventDefault(); searchEl.focus(); searchEl.select(); }
+      }
+    });
+
+    // 懒加载封面
+    const coverObserver = 'IntersectionObserver' in window ? new IntersectionObserver((entries)=>{
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const {path, el} = entry.target.__cover || {};
+          if (path && el) loadCover(path, el);
+          coverObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '100px' }) : null;
+
+    function observeCover(path, el){
+      el.__cover = {path, el};
+      if (coverObserver) coverObserver.observe(el); else loadCover(path, el);
+    }
+
+    // 封面缓存工具
+    const CoverCache = {
+      INDEX_KEY: 'cover:index:v1',
+      DATA_PREFIX: 'cover:data:v1:',
+      TTL_MS: 30 * 24 * 60 * 60 * 1000, // 30 天
+      MAX_ENTRIES: 40,
+
+      // 安全的localStorage操作
+      store: {
+        get(key) {
+          try {
+            return localStorage.getItem(key);
+          } catch {
+            return null;
+          }
+        },
+        set(key, value) {
+          try {
+            localStorage.setItem(key, value);
+            return true;
+          } catch {
+            return false;
+          }
+        },
+        remove(key) {
+          try {
+            localStorage.removeItem(key);
+            return true;
+          } catch {
+            return false;
+          }
+        }
+      },
+
+      // 获取封面数据key
+      getKey(path) { 
+        return this.DATA_PREFIX + path; 
+      },
+
+      // 获取索引数据
+      getIndex() {
+        const data = this.store.get(this.INDEX_KEY) || '{}';
+        try {
+          return JSON.parse(data);
+        } catch {
+          return {};
+        }
+      },
+
+      // 更新索引数据
+      setIndex(idx) {
+        this.store.set(this.INDEX_KEY, JSON.stringify(idx));
+      },
+
+      // 获取缓存的封面
+      get(path) {
+        const idx = this.getIndex();
+        const entry = idx[path];
+        if (!entry) return null;
+
+        if ((Date.now() - entry.ts) > this.TTL_MS) {
+          this.remove(path);
+          return null;
+        }
+
+        return this.store.get(this.getKey(path));
+      },
+
+      // 设置封面缓存
+      set(path, dataUrl) {
+        if (this.store.set(this.getKey(path), dataUrl)) {
+          const idx = this.getIndex();
+          idx[path] = { ts: Date.now() };
+          this.setIndex(idx);
+          this.trim();
+          return true;
+        }
+        return false;
+      },
+
+      // 移除封面缓存
+      remove(path) {
+        if (this.store.remove(this.getKey(path))) {
+          const idx = this.getIndex();
+          delete idx[path];
+          this.setIndex(idx);
+          return true;
+        }
+        return false;
+      },
+
+      // 清理过期缓存
+      trim() {
+        const idx = this.getIndex();
+        const entries = Object.entries(idx)
+          .sort((a, b) => b[1].ts - a[1].ts);
+
+        if (entries.length <= this.MAX_ENTRIES) return;
+
+        entries
+          .slice(this.MAX_ENTRIES)
+          .forEach(([path]) => this.remove(path));
+      }
+    };
+
+    // 替换原来的函数调用
+    function getCachedCover(path) {
+      return CoverCache.get(path);
+    }
+
+    function setCachedCover(path, dataUrl) {
+      return CoverCache.set(path, dataUrl);
+    }
+
+    function removeCover(path) {
+      return CoverCache.remove(path);
+    }
+    function blobToDataURL(blob){ return new Promise((res)=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.readAsDataURL(blob); }); }
+
+    async function loadCover(bookPath, el){
+      const cached = getCachedCover(bookPath);
+      if (cached) { 
+        setCoverImage(el, cached);
+        return; 
+      }
+
+      // 优先从 covers/ 文件夹加载
+      const baseName = bookPath.substring(bookPath.lastIndexOf('/') + 1).replace(/\.epub$/i, '');
+      const coverExtensions = ['.jpeg', '.jpg', '.png'];
+      for (const ext of coverExtensions) {
+        const coverUrl = `./covers/${baseName}${ext}`;
+        try {
+          const response = await fetch(coverUrl, { method: 'HEAD' });
+          if (response.ok) {
+            setCoverImage(el, coverUrl);
+            // 将有效的URL存入缓存
+            setCachedCover(bookPath, coverUrl);
+            return;
+          }
+        } catch (e) {
+          // 网络错误或 fetch 失败，继续尝试下一个
+        }
+      }
+
+      // 如果 covers/ 中没有，则回退到从 epub 文件提取
+      try {
+        const book = ePub(bookPath);
+        if (typeof book.coverUrl === 'function') {
+          const url = await book.coverUrl();
+          if (url) {
+            setCoverImage(el, url);
+            try{
+              const meta = await book.loaded.metadata; const coverId = meta && (meta.cover || meta.cover_id || meta['cover-id']);
+              if (coverId && book.archive && typeof book.archive.get === 'function') {
+                const blob = await book.archive.get(coverId); if (blob) { const dataUrl = await blobToDataURL(blob); setCachedCover(bookPath, dataUrl); }
+              }
+            }catch{}
+            return;
+          }
+        }
+        const meta = await book.loaded.metadata;
+        const coverId = meta && (meta.cover || meta.cover_id || meta['cover-id']);
+        if (coverId && book && book.archive && typeof book.archive.get === 'function') {
+          const blob = await book.archive.get(coverId);
+          if (blob) {
+            const dataUrl = await blobToDataURL(blob);
+            setCoverImage(el, dataUrl);
+            setCachedCover(bookPath, dataUrl);
+            return;
+          }
+        }
+      } catch(e) { /* 忽略，使用 EP 占位 */ }
+    }
+
+    function setCoverImage(el, imageUrl) {
+      const isCoverImage = el.classList.contains('cover-image');
+      
+      if (isCoverImage) {
+        const fallback = el.querySelector('.fallback');
+        if (fallback) fallback.style.display = 'none';
+        
+        const img = el.querySelector('img') || document.createElement('img');
+        img.src = imageUrl;
+        img.alt = 'Book Cover';
+        if (!el.contains(img)) el.appendChild(img);
+      } else {
+        el.classList.add('has-cover'); 
+        el.style.backgroundImage = `url('${imageUrl}')`;
+      }
+    }
+
+     // 下载功能
+     function startDownload(card, bookPath) {
+       const downloadProgress = card.querySelector('.download-progress');
+       const downloadLabel = card.querySelector('.download-complete-label');
+       const progressFill = downloadProgress.querySelector('.progress-fill');
+       const progressText = downloadProgress.querySelector('.progress-text');
+       
+       downloadProgress.style.display = 'block';
+       downloadLabel.style.display = 'none';
+       
+       let progress = 0;
+       const interval = setInterval(() => {
+         progress += Math.random() * 15 + 5;
+         if (progress >= 100) {
+           progress = 100;
+           clearInterval(interval);
+           
+           progressText.textContent = '下载完成';
+           progressFill.style.width = '100%';
+           
+           setTimeout(() => {
+             downloadProgress.style.display = 'none';
+             downloadLabel.style.display = 'block';
+             
+             const downloadKey = `download:${bookPath}`;
+             localStorage.setItem(downloadKey, JSON.stringify({
+               completed: true,
+               completedAt: Date.now()
+             }));
+           }, 1000);
+         } else {
+           progressText.textContent = `下载中 ${Math.round(progress)}%`;
+           progressFill.style.width = progress + '%';
+         }
+       }, 200 + Math.random() * 300);
+     }
+     
+     // 检查已下载的书籍
+     function checkDownloadedBooks() {
+       document.querySelectorAll('.cover-card, .card').forEach(card => {
+         const link = card.querySelector('a');
+         if (!link?.href.includes('book=')) return;
+         
+         const bookPath = decodeURIComponent(link.href.split('book=')[1]);
+         if (checkDownloadStatus(bookPath)) {
+           const label = card.querySelector('.download-complete-label');
+           if (label) label.style.display = 'block';
+         }
+       });
+     }
+     
+     // UI 创建辅助函数
+    function createDownloadUI() {
+      const container = document.createElement('div');
+      
+      const progress = document.createElement('div');
+      progress.className = 'download-progress';
+      progress.style.display = 'none';
+      progress.innerHTML = `
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <span class="progress-text">准备下载...</span>
+      `;
+      
+      const label = document.createElement('div');
+      label.className = 'download-complete-label';
+      label.style.display = 'none';
+      label.innerHTML = '✓ 已下载';
+      
+      container.appendChild(progress);
+      container.appendChild(label);
+      return { container, progress, label };
+    }
+
+    // 下载状态检查辅助函数
+    function checkDownloadStatus(path) {
+      const downloadKey = `download:${path}`;
+      const downloadStatus = localStorage.getItem(downloadKey);
+      let isDownloaded = false;
+      try {
+        if (downloadStatus) {
+          isDownloaded = JSON.parse(downloadStatus).completed === true;
+        }
+      } catch (err) { /* 忽略损坏的数据 */ }
+      return isDownloaded;
+    }
+
+    // 点击处理辅助函数
+    function handleCoverClick(e, path, card) {
+      if (checkDownloadStatus(path)) {
+        return; // 已下载，允许正常跳转
+      }
+      e.preventDefault();
+      e.stopPropagation();
+      startDownload(card, path);
+    }
+
+    // 添加防抖函数
+    function debounce(fn, delay) {
+      let timer;
+      return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), delay);
+      };
+    }
+
+    // 使用防抖处理搜索
+    searchEl.addEventListener('input', debounce(render, 300));
+    sortEl.addEventListener('change', render);
+    renderSkeleton(6);
+     
+    // 初始渲染
+    requestAnimationFrame(render);
+  </script>
+</body>
+</html>
