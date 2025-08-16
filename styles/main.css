@@ -91,6 +91,40 @@ body {
   flex-wrap: wrap; 
   align-items: center; 
   margin: 20px 0; 
+  position: relative; /* 为搜索框的绝对定位提供参考 */
+}
+
+/* 确保搜索容器不换行 */
+.toolbar > * {
+  flex-shrink: 0;
+}
+
+/* 搜索模式时的布局调整 */
+.toolbar.search-mode {
+  position: relative;
+}
+
+.toolbar.search-mode > *:not(.search-container):not(.btn-home) {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* 主页按钮在搜索模式时保持正常 */
+.toolbar.search-mode .btn-home {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* 搜索容器保持原位置 */
+.toolbar.search-mode .search-container {
+  position: relative;
+  z-index: 100;
+}
+
+/* 搜索模式时隐藏搜索按钮 */
+.toolbar.search-mode .search-btn {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .input, .select {
@@ -141,6 +175,102 @@ body {
 
 .view-icon {
   font-size: 18px;
+}
+
+/* Home Button Styles */
+.btn-home {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--card) 0%, rgba(255, 99, 71, 0.05) 100%);
+}
+
+.btn-home:hover {
+  background: linear-gradient(135deg, rgba(255, 99, 71, 0.1) 0%, rgba(255, 99, 71, 0.15) 100%);
+  color: var(--primary);
+}
+
+.home-icon {
+  font-size: 16px;
+}
+
+.home-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 响应式设计 - 移动端优化 */
+@media (max-width: 768px) {
+  .toolbar {
+    gap: 8px;
+  }
+  
+  .btn-home .home-text {
+    display: none; /* 移动端隐藏文字，只显示图标 */
+  }
+  
+  .btn-home {
+    min-width: 48px; /* 确保足够的点击区域 */
+    justify-content: center;
+  }
+  
+  .home-icon {
+    font-size: 18px; /* 移动端稍大一些的图标 */
+  }
+}
+
+/* File Time Display */
+.file-time {
+  color: var(--muted);
+  font-size: 0.85em;
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+.cover-meta .file-time {
+  display: block;
+  margin-left: 0;
+  margin-top: 4px;
+}
+
+/* Search Container Styles */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1; /* 允许搜索容器扩展 */
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+}
+
+.search-icon {
+  font-size: 16px;
+}
+
+.search-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300px; /* 固定宽度，向右扩展 */
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+  .file-time {
+    font-size: 0.8em;
+  }
+  
+  .search-input {
+    width: 250px; /* 移动端较小的固定宽度 */
+  }
 }
 
 /* Grid Layout */

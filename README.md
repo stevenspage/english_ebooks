@@ -7,7 +7,10 @@
   </p>
   <p align="center">
     <a href="https://stevenspage.github.io/english_ebooks/">
-      <img src="https://img.shields.io/badge/在线浏览-My Library-blue?style=for-the-badge" alt="在线浏览">
+      <img src="https://img.shields.io/badge/在线浏览-My%20Library-blue?style=for-the-badge&logo=bookstack" alt="在线浏览">
+    </a>
+    <a href="https://github.com/stevenspage/english_ebooks">
+      <img src="https://img.shields.io/badge/项目地址- ------GitHub----%20%20%20%20-black?style=for-the-badge&logo=github" alt="项目地址">
     </a>
   </p>
 </div>

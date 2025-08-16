@@ -27,8 +27,20 @@
 
   <div class="container">
     <div class="toolbar">
-      <input id="search" class="input" placeholder="搜索书名… (按 / 或 F 聚焦)" />
+      <a href="index.html" class="btn-view btn-home" title="返回首页">
+        <span class="home-icon">🏠</span>
+        <span class="home-text">首页</span>
+      </a>
+      
+      <div class="search-container">
+        <button id="search-btn" class="btn-view search-btn" title="搜索书籍 (按 / 或 F)">
+          <span class="search-icon">🔍</span>
+        </button>
+        <input id="search" class="input search-input" placeholder="搜索书名… (按 ESC 关闭)" style="display:none;" />
+      </div>
       <select id="sort" class="select">
+        <option value="added-desc" selected>按添加时间 (新→旧)</option>
+        <option value="added-asc">按添加时间 (旧→新)</option>
         <option value="name-asc">按名称 A→Z</option>
         <option value="name-desc">按名称 Z→A</option>
         <option value="recent">按最近阅读</option>
@@ -73,45 +85,250 @@
 
     // 由脚本自动维护，请勿手动修改
     const bookFiles = [
-    "A stranger in the mirror (Sheldon Sidney) .epub",
-    "Airport (Arthur Hailey) .epub",
-    "Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly (Evy Poumpouras) .epub",
-    "Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader (Tom Hougaard) .epub",
-    "Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader (Tom Hougaard).epub",
-    "Contact (Carl Sagan) .epub",
-    "Correct your English errors avoid 99 of the common mistakes made by learners of English by Collins, Timothy G.epub",
-    "Dear John (Nicholas Sparks).epub",
-    "Extinct - A Compendium of Obsolete Objects ( etc.).epub",
-    "From the Ground Up_ A Journey to Reimagine the Promise of America - Howard Schultz.epub",
-    "Green Mile (King Stephen) .epub",
-    "How Not to Drown in a Glass of Water (Angie Cruz) .epub",
-    "If You Tell (Olsen, Gregg) (Z-Library).epub",
-    "Klara and The Sun (Kazuo Ishiguro) .epub",
-    "Me Before You A Novel (Moyes Jojo) .epub",
-    "Mr. Mercedes (Stephen King) .epub",
-    "My Friends (Hisham Matar) (Z-Library).epub",
-    "Outlive - The Science and Art of Longevity (Peter Attia, MD) .epub",
-    "Private Client Wills, Trusts and Estate Planning (Lesley King) .epub",
     "Project Hail Mary (Andy Weir) .epub",
-    "Quit (Annie Duke) .epub",
-    "Rich AF The Winning Money Mindset That Will Change Your Life (Vivian Tu) .epub",
-    "Shoe Dog A Memoir by the Creator of Nike (Knight, Phil) .epub",
-    "Sincerely, Carter (Whitney G) .epub",
-    "Start With Why_ How Great Leaders Inspire Everyone to Take Action_nodrm.epub",
-    "The Bridges of Madison County (Waller, Robert James) .epub",
+    "My Friends (Hisham Matar) (Z-Library).epub",
+    "If You Tell (Olsen, Gregg) (Z-Library).epub",
+    "Private Client Wills, Trusts and Estate Planning (Lesley King) .epub",
+    "Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader (Tom Hougaard).epub",
+    "A Man Called Ove (Fredrik Backman) .epub",
     "The Family Office A Comprehensive Guide for Advisers, Practitioners, and Students (William I. Woodson Edward V. Marshall).epub",
-    "The Godfather (Mario Puzo) .epub",
-    "The Graveyard Book (Neil Gaiman) .epub",
-    "The Let Them Theory • A Life-Changing Tool That Millions of People Can’t Stop Talking About (Mel Robbins) .epub",
-    "The Longest Ride (Sparks Nicholas) .epub",
-    "The Naked Face (Sidney Sheldon) .epub",
-    "The New Yorker Stories (Beattie Ann) .epub",
     "The Oligarchs Daughter (Joseph Finder).epub",
-    "The Psychology of Money (Morgan Housel) .epub",
-    "The Sum of All Fears (Tom Clancy) .epub",
-    "The Trading Game A Confession (Gary Stevenson) .epub",
+    "Dear John (Nicholas Sparks).epub",
+    "Mr. Mercedes (Stephen King) .epub",
+    "Me Before You A Novel (Moyes Jojo) .epub",
+    "Klara and The Sun (Kazuo Ishiguro) .epub",
+    "Green Mile (King Stephen) .epub",
     "What I Talk About When I Talk About Running (Ha... .epub",
-    "中式英语之鉴(北京外国语大学硕士研究生考试指定参考用书)(图文版).epub"
+    "The Longest Ride (Sparks Nicholas) .epub",
+    "The Graveyard Book (Neil Gaiman) .epub",
+    "The Sum of All Fears (Tom Clancy) .epub",
+    "The Bridges of Madison County (Waller, Robert James) .epub",
+    "中式英语之鉴(北京外国语大学硕士研究生考试指定参考用书)(图文版).epub",
+    "The Trading Game A Confession (Gary Stevenson) .epub",
+    "The Psychology of Money (Morgan Housel) .epub",
+    "The New Yorker Stories (Beattie Ann) .epub",
+    "The Naked Face (Sidney Sheldon) .epub",
+    "The Let Them Theory • A Life-Changing Tool That Millions of People Can’t Stop Talking About (Mel Robbins) .epub",
+    "The Godfather (Mario Puzo) .epub",
+    "Start With Why_ How Great Leaders Inspire Everyone to Take Action_nodrm.epub",
+    "Sincerely, Carter (Whitney G) .epub",
+    "Shoe Dog A Memoir by the Creator of Nike (Knight, Phil) .epub",
+    "Rich AF The Winning Money Mindset That Will Change Your Life (Vivian Tu) .epub",
+    "Quit (Annie Duke) .epub",
+    "Outlive - The Science and Art of Longevity (Peter Attia, MD) .epub",
+    "How Not to Drown in a Glass of Water (Angie Cruz) .epub",
+    "From the Ground Up_ A Journey to Reimagine the Promise of America - Howard Schultz.epub",
+    "Extinct - A Compendium of Obsolete Objects ( etc.).epub",
+    "Correct your English errors avoid 99 of the common mistakes made by learners of English by Collins, Timothy G.epub",
+    "Contact (Carl Sagan) .epub",
+    "Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader (Tom Hougaard) .epub",
+    "Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly (Evy Poumpouras) .epub",
+    "Airport (Arthur Hailey) .epub",
+    "A stranger in the mirror (Sheldon Sidney) .epub"
+];
+
+    // 文件信息（包含添加时间）- 由脚本自动维护
+    const bookInfo = [
+    {
+        "filename": "Project Hail Mary (Andy Weir) .epub",
+        "addTime": 1754925767.9342213,
+        "addTimeISO": "2025-08-11T15:22:47.000Z"
+    },
+    {
+        "filename": "My Friends (Hisham Matar) (Z-Library).epub",
+        "addTime": 1754925767.8166773,
+        "addTimeISO": "2025-08-11T15:22:47.000Z"
+    },
+    {
+        "filename": "If You Tell (Olsen, Gregg) (Z-Library).epub",
+        "addTime": 1754925767.717015,
+        "addTimeISO": "2025-08-11T15:22:47.000Z"
+    },
+    {
+        "filename": "Private Client Wills, Trusts and Estate Planning (Lesley King) .epub",
+        "addTime": 1754925683.666343,
+        "addTimeISO": "2025-08-11T15:21:23.000Z"
+    },
+    {
+        "filename": "Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader (Tom Hougaard).epub",
+        "addTime": 1754925683.5698874,
+        "addTimeISO": "2025-08-11T15:21:23.000Z"
+    },
+    {
+        "filename": "A Man Called Ove (Fredrik Backman) .epub",
+        "addTime": 1754925683.4730418,
+        "addTimeISO": "2025-08-11T15:21:23.000Z"
+    },
+    {
+        "filename": "The Family Office A Comprehensive Guide for Advisers, Practitioners, and Students (William I. Woodson Edward V. Marshall).epub",
+        "addTime": 1754925683.3601832,
+        "addTimeISO": "2025-08-11T15:21:23.000Z"
+    },
+    {
+        "filename": "The Oligarchs Daughter (Joseph Finder).epub",
+        "addTime": 1753885579.153789,
+        "addTimeISO": "2025-07-30T14:26:19.000Z"
+    },
+    {
+        "filename": "Dear John (Nicholas Sparks).epub",
+        "addTime": 1753770469.9298403,
+        "addTimeISO": "2025-07-29T06:27:49.000Z"
+    },
+    {
+        "filename": "Mr. Mercedes (Stephen King) .epub",
+        "addTime": 1753770160.3398476,
+        "addTimeISO": "2025-07-29T06:22:40.000Z"
+    },
+    {
+        "filename": "Me Before You A Novel (Moyes Jojo) .epub",
+        "addTime": 1753770160.3358433,
+        "addTimeISO": "2025-07-29T06:22:40.000Z"
+    },
+    {
+        "filename": "Klara and The Sun (Kazuo Ishiguro) .epub",
+        "addTime": 1753770160.3307076,
+        "addTimeISO": "2025-07-29T06:22:40.000Z"
+    },
+    {
+        "filename": "Green Mile (King Stephen) .epub",
+        "addTime": 1753770160.3266912,
+        "addTimeISO": "2025-07-29T06:22:40.000Z"
+    },
+    {
+        "filename": "What I Talk About When I Talk About Running (Ha... .epub",
+        "addTime": 1753764724.847636,
+        "addTimeISO": "2025-07-29T04:52:04.000Z"
+    },
+    {
+        "filename": "The Longest Ride (Sparks Nicholas) .epub",
+        "addTime": 1753764724.7580812,
+        "addTimeISO": "2025-07-29T04:52:04.000Z"
+    },
+    {
+        "filename": "The Graveyard Book (Neil Gaiman) .epub",
+        "addTime": 1753764644.9699097,
+        "addTimeISO": "2025-07-29T04:50:44.000Z"
+    },
+    {
+        "filename": "The Sum of All Fears (Tom Clancy) .epub",
+        "addTime": 1753764644.6383195,
+        "addTimeISO": "2025-07-29T04:50:44.000Z"
+    },
+    {
+        "filename": "The Bridges of Madison County (Waller, Robert James) .epub",
+        "addTime": 1753764644.4415977,
+        "addTimeISO": "2025-07-29T04:50:44.000Z"
+    },
+    {
+        "filename": "中式英语之鉴(北京外国语大学硕士研究生考试指定参考用书)(图文版).epub",
+        "addTime": 1753109504.9899473,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "The Trading Game A Confession (Gary Stevenson) .epub",
+        "addTime": 1753109504.9839501,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "The Psychology of Money (Morgan Housel) .epub",
+        "addTime": 1753109504.9783738,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "The New Yorker Stories (Beattie Ann) .epub",
+        "addTime": 1753109504.9743738,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "The Naked Face (Sidney Sheldon) .epub",
+        "addTime": 1753109504.9698706,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "The Let Them Theory • A Life-Changing Tool That Millions of People Can’t Stop Talking About (Mel Robbins) .epub",
+        "addTime": 1753109504.9631302,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "The Godfather (Mario Puzo) .epub",
+        "addTime": 1753109504.9601314,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Start With Why_ How Great Leaders Inspire Everyone to Take Action_nodrm.epub",
+        "addTime": 1753109504.9561257,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Sincerely, Carter (Whitney G) .epub",
+        "addTime": 1753109504.952122,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Shoe Dog A Memoir by the Creator of Nike (Knight, Phil) .epub",
+        "addTime": 1753109504.9474022,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Rich AF The Winning Money Mindset That Will Change Your Life (Vivian Tu) .epub",
+        "addTime": 1753109504.941401,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Quit (Annie Duke) .epub",
+        "addTime": 1753109504.9374018,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Outlive - The Science and Art of Longevity (Peter Attia, MD) .epub",
+        "addTime": 1753109504.931405,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "How Not to Drown in a Glass of Water (Angie Cruz) .epub",
+        "addTime": 1753109504.9273992,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "From the Ground Up_ A Journey to Reimagine the Promise of America - Howard Schultz.epub",
+        "addTime": 1753109504.9224045,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Extinct - A Compendium of Obsolete Objects ( etc.).epub",
+        "addTime": 1753109504.9149456,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Correct your English errors avoid 99 of the common mistakes made by learners of English by Collins, Timothy G.epub",
+        "addTime": 1753109504.904951,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Contact (Carl Sagan) .epub",
+        "addTime": 1753109504.9004714,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader (Tom Hougaard) .epub",
+        "addTime": 1753109504.8964703,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly (Evy Poumpouras) .epub",
+        "addTime": 1753109504.8914726,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "Airport (Arthur Hailey) .epub",
+        "addTime": 1753109504.8864708,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    },
+    {
+        "filename": "A stranger in the mirror (Sheldon Sidney) .epub",
+        "addTime": 1753109504.8804698,
+        "addTimeISO": "2025-07-21T14:51:44.000Z"
+    }
 ];
 
     const basePath = "./ebooks/";
@@ -155,9 +372,46 @@
       gridEl.style.display = '';
     }
 
+    // 获取文件的添加时间
+    function getFileAddTime(filename) {
+      const fileInfo = bookInfo.find(info => info.filename === filename);
+      return fileInfo ? (fileInfo.addTime || 0) : 0;
+    }
+
+    // 格式化文件添加时间为用户友好的文本
+    function formatFileTime(filename) {
+      const fileInfo = bookInfo.find(info => info.filename === filename);
+      if (!fileInfo || !fileInfo.addTime) return '';
+      
+      const date = new Date(fileInfo.addTime * 1000);
+      const now = new Date();
+      const diffMs = now - date;
+      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      
+      if (diffDays === 0) {
+        return '今天';
+      } else if (diffDays === 1) {
+        return '昨天';
+      } else if (diffDays < 7) {
+        return `${diffDays}天前`;
+      } else if (diffDays < 30) {
+        return `${Math.floor(diffDays / 7)}周前`;
+      } else if (diffDays < 365) {
+        return `${Math.floor(diffDays / 30)}个月前`;
+      } else {
+        return date.toLocaleDateString('zh-CN');
+      }
+    }
+
     function render() {
       const q = (searchEl.value || '').toLowerCase().trim();
-      let items = bookFiles.map(f => ({ title: fileNameToTitle(f), file: f, path: basePath + f }));
+      let items = bookFiles.map((f, index) => ({ 
+        title: fileNameToTitle(f), 
+        file: f, 
+        path: basePath + f,
+        addedIndex: index, // 用于按添加时间排序（兼容模式）
+        addTime: getFileAddTime(f) // 文件添加时间
+      }));
       const total = items.length;
       if (q) items = items.filter(it => it.title.toLowerCase().includes(q));
 
@@ -167,6 +421,24 @@
         if (sortBy === 'name-desc') items.reverse();
       } else if (sortBy === 'recent') {
         items.sort((a,b) => (getLastState(b.path)?.updatedAt||0) - (getLastState(a.path)?.updatedAt||0));
+      } else if (sortBy === 'added-desc') {
+        // 按添加时间降序（使用文件创建时间）
+        items.sort((a,b) => {
+          if (bookInfo.length > 0 && a.addTime && b.addTime) {
+            return b.addTime - a.addTime; // 按文件创建时间降序
+          } else {
+            return b.addedIndex - a.addedIndex; // 兼容模式：按添加索引降序
+          }
+        });
+      } else if (sortBy === 'added-asc') {
+        // 按添加时间升序（使用文件创建时间）
+        items.sort((a,b) => {
+          if (bookInfo.length > 0 && a.addTime && b.addTime) {
+            return a.addTime - b.addTime; // 按文件创建时间升序
+          } else {
+            return a.addedIndex - b.addedIndex; // 兼容模式：按添加索引升序
+          }
+        });
       }
 
       gridEl.className = currentViewMode === 'cover' ? 'cover-grid' : 'grid';
@@ -215,6 +487,15 @@
           format.textContent = '📖 EPUB';
           coverMeta.appendChild(format);
           
+          // 添加文件时间信息
+          const fileTime = formatFileTime(it.file);
+          if (fileTime && bookInfo.length > 0) {
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'file-time';
+            timeSpan.textContent = `📅 ${fileTime}`;
+            coverMeta.appendChild(timeSpan);
+          }
+          
           coverInfo.appendChild(coverTitle);
           coverInfo.appendChild(coverMeta);
           link.appendChild(coverImage);
@@ -256,6 +537,15 @@
           format.textContent = '📖 EPUB';
           meta.appendChild(format);
           
+          // 添加文件时间信息
+          const fileTime = formatFileTime(it.file);
+          if (fileTime && bookInfo.length > 0) {
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'file-time';
+            timeSpan.textContent = `📅 ${fileTime}`;
+            meta.appendChild(timeSpan);
+          }
+          
           content.appendChild(title); content.appendChild(meta);
           wrap.appendChild(thumb); wrap.appendChild(content);
           linkWrap.appendChild(wrap);
@@ -271,10 +561,61 @@
       checkDownloadedBooks();
     }
 
+    // 搜索框展开/收起逻辑
+    (function initSearch() {
+      const searchBtn = document.getElementById('search-btn');
+      const searchInput = document.getElementById('search');
+      const toolbar = document.querySelector('.toolbar');
+      let isSearchOpen = false;
+
+      function openSearch() {
+        if (!isSearchOpen) {
+          isSearchOpen = true;
+          toolbar.classList.add('search-mode');
+          searchInput.style.display = 'block';
+          searchInput.focus();
+          searchInput.select();
+        }
+      }
+
+      function closeSearch() {
+        if (isSearchOpen && !searchInput.value.trim()) {
+          isSearchOpen = false;
+          toolbar.classList.remove('search-mode');
+          searchInput.style.display = 'none';
+        }
+      }
+
+      searchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (isSearchOpen) {
+          searchInput.focus();
+        } else {
+          openSearch();
+        }
+      });
+
+      searchInput.addEventListener('blur', () => {
+        setTimeout(closeSearch, 100); // 延迟关闭，避免点击其他元素时立即关闭
+      });
+
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          searchInput.value = '';
+          closeSearch();
+          render(); // 清空搜索时重新渲染
+        }
+      });
+
+      // 导出函数供外部使用
+      window.openSearch = openSearch;
+    })();
+
     // 快捷键聚焦搜索
     document.addEventListener('keydown', (e) => {
       if (e.key === '/' || e.key.toLowerCase() === 'f') {
-        if (document.activeElement !== searchEl) { e.preventDefault(); searchEl.focus(); searchEl.select(); }
+        e.preventDefault();
+        window.openSearch();
       }
     });
 
