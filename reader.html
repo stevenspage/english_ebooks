@@ -16,8 +16,76 @@
       text-align: center;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+  <!-- JSZip 库 - 多个备用 CDN -->
+  <script>
+    (function loadJSZip() {
+      const jszipCDNs = [
+        'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js',
+        'https://unpkg.com/jszip@3.1.5/dist/jszip.min.js',
+        'https://cdn.jsdelivr.net/npm/jszip@3.1.5/dist/jszip.min.js',
+        'scripts/jszip.min.js', 
+        'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js'
+      ];
+      
+      function tryLoadJSZip(index = 0) {
+        if (index >= jszipCDNs.length) {
+          console.error('所有 JSZip CDN 都加载失败');
+          return;
+        }
+        
+        const script = document.createElement('script');
+        script.src = jszipCDNs[index];
+        script.onload = () => {
+          console.log('JSZip 加载成功:', jszipCDNs[index]);
+          loadEPUBjs(); // JSZip 加载成功后加载 EPUB.js
+        };
+        script.onerror = () => {
+          console.warn('JSZip CDN 加载失败:', jszipCDNs[index]);
+          tryLoadJSZip(index + 1); // 尝试下一个 CDN
+        };
+        document.head.appendChild(script);
+      }
+      
+      function loadEPUBjs() {
+        const epubCDNs = [
+          'https://unpkg.com/epubjs/dist/epub.min.js',
+          'https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js',
+          'scripts/epub.min.js', 
+          'https://unpkg.com/epubjs/dist/epub.min.js',  
+        ];
+        
+        function tryLoadEPUBjs(index = 0) {
+          if (index >= epubCDNs.length) {
+            console.error('所有 EPUB.js CDN 都加载失败');
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').textContent = 'EPUB.js 库加载失败，请检查网络连接或刷新页面重试。';
+            document.getElementById('reader-card').style.display = 'none';
+            return;
+          }
+          
+          const script = document.createElement('script');
+          script.src = epubCDNs[index];
+          script.onload = () => {
+            console.log('EPUB.js 加载成功:', epubCDNs[index]);
+            // 库加载完成后，检查是否可以直接初始化
+            if (typeof ePub !== 'undefined') {
+              console.log('EPUB.js 库已准备就绪');
+            }
+          };
+          script.onerror = () => {
+            console.warn('EPUB.js CDN 加载失败:', epubCDNs[index]);
+            tryLoadEPUBjs(index + 1); // 尝试下一个 CDN
+          };
+          document.head.appendChild(script);
+        }
+        
+        tryLoadEPUBjs();
+      }
+      
+      // 开始加载 JSZip
+      tryLoadJSZip();
+    })();
+  </script>
 </head>
 <body>
   <div class="container collapsed" id="layout-root">
@@ -271,6 +339,12 @@
       
       async function loadCoverForDownload() {
         try {
+          // 简单检查：如果 ePub 函数不存在，等待一下再试
+          if (typeof ePub === 'undefined') {
+            setTimeout(loadCoverForDownload, 100);
+            return;
+          }
+          
           const book = ePub(bookPath);
           const coverEl = document.getElementById('download-cover');
           const coverText = document.getElementById('cover-text');
@@ -313,6 +387,12 @@
       // 全局变量，供所有函数使用
       
       function loadEbook() {
+        // 简单检查：如果 ePub 函数不存在，等待一下再试
+        if (typeof ePub === 'undefined') {
+          setTimeout(loadEbook, 100);
+          return;
+        }
+        
         let currentFont = safeLoad(storageKeys.font(bookPath), 100) || 100;
         const storedTheme = safeLoad(storageKeys.theme(bookPath), null);
         let currentTheme = storedTheme || 'sepia';
