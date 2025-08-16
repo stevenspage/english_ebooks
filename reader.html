@@ -609,6 +609,39 @@
               }
             }, { passive: true });
 
+            // 鼠标滚轮翻页逻辑
+            let wheelTimeout = null;
+            const wheelThreshold = 50; // 滚轮滚动阈值
+            let wheelDelta = 0;
+
+            view.document.addEventListener('wheel', e => {
+              // 阻止默认滚动行为
+              e.preventDefault();
+              
+              // 累积滚轮增量
+              wheelDelta += e.deltaY;
+              
+              // 清除之前的定时器
+              if (wheelTimeout) {
+                clearTimeout(wheelTimeout);
+              }
+              
+              // 设置延迟执行，避免快速滚动时频繁翻页
+              wheelTimeout = setTimeout(() => {
+                if (Math.abs(wheelDelta) >= wheelThreshold) {
+                  if (wheelDelta > 0) {
+                    // 向下滚动，翻到下一页
+                    rendition.next();
+                  } else {
+                    // 向上滚动，翻到上一页
+                    rendition.prev();
+                  }
+                  // 重置滚轮增量
+                  wheelDelta = 0;
+                }
+              }, 150); // 150ms 延迟，平衡响应性和稳定性
+            }, { passive: false });
+
           } catch {}
         });
         // 默认不再强制跟随站点主题，避免覆盖用户选择
@@ -903,7 +936,7 @@
     <div class="modal-card">
       <h3>快捷键与技巧</h3>
       <div>
-        <p><span class="kbd">←</span> / <span class="kbd">→</span> 翻页</p>
+        <p><span class="kbd">←</span> / <span class="kbd">→</span> 翻页 · 鼠标滚轮上下滚动翻页</p>
         <p><span class="kbd">Alt</span> + <span class="kbd">-</span> / <span class="kbd">Alt</span> + <span class="kbd">=</span> 调整字号</p>
         <p><span class="kbd">T</span> 打开/关闭目录 · <span class="kbd">B</span> 打开/关闭书签</p>
         <p><span class="kbd">H</span> 打开/关闭帮助 · <span class="kbd">Alt</span> + <span class="kbd">D</span> 切换站点主题</p>

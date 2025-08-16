@@ -5,12 +5,34 @@
   <p>
     <strong>一份精心整理的英文原版电子书收藏，助您提升英语阅读能力，领略文学魅力。</strong>
   </p>
-  <p align="center">
-    <a href="https://stevenspage.github.io/english_ebooks/">
-      <img src="https://img.shields.io/badge/在线浏览-My%20Library-blue?style=for-the-badge&logo=bookstack" alt="在线浏览">
+  <p align="center" style="margin: 20px 0;">
+    <a href="https://stevenspage.github.io/english_ebooks/" style="
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 0 8px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: transform 0.2s ease;
+    font-size: 0.75em;
+    " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+      📖 进入主页
     </a>
-    <a href="https://github.com/stevenspage/english_ebooks">
-      <img src="https://img.shields.io/badge/项目地址- ------GitHub----%20%20%20%20-black?style=for-the-badge&logo=github" alt="项目地址">
+    <a href="https://github.com/stevenspage/english_ebooks" style="
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 0 8px;
+      background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: transform 0.2s ease;
+    font-size: 0.75em;
+    " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+    🧑‍💻 Github地址
     </a>
   </p>
 </div>
