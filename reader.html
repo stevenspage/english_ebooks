@@ -27,23 +27,23 @@
     <!-- 信息卡 (方案 C) -->
     <div id="info-card">
       <div class="line1">
-        <a class="info-back" href="index.html" title="返回书库">←</a>
-        <button id="topbar-toggle" class="info-toggle" title="顶栏">
+        <button class="info-back" id="info-back-btn" title="返回上一页">←</button>
+        <button id="toc-quick-btn" class="info-toc" title="目录">
           <span style="display:block; line-height:0;">
             <span style="display:block; width:16px; height:2px; background:#888; margin:3px 0; border-radius:2px;"></span>
             <span style="display:block; width:16px; height:2px; background:#888; margin:3px 0; border-radius:2px;"></span>
             <span style="display:block; width:16px; height:2px; background:#888; margin:3px 0; border-radius:2px;"></span>
           </span>
         </button>
+        <button id="topbar-toggle" class="info-toggle" title="顶栏">⋯</button>
                  <span class="name" id="info-name">—</span>
-         <span class="author" id="info-author"></span>
          <button class="download-btn" id="download-btn" title="下载电子书到本地">⬇</button>
       </div>
 
       <!-- MODIFIED: .topbar 移动到这里，作为 #info-card 的子元素 -->
       <div class="topbar">
         <div class="left">
-          <a class="back icon-btn" href="index.html" title="返回书库">←</a>
+          <button class="back icon-btn" id="topbar-back-btn" title="返回上一页">←</button>
           <div class="meta title-ellipsis" id="book-meta" title="">正在加载…</div>
         </div>
         <div class="right controls">
@@ -51,7 +51,6 @@
             <span class="cover-box"></span>
             封面
           </div>
-          <button id="toc-btn" class="btn" title="目录 (T)">📑 目录</button>
           <button id="bm-btn" class="btn" title="书签 (B)">🔖 书签</button>
           <button id="add-bm" class="btn" title="添加当前页为书签">＋ 书签</button>
           <div class="sep"></div>
@@ -392,10 +391,26 @@
           document.title = title + ' | 阅读电子书';
           // 更新信息卡
           const nameEl = document.getElementById('info-name');
-          const authorEl = document.getElementById('info-author');
-          if (nameEl) nameEl.textContent = title;
-          if (authorEl) authorEl.textContent = author ? `· ${author}` : '';
-        }).catch(() => { metaEl.textContent = bookPath.split('/').pop(); metaEl.title = metaEl.textContent; });
+          if (nameEl) {
+            // 组合显示书名和作者
+            const displayText = author ? `${title}(${author})` : title;
+            const fullText = author ? `${title}(${author})` : title;
+            
+            nameEl.textContent = displayText;
+            nameEl.title = fullText; // 悬停时显示完整内容
+          }
+        }).catch(() => { 
+          metaEl.textContent = bookPath.split('/').pop(); 
+          metaEl.title = metaEl.textContent; 
+          
+          // 错误情况下也更新顶栏标题
+          const nameEl = document.getElementById('info-name');
+          if (nameEl) {
+            const fileName = bookPath.split('/').pop();
+            nameEl.textContent = fileName;
+            nameEl.title = fileName;
+          }
+        });
 
         // 封面缩略（阅读页顶栏）
         (async () => {
@@ -489,7 +504,7 @@
           if (e.key.toLowerCase() === 'i') document.getElementById('cover-mini').click();
           if ((e.altKey && (e.key === '-' || e.key === '_'))) document.getElementById('font-dec').click();
           if ((e.altKey && (e.key === '=' || e.key === '+'))) document.getElementById('font-inc').click();
-          if (e.key.toLowerCase() === 't') document.getElementById('toc-btn').click();
+          if (e.key.toLowerCase() === 't') document.getElementById('toc-quick-btn').click();
           if (e.key.toLowerCase() === 'b') document.getElementById('bm-btn').click();
           if (e.key.toLowerCase() === 'h') document.getElementById('help-btn').click();
           if (e.altKey && (e.key.toLowerCase() === 'd')) document.getElementById('toggle-site-theme').click();
@@ -553,6 +568,7 @@
             localStorage.setItem(COLLAPSE_KEY, 'true');
           }
         }
+        
         document.addEventListener('click', (e)=>{
           const t = e.target;
           if (t.closest('.topbar') || t.closest('#info-card') || t.closest('.drawer') || t.closest('#help-modal')) return;
@@ -622,7 +638,21 @@
         }
         function closeDrawers(){ openDrawer(null); }
 
-        document.getElementById('toc-btn').addEventListener('click', () => {
+        // 返回按钮事件监听器
+        function handleBackClick() {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            // 如果没有历史记录，回退到书库
+            window.location.href = 'index.html';
+          }
+        }
+        
+        document.getElementById('info-back-btn').addEventListener('click', handleBackClick);
+        document.getElementById('topbar-back-btn').addEventListener('click', handleBackClick);
+
+        // 快捷目录按钮事件监听器
+        document.getElementById('toc-quick-btn').addEventListener('click', () => {
           openDrawer(drawerToc.classList.contains('open') ? null : 'toc');
         });
         document.getElementById('bm-btn').addEventListener('click', () => {
