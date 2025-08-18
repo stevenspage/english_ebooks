@@ -3,7 +3,7 @@ import re
 
 def remove_zlibrary_from_filename(directory):
     """
-    批量删除文件名中的 (Z-Library) 部分
+    批量删除文件名中的 (Z-Library) 部分，是否只删除epub
     """
     # 遍历目录中的所有文件
     for filename in os.listdir(directory):
