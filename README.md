@@ -178,20 +178,17 @@
 41. **(384页) [接触 (Contact) (Carl Sagan)](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Contact%20%28Carl%20Sagan%29%20.epub)**
     > 普利策奖得主兼天文学家卡尔·萨根构想了一场前所未有的伟大冒险——在太空深处发现一个先进文明。1999年12月，一支多国团队前往星际，经历了人类历史上最震撼的遭遇。那里究竟是谁——或者是什么？在《宇宙》中，卡尔·萨根解释了宇宙。在《接触》中，他预测了宇宙的未来——以及我们自己的未来。
 
-42. **(281页) [操盘手的秘诀：最懂输的人才能成为赢家 (Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader) (Tom Hougaard)](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Best%20Loser%20Wins%20Why%20Normal%20Thinking%20Never%20Wins%20the%20Trading%20Game%20%E2%80%93%20written%20by%20a%20high-stake%20day%20trader%20%28Tom%20Hougaard%29%20.epub)**
-    > 《最佳输家赢》深入揭示了全球最杰出高风险零售交易员之一的内心世界。汤姆·侯高是多次交易竞赛的冠军，曾在一年内将两万五千英镑交易成超过一百万英镑。普通零售交易员在基础资产上每点风险十英镑，而汤姆·侯高经常每点风险高达三千五百英镑。这种风险敞口需要超乎寻常的心态。常规思维只能带来常规结果。要获得非凡成果，交易员必须另辟蹊径。本书将引导和激励你，方式前所未有。它不涉及策略和资金管理，而是关乎心态管理。汤姆·侯高提供了一个独特且极具个人色彩的叙述，讲述了一个普通交易员如何通过重视心态与技术研究，将交易水平提升到令人难以置信的高度。《最佳输家赢》阐释了你在交易时如何通过改变思维方式，将表现从平庸且不稳定提升到卓越且持续。单纯的技术分析永远无法做到这一点。汤姆·侯高说：“人们失败并非因为对技术分析了解不足，而是因为他们不理解市场对心态的影响。”《最佳输家赢》是对交易中传统且错误思维的解毒剂，也是为那些希望将成果提升到从未敢想高度的交易员提供的新信念体系蓝图。
-
-43. **(352页) [真正无惧的身心防弹术：美国特勤局专家带你提升心理素质，面对各种挑战 (Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly) (Evy Poumpouras)](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Becoming%20Bulletproof%20Protect%20Yourself%2C%20Read%20People%2C%20Influence%20Situations%2C%20and%20Live%20Fearlessly%20%28Evy%20Poumpouras%29%20.epub)**
+42. **(352页) [真正无惧的身心防弹术：美国特勤局专家带你提升心理素质，面对各种挑战 (Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly) (Evy Poumpouras)](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Becoming%20Bulletproof%20Protect%20Yourself%2C%20Read%20People%2C%20Influence%20Situations%2C%20and%20Live%20Fearlessly%20%28Evy%20Poumpouras%29%20.epub)**
     > 前美国特勤局特工、Bravo电视台《间谍游戏》节目明星Evy Poumpouras分享了她在保护总统过程中学到的经验，以及来自世界上最古老、最精英的安全部队的洞察力和技能，帮助你应对压力情境，迅速识人，影响他人对你的看法，并过上更无畏的生活。成为“防弹人”意味着将自己转变为一个更强、更自信、更有力量的人。Evy Poumpouras——曾保护过三位总统的前特勤局特工，也是仅有的五位获得英勇勋章的女性之一——展示了我们如何克服日常恐惧，进行困难对话，判断谁值得信任以及谁可能不怀好意，影响局势，并应对意外情况。当你变得“防弹”时，你将成为最优秀、最勇敢、最有力的自己。Poumpouras告诉我们，真正的力量在于内心，而非身体。勇气不仅意味着面对恐惧，还涉及韧性、毅力，以及拥有内置的“胡说探测器”并懂得如何使用它。在《成为防弹人》一书中，Poumpouras展示了如何提升我们的自然本能，运用所有这些品质，从恐惧走向无畏。
 
-44. **(460页) [航空港 (Airport) (Arthur Hailey)](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Airport%20%28Arthur%20Hailey%29%20.epub)**
+43. **(460页) [航空港 (Airport) (Arthur Hailey)](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Airport%20%28Arthur%20Hailey%29%20.epub)**
     > 由亚瑟·海利所著并于1968年首次出版的这部扣人心弦的小说，深入探讨了航空和机场运营的复杂世界。故事主要设定在林肯国际机场，正值一场猛烈的冬季风暴期间，交织了乘客、机组人员和机场工作人员的生活，捕捉了每趟航班背后巨大的压力和高风险决策。海利细致入微的研究为叙事增添了真实感，向读者提供了关于空中交通管制、飞机维护、航空公司管理以及实时应对紧急挑战的详细见解。
     > 
     > 小说的核心是一段围绕一架伪装成客机的轰炸机展开的紧张剧情，形成了一条推动故事发展的悬疑线索。同时，海利探讨了人物的个人挣扎和抱负：机场经理努力保持运营顺畅，飞行员在危险条件下导航，普通旅客则应对着恐惧、挫败和人类的脆弱。
     > 
     > 通过其错综复杂的情节，《机场》将惊心动魄的悬疑与社会评论相结合，展示了人为错误、技术局限和意外事件如何在高压环境中交汇。海利的小说不仅娱乐性强，还具有教育意义，揭示了现代航空旅行的隐藏复杂性以及为确保其安全所需的非凡努力。
 
-45. **(302页) [镜子里的陌生人 (A stranger in the mirror) (Sheldon Sidney)](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/A%20stranger%20in%20the%20mirror%20%28Sheldon%20Sidney%29%20.epub)**
+44. **(302页) [镜子里的陌生人 (A stranger in the mirror) (Sheldon Sidney)](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/A%20stranger%20in%20the%20mirror%20%28Sheldon%20Sidney%29%20.epub)**
     > 《镜中陌生人》是美国畅销书作家西德尼·谢尔顿的代表作之一。小说围绕好莱坞巨星托比·坦普尔展开，他是一位天赋非凡、个性张扬的演员，凭借才华与魅力迅速走红，成为家喻户晓的明星。然而在名誉、财富与欲望的围困下，托比逐渐迷失，真实的自我在虚荣与谎言中被掩盖。小说不仅描绘了他在演艺圈的辉煌与跌宕，也揭示了娱乐工业的残酷与虚伪。托比与身边女人的关系贯穿全书，既有真情流露，也有权力与利益的交易，折射出人性的复杂与脆弱。谢尔顿以快节奏的叙事、悬念迭起的情节，将读者带入一个光鲜却暗藏危机的世界。通过托比的起伏人生，小说深刻探讨了成功与孤独、欲望与背叛之间的矛盾。整部作品既有戏剧性的冲突，又有对人性的思考，是一部集娱乐性与思想性于一体的经典小说。
 
 
@@ -199,7 +196,7 @@
 
 ## 📊 统计信息
 
-- **总图书数量**: 45 本
-- **显示图书数量**: 45 本
-- **最后更新**: 2025-08-18T10:07:36.660313Z
+- **总图书数量**: 44 本
+- **显示图书数量**: 44 本
+- **最后更新**: 2025-08-20T00:01:26.515484Z
 - **数据来源**: book_info.json
