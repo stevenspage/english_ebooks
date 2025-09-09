@@ -7,9 +7,16 @@ AGENT_ID = "general_translation"  # 智能体ID
 STRATEGY = "two_step"             # 翻译策略
 
 # 输入输出文件配置
-# INPUT_FILE = "book_info_goodreads.json"           # 输入JSON文件路径（已移除硬编码）
-SOURCE_FIELD = "description_review_original"  # 源字段（英文原文）
-TARGET_FIELD = "description_review"     # 目标字段（中文翻译）
+# INPUT_FILE = "book_info.json"           # 输入JSON文件路径（已移除硬编码）
+
+# 第一个翻译字段配置
+SOURCE_FIELD_1 = "description_review_original"  # 源字段（英文原文）
+TARGET_FIELD_1 = "description_review"     # 目标字段（中文翻译）
+
+# 第二个翻译字段配置
+SOURCE_FIELD_2 = "author_bio"             # 源字段（作者简介英文原文）
+TARGET_FIELD_2 = "author_bio_zh"          # 目标字段（作者简介中文翻译）
+
 # 输出文件名会自动生成为: 原文件名_trans.json
 # ================================================
 
@@ -102,13 +109,13 @@ def translate_english_to_chinese(text, api_key):
                 "content": [
                     {
                         "type": "text",
-                        "text": f"翻译下列内容，直接返回翻译结果，不要有其他任何内容：\n\n{text}"
+                        "text": f"{text}"
                     }
                 ]
             }
         ],
         "custom_variables": {
-            "source_lang": "en",
+            "source_lang": "auto",
             "target_lang": "zh-CN",
             "strategy": STRATEGY
         }
@@ -121,6 +128,7 @@ def translate_english_to_chinese(text, api_key):
         
         # 解析响应
         result = response.json()
+        
         return result
         
     except requests.exceptions.RequestException as e:
@@ -130,46 +138,107 @@ def translate_english_to_chinese(text, api_key):
         print(f"JSON解析错误: {e}")
         return None
 
-def translate_book(book_data):
-    """翻译单本书的函数"""
-    book, index, total, api_key, source_field, target_field = book_data
-    book_title = book.get('title', f'书籍{index}')
-    
-    # 检查是否已有中文翻译
-    if book.get(target_field) and book[target_field].strip():
-        return {'status': 'skipped', 'message': f'[{index}/{total}] {book_title} - 跳过（已有中文翻译）', 'book': book}
-    
-    # 获取原文描述
-    original_desc = book.get(source_field, '')
-    if not original_desc or not original_desc.strip():
-        return {'status': 'skipped', 'message': f'[{index}/{total}] {book_title} - 跳过（无原文描述）', 'book': book}
-    
-    print(f"[{index}/{total}] {book_title} - 正在翻译...")
-    print(f"  原文: {original_desc[:100]}{'...' if len(original_desc) > 100 else ''}")
+def translate_field(text, api_key, field_name):
+    """翻译单个字段的函数"""
+    if not text or not text.strip():
+        return None, f"跳过（无{field_name}原文）"
     
     # 调用翻译函数
-    result = translate_english_to_chinese(original_desc, api_key)
+    result = translate_english_to_chinese(text, api_key)
     
     if result:
-        # 提取翻译结果
+        # 尝试多种可能的响应格式
+        translated_text = None
+        
+        # 格式1: choices -> messages -> content -> text
         if 'choices' in result and len(result['choices']) > 0:
             choice = result['choices'][0]
             if 'messages' in choice and len(choice['messages']) > 0:
                 content = choice['messages'][0]['content']
-                if isinstance(content, list) and len(content) > 0:
+                if isinstance(content, dict) and 'text' in content:
+                    translated_text = content['text']
+                elif isinstance(content, list) and len(content) > 0:
                     translated_text = content[0].get('text', '')
-                    book[target_field] = translated_text
-                    print(f"  ✓ 翻译完成")
-                    print(f"  译文: {translated_text[:100]}{'...' if len(translated_text) > 100 else ''}")
-                    return {'status': 'success', 'message': f'[{index}/{total}] {book_title} - 翻译完成', 'book': book}
-                else:
-                    return {'status': 'failed', 'message': f'[{index}/{total}] {book_title} - 翻译失败：响应格式错误', 'book': book}
-            else:
-                return {'status': 'failed', 'message': f'[{index}/{total}] {book_title} - 翻译失败：无消息内容', 'book': book}
+                elif isinstance(content, str):
+                    translated_text = content
+        
+        # 格式2: 直接包含翻译结果
+        elif 'data' in result and 'choices' in result['data']:
+            choices = result['data']['choices']
+            if len(choices) > 0 and 'message' in choices[0]:
+                translated_text = choices[0]['message'].get('content', '')
+        
+        # 格式3: 直接包含content
+        elif 'content' in result:
+            translated_text = result['content']
+        
+        # 格式4: 包含message字段
+        elif 'message' in result:
+            translated_text = result['message']
+        
+        if translated_text and translated_text.strip():
+            return translated_text.strip(), "翻译成功"
         else:
-            return {'status': 'failed', 'message': f'[{index}/{total}] {book_title} - 翻译失败：无选择结果', 'book': book}
+            return None, f"无法从响应中提取{field_name}翻译结果"
     else:
-        return {'status': 'failed', 'message': f'[{index}/{total}] {book_title} - 翻译失败：API调用错误', 'book': book}
+        return None, f"API调用错误"
+
+def translate_book(book_data):
+    """翻译单本书的函数"""
+    book, index, total, api_key = book_data
+    book_title = book.get('title', f'书籍{index}')
+    
+    # 检查两个字段的翻译状态
+    field1_has_translation = book.get(TARGET_FIELD_1) and book[TARGET_FIELD_1].strip()
+    field2_has_translation = book.get(TARGET_FIELD_2) and book[TARGET_FIELD_2].strip()
+    
+    # 如果两个字段都已翻译，跳过
+    if field1_has_translation and field2_has_translation:
+        return {'status': 'skipped', 'message': f'[{index}/{total}] {book_title} - 跳过（两个字段都已有中文翻译）', 'book': book}
+    
+    # 检查是否有原文需要翻译
+    field1_original = book.get(SOURCE_FIELD_1, '')
+    field2_original = book.get(SOURCE_FIELD_2, '')
+    
+    if not field1_original.strip() and not field2_original.strip():
+        return {'status': 'skipped', 'message': f'[{index}/{total}] {book_title} - 跳过（无任何原文需要翻译）', 'book': book}
+    
+    print(f"[{index}/{total}] {book_title} - 正在翻译...")
+    
+    # 翻译第一个字段
+    if field1_original.strip() and not field1_has_translation:
+        print(f"  翻译字段1: {SOURCE_FIELD_1} -> {TARGET_FIELD_1}")
+        print(f"  原文: {field1_original[:100]}{'...' if len(field1_original) > 100 else ''}")
+        
+        translated_text, status = translate_field(field1_original, api_key, "描述")
+        if translated_text:
+            book[TARGET_FIELD_1] = translated_text
+            print(f"  ✓ 字段1翻译完成")
+            print(f"  译文: {translated_text[:100]}{'...' if len(translated_text) > 100 else ''}")
+        else:
+            print(f"  ❌ 字段1翻译失败: {status}")
+    
+    # 翻译第二个字段
+    if field2_original.strip() and not field2_has_translation:
+        print(f"  翻译字段2: {SOURCE_FIELD_2} -> {TARGET_FIELD_2}")
+        print(f"  原文: {field2_original[:100]}{'...' if len(field2_original) > 100 else ''}")
+        
+        translated_text, status = translate_field(field2_original, api_key, "作者简介")
+        if translated_text:
+            book[TARGET_FIELD_2] = translated_text
+            print(f"  ✓ 字段2翻译完成")
+            print(f"  译文: {translated_text[:100]}{'...' if len(translated_text) > 100 else ''}")
+        else:
+            print(f"  ❌ 字段2翻译失败: {status}")
+    
+    # 检查翻译结果
+    field1_success = book.get(TARGET_FIELD_1) and book[TARGET_FIELD_1].strip()
+    field2_success = book.get(TARGET_FIELD_2) and book[TARGET_FIELD_2].strip()
+    
+    if field1_success or field2_success:
+        return {'status': 'success', 'message': f'[{index}/{total}] {book_title} - 翻译完成', 'book': book}
+    else:
+        return {'status': 'failed', 'message': f'[{index}/{total}] {book_title} - 翻译失败', 'book': book}
 
 def main():
     # 读取输入文件
@@ -183,8 +252,8 @@ def main():
             data = json.load(f)
             books = data.get('books', [])
         print(f"成功读取 {len(books)} 本书的信息")
-        print(f"源字段: {SOURCE_FIELD}")
-        print(f"目标字段: {TARGET_FIELD}")
+        print(f"字段1: {SOURCE_FIELD_1} -> {TARGET_FIELD_1}")
+        print(f"字段2: {SOURCE_FIELD_2} -> {TARGET_FIELD_2}")
         
         # 自动生成输出文件名
         base_name = os.path.splitext(INPUT_FILE)[0]  # 去掉扩展名
@@ -212,7 +281,7 @@ def main():
     # 准备需要翻译的书籍数据
     books_to_translate = []
     for i, book in enumerate(books, 1):
-        books_to_translate.append((book, i, total_books, API_KEY, SOURCE_FIELD, TARGET_FIELD))
+        books_to_translate.append((book, i, total_books, API_KEY))
     
     # 使用线程池执行并发翻译
     with ThreadPoolExecutor(max_workers=20) as executor:
@@ -228,9 +297,9 @@ def main():
                     translated_books += 1
                 elif result['status'] == 'skipped':
                     # 根据跳过原因分别统计
-                    if '已有中文翻译' in result['message']:
+                    if '两个字段都已有中文翻译' in result['message']:
                         skipped_translated += 1
-                    elif '无原文描述' in result['message']:
+                    elif '无任何原文需要翻译' in result['message']:
                         skipped_no_original += 1
                     else:
                         skipped_translated += 1  # 默认归类
@@ -254,7 +323,7 @@ def main():
         print("-" * 50)
         print(f"翻译完成！结果已保存到 {OUTPUT_FILE}")
         print(f"总计: {total_books} 本书")
-        print(f"跳过: {skipped_translated + skipped_no_original} 本（已有翻译: {skipped_translated} 本，无原文: {skipped_no_original} 本）")
+        print(f"跳过: {skipped_translated + skipped_no_original} 本（两个字段都已有翻译: {skipped_translated} 本，无任何原文: {skipped_no_original} 本）")
         print(f"成功: {translated_books} 本")
         print(f"失败: {failed_books} 本")
     except Exception as e:
