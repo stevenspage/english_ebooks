@@ -29,6 +29,38 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import queue
 from bs4 import BeautifulSoup
 
+def filter_version_notes(text):
+    """
+    如果开头第一句话包含ISBN，则删除第一句话
+    
+    Args:
+        text (str): 原始文本
+        
+    Returns:
+        str: 过滤后的文本
+    """
+    if not text:
+        return text
+    
+    # 按句子分割（以句号、问号、感叹号分割）
+    sentences = re.split(r'[.!?]+', text)
+    
+    if len(sentences) == 0:
+        return text
+    
+    # 检查第一句话是否包含ISBN
+    first_sentence = sentences[0].strip()
+    if 'ISBN' in first_sentence.upper():
+        # 删除第一句话，保留其余句子
+        remaining_sentences = sentences[1:]
+        result = '. '.join(sentence.strip() for sentence in remaining_sentences if sentence.strip())
+        if result and not result.endswith('.'):
+            result += '.'
+        return result.strip()
+    
+    # 如果第一句话不包含ISBN，返回原文本
+    return text
+
 def is_probable_same_author(input_author, result_authors):
     """
     判断输入作者名与结果作者列表中是否有可能是同一个人。
@@ -211,6 +243,8 @@ def get_book_info_google(title, author):
                 page_count = volume_info.get("pageCount")
                 title_result = volume_info.get("title", "未知标题")
                 description = volume_info.get("description", "")
+                # 过滤版本说明句子
+                description = filter_version_notes(description)
                 published_date = volume_info.get("publishedDate", "")
                 publisher = volume_info.get("publisher", "")
                 categories = volume_info.get("categories", [])
@@ -520,6 +554,10 @@ def extract_goodreads_detailed_info(book_url):
                 # 清理HTML标签和特殊字符
                 description = description.replace('<br>', '\n').replace('<br/>', '\n').replace('<br />', '\n')
                 description = re.sub(r'\n+', '\n', description).strip()
+                
+                # 过滤版本说明句子
+                description = filter_version_notes(description)
+                
                 if description and len(description) > 50:
                     detailed_info['description'] = description
                     print(f"书籍描述: {description[:100]}...")
