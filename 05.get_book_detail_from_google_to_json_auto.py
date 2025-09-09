@@ -1,3 +1,24 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+双数据源图书信息批量查询工具
+支持 Google Books API 和 Goodreads 两种数据源
+"""
+
+# ==================== 用户配置区域 ====================
+# 用户可以通过修改这里的值来选择使用哪种方法获取图书信息
+# 可选值: "google" 或 "goodreads"
+BOOK_INFO_SOURCE = "goodreads"  # 默认使用Google Books API
+
+# 并发线程数配置（可根据网络情况调整）
+# Google Books API 建议: 5-10
+# Goodreads 建议: 2-3
+MAX_WORKERS = 2
+
+# 是否显示详细调试信息
+DEBUG_MODE = False
+# =====================================================
+
 import requests
 import json
 import time
@@ -6,6 +27,7 @@ from datetime import datetime
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import queue
+from bs4 import BeautifulSoup
 
 def is_probable_same_author(input_author, result_authors):
     """
@@ -163,7 +185,9 @@ def is_valid_cover(url):
     except Exception:
         return False
 
-def get_book_info(title, author):
+# ==================== Google Books API 函数 ====================
+
+def get_book_info_google(title, author):
     """
     查询 Google Books API，返回页数、匹配作者名、图书描述、出版信息等。
     并使用 ISBN 去 Open Library 获取有效封面链接。
@@ -291,6 +315,448 @@ def get_book_info(title, author):
         print(f"❌ 查询出错: {str(e)}")
         return None
 
+# ==================== Goodreads 函数 ====================
+
+def debug_print(message):
+    """
+    调试信息打印函数
+    """
+    if DEBUG_MODE:
+        print(f"🐛 DEBUG: {message}")
+
+def get_goodreads_headers():
+    """
+    获取Goodreads请求头
+    """
+    return {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Accept-Encoding': 'gzip, deflate',
+        'Connection': 'keep-alive',
+    }
+
+def find_matching_book_by_author_goodreads(search_url, target_author):
+    """
+    从Goodreads搜索结果中找到匹配指定作者的书
+    
+    Args:
+        search_url (str): Goodreads搜索URL
+        target_author (str): 目标作者名
+        
+    Returns:
+        str: 匹配的书籍详情页面URL，如果没找到返回None
+    """
+    try:
+        print(f"正在搜索匹配作者 '{target_author}' 的书籍...")
+        debug_print(f"搜索URL: {search_url}")
+        
+        # 发送请求
+        response = requests.get(search_url, headers=get_goodreads_headers(), timeout=60)
+        response.raise_for_status()
+        
+        print(f"成功获取搜索结果页面，状态码: {response.status_code}")
+        
+        # 解析HTML
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # 查找所有搜索结果
+        search_results = soup.find_all('tr', {'itemscope': True, 'itemtype': 'http://schema.org/Book'})
+        
+        print(f"找到 {len(search_results)} 个搜索结果")
+        
+        # 遍历搜索结果，查找匹配的作者
+        for i, result in enumerate(search_results):
+            # 提取作者名称
+            author_link = result.find('a', class_='authorName')
+            if author_link:
+                author_span = author_link.find('span', {'itemprop': 'name'})
+                if author_span:
+                    author_name = author_span.get_text(strip=True)
+                    print(f"结果 {i+1}: 作者 = {author_name}")
+                    
+                    # 检查是否匹配目标作者
+                    if is_probable_same_author(target_author, [author_name]):
+                        # 提取书籍链接
+                        book_link = result.find('a', {'itemprop': 'url'})
+                        if book_link:
+                            href = book_link.get('href')
+                            if href:
+                                # 去除查询参数
+                                clean_href = href.split('?')[0]
+                                book_url = 'https://www.goodreads.com' + clean_href
+                                print(f"找到匹配的书籍: {book_url}")
+                                return book_url
+            else:
+                # 备用方法：直接查找itemprop="name"的span
+                author_span = result.find('span', {'itemprop': 'name'}, class_=None)
+                if author_span and author_span.parent and author_span.parent.get('class') == ['authorName']:
+                    author_name = author_span.get_text(strip=True)
+                    print(f"结果 {i+1}: 作者 = {author_name} (备用方法)")
+                    
+                    # 检查是否匹配目标作者
+                    if is_probable_same_author(target_author, [author_name]):
+                        # 提取书籍链接
+                        book_link = result.find('a', {'itemprop': 'url'})
+                        if book_link:
+                            href = book_link.get('href')
+                            if href:
+                                # 去除查询参数
+                                clean_href = href.split('?')[0]
+                                book_url = 'https://www.goodreads.com' + clean_href
+                                print(f"找到匹配的书籍: {book_url}")
+                                return book_url
+        
+        print(f"未找到作者 '{target_author}' 的匹配书籍")
+        return None
+        
+    except requests.exceptions.RequestException as e:
+        print(f"搜索请求错误: {e}")
+        return None
+    except Exception as e:
+        print(f"搜索解析错误: {e}")
+        return None
+
+def extract_goodreads_detailed_info(book_url):
+    """
+    从Goodreads书籍详情页面提取所有详细信息
+    
+    Args:
+        book_url (str): 书籍详情页面URL
+        
+    Returns:
+        dict: 包含所有详细信息的字典
+    """
+    try:
+        print(f"正在访问书籍详情页面提取所有信息: {book_url}")
+        
+        # 发送请求
+        response = requests.get(book_url, headers=get_goodreads_headers(), timeout=60)
+        response.raise_for_status()
+        
+        print(f"成功获取书籍详情页面，状态码: {response.status_code}")
+        
+        # 解析HTML
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        detailed_info = {}
+        
+        # 1. 提取详细评分信息
+        print("提取评分信息...")
+        rating_stats = soup.find('a', class_='RatingStatistics')
+        if rating_stats:
+            # 提取平均评分
+            rating_value = rating_stats.find('div', class_='RatingStatistics__rating')
+            if rating_value:
+                try:
+                    detailed_info['avg_rating'] = float(rating_value.get_text(strip=True))
+                    print(f"平均评分: {detailed_info['avg_rating']}")
+                except ValueError:
+                    pass
+            
+            # 提取评分数量和评论数量
+            meta_div = rating_stats.find('div', class_='RatingStatistics__meta')
+            if meta_div:
+                # 提取评分数量
+                ratings_span = meta_div.find('span', {'data-testid': 'ratingsCount'})
+                if ratings_span:
+                    ratings_text = ratings_span.get_text(strip=True)
+                    ratings_match = re.search(r'([\d,]+)\s*ratings', ratings_text)
+                    if ratings_match:
+                        detailed_info['rating_count'] = int(ratings_match.group(1).replace(',', ''))
+                        print(f"评分数量: {detailed_info['rating_count']}")
+                
+                # 提取评论数量
+                reviews_span = meta_div.find('span', {'data-testid': 'reviewsCount'})
+                if reviews_span:
+                    reviews_text = reviews_span.get_text(strip=True)
+                    reviews_match = re.search(r'([\d,]+)\s*reviews', reviews_text)
+                    if reviews_match:
+                        detailed_info['review_count'] = int(reviews_match.group(1).replace(',', ''))
+                        print(f"评论数量: {detailed_info['review_count']}")
+        
+        # 2. 提取作者信息
+        print("提取作者信息...")
+        author_link = soup.find('a', class_='authorName')
+        if author_link:
+            author_span = author_link.find('span', {'itemprop': 'name'})
+            if author_span:
+                detailed_info['author'] = author_span.get_text(strip=True)
+                print(f"作者: {detailed_info['author']}")
+        
+        # 备用方法：从JSON-LD提取作者
+        if not detailed_info.get('author'):
+            json_script = soup.find('script', type='application/ld+json')
+            if json_script:
+                try:
+                    json_data = json.loads(json_script.string)
+                    if 'author' in json_data and isinstance(json_data['author'], list) and len(json_data['author']) > 0:
+                        author_name = json_data['author'][0].get('name', '')
+                        if author_name:
+                            detailed_info['author'] = author_name
+                            print(f"从JSON-LD提取作者: {author_name}")
+                except (json.JSONDecodeError, KeyError, ValueError):
+                    pass
+        
+        # 3. 提取书籍描述和作者介绍（按顺序）
+        print("提取书籍描述和作者介绍...")
+        
+        # 查找包含Formatted span的div
+        formatted_divs = soup.find_all('div', class_='DetailsLayoutRightParagraph__widthConstrained')
+        print(f"找到 {len(formatted_divs)} 个 DetailsLayoutRightParagraph__widthConstrained div")
+        
+        # 初始化字段
+        detailed_info['description'] = ""
+        detailed_info['author_bio'] = ""
+        detailed_info['pages'] = ""
+        detailed_info['first_published_year'] = ""
+        detailed_info['isbn13'] = ""
+        
+        # 第一个是书籍描述
+        if len(formatted_divs) >= 1:
+            description_span = formatted_divs[0].find('span', class_='Formatted')
+            if description_span:
+                description = description_span.get_text(strip=True)
+                # 清理HTML标签和特殊字符
+                description = description.replace('<br>', '\n').replace('<br/>', '\n').replace('<br />', '\n')
+                description = re.sub(r'\n+', '\n', description).strip()
+                if description and len(description) > 50:
+                    detailed_info['description'] = description
+                    print(f"书籍描述: {description[:100]}...")
+                else:
+                    print("书籍描述: 未找到有效内容")
+            else:
+                print("书籍描述: 未找到Formatted span")
+        else:
+            print("书籍描述: 未找到DetailsLayoutRightParagraph__widthConstrained div")
+        
+        # 第二个是作者介绍
+        if len(formatted_divs) >= 2:
+            author_bio_span = formatted_divs[1].find('span', class_='Formatted')
+            if author_bio_span:
+                author_bio = author_bio_span.get_text(strip=True)
+                # 清理HTML标签和特殊字符
+                author_bio = author_bio.replace('<br>', '\n').replace('<br/>', '\n').replace('<br />', '\n')
+                author_bio = re.sub(r'\n+', '\n', author_bio).strip()
+                if author_bio and len(author_bio) > 50:
+                    detailed_info['author_bio'] = author_bio
+                    print(f"作者介绍: {author_bio[:100]}...")
+                else:
+                    print("作者介绍: 未找到有效内容")
+            else:
+                print("作者介绍: 未找到Formatted span")
+        else:
+            print("作者介绍: 未找到第二个DetailsLayoutRightParagraph__widthConstrained div")
+        
+        # 4. 提取页数和首次出版年份
+        print("提取页数和首次出版年份...")
+        featured_details = soup.find('div', class_='FeaturedDetails')
+        if featured_details:
+            # 提取页数
+            pages_element = featured_details.find('p', {'data-testid': 'pagesFormat'})
+            if pages_element:
+                pages_text = pages_element.get_text(strip=True)
+                # 提取数字部分
+                pages_match = re.search(r'(\d+)', pages_text)
+                if pages_match:
+                    detailed_info['pages'] = int(pages_match.group(1))
+                    print(f"页数: {detailed_info['pages']}")
+                else:
+                    print("页数: 未找到数字")
+            else:
+                print("页数: 未找到pagesFormat元素")
+            
+            # 提取首次出版年份
+            publication_element = featured_details.find('p', {'data-testid': 'publicationInfo'})
+            if publication_element:
+                publication_text = publication_element.get_text(strip=True)
+                # 提取年份
+                year_match = re.search(r'(\d{4})', publication_text)
+                if year_match:
+                    detailed_info['first_published_year'] = int(year_match.group(1))
+                    print(f"首次出版年份: {detailed_info['first_published_year']}")
+                else:
+                    print("首次出版年份: 未找到年份")
+            else:
+                print("首次出版年份: 未找到publicationInfo元素")
+        else:
+            print("页数和首次出版年份: 未找到FeaturedDetails元素")
+        
+        # 5. 提取ISBN 13
+        print("提取ISBN 13...")
+        
+        # 方法1：从JSON-LD中提取
+        json_scripts = soup.find_all('script', type='application/ld+json')
+        for script in json_scripts:
+            try:
+                data = json.loads(script.string)
+                if isinstance(data, dict) and data.get('@type') == 'Book':
+                    isbn = data.get('isbn')
+                    if isbn and len(isbn) == 13 and (isbn.startswith('978') or isbn.startswith('979')):
+                        detailed_info['isbn13'] = isbn
+                        print(f"ISBN 13 (JSON-LD): {detailed_info['isbn13']}")
+                        break
+            except (json.JSONDecodeError, KeyError, ValueError):
+                continue
+        
+        # 方法2：如果JSON-LD中没有找到，尝试从EditionDetails中提取
+        if not detailed_info['isbn13']:
+            edition_details = soup.find('div', class_='EditionDetails')
+            if edition_details:
+                # 查找ISBN相关的DescListItem
+                desc_items = edition_details.find_all('div', class_='DescListItem')
+                for item in desc_items:
+                    dt = item.find('dt')
+                    if dt and dt.get_text(strip=True) == 'ISBN':
+                        dd = item.find('dd')
+                        if dd:
+                            # 查找包含ISBN的文本内容
+                            content_container = dd.find('div', {'data-testid': 'contentContainer'})
+                            if content_container:
+                                isbn_text = content_container.get_text(strip=True)
+                                # 提取ISBN 13（13位数字，通常以978或979开头）
+                                isbn13_match = re.search(r'(\d{13})', isbn_text)
+                                if isbn13_match:
+                                    detailed_info['isbn13'] = isbn13_match.group(1)
+                                    print(f"ISBN 13 (EditionDetails): {detailed_info['isbn13']}")
+                                else:
+                                    print("ISBN 13: 未找到13位数字")
+                            else:
+                                print("ISBN 13: 未找到contentContainer")
+                        else:
+                            print("ISBN 13: 未找到dd元素")
+                        break
+                else:
+                    print("ISBN 13: 未找到ISBN相关的DescListItem")
+            else:
+                print("ISBN 13: 未找到EditionDetails元素")
+        
+        # 如果仍然没有找到，输出提示
+        if not detailed_info['isbn13']:
+            print("ISBN 13: 未找到ISBN 13信息")
+        
+        # 6. 提取书籍类型（Genres）
+        print("提取书籍类型...")
+        genres_div = soup.find('div', {'data-testid': 'genresList'})
+        if genres_div:
+            # 查找所有genre按钮
+            genre_buttons = genres_div.find_all('a', class_='Button--tag')
+            genres = []
+            for button in genre_buttons:
+                label_item = button.find('span', class_='Button__labelItem')
+                if label_item:
+                    genre_text = label_item.get_text(strip=True)
+                    if genre_text and genre_text != '...more':  # 排除"更多"按钮
+                        genres.append(genre_text)
+            
+            if genres:
+                detailed_info['genres'] = genres
+                print(f"书籍类型: {', '.join(genres)}")
+            else:
+                print("书籍类型: 未找到有效的类型")
+        else:
+            print("书籍类型: 未找到genresList元素")
+        
+        return detailed_info if detailed_info else None
+        
+    except requests.exceptions.RequestException as e:
+        print(f"请求书籍详情页面错误: {e}")
+        return None
+    except Exception as e:
+        print(f"解析书籍详情页面错误: {e}")
+        return None
+
+def get_book_info_goodreads(title, author):
+    """
+    从Goodreads获取图书信息
+    """
+    try:
+        # 构建搜索URL
+        search_url = f"https://www.goodreads.com/search?utf8=%E2%9C%93&q={requests.utils.quote(title)}&search_type=books&search%5Bfield%5D=title"
+        
+        print(f"🔍 正在Goodreads搜索: {title} - {author}")
+        
+        # 从搜索结果中找到匹配作者名的书籍
+        book_url = find_matching_book_by_author_goodreads(search_url, author)
+        
+        if not book_url:
+            print("❌ 未在Goodreads找到匹配的书籍")
+            return None
+        
+        # 提取详细信息
+        detailed_info = extract_goodreads_detailed_info(book_url)
+        
+        if not detailed_info:
+            print("❌ 无法从Goodreads提取详细信息")
+            return None
+        
+        # 转换为统一格式
+        result = {
+            'pages': detailed_info.get('pages'),
+            'publishYear': detailed_info.get('first_published_year'),
+            'description_review_original': detailed_info.get('description', ''),
+            'genre': detailed_info.get('genres', []),  # 使用Goodreads提取的genres
+            'isbn': detailed_info.get('isbn13'),
+            # Goodreads额外信息
+            'goodreads_rating': detailed_info.get('avg_rating'),
+            'goodreads_rating_count': detailed_info.get('rating_count'),
+            'goodreads_review_count': detailed_info.get('review_count'),
+            'author_bio': detailed_info.get('author_bio', '')
+        }
+        
+        # 显示提取的信息
+        print(f"✅ 匹配书名: {title}")
+        print(f"📖 页数: {result['pages'] if result['pages'] else '未知'}")
+        print(f"👤 作者: {detailed_info.get('author', author)}")
+        print(f"📅 出版年份: {result['publishYear'] if result['publishYear'] else '未知'}")
+        print(f"🔖 ISBN: {result['isbn'] if result['isbn'] else '未知'}")
+        
+        # 显示分类信息
+        if result['genre']:
+            print(f"🏷️ 分类: {', '.join(result['genre'])}")
+        else:
+            print("🏷️ 分类: 暂无分类")
+        
+        # 显示Goodreads评分信息
+        if result['goodreads_rating']:
+            print(f"⭐ Goodreads评分: {result['goodreads_rating']}")
+        if result['goodreads_rating_count']:
+            print(f"📊 评分数量: {result['goodreads_rating_count']:,}")
+        if result['goodreads_review_count']:
+            print(f"💬 评论数量: {result['goodreads_review_count']:,}")
+        
+        if result['description_review_original']:
+            desc_preview = result['description_review_original'][:200] + "..." if len(result['description_review_original']) > 200 else result['description_review_original']
+            print(f"📝 图书描述: {desc_preview}")
+        else:
+            print("📝 图书描述: 暂无描述")
+            
+        if result['author_bio']:
+            bio_preview = result['author_bio'][:100] + "..." if len(result['author_bio']) > 100 else result['author_bio']
+            print(f"👨‍💼 作者介绍: {bio_preview}")
+        else:
+            print("👨‍💼 作者介绍: 暂无介绍")
+        
+        return result
+        
+    except Exception as e:
+        print(f"❌ Goodreads查询出错: {str(e)}")
+        return None
+
+# ==================== 统一接口函数 ====================
+
+def get_book_info(title, author):
+    """
+    统一的图书信息获取接口，根据配置选择数据源
+    """
+    if BOOK_INFO_SOURCE == "google":
+        return get_book_info_google(title, author)
+    elif BOOK_INFO_SOURCE == "goodreads":
+        return get_book_info_goodreads(title, author)
+    else:
+        print(f"❌ 未知的数据源: {BOOK_INFO_SOURCE}")
+        return None
+
 def load_book_info():
     """
     从book_info.json加载书籍信息
@@ -350,6 +816,23 @@ def update_book_info(books, book_index, book_info):
         if book_info.get('isbn'):
             book['isbn'] = book_info['isbn']
             print(f"🔖 已更新ISBN: {book_info['isbn']}")
+        
+        # 更新Goodreads额外信息
+        if book_info.get('goodreads_rating') is not None:
+            book['goodreads_rating'] = book_info['goodreads_rating']
+            print(f"⭐ 已更新Goodreads评分: {book_info['goodreads_rating']}")
+        
+        if book_info.get('goodreads_rating_count') is not None:
+            book['goodreads_rating_count'] = book_info['goodreads_rating_count']
+            print(f"📊 已更新评分数量: {book_info['goodreads_rating_count']:,}")
+        
+        if book_info.get('goodreads_review_count') is not None:
+            book['goodreads_review_count'] = book_info['goodreads_review_count']
+            print(f"💬 已更新评论数量: {book_info['goodreads_review_count']:,}")
+        
+        if book_info.get('author_bio'):
+            book['author_bio'] = book_info['author_bio']
+            print(f"👨‍💼 已更新作者介绍")
         
         return True
     return False
@@ -414,6 +897,11 @@ def main():
     主函数：从book_info.json读取所有书籍信息并并发查询
     """
     print("📚 图书信息批量查询工具（并发加速版）")
+    print(f"🔧 当前数据源: {BOOK_INFO_SOURCE.upper()}")
+    if BOOK_INFO_SOURCE == "google":
+        print("📖 使用 Google Books API")
+    elif BOOK_INFO_SOURCE == "goodreads":
+        print("📖 使用 Goodreads 网站")
     print("=" * 60)
     
     # 加载书籍信息
@@ -429,8 +917,8 @@ def main():
     
     print(f"📖 共找到 {len(books)} 本书籍")
     
-    # 使用默认并发数量
-    max_workers = 5
+    # 使用配置的并发数量
+    max_workers = MAX_WORKERS
     print(f"🚀 使用 {max_workers} 个并发线程")
     print("=" * 60)
     
@@ -553,6 +1041,10 @@ def main():
         desc_updated = 0
         genre_updated = 0
         isbn_updated = 0
+        rating_updated = 0
+        rating_count_updated = 0
+        review_count_updated = 0
+        author_bio_updated = 0
         
         for book in matched_books:
             info = book['info']
@@ -566,16 +1058,28 @@ def main():
                 genre_updated += 1
             if info.get('isbn'):
                 isbn_updated += 1
+            if info.get('goodreads_rating') is not None:
+                rating_updated += 1
+            if info.get('goodreads_rating_count') is not None:
+                rating_count_updated += 1
+            if info.get('goodreads_review_count') is not None:
+                review_count_updated += 1
+            if info.get('author_bio'):
+                author_bio_updated += 1
         
         print(f"   📖 页数信息: {pages_updated} 本")
         print(f"   📅 出版年份: {year_updated} 本")
         print(f"   📝 图书介绍: {desc_updated} 本")
         print(f"   🏷️ 分类信息: {genre_updated} 本")
         print(f"   🔖 ISBN信息: {isbn_updated} 本")
+        print(f"   ⭐ Goodreads评分: {rating_updated} 本")
+        print(f"   📊 评分数量: {rating_count_updated} 本")
+        print(f"   💬 评论数量: {review_count_updated} 本")
+        print(f"   👨‍💼 作者介绍: {author_bio_updated} 本")
         
         # 计算信息完整度
-        total_possible_updates = len(matched_books) * 5  # 每本书最多5种信息
-        actual_updates = pages_updated + year_updated + desc_updated + genre_updated + isbn_updated
+        total_possible_updates = len(matched_books) * 9  # 每本书最多9种信息（5个基础 + 4个Goodreads额外）
+        actual_updates = pages_updated + year_updated + desc_updated + genre_updated + isbn_updated + rating_updated + rating_count_updated + review_count_updated + author_bio_updated
         update_completeness = (actual_updates / total_possible_updates * 100) if total_possible_updates > 0 else 0
         
         print(f"   📊 信息完整度: {update_completeness:.1f}% ({actual_updates}/{total_possible_updates})")
@@ -630,6 +1134,14 @@ def main():
                 print(f"      🏷️ 分类: {', '.join(info['genre'])}")
             if info.get('isbn'):
                 print(f"      🔖 ISBN: {info['isbn']}")
+            if info.get('goodreads_rating'):
+                print(f"      ⭐ 评分: {info['goodreads_rating']}")
+            if info.get('goodreads_rating_count'):
+                print(f"      📊 评分数: {info['goodreads_rating_count']:,}")
+            if info.get('goodreads_review_count'):
+                print(f"      💬 评论数: {info['goodreads_review_count']:,}")
+            if info.get('author_bio'):
+                print(f"      👨‍💼 有作者介绍")
             print()
         
         print("-" * 60)
@@ -670,71 +1182,13 @@ def main():
     if skipped_books:
         print(f"\n⏭️ 跳过了 {len(skipped_books)} 本已有完整信息的书籍，节省了查询时间")
 
-# 示例用法（保留原有功能）
-def interactive_mode():
-    """
-    交互式模式：手动输入书名和作者
-    """
-    print("📚 图书信息查询工具（交互式模式）")
-    print("=" * 50)
-    
-    while True:
-        print("\n" + "=" * 50)
-        title_input = input("请输入书名（输入 'quit' 或 'exit' 退出）：").strip()
-        
-        # 检查退出条件
-        if title_input.lower() in ['quit', 'exit', '退出', 'q']:
-            print("👋 感谢使用，再见！")
-            break
-            
-        if not title_input:
-            print("❌ 书名不能为空，请重新输入")
-            continue
-            
-        author_input = input("请输入作者名：").strip()
-        
-        if not author_input:
-            print("❌ 作者名不能为空，请重新输入")
-            continue
-        
-        print(f"\n🔍 正在查询：{title_input} - {author_input}")
-        print("-" * 30)
-        
-        # 执行查询
-        result = get_book_info(title_input, author_input)
-        
-        if result:
-            print(f"\n📊 查询结果:")
-            if result.get('pages'):
-                print(f"📖 页数: {result['pages']}")
-            if result.get('publishYear'):
-                print(f"📅 出版年份: {result['publishYear']}")
-            if result.get('description_review_original'):
-                print(f"📝 图书介绍: {result['description_review_original'][:100]}...")
-            if result.get('genre'):
-                print(f"🏷️ 分类: {', '.join(result['genre'])}")
-            if result.get('isbn'):
-                print(f"🔖 ISBN: {result['isbn']}")
-        
-        print("\n" + "-" * 30)
-        print("✅ 查询完成，请继续输入下一本书的信息...")
-
 if __name__ == "__main__":
-    # 暂时绕过交互模式选择，直接运行批量查询模式
-    # print("请选择运行模式：")
-    # print("1. 批量查询模式（从book_info.json读取）")
-    # print("2. 交互式模式（手动输入）")
-    # 
-    # choice = input("请输入选择 (1 或 2): ").strip()
-    # 
-    # if choice == "1":
-    #     main()
-    # elif choice == "2":
-    #     interactive_mode()
-    # else:
-    #     print("❌ 无效选择，默认运行批量查询模式")
-    #     main()
+    # ==================== 使用说明 ====================
+    # 要切换数据源，请修改文件顶部的用户配置区域：
+    # 1. BOOK_INFO_SOURCE: "google" 或 "goodreads"
+    # 2. MAX_WORKERS: 并发线程数（Google建议5-10，Goodreads建议2-3）
+    # 3. DEBUG_MODE: True/False 是否显示调试信息
+    # ================================================
     
-    # 直接运行批量查询模式
-    print("🚀 自动运行批量查询模式...")
+    print("🚀 启动图书信息批量查询工具...")
     main()
