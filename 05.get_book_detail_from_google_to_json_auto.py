@@ -326,7 +326,7 @@ def get_book_info_google(title, author):
                 return {
                     'pages': page_count if page_count else None,
                     'publishYear': publish_year,
-                    'description_review_original': description if description else "",
+                    'description': description if description else "",
                     'genre': categories if categories else [],
                     'isbn': isbn if isbn else None
                 }
@@ -732,7 +732,7 @@ def get_book_info_goodreads(title, author):
         result = {
             'pages': detailed_info.get('pages'),
             'publishYear': detailed_info.get('first_published_year'),
-            'description_review_original': detailed_info.get('description', ''),
+            'description': detailed_info.get('description', ''),
             'genre': detailed_info.get('genres', []),  # 使用Goodreads提取的genres
             'isbn': detailed_info.get('isbn13'),
             # Goodreads额外信息
@@ -763,8 +763,8 @@ def get_book_info_goodreads(title, author):
         if result['goodreads_review_count']:
             print(f"💬 评论数量: {result['goodreads_review_count']:,}")
         
-        if result['description_review_original']:
-            desc_preview = result['description_review_original'][:200] + "..." if len(result['description_review_original']) > 200 else result['description_review_original']
+        if result['description']:
+            desc_preview = result['description'][:200] + "..." if len(result['description']) > 200 else result['description']
             print(f"📝 图书描述: {desc_preview}")
         else:
             print("📝 图书描述: 暂无描述")
@@ -841,8 +841,8 @@ def update_book_info(books, book_index, book_info):
             print(f"📅 已更新出版年份: {book_info['publishYear']}")
         
         # 更新图书介绍
-        if book_info.get('description_review_original'):
-            book['description_review_original'] = book_info['description_review_original']
+        if book_info.get('description'):
+            book['description'] = book_info['description']
             print(f"📝 已更新图书介绍")
         
         # 更新分类信息
@@ -880,7 +880,7 @@ def process_single_book(args):
     处理单本书籍的函数，用于并发执行
     """
     i, book, total_books = args
-    title = book.get('original_title', '')
+    title = book.get('title', '')
     author = book.get('author', '')
     
     if not title or not author:
@@ -895,7 +895,7 @@ def process_single_book(args):
     # 检查书籍是否已经有完整信息，如果有则跳过
     has_pages = book.get('pages') is not None and book.get('pages') > 0
     has_year = book.get('publishYear') is not None and book.get('publishYear') > 0
-    has_description = book.get('description_review_original') and len(book.get('description_review_original', '').strip()) > 0
+    has_description = book.get('description') and len(book.get('description', '').strip()) > 0
     has_genre = book.get('genre') and len(book.get('genre', [])) > 0
     has_isbn = book.get('isbn') and len(book.get('isbn', '').strip()) > 0
     
@@ -1004,8 +1004,8 @@ def main():
                         book['pages'] = None
                     if 'publishYear' not in book or book['publishYear'] is None:
                         book['publishYear'] = None
-                    if 'description_review_original' not in book or not book['description_review_original']:
-                        book['description_review_original'] = ""
+                    if 'description' not in book or not book['description']:
+                        book['description'] = ""
                     if 'genre' not in book or not book['genre']:
                         book['genre'] = []
                     if 'isbn' not in book or book['isbn'] is None:
@@ -1025,8 +1025,8 @@ def main():
                         book['pages'] = None
                     if 'publishYear' not in book or book['publishYear'] is None:
                         book['publishYear'] = None
-                    if 'description_review_original' not in book or not book['description_review_original']:
-                        book['description_review_original'] = ""
+                    if 'description' not in book or not book['description']:
+                        book['description'] = ""
                     if 'genre' not in book or not book['genre']:
                         book['genre'] = []
                     if 'isbn' not in book or book['isbn'] is None:
@@ -1090,7 +1090,7 @@ def main():
                 pages_updated += 1
             if info.get('publishYear') is not None:
                 year_updated += 1
-            if info.get('description_review_original'):
+            if info.get('description'):
                 desc_updated += 1
             if info.get('genre'):
                 genre_updated += 1
@@ -1146,8 +1146,8 @@ def main():
     
     # 图书介绍信息统计
     if matched_books:
-        books_with_desc = [book for book in matched_books if book['info'].get('description_review_original')]
-        books_without_desc = [book for book in matched_books if not book['info'].get('description_review_original')]
+        books_with_desc = [book for book in matched_books if book['info'].get('description')]
+        books_without_desc = [book for book in matched_books if not book['info'].get('description')]
         
         print(f"\n📝 图书介绍信息统计:")
         print(f"   📊 有介绍信息: {len(books_with_desc)} 本")
@@ -1166,7 +1166,7 @@ def main():
                 print(f"      📖 页数: {info['pages']}")
             if info.get('publishYear'):
                 print(f"      📅 年份: {info['publishYear']}")
-            if info.get('description_review_original'):
+            if info.get('description'):
                 print(f"      📝 有介绍")
             if info.get('genre'):
                 print(f"      🏷️ 分类: {', '.join(info['genre'])}")
