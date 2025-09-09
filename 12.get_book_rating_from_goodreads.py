@@ -513,8 +513,8 @@ def find_matching_book_by_author(search_url, target_author):
 def main():
     """主函数"""
     # 硬编码的书名和作者名
-    book_title = "The Great Gatsby"
-    author_name = "F. Scott Fitzgerald"
+    book_title = "Airport"
+    author_name = "Arthur Hailey"
     
     # 构建搜索URL
     search_url = f"https://www.goodreads.com/search?utf8=%E2%9C%93&q={book_title}&search_type=books&search%5Bfield%5D=title"
