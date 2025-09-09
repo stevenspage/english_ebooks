@@ -10,8 +10,8 @@ STRATEGY = "two_step"             # 翻译策略
 # INPUT_FILE = "book_info.json"           # 输入JSON文件路径（已移除硬编码）
 
 # 第一个翻译字段配置
-SOURCE_FIELD_1 = "description_review_original"  # 源字段（英文原文）
-TARGET_FIELD_1 = "description_review"     # 目标字段（中文翻译）
+SOURCE_FIELD_1 = "description"  # 源字段（英文原文）
+TARGET_FIELD_1 = "description_zh"     # 目标字段（中文翻译）
 
 # 第二个翻译字段配置
 SOURCE_FIELD_2 = "author_bio"             # 源字段（作者简介英文原文）
