@@ -813,7 +813,7 @@ def save_book_info(data):
     """
     try:
         # 更新最后更新时间
-        data['lastUpdated'] = datetime.utcnow().isoformat() + 'Z'
+        data['last_updated'] = datetime.utcnow().isoformat() + 'Z'
         
         with open('book_info.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
