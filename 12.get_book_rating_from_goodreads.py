@@ -226,6 +226,7 @@ def extract_all_detailed_info(book_url):
         detailed_info['pages'] = ""
         detailed_info['first_published_year'] = ""
         detailed_info['isbn13'] = ""
+        detailed_info['genres'] = []
         
         # 第一个是书籍描述
         if len(formatted_divs) >= 1:
@@ -350,6 +351,28 @@ def extract_all_detailed_info(book_url):
         if not detailed_info['isbn13']:
             print("ISBN 13: 未找到ISBN 13信息")
         
+        # 6. 提取书籍类型（Genres）
+        print("提取书籍类型...")
+        genres_div = soup.find('div', {'data-testid': 'genresList'})
+        if genres_div:
+            # 查找所有genre按钮
+            genre_buttons = genres_div.find_all('a', class_='Button--tag')
+            genres = []
+            for button in genre_buttons:
+                label_item = button.find('span', class_='Button__labelItem')
+                if label_item:
+                    genre_text = label_item.get_text(strip=True)
+                    if genre_text and genre_text != '...more':  # 排除"更多"按钮
+                        genres.append(genre_text)
+            
+            if genres:
+                detailed_info['genres'] = genres
+                print(f"书籍类型: {', '.join(genres)}")
+            else:
+                print("书籍类型: 未找到有效的类型")
+        else:
+            print("书籍类型: 未找到genresList元素")
+        
         return detailed_info if detailed_info else None
         
     except requests.exceptions.RequestException as e:
@@ -454,8 +477,8 @@ def find_matching_book_by_author(search_url, target_author):
 def main():
     """主函数"""
     # 硬编码的书名和作者名
-    book_title = "Guadalcanal 1942-43_ Japan's bid to knock out Henderson"
-    author_name = "Mark E. Stille"
+    book_title = "Airport"
+    author_name = "Arthur Hailey"
     
     # 构建搜索URL
     search_url = f"https://www.goodreads.com/search?utf8=%E2%9C%93&q={book_title}&search_type=books&search%5Bfield%5D=title"
