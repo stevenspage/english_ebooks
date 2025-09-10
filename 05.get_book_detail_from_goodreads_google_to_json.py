@@ -23,7 +23,7 @@ import requests
 import json
 import time
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import queue
@@ -264,8 +264,8 @@ def get_book_info_google(title, author):
                     print(f"📚 分类: {', '.join(categories)}")
                 
                 if description:
-                    # 截取描述的前200个字符，避免输出过长
-                    desc_preview = description[:200] + "..." if len(description) > 200 else description
+                    # 截取描述的前100个字符，避免输出过长
+                    desc_preview = description[:100] + "..." if len(description) > 100 else description
                     print(f"📝 图书描述: {desc_preview}")
                 else:
                     print("📝 图书描述: 暂无描述")
@@ -476,7 +476,6 @@ def extract_goodreads_detailed_info(book_url):
         detailed_info = {}
         
         # 1. 提取详细评分信息
-        print("提取评分信息...")
         rating_stats = soup.find('a', class_='RatingStatistics')
         if rating_stats:
             # 提取平均评分
@@ -510,7 +509,6 @@ def extract_goodreads_detailed_info(book_url):
                         print(f"评论数量: {detailed_info['review_count']}")
         
         # 2. 提取作者信息
-        print("提取作者信息...")
         author_link = soup.find('a', class_='authorName')
         if author_link:
             author_span = author_link.find('span', {'itemprop': 'name'})
@@ -587,7 +585,6 @@ def extract_goodreads_detailed_info(book_url):
             print("作者介绍: 未找到第二个DetailsLayoutRightParagraph__widthConstrained div")
         
         # 4. 提取页数和首次出版年份
-        print("提取页数和首次出版年份...")
         featured_details = soup.find('div', class_='FeaturedDetails')
         if featured_details:
             # 提取页数
@@ -674,7 +671,6 @@ def extract_goodreads_detailed_info(book_url):
             print("ISBN 13: 未找到ISBN 13信息")
         
         # 6. 提取书籍类型（Genres）
-        print("提取书籍类型...")
         genres_div = soup.find('div', {'data-testid': 'genresList'})
         if genres_div:
             # 查找所有genre按钮
@@ -706,20 +702,40 @@ def extract_goodreads_detailed_info(book_url):
 
 def get_book_info_goodreads(title, author):
     """
-    从Goodreads获取图书信息
+    从Goodreads获取图书信息，如果无法获取description则回退到Google Books API
     """
     try:
         # 构建搜索URL
         search_url = f"https://www.goodreads.com/search?utf8=%E2%9C%93&q={requests.utils.quote(title)}&search_type=books&search%5Bfield%5D=title"
         
-        print(f"🔍 正在Goodreads搜索: {title} - {author}")
+        print(f"\n🔍 正在Goodreads搜索: {title} - {author}")
         
         # 从搜索结果中找到匹配作者名的书籍
         book_url = find_matching_book_by_author_goodreads(search_url, author)
         
         if not book_url:
-            print("❌ 未在Goodreads找到匹配的书籍")
-            return None
+            print("❌ 未在Goodreads找到匹配的书籍，尝试使用书名前三个单词重新搜索...")
+            
+            # 截取书名前三个单词
+            title_words = title.split()
+            if len(title_words) >= 3:
+                short_title = ' '.join(title_words[:3])
+                print(f"🔍 使用简化书名重新搜索: {short_title} - {author}")
+                
+                # 构建新的搜索URL
+                short_search_url = f"https://www.goodreads.com/search?utf8=%E2%9C%93&q={requests.utils.quote(short_title)}&search_type=books&search%5Bfield%5D=title"
+                
+                # 重新搜索
+                book_url = find_matching_book_by_author_goodreads(short_search_url, author)
+                
+                if book_url:
+                    print(f"✅ 使用简化书名找到匹配的书籍")
+                else:
+                    print("❌ 使用简化书名仍未找到匹配的书籍")
+                    return None
+            else:
+                print("❌ 书名单词不足3个，无法进行简化搜索")
+                return None
         
         # 提取详细信息
         detailed_info = extract_goodreads_detailed_info(book_url)
@@ -732,15 +748,47 @@ def get_book_info_goodreads(title, author):
         result = {
             'pages': detailed_info.get('pages'),
             'publishYear': detailed_info.get('first_published_year'),
-            'description': detailed_info.get('description', ''),
             'genre': detailed_info.get('genres', []),  # 使用Goodreads提取的genres
             'isbn': detailed_info.get('isbn13'),
             # Goodreads额外信息
             'goodreads_rating': detailed_info.get('avg_rating'),
             'goodreads_rating_count': detailed_info.get('rating_count'),
             'goodreads_review_count': detailed_info.get('review_count'),
-            'author_bio': detailed_info.get('author_bio', '')
+            'goodreads_link': book_url,  # 添加Goodreads链接
+            'description': detailed_info.get('description', ''),  # 倒数第二个字段
+            'author_bio': detailed_info.get('author_bio', '')  # 最后一个字段
         }
+        
+        # 检查是否缺少description，如果缺少则尝试从Google Books API获取
+        if not result['description'] or len(result['description'].strip()) < 50:
+            print("📝 Goodreads未找到有效描述，尝试从Google Books API获取...")
+            google_result = get_book_info_google(title, author)
+            if google_result and google_result.get('description'):
+                result['description'] = google_result['description']
+                print(f"✅ 已从Google Books API获取描述")
+                
+                # 如果Google Books API有更好的其他信息，也可以补充
+                if not result['pages'] and google_result.get('pages'):
+                    result['pages'] = google_result['pages']
+                    print(f"📖 已从Google Books API补充页数信息: {google_result['pages']}")
+                
+                if not result['publishYear'] and google_result.get('publishYear'):
+                    result['publishYear'] = google_result['publishYear']
+                    print(f"📅 已从Google Books API补充出版年份: {google_result['publishYear']}")
+                
+                if not result['isbn'] and google_result.get('isbn'):
+                    result['isbn'] = google_result['isbn']
+                    print(f"🔖 已从Google Books API补充ISBN: {google_result['isbn']}")
+                
+                if not result['genre'] and google_result.get('genre'):
+                    result['genre'] = google_result['genre']
+                    print(f"🏷️ 已从Google Books API补充分类信息: {', '.join(google_result['genre'])}")
+            else:
+                print("❌ Google Books API也无法获取描述，保留Goodreads的描述")
+                # 如果Google Books API也没有描述，则保留Goodreads的原始描述（即使很短）
+                if detailed_info.get('description'):
+                    result['description'] = detailed_info.get('description')
+                    print(f"📝 保留Goodreads描述: {result['description'][:100]}...")
         
         # 显示提取的信息
         print(f"✅ 匹配书名: {title}")
@@ -764,7 +812,7 @@ def get_book_info_goodreads(title, author):
             print(f"💬 评论数量: {result['goodreads_review_count']:,}")
         
         if result['description']:
-            desc_preview = result['description'][:200] + "..." if len(result['description']) > 200 else result['description']
+            desc_preview = result['description'][:100] + "..." if len(result['description']) > 100 else result['description']
             print(f"📝 图书描述: {desc_preview}")
         else:
             print("📝 图书描述: 暂无描述")
@@ -774,6 +822,11 @@ def get_book_info_goodreads(title, author):
             print(f"👨‍💼 作者介绍: {bio_preview}")
         else:
             print("👨‍💼 作者介绍: 暂无介绍")
+        
+        if result['goodreads_link']:
+            print(f"🔗 Goodreads链接: {result['goodreads_link']}")
+        else:
+            print("🔗 Goodreads链接: 暂无链接")
         
         return result
         
@@ -813,7 +866,7 @@ def save_book_info(data):
     """
     try:
         # 更新最后更新时间
-        data['last_updated'] = datetime.utcnow().isoformat() + 'Z'
+        data['last_updated'] = datetime.now(timezone.utc).isoformat()
         
         with open('book_info.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
@@ -831,46 +884,51 @@ def update_book_info(books, book_index, book_info):
         book = books[book_index]
         
         # 更新页数
-        if book_info.get('pages') is not None:
+        if book_info.get('pages') is not None and book_info['pages'] != book.get('pages'):
             book['pages'] = book_info['pages']
             print(f"📖 已更新页数: {book_info['pages']}")
         
         # 更新出版年份
-        if book_info.get('publishYear') is not None:
+        if book_info.get('publishYear') is not None and book_info['publishYear'] != book.get('publishYear'):
             book['publishYear'] = book_info['publishYear']
             print(f"📅 已更新出版年份: {book_info['publishYear']}")
         
         # 更新图书介绍
-        if book_info.get('description'):
+        if book_info.get('description') and book_info['description'] != book.get('description'):
             book['description'] = book_info['description']
             print(f"📝 已更新图书介绍")
         
         # 更新分类信息
-        if book_info.get('genre'):
+        if book_info.get('genre') and book_info['genre'] != book.get('genre'):
             book['genre'] = book_info['genre']
             print(f"🏷️ 已更新分类信息: {', '.join(book_info['genre'])}")
         
         # 更新ISBN信息
-        if book_info.get('isbn'):
+        if book_info.get('isbn') and book_info['isbn'] != book.get('isbn'):
             book['isbn'] = book_info['isbn']
             print(f"🔖 已更新ISBN: {book_info['isbn']}")
         
         # 更新Goodreads额外信息
-        if book_info.get('goodreads_rating') is not None:
+        if book_info.get('goodreads_rating') is not None and book_info['goodreads_rating'] != book.get('goodreads_rating'):
             book['goodreads_rating'] = book_info['goodreads_rating']
             print(f"⭐ 已更新Goodreads评分: {book_info['goodreads_rating']}")
         
-        if book_info.get('goodreads_rating_count') is not None:
+        if book_info.get('goodreads_rating_count') is not None and book_info['goodreads_rating_count'] != book.get('goodreads_rating_count'):
             book['goodreads_rating_count'] = book_info['goodreads_rating_count']
             print(f"📊 已更新评分数量: {book_info['goodreads_rating_count']:,}")
         
-        if book_info.get('goodreads_review_count') is not None:
+        if book_info.get('goodreads_review_count') is not None and book_info['goodreads_review_count'] != book.get('goodreads_review_count'):
             book['goodreads_review_count'] = book_info['goodreads_review_count']
             print(f"💬 已更新评论数量: {book_info['goodreads_review_count']:,}")
         
-        if book_info.get('author_bio'):
+        if book_info.get('author_bio') and book_info['author_bio'] != book.get('author_bio'):
             book['author_bio'] = book_info['author_bio']
             print(f"👨‍💼 已更新作者介绍")
+        
+        # 更新Goodreads链接
+        if book_info.get('goodreads_link') and book_info['goodreads_link'] != book.get('goodreads_link'):
+            book['goodreads_link'] = book_info['goodreads_link']
+            print(f"🔗 已更新Goodreads链接")
         
         return True
     return False
@@ -885,11 +943,10 @@ def process_single_book(args):
     
     if not title or not author:
         return {
-            'type': 'incomplete',
+            'type': 'unmatched',
             'index': i+1,
             'title': title,
-            'author': author,
-            'filename': book.get('filename', '未知文件名')
+            'author': author
         }
     
     # 检查书籍是否已经有完整信息，如果有则跳过
@@ -898,9 +955,10 @@ def process_single_book(args):
     has_description = book.get('description') and len(book.get('description', '').strip()) > 0
     has_genre = book.get('genre') and len(book.get('genre', [])) > 0
     has_isbn = book.get('isbn') and len(book.get('isbn', '').strip()) > 0
+    has_goodreads_link = book.get('goodreads_link') and len(book.get('goodreads_link', '').strip()) > 0
     
     # 如果书籍已经有足够的信息，则跳过
-    if has_pages and has_year and has_description and has_genre and has_isbn:
+    if has_pages and has_year and has_description and has_genre and has_isbn and has_goodreads_link:
         return {
             'type': 'skipped',
             'index': i+1,
@@ -909,7 +967,19 @@ def process_single_book(args):
             'reason': '已有完整信息'
         }
     
-    print(f"🔍 [{i+1}/{total_books}] 正在查询：{title} - {author}")
+    # 显示缺失的字段信息
+    missing_fields = []
+    if not has_pages: missing_fields.append("pages")
+    if not has_year: missing_fields.append("publishYear")
+    if not has_description: missing_fields.append("description")
+    if not has_genre: missing_fields.append("genre")
+    if not has_isbn: missing_fields.append("isbn")
+    if not has_goodreads_link: missing_fields.append("goodreads_link")
+    
+    if missing_fields:
+        print(f"\n🔍 [{i+1}/{total_books}] 正在查询：{title} - {author} (缺失: {', '.join(missing_fields)})")
+    else:
+        print(f"\n🔍 [{i+1}/{total_books}] 正在查询：{title} - {author}")
     
     # 执行查询
     result = get_book_info(title, author)
@@ -963,7 +1033,6 @@ def main():
     # 记录匹配结果
     matched_books = []
     unmatched_books = []
-    incomplete_books = []
     skipped_books = []
     updated_count = 0
     
@@ -995,51 +1064,14 @@ def main():
                 unmatched_books.append(result)
                 print(f"❌ [{result['index']}/{len(books)}] 匹配失败: {result['title']}")
                 
-                # 为未匹配的图书添加默认键值
-                book_index = result['index'] - 1
-                if book_index < len(books):
-                    book = books[book_index]
-                    # 设置默认值
-                    if 'pages' not in book or book['pages'] is None:
-                        book['pages'] = None
-                    if 'publishYear' not in book or book['publishYear'] is None:
-                        book['publishYear'] = None
-                    if 'description' not in book or not book['description']:
-                        book['description'] = ""
-                    if 'genre' not in book or not book['genre']:
-                        book['genre'] = []
-                    if 'isbn' not in book or book['isbn'] is None:
-                        book['isbn'] = None
-                    print(f"   📝 已添加默认键值")
-                
-            elif result['type'] == 'incomplete':
-                incomplete_books.append(result)
-                print(f"⚠️ [{result['index']}/{len(books)}] 信息不完整: {result['title']}")
-                
-                # 为信息不完整的图书添加默认键值
-                book_index = result['index'] - 1
-                if book_index < len(books):
-                    book = books[book_index]
-                    # 设置默认值
-                    if 'pages' not in book or book['pages'] is None:
-                        book['pages'] = None
-                    if 'publishYear' not in book or book['publishYear'] is None:
-                        book['publishYear'] = None
-                    if 'description' not in book or not book['description']:
-                        book['description'] = ""
-                    if 'genre' not in book or not book['genre']:
-                        book['genre'] = []
-                    if 'isbn' not in book or book['isbn'] is None:
-                        book['isbn'] = None
-                    print(f"   📝 已添加默认键值")
             
             elif result['type'] == 'skipped':
                 skipped_books.append(result)
-                print(f"⏭️ [{result['index']}/{len(books)}] 跳过已有完整信息: {result['title']}")
+                print(f"\n⏭️ [{result['index']}/{len(books)}] 跳过已有完整信息: {result['title']}")
             
             # 显示进度
             progress_rate = (completed_count / len(books)) * 100
-            print(f"📊 进度: [{completed_count}/{len(books)}] {progress_rate:.1f}% | ✅ {len(matched_books)} | ❌ {len(unmatched_books)} | ⚠️ {len(incomplete_books)} | ⏭️ {len(skipped_books)}")
+            print(f"\n📊 进度: [{completed_count}/{len(books)}] {progress_rate:.1f}% | ✅ {len(matched_books)} | ❌ {len(unmatched_books)} | ⏭️ {len(skipped_books)} | 当前: {result['title']}")
     
     end_time = time.time()
     total_time = end_time - start_time
@@ -1062,125 +1094,20 @@ def main():
     print("=" * 60)
     print(f"📊 统计信息:")
     print(f"   📖 总书籍数: {len(books)}")
-    print(f"   ✅ 成功匹配: {len(matched_books)}")
-    print(f"   ❌ 未匹配: {len(unmatched_books)}")
-    print(f"   ⚠️ 信息不完整: {len(incomplete_books)}")
+    print(f"   ✅ 本次成功匹配: {len(matched_books)}")
+    print(f"   ❌ 本次未匹配: {len(unmatched_books)}")
     print(f"   ⏭️ 跳过已有: {len(skipped_books)}")
-    print(f"   📈 匹配率: {(len(matched_books)/len(books)*100):.1f}%")
     print(f"   💾 信息更新: {updated_count} 本")
     
-    # 详细统计写入的信息类型
-    if updated_count > 0:
-        print(f"\n📝 写入信息详细统计:")
-        
-        # 统计各类型信息的更新数量
-        pages_updated = 0
-        year_updated = 0
-        desc_updated = 0
-        genre_updated = 0
-        isbn_updated = 0
-        rating_updated = 0
-        rating_count_updated = 0
-        review_count_updated = 0
-        author_bio_updated = 0
-        
-        for book in matched_books:
-            info = book['info']
-            if info.get('pages') is not None:
-                pages_updated += 1
-            if info.get('publishYear') is not None:
-                year_updated += 1
-            if info.get('description'):
-                desc_updated += 1
-            if info.get('genre'):
-                genre_updated += 1
-            if info.get('isbn'):
-                isbn_updated += 1
-            if info.get('goodreads_rating') is not None:
-                rating_updated += 1
-            if info.get('goodreads_rating_count') is not None:
-                rating_count_updated += 1
-            if info.get('goodreads_review_count') is not None:
-                review_count_updated += 1
-            if info.get('author_bio'):
-                author_bio_updated += 1
-        
-        print(f"   📖 页数信息: {pages_updated} 本")
-        print(f"   📅 出版年份: {year_updated} 本")
-        print(f"   📝 图书介绍: {desc_updated} 本")
-        print(f"   🏷️ 分类信息: {genre_updated} 本")
-        print(f"   🔖 ISBN信息: {isbn_updated} 本")
-        print(f"   ⭐ Goodreads评分: {rating_updated} 本")
-        print(f"   📊 评分数量: {rating_count_updated} 本")
-        print(f"   💬 评论数量: {review_count_updated} 本")
-        print(f"   👨‍💼 作者介绍: {author_bio_updated} 本")
-        
-        # 计算信息完整度
-        total_possible_updates = len(matched_books) * 9  # 每本书最多9种信息（5个基础 + 4个Goodreads额外）
-        actual_updates = pages_updated + year_updated + desc_updated + genre_updated + isbn_updated + rating_updated + rating_count_updated + review_count_updated + author_bio_updated
-        update_completeness = (actual_updates / total_possible_updates * 100) if total_possible_updates > 0 else 0
-        
-        print(f"   📊 信息完整度: {update_completeness:.1f}% ({actual_updates}/{total_possible_updates})")
-    else:
-        print(f"\n📝 本次查询没有写入任何新信息")
     
-    # 页数信息统计
-    if matched_books:
-        books_with_pages = [book for book in matched_books if book['info'].get('pages')]
-        books_without_pages = [book for book in matched_books if not book['info'].get('pages')]
-        
-        print(f"\n📖 页数信息统计:")
-        print(f"   📊 有页数信息: {len(books_with_pages)} 本")
-        print(f"   ❓ 无页数信息: {len(books_without_pages)} 本")
-        print(f"   📈 页数完整率: {(len(books_with_pages)/len(matched_books)*100):.1f}%")
-    
-    # 出版年份信息统计
-    if matched_books:
-        books_with_year = [book for book in matched_books if book['info'].get('publishYear')]
-        books_without_year = [book for book in matched_books if not book['info'].get('publishYear')]
-        
-        print(f"\n📅 出版年份信息统计:")
-        print(f"   📊 有年份信息: {len(books_with_year)} 本")
-        print(f"   ❓ 无年份信息: {len(books_without_year)} 本")
-        print(f"   📈 年份完整率: {(len(books_with_year)/len(matched_books)*100):.1f}%")
-    
-    # 图书介绍信息统计
-    if matched_books:
-        books_with_desc = [book for book in matched_books if book['info'].get('description')]
-        books_without_desc = [book for book in matched_books if not book['info'].get('description')]
-        
-        print(f"\n📝 图书介绍信息统计:")
-        print(f"   📊 有介绍信息: {len(books_with_desc)} 本")
-        print(f"   ❓ 无介绍信息: {len(books_without_desc)} 本")
-        print(f"   📈 介绍完整率: {(len(books_with_desc)/len(matched_books)*100):.1f}%")
     
     # 打印已匹配的图书清单
     if matched_books:
-        print(f"\n✅ 已匹配的图书清单:")
+        print(f"\n✅ 本次匹配的图书清单:")
         print("-" * 60)
         
         for book in matched_books:
-            info = book['info']
             print(f"  {book['index']:2d}. {book['title']} - {book['author']}")
-            if info.get('pages'):
-                print(f"      📖 页数: {info['pages']}")
-            if info.get('publishYear'):
-                print(f"      📅 年份: {info['publishYear']}")
-            if info.get('description'):
-                print(f"      📝 有介绍")
-            if info.get('genre'):
-                print(f"      🏷️ 分类: {', '.join(info['genre'])}")
-            if info.get('isbn'):
-                print(f"      🔖 ISBN: {info['isbn']}")
-            if info.get('goodreads_rating'):
-                print(f"      ⭐ 评分: {info['goodreads_rating']}")
-            if info.get('goodreads_rating_count'):
-                print(f"      📊 评分数: {info['goodreads_rating_count']:,}")
-            if info.get('goodreads_review_count'):
-                print(f"      💬 评论数: {info['goodreads_review_count']:,}")
-            if info.get('author_bio'):
-                print(f"      👨‍💼 有作者介绍")
-            print()
         
         print("-" * 60)
     
@@ -1192,28 +1119,11 @@ def main():
             print(f"  {book['index']:2d}. {book['title']} - {book['author']}")
         print("-" * 60)
     
-    # 打印跳过的图书清单
-    if skipped_books:
-        print(f"\n⏭️ 跳过的图书清单（已有完整信息）:")
-        print("-" * 60)
-        for book in skipped_books:
-            print(f"  {book['index']:2d}. {book['title']} - {book['author']}")
-        print("-" * 60)
     
-    # 打印信息不完整的图书清单
-    if incomplete_books:
-        print(f"\n⚠️ 信息不完整的图书清单:")
-        print("-" * 60)
-        for book in incomplete_books:
-            print(f"  {book['index']:2d}. {book['filename']}")
-            print(f"     书名: '{book['title']}' | 作者: '{book['author']}'")
-        print("-" * 60)
         
     # 总结
-    if not unmatched_books and not incomplete_books:
+    if not unmatched_books:
         print(f"\n🎊 太棒了！所有书籍都成功匹配了！")
-    elif not unmatched_books:
-        print(f"\n🎉 所有可处理的书籍都成功匹配了！")
     else:
         print(f"\n📝 部分书籍需要进一步处理")
     
