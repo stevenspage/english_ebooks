@@ -187,6 +187,12 @@ def generate_readme_content(books_data):
         
         book_entry = f"{book_counter}.{spaces}**({pages}页) [{title}]({link})**{rating_info}\n"
         
+        # 添加图书类型信息
+        genre_list = book.get('genre', [])
+        if genre_list:
+            genre_str = " · ".join(genre_list)
+            book_entry += f"    <br>📚 类型：{genre_str}\n"
+        
         # 完整输出描述，不截断，并处理换行符
         # 将换行符替换为换行符+引用标记，保持Markdown格式
         formatted_description_zh = description_zh.replace('\n', '\n    > ')
