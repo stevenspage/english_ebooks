@@ -17,7 +17,7 @@ TARGET_FIELD_1 = "description_zh"     # 目标字段（中文翻译）
 SOURCE_FIELD_2 = "author_bio"             # 源字段（作者简介英文原文）
 TARGET_FIELD_2 = "author_bio_zh"          # 目标字段（作者简介中文翻译）
 
-# 输出文件名会自动生成为: 原文件名_trans.json
+# 输出文件名将直接覆盖原文件
 # ================================================
 
 import requests
@@ -255,10 +255,9 @@ def main():
         print(f"字段1: {SOURCE_FIELD_1} -> {TARGET_FIELD_1}")
         print(f"字段2: {SOURCE_FIELD_2} -> {TARGET_FIELD_2}")
         
-        # 自动生成输出文件名
-        base_name = os.path.splitext(INPUT_FILE)[0]  # 去掉扩展名
-        OUTPUT_FILE = f"{base_name}_trans.json"
-        print(f"输出文件: {OUTPUT_FILE}")
+        # 直接使用原文件名，覆盖原文件
+        OUTPUT_FILE = INPUT_FILE
+        print(f"输出文件: {OUTPUT_FILE} (将覆盖原文件)")
         
     except FileNotFoundError:
         print(f"错误: 找不到 {INPUT_FILE} 文件")
