@@ -183,7 +183,7 @@ def generate_readme_content(books_data):
             else:
                 rating_display = f"{goodreads_rating_count}人评分"
             
-            rating_info = f"  |  Goodreads：{goodreads_rating}/5分 ⭐ ({rating_display})"
+            rating_info = f"  | ⭐Goodreads：{goodreads_rating}分 ({rating_display})"
         
         book_entry = f"{book_counter}.{spaces}**({pages}页) [{title}]({link})**{rating_info}\n"
         
