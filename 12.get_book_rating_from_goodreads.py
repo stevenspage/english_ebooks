@@ -419,6 +419,92 @@ def extract_all_detailed_info(book_url):
         return None
 
 
+def normalize_author_name(author_name):
+    """
+    标准化作者姓名，处理姓和名的顺序问题
+    
+    Args:
+        author_name (str): 原始作者姓名
+        
+    Returns:
+        list: 包含所有可能匹配形式的列表
+    """
+    if not author_name:
+        return []
+    
+    # 去除多余空格并转换为小写
+    normalized = author_name.strip().lower()
+    
+    # 分割姓名
+    name_parts = normalized.split()
+    
+    if len(name_parts) < 2:
+        return [normalized]
+    
+    # 生成所有可能的匹配形式
+    possible_names = set()
+    
+    # 原始形式
+    possible_names.add(normalized)
+    
+    # 反转形式（姓和名互换）
+    reversed_name = ' '.join(reversed(name_parts))
+    possible_names.add(reversed_name)
+    
+    # 如果只有两个部分，添加其他可能的组合
+    if len(name_parts) == 2:
+        first, last = name_parts
+        possible_names.add(f"{last}, {first}")  # 姓, 名 格式
+        possible_names.add(f"{first}, {last}")  # 名, 姓 格式
+    elif len(name_parts) >= 3:
+        # 对于三个或更多部分，尝试不同的组合
+        # 通常最后一个部分是姓，前面的部分是名
+        last_name = name_parts[-1]
+        first_names = name_parts[:-1]
+        
+        # 姓在前，名在后
+        possible_names.add(f"{last_name}, {' '.join(first_names)}")
+        # 名在前，姓在后
+        possible_names.add(f"{' '.join(first_names)} {last_name}")
+        
+        # 如果只有三个部分，尝试中间名作为姓的情况
+        if len(name_parts) == 3:
+            first, middle, last = name_parts
+            # 中间名作为姓
+            possible_names.add(f"{middle}, {first} {last}")
+            possible_names.add(f"{first} {last} {middle}")
+            # 所有可能的排列
+            possible_names.add(f"{last}, {first} {middle}")
+            possible_names.add(f"{first} {middle} {last}")
+    
+    return list(possible_names)
+
+def is_author_match(found_author, target_author):
+    """
+    检查找到的作者是否与目标作者匹配
+    
+    Args:
+        found_author (str): 找到的作者名
+        target_author (str): 目标作者名
+        
+    Returns:
+        bool: 是否匹配
+    """
+    if not found_author or not target_author:
+        return False
+    
+    # 获取目标作者的所有可能形式
+    target_forms = normalize_author_name(target_author)
+    found_forms = normalize_author_name(found_author)
+    
+    # 检查是否有任何形式匹配
+    for target_form in target_forms:
+        for found_form in found_forms:
+            if target_form == found_form:
+                return True
+    
+    return False
+
 def find_matching_book_by_author(search_url, target_author):
     """
     从搜索结果中找到匹配指定作者的书
@@ -468,7 +554,7 @@ def find_matching_book_by_author(search_url, target_author):
                     print(f"结果 {i+1}: 作者 = {author_name}")
                     
                     # 检查是否匹配目标作者
-                    if author_name.lower() == target_author.lower():
+                    if is_author_match(author_name, target_author):
                         # 提取书籍链接
                         book_link = result.find('a', {'itemprop': 'url'})
                         if book_link:
@@ -487,7 +573,7 @@ def find_matching_book_by_author(search_url, target_author):
                     print(f"结果 {i+1}: 作者 = {author_name} (备用方法)")
                     
                     # 检查是否匹配目标作者
-                    if author_name.lower() == target_author.lower():
+                    if is_author_match(author_name, target_author):
                         # 提取书籍链接
                         book_link = result.find('a', {'itemprop': 'url'})
                         if book_link:
@@ -513,8 +599,8 @@ def find_matching_book_by_author(search_url, target_author):
 def main():
     """主函数"""
     # 硬编码的书名和作者名
-    book_title = "Airport"
-    author_name = "Arthur Hailey"
+    book_title = "Me Before You A Novel"
+    author_name = "Moyes Jojo"
     
     # 构建搜索URL
     search_url = f"https://www.goodreads.com/search?utf8=%E2%9C%93&q={book_title}&search_type=books&search%5Bfield%5D=title"
