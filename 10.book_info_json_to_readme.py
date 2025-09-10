@@ -125,6 +125,9 @@ def generate_readme_content(books_data):
     
     content = header
     
+    # 载入类型映射（英文->中文），缺省为空映射
+    genre_map = load_genre_map('genre_list.json')
+    
     # 按添加时间排序（最新的在前）
     sorted_books = sorted(books_data.get('books', []), 
                          key=lambda x: x.get('addTime', 0), reverse=True)
@@ -190,8 +193,18 @@ def generate_readme_content(books_data):
         # 添加图书类型信息
         genre_list = book.get('genre', [])
         if genre_list:
-            genre_str = " · ".join(genre_list)
-            book_entry += f"    <br>📚 类型：{genre_str}\n"
+            # 翻译为中文，过滤掉空字符串（不显示的类型）
+            translated_genres = []
+            for g in genre_list:
+                zh = genre_map.get(g, '')
+                if zh:  # 只添加非空的中文翻译
+                    translated_genres.append(zh)
+                elif g not in genre_map:  # 如果映射中不存在，使用原文
+                    translated_genres.append(g)
+            # 只有当有类型时才显示
+            if translated_genres:
+                genre_str = " · ".join(translated_genres)
+                book_entry += f"    <br>📚 类型：{genre_str}\n"
         
         # 完整输出描述，不截断，并处理换行符
         # 将换行符替换为换行符+引用标记，保持Markdown格式
@@ -227,6 +240,35 @@ def generate_readme_content(books_data):
     
     content += footer
     return content
+
+
+def load_genre_map(json_file: str = 'genre_list.json') -> dict:
+    """加载类型映射（英文->中文）。
+    支持两种结构：
+    1) {"Fiction": "小说", ...}
+    2) [{"en": "Fiction", "zh": "小说"}, ...]
+    文件不存在或结构不匹配则返回空映射。
+    """
+    try:
+        with open(json_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+    if isinstance(data, dict):
+        return {str(k): str(v) for k, v in data.items()}
+    if isinstance(data, list):
+        mapping = {}
+        for item in data:
+            try:
+                en = str(item.get('en', '')).strip()
+                zh = str(item.get('zh', '')).strip()
+                if en:
+                    mapping[en] = zh
+            except Exception:
+                continue
+        return mapping
+    return {}
 
 def main():
     """主函数"""
