@@ -204,7 +204,7 @@ def generate_readme_content(books_data):
             # 只有当有类型时才显示
             if translated_genres:
                 genre_str = " · ".join(translated_genres)
-                book_entry += f"    <br>📚 类型：{genre_str}\n"
+                book_entry += f"    <br>📖 **类型**：{genre_str}\n"
         
         # 完整输出描述，不截断，并处理换行符
         # 将换行符替换为换行符+引用标记，保持Markdown格式
