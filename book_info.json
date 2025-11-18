@@ -1,7 +1,69 @@
 {
-  "total_books": 66,
-  "last_updated": "2025-11-18T14:15:32.974583+00:00",
+  "total_books": 68,
+  "last_updated": "2025-11-18T14:39:27.978694+00:00",
   "books": [
+    {
+      "filename": "Neither Here nor There Travels in Europe (Bill Bryson).epub",
+      "title": "Neither Here nor There Travels in Europe",
+      "title_zh": "既非此处亦非彼处：欧洲漫游记",
+      "author": "Bill Bryson",
+      "pages": 254,
+      "format": "EPUB",
+      "addTime": 1763476715.2144163,
+      "addTimeISO": "2025-11-18T14:38:35.000Z",
+      "publishYear": 1991,
+      "filePath": "./ebooks/Neither Here nor There Travels in Europe (Bill Bryson).epub",
+      "coverPath": "./covers/Neither Here nor There Travels in Europe (Bill Bryson).jpeg",
+      "description": "Bill Bryson's first travel book,, was unanimously acclaimed as one of the funniest books in years. InNeither Here nor Therehe brings his unique brand of humour to bear on Europe as he shoulders his backpack, keeps a tight hold on his wallet, and journeys from Hammerfest, the northernmost town on the continent, to Istanbul on the cusp of Asia. Fluent in, oh, at least one language, he retraces his travels as a student twenty years before.Whether braving the homicidal motorist of Paris, being robbed by gypsies in Florence, attempting not to order tripe and eyeballs in a German restaurant, window-shopping in the sex shops of the Reeperbahn or disputing his hotel bill in Copenhagen, Bryson takes in the sights, dissects the culture and illuminates each place and person with his hilariously caustic observations. He even goes to Liechtenstein.",
+      "genre": [
+        "Travel",
+        "Nonfiction",
+        "Humor",
+        "Memoir",
+        "Audiobook",
+        "Biography",
+        "Travelogue"
+      ],
+      "isbn": "9780380713806",
+      "goodreads_rating": 3.85,
+      "goodreads_rating_count": 78709,
+      "goodreads_review_count": 3809,
+      "author_bio": "Bill Bryson is a bestselling American-British author known for his witty and accessible nonfiction books spanning travel, science, and language. He rose to prominence with Notes from a Small Island (1995), an affectionate portrait of Britain, and solidified his global reputation with A Short History of Nearly Everything (2003), a popular science book that won the Aventis and Descartes Prizes. Raised in Iowa, Bryson lived most of his adult life in the UK, working as a journalist before turning to writing full-time. His other notable works include A Walk in the Woods, The Life and Times of the Thunderbolt Kid, and The Mother Tongue. Bryson served as Chancellor of Durham University (2005–2011) and received numerous honorary degrees and awards, including an honorary OBE and election as an Honorary Fellow of the Royal Society. Though he announced his retirement from writing in 2020, he remains one of the most beloved voices in contemporary nonfiction, with over 16 million books sold worldwide.",
+      "goodreads_link": "https://www.goodreads.com/book/show/27.Neither_Here_nor_There",
+      "description_zh": "比尔·布莱森的第一本旅行书《无处安放》被一致认为是多年来最有趣的书之一。在这本书中，他带着自己独特的幽默风格踏上了欧洲之旅，肩上背着背包，紧紧握住钱包，从欧洲大陆最北端的小镇哈默菲斯特一路旅行到亚洲边缘的伊斯坦布尔。他精通，哦，至少一门语言，重游了二十年前作为学生时的旅行路线。无论是勇敢面对巴黎的疯狂司机，在佛罗伦萨被吉普赛人抢劫，试图不在德国餐馆点下水和小肠，还是在雷佩尔bahn的性用品店橱窗购物，或在哥本哈根争论酒店账单，布莱森欣赏着风景，剖析文化，用他幽默而尖刻的观察照亮了每一个地方和人物。他甚至去了列支敦士登。",
+      "author_bio_zh": "比尔·布莱森是一位畅销的美英双籍作家，以其风趣且通俗易懂的非虚构作品闻名，涉猎旅行、科学和语言等多个领域。他凭借《小岛笔记》（1995年）一书崭露头角，该书深情描绘了英国的风土人情，并通过《万物简史》（2003年）一书巩固了其全球声誉，这本广受欢迎的科普读物荣获了阿万提斯奖和笛卡尔奖。布莱森在爱荷华州长大，成年后大部分时间在英国生活，曾在成为全职作家前担任记者。他的其他著名作品包括《林中漫步》、《雷霆小子的一生》和《母语》。布莱森曾担任杜伦大学校长（2005-2011年），并获得了众多荣誉学位和奖项，包括荣誉OBE和被选为皇家学会荣誉院士。尽管他在2020年宣布退休，但他仍然是当代非虚构文学中最受喜爱的声音之一，全球售书超过1600万册。"
+    },
+    {
+      "filename": "The Admirals · Nimitz, Halsey, Leahy, and King- The Five-Star Admirals Who Won the War at Sea (Borneman, Walter R.).epub",
+      "title": "The Admirals · Nimitz, Halsey, Leahy, and King- The Five-Star Admirals Who Won the War at Sea",
+      "title_zh": "五星上将：尼米兹、哈尔西、莱希与金——赢得海战的海上统帅",
+      "author": "Borneman, Walter R.",
+      "pages": 559,
+      "format": "EPUB",
+      "addTime": 1763476715.2045565,
+      "addTimeISO": "2025-11-18T14:38:35.000Z",
+      "publishYear": 2011,
+      "filePath": "./ebooks/The Admirals · Nimitz, Halsey, Leahy, and King- The Five-Star Admirals Who Won the War at Sea (Borneman, Walter R.).epub",
+      "coverPath": "./covers/The Admirals · Nimitz, Halsey, Leahy, and King- The Five-Star Admirals Who Won the War at Sea (Borneman, Walter R.).jpeg",
+      "description": "How history's only five-star admirals triumphed in World War II and made the United States the world's dominant sea power.Only four men in American history have been promoted to the five-star rank of Admiral of the Fleet: William Leahy, Ernest King, Chester Nimitz, and William Halsey. These four men were the best and the brightest the navy produced, and together they led the U.S. navy to victory in World War II, establishing the United States as the world's greatest fleet.In THE ADMIRALS, award-winning historian Walter R. Borneman tells their story in full detail for the first time. Drawing upon journals, ship logs, and other primary sources, he brings an incredible historical moment to life, showing us how the four admirals revolutionized naval warfare forever with submarines and aircraft carriers, and how these men-who were both friends and rivals-worked together to ensure that the Axis fleets lay destroyed on the ocean floor at the end of World War II.",
+      "genre": [
+        "History",
+        "Biography",
+        "Nonfiction",
+        "Military Fiction",
+        "Military History",
+        "World War II",
+        "War"
+      ],
+      "isbn": "9780316097840",
+      "goodreads_rating": 4.33,
+      "goodreads_rating_count": 4476,
+      "goodreads_review_count": 369,
+      "author_bio": "Walter R. Borneman, b.1952, an American historian and lawyer, is the author of well-known popular books on 18th and 19th century United States history. He received his B.A. in 1974 from Western State College of Colorado, and received an M.A. in history there in 1975 for a thesis on \"Irwin : silver camp of the Ruby Mountains\"; in 1981 he received a law degree from the University of Denver, and practiced law. His latest book, published in May 2012, is The Admirals Nimitz, Halsey, Leahy, and King--the 5-star Admirals Who Won the War at Sea.wikipedia",
+      "goodreads_link": "https://www.goodreads.com/book/show/13037942-the-admirals",
+      "description_zh": "历史上唯一的五星上将如何在二战中取得辉煌胜利，使美国成为全球主导的海上力量。在美国历史上，仅有四位人物被晋升为五星舰队上将：威廉·莱希、欧内斯特·金、切斯特·尼米兹和威廉·哈尔西。这四位海军精英，集智慧与才华于一身，共同领导美国海军在二战中取得决定性胜利，奠定了美国作为世界最强大舰队的地位。在《上将们》一书中，获奖历史学家沃尔特·R·博尔内曼首次详尽地讲述了他们的传奇故事。他借助日记、舰船日志及其他一手资料，生动再现了那段难以置信的历史时刻，向我们揭示了这四位上将如何凭借潜艇和航空母舰彻底革新了海战模式，以及这些既是挚友又是竞争对手的将领如何携手合作，确保轴心国舰队在二战结束时被彻底摧毁于海底。",
+      "author_bio_zh": "沃尔特·R·博尔内曼，生于1952年，是一位美国历史学家兼律师，著有关于18世纪和19世纪美国历史的知名畅销书籍。他于1974年从科罗拉多西部州立学院获得文学学士学位，1975年因撰写关于“欧文：鲁比山脉银矿营地”的论文而在此获得历史学硕士学位；1981年，他从丹佛大学获得法学学位，并从事法律工作。他的最新著作于2012年5月出版，名为《海军上将尼米兹、哈尔西、莱希和国王——赢得海战的五星上将》。维基百科"
+    },
     {
       "filename": "Angels  Demons (Brown Dan).epub",
       "title": "Angels  Demons",
@@ -145,7 +207,7 @@
         "Historical"
       ],
       "goodreads_rating": 3.97,
-      "goodreads_rating_count": 707113,
+      "goodreads_rating_count": 707115,
       "goodreads_review_count": 15396,
       "author_bio": "Amy Tan (Chinese: 譚恩美; pinyin: Tán Ēnměi; born February 19, 1952) is an American writer whose novels include The Joy Luck Club, The Kitchen God’s Wife, The Hundred Secret Senses, The Bonesetter’s Daughter, Saving Fish From Drowing, and The Valley of Amazement. She is the author of two memoirs, The Opposite of Fate and Where the Past Begins. Her two children’s books are The Chinese Siamese Cat and The Moon Lady. She is also the co-screenwriter of the film adaptation of The Joy Luck, the librettist of the opera The Bonesetter’s Daughter, and the creative consultant to the PBS animated series Sagwa the Chinese Chinese Cat.Tan is an instructor with MasterClass on writing, memory and imagination. She is featured in the American Masters documentary Amy Tan: Unintended Memoir. She was inducted into the American Academy of Arts and Letters and recently received the National Humanities Medal. She serves on the board of American Bird Conservancy.Her forthcoming book The Backyard Bird Chronicles began as a journal in 2016, when she turned to nature for calm. She also began taking drawing classes with John Muir Laws (The Laws Guide to Nature Journaling and Drawing, and The Laws Guide to Drawing Birds). During the pandemic shutdown, she drew birds only in her backyard, documenting behaviors she found puzzling. Over time she identified 64 species of birds that have visited her backyard in Marin County. By 2022, she had more than nine journals of sketches and notes, which her editor at Knopf suggested she publish. The book, which will be released in April 2024, has already received high praise:“Much of great writing comes from great interest, and in The Backyard Bird Chronicles, Amy Tan shows us how the world fascinates her, especially the birds. The result is both unexpected and spectacular.”—Ann Patchett, author of These Precious Days“What an enchanting and illuminating book! How lucky for us that Amy Tan has turned her genius, her deep empathy and insight, her keen eye for what is telling, to birds. Every page of these chronicles radiates warm curiosity, wonder, and delight.”—Jennifer Ackerman, The Genius of Birds“This is one of the most infectious and convincing books about nature I’ve read. For the bird-watcher, the would-be bird-watcher, or for the bird-watching skeptic, this offers great delight and unexpected intrigue. Through Tan’s ecstatic eyes, what could be a dry treatise on ornithological happenings becomes something far more fun and much more profound. It’s really a book about seeing.”—Dave Eggers, author of Ungrateful Mammals“Anybody even mildly interested in birds, or thinking about getting interested in birds (which are, after all, the indicator genus for the health of the planet), will want this book perched on their shelf, if only for the gift of Amy Tan’s eye and the example she gives us of how to pay attention. What a treasure.”—Robert Hass, Pulitzer Prize-Winning author of Summer Snow: New Poems“Backyard Bird Chronicles is fun reading. It shows how we can become engaged emotionally, literally and artistically with the natural world—to joyfully learn about the most accessible and yet wild animals, the often rare and beautiful birds that choose to come and live near and sometimes with us.”—Bernd Heinrich, author of Mind of the Raven“With this book as your guide, embark into the bird world Amy Tan. This is an intimate view, a sort-of love affair with the birds and their behavior, that Amy has come to know over several years. Within the leafy universe of her own backyard, she has quietly beheld, patiently observed, and taken in-depth notations of an extensive array of bird species. In colorful detail, she describes various bird’s behavior, while capturing their beauty in exquisitely rendered illustrations. Species include fearsome predators and watchful prey, long distance migrants and hometown residents. Through her unique insight and gift as an author and",
       "goodreads_link": "https://www.goodreads.com/book/show/7763.The_Joy_Luck_Club",
@@ -242,7 +304,8 @@
       "goodreads_rating": 3.83,
       "goodreads_rating_count": 1893,
       "goodreads_review_count": 220,
-      "author_bio": "Michelle Phan is a Youtube beauty guru and an entrepreneur. She has worked with companies such asLancôme and L'Oreal and has been featured in numerous magazines. Michelle Phan has come up with her own makeup brand emCosmetics and has almost 7 million subscribers on Youtube as of September 2014."
+      "author_bio": "Michelle Phan is a Youtube beauty guru and an entrepreneur. She has worked with companies such asLancôme and L'Oreal and has been featured in numerous magazines. Michelle Phan has come up with her own makeup brand emCosmetics and has almost 7 million subscribers on Youtube as of September 2014.",
+      "author_bio_zh": "米歇尔·潘（Michelle Phan）是YouTube上的美妆达人，同时也是一位企业家。她曾与兰蔻（Lancôme）和欧莱雅（L'Oreal）等知名品牌合作，并多次登上各大杂志封面。米歇尔·潘创立了自己的化妆品品牌emCosmetics，截至2014年9月，她在YouTube上已拥有近700万粉丝。"
     },
     {
       "filename": "Little Fires Everywhere (Celeste Ng).epub",
@@ -272,7 +335,8 @@
       "goodreads_rating": 4.07,
       "goodreads_rating_count": 1300372,
       "goodreads_review_count": 83791,
-      "author_bio": "Celeste Ng is the author of three novels, Everything I Never Told You, Little Fires Everywhere, and Our Missing Hearts.Her first novel, Everything I Never Told You (2014), was a New York Times bestseller, aNew York Times Notable Book of 2014, Amazon’s #1 Best Book of 2014, and named a best book of the year by over a dozen publications. Everything I Never Told You was also the winner of the Massachusetts Book Award, the Asian/Pacific American Award for Literature, and the ALA’s Alex Award. It has been translated into over thirty languages and is being adapted for the screen.Her second novel, Little Fires Everywhere (2017) was a #1 New York Times bestseller, a #1 Indie Next bestseller, and Amazon's Best Fiction Book of 2017. It was named a best book of the year by over 25 publications, the winner of the Ohioana Award and the Goodreads Readers Choice Award 2017 in Fiction, and spent over a year on the New York Times bestseller list.Little Fires Everywhere has been published abroad in more than 30 languages and has been adapted as a limited series on Hulu, starring Reese Witherspoon and Kerry Washington.Her third novel, Our Missing Hearts, will be published on October 4, 2022.Celeste grew up in Pittsburgh, Pennsylvania, and Shaker Heights, Ohio. She graduated from Harvard University and earned an MFA from the University of Michigan (now the Helen Zell Writers’ Program at the University of Michigan). Her fiction and essays have appeared in theNew York Times, The Guardian, and many other publications, and she is a recipient of the Pushcart Prize, a fellowship from the National Endowment for the Arts, and a Guggenheim Fellowship, among other honors."
+      "author_bio": "Celeste Ng is the author of three novels, Everything I Never Told You, Little Fires Everywhere, and Our Missing Hearts.Her first novel, Everything I Never Told You (2014), was a New York Times bestseller, aNew York Times Notable Book of 2014, Amazon’s #1 Best Book of 2014, and named a best book of the year by over a dozen publications. Everything I Never Told You was also the winner of the Massachusetts Book Award, the Asian/Pacific American Award for Literature, and the ALA’s Alex Award. It has been translated into over thirty languages and is being adapted for the screen.Her second novel, Little Fires Everywhere (2017) was a #1 New York Times bestseller, a #1 Indie Next bestseller, and Amazon's Best Fiction Book of 2017. It was named a best book of the year by over 25 publications, the winner of the Ohioana Award and the Goodreads Readers Choice Award 2017 in Fiction, and spent over a year on the New York Times bestseller list.Little Fires Everywhere has been published abroad in more than 30 languages and has been adapted as a limited series on Hulu, starring Reese Witherspoon and Kerry Washington.Her third novel, Our Missing Hearts, will be published on October 4, 2022.Celeste grew up in Pittsburgh, Pennsylvania, and Shaker Heights, Ohio. She graduated from Harvard University and earned an MFA from the University of Michigan (now the Helen Zell Writers’ Program at the University of Michigan). Her fiction and essays have appeared in theNew York Times, The Guardian, and many other publications, and she is a recipient of the Pushcart Prize, a fellowship from the National Endowment for the Arts, and a Guggenheim Fellowship, among other honors.",
+      "author_bio_zh": "伍绮诗是三部小说的作者，分别是《无声告白》、《小小火焰处处燃》和《我们缺失的心》。她的第一部小说《无声告白》（2014年）成为《纽约时报》畅销书，入选《纽约时报》2014年度值得关注图书，亚马逊2014年最佳图书第一名，并被十余家出版物评为年度最佳图书。《无声告白》还荣获马萨诸塞州图书奖、亚裔/太平洋岛民美国文学奖以及ALA的亚历克斯奖。该书已被翻译成三十多种语言，并正在被改编成电影。她的第二部小说《小小火焰处处燃》（2017年）登上《纽约时报》畅销书榜首，成为Indie Next畅销书第一名，亚马逊2017年最佳小说。该书被超过25家出版物评为年度最佳图书，获得俄亥俄州图书奖和Goodreads读者选择奖2017年小说类奖项，并在《纽约时报》畅销书榜上停留了一年多。《小小火焰处处燃》已在国外以三十多种语言出版，并被改编为Hulu的限定系列，由瑞希·威瑟斯彭和凯丽·华盛顿主演。她的第三部小说《我们缺失的心》将于2022年10月4日出版。伍绮诗在宾夕法尼亚州的匹兹堡和俄亥俄州的沙克高地长大。她毕业于哈佛大学，并在密歇根大学（现为密歇根大学的海伦·泽尔作家项目）获得艺术硕士学位。她的小说和散文发表于《纽约时报》、《卫报》等众多出版物，她是Pushcart奖得主，获得国家艺术基金会奖学金和古根海姆奖学金等多项荣誉。"
     },
     {
       "filename": "West Side Story (Irving Shulman).epub",
