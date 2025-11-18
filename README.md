@@ -50,209 +50,284 @@
 | 3 | [《鞋狗：耐克创始人回忆录》(Shoe Dog A Memoir by the Creator of Nike) - Knight, Phil, 2016](#鞋狗-耐克创始人回忆录-Knight-Phil) | 商业 · 传记 · 非虚构... | 4.46 | 35.5万 |
 | 4 | [《一个叫欧维的男人决定去死》(A Man Called Ove) - Fredrik Backman, 2012](#一个叫欧维的男人决定去死-Fredrik-Backman) | 小说 · 读书会 · 当代... | 4.38 | 117.7万 |
 | 5 | [《教父》(The Godfather) - Mario Puzo, 2005](#教父-Mario-Puzo) | 小说 | 4.4 | 45.6万 |
-| 6 | [《操盘手的秘诀：最懂输的人才能成为赢家》(Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader) - Tom Hougaard, 2022](#操盘手的秘诀-最懂输的人才能成为赢家-Tom-Hougaard) | 金融 · 心理学 · 非虚构... | 4.51 | 2,164 |
-| 7 | [《超越百岁：长寿的科学与艺术》(Outlive - The Science and Art of Longevity) - Peter Attia, MD, 2023](#超越百岁-长寿的科学与艺术-Peter-Attia-MD) | 健康 · 非虚构 · 科学... | 4.34 | 8.8万 |
-| 8 | [《金钱心理学》(The Psychology of Money) - Morgan Housel, 2020](#金钱心理学-Morgan-Housel) | 金融 · 非虚构 · 心理学... | 4.29 | 29.3万 |
-| 9 | [《遇见你之前》(Me Before You) - Moyes Jojo, 2012](#遇见你之前-Moyes-Jojo) | 爱情 · 小说 · 当代... | 4.26 | 177.2万 |
-| 10 | [《赚钱，再自然不过：交易心理师教你战胜心魔、培养赢家的习惯》(Trading in the Zone Master the Market with Confidence, Discipline, and a Winning Attitude) - Mark Douglas, 2000](#赚钱-再自然不过-交易心理师教你战胜心魔-培养赢家的习惯-Mark-Douglas) | 金融 · 非虚构 · 商业... | 4.31 | 9,307 |
-| 11 | [《我的朋友们》(My Friends) - Hisham Matar, 2024](#我的朋友们-Hisham-Matar) | 小说 · 历史小说 · 文学小说... | 4.3 | 1.2万 |
-| 12 | [《趣事》(Funny Story) - Emily Henry, 2025](#趣事-Emily-Henry) | 小说 | 4.2 | 117.3万 |
-| 13 | [《高效能人士的七个习惯》(The 7 Habits of Highly Effective People) - Stephen R. Covey, 1989](#高效能人士的七个习惯-Stephen-R-Covey) | 自我提升 · 非虚构 · 商业... | 4.16 | 80.7万 |
-| 14 | [《最长的旅程》(The Longest Ride) - Sparks Nicholas, 2013](#最长的旅程-Sparks-Nicholas) | 小说 | 4.17 | 15.6万 |
-| 15 | [《坟场之书》(The Graveyard Book) - Neil Gaiman, 2008](#坟场之书-Neil-Gaiman) | 奇幻 · 青少年 · 小说... | 4.16 | 56.2万 |
-| 16 | [《接触》(Contact) - Carl Sagan, 2016](#接触-Carl-Sagan) | 小说 | 4.15 | 15.1万 |
-| 17 | [《交易游戏：一个告白》(The Trading Game A Confession) - Gary Stevenson, 2024](#交易游戏-一个告白-Gary-Stevenson) | 非虚构 · 金融 · 经济学... | 4.16 | 1.7万 |
-| 18 | [《公务员图鉴：被遗忘的政府真相》(Who Is Government) - Michael Lewis, 2025](#公务员图鉴-被遗忘的政府真相-Michael-Lewis) | 非虚构 · 政治 · 历史... | 4.16 | 8,634 |
-| 19 | [《退出：知道何时放弃的力量》(Quit) - Annie Duke, 2022](#退出-知道何时放弃的力量-Annie-Duke) | 非虚构 · 心理学 · 商业... | 4.16 | 6,406 |
-| 20 | [《真正无惧的身心防弹术：美国特勤局专家带你提升心理素质，面对各种挑战》(Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly) - Evy Poumpouras, 2020](#真正无惧的身心防弹术-美国特勤局专家带你提升心理素质-面对各种挑战-Evy-Poumpouras) | 非虚构 · 自我提升 · 心理学... | 4.15 | 8,105 |
-| 21 | [《瓜达尔卡纳尔 1942-43：日本摧毁亨德森机场的企图》(Guadalcanal 1942-43_ Japan's bid to knock out Henderson) - Mark Stille, 2019](#瓜达尔卡纳尔-1942-43-日本摧毁亨德森机场的企图-Mark-Stille) | 历史 | 4.23 | 71 |
-| 22 | [《中式英语之鉴》(The Translator's Guide to Chinglish) - Joan Pinkham](#中式英语之鉴-Joan-Pinkham) | 语言 | 4.23 | 35 |
-| 23 | [《依然是我》(Still Me) - Jojo Moyes, 2018](#依然是我-Jojo-Moyes) | 小说 | 4.11 | 22.9万 |
-| 24 | [《寡头的女儿》(The Oligarchs Daughter) - Joseph Finder, 2025](#寡头的女儿-Joseph-Finder) | 小说 · 惊悚 · 悬疑... | 4.12 | 1.3万 |
-| 25 | [《超级激励者：秘诀就是统一目标、统一行动、统一价值观》(Start With Why_ How Great Leaders Inspire Everyone to Take Action) - Simon Sinek, 2009](#超级激励者-秘诀就是统一目标-统一行动-统一价值观-Simon-Sinek) | 商业 · 领导力 · 非虚构... | 4.1 | 26.1万 |
-| 26 | [《日常卓越：有意义生活的启示》(Everyday Greatness Inspiration for a Meaningful Life) - Stephen R. Covey, 2006](#日常卓越-有意义生活的启示-Stephen-R-Covey) | 自我提升 · 非虚构 · 商业... | 4.12 | 953 |
-| 27 | [《私人客户：遗嘱、信托和遗产规划》(Private Client Wills, Trusts and Estate Planning) - Lesley King, 2018](#私人客户-遗嘱-信托和遗产规划-Lesley-King) |  | 4.25 | 4 |
-| 28 | [《随他去理论》(The Let Them Theory • A Life-Changing Tool That Millions of People Can’t Stop Talking About) - Mel Robbins, 2024](#随他去理论-Mel-Robbins) | 自我提升 | 4.09 | 18.0万 |
-| 29 | [《灭绝：过时物品纲要》(Extinct - A Compendium of Obsolete Objects) - Barbara Penner, ‎Adrian Forty, ‎Olivia Horsfall Turne, 2021](#灭绝-过时物品纲要-Barbara-Penner-Adrian-Forty-Olivia-Horsfall-Turne) | 非虚构 · 艺术 · 随笔... | 4.13 | 38 |
-| 30 | [《恐惧的总和》(The Sum of All Fears) - Tom Clancy, 1991](#恐惧的总和-Tom-Clancy) | 小说 · 惊悚 · 间谍... | 4.08 | 6.6万 |
-| 31 | [《你不必拥有梦想》(You Don’t Have to Have a Dream) - Tim Minchin, 2024](#你不必拥有梦想-Tim-Minchin) | 非虚构 · 自我提升 · 随笔... | 4.04 | 2,260 |
-| 32 | [《征服市场的人：西蒙斯传》(The Man Who Solved the Market) - Gregory Zuckerman, 2019](#征服市场的人-西蒙斯传-Gregory-Zuckerman) | 金融 · 商业 · 非虚构... | 4.04 | 1.7万 |
-| 33 | [《梅赛德斯先生》(Mr. Mercedes) - Stephen King, 2014](#梅赛德斯先生-Stephen-King) | 恐怖 · 惊悚 · 小说... | 4.04 | 36.5万 |
-| 34 | [《分手信》(Dear John) - Sparks Nicholas, 2006](#分手信-Sparks-Nicholas) | 爱情 · 小说 · 都市女性... | 4.04 | 61.5万 |
-| 35 | [《家族办公室：顾问、从业者和学生综合指南》(The Family Office A Comprehensive Guide for Advisers, Practitioners, and Students) - William I. Woodson Edward V. Marshall, 2021](#家族办公室-顾问-从业者和学生综合指南-William-I-Woodson-Edward-V-Marshall) | 金融 · 商业 | 3.93 | 41 |
-| 36 | [《死钱之谜》(Dead Money) - Jakob Kerr, 2025](#死钱之谜-Jakob-Kerr) | 悬疑 · 惊悚 · 小说... | 4.01 | 7,005 |
-| 37 | [《航空港》(Airport) - Arthur Hailey, 1968](#航空港-Arthur-Hailey) | 小说 · 惊悚 · 悬念... | 4.0 | 4.2万 |
-| 38 | [《真诚的，卡特》(Sincerely, Carter) - Whitney G, 2015](#真诚的-卡特-Whitney-G) | 爱情 · 从朋友到恋人 · 年轻人... | 3.99 | 3.7万 |
-| 39 | [《圣诞时光》(Christmas Days) - Jeanette Winterson, 2016](#圣诞时光-Jeanette-Winterson) | 圣诞 · 短篇小说 · 小说... | 3.95 | 7,230 |
-| 40 | [《如果你敢说出去》(If You Tell) - Olsen, Gregg, 2019](#如果你敢说出去-Olsen-Gregg) | 真实犯罪 · 非虚构 · 犯罪... | 3.98 | 34.2万 |
-| 41 | [《犬年》(Dog Years) - Mark Doty, 2007](#犬年-Mark-Doty) | 回忆录 · 非虚构 · 狗... | 3.9 | 2,998 |
-| 42 | [《消失的亿万富翁：明智财务决策指南》(The Missing Billionaires A Guide to Better Financial Decisions) - Victor Haghani, 2023](#消失的亿万富翁-明智财务决策指南-Victor-Haghani) | 金融 · 非虚构 · 经济学... | 3.84 | 535 |
-| 43 | [《纠正你的英语：避免学习者常犯的99个错误》(Correct your English errors avoid 99 of the common mistakes made by learners of English) - Collins, Timothy G, 2008](#纠正你的英语-避免学习者常犯的99个错误-Collins-Timothy-G) | 工具书/参考书 | 3.67 | 48 |
-| 44 | [《如何不被一杯水淹死》(How Not to Drown in a Glass of Water) - Angie Cruz, 2022](#如何不被一杯水淹死-Angie-Cruz) | 小说 · 当代 · 文学小说... | 3.88 | 3.1万 |
-| 45 | [《纽约客故事集》(The New Yorker Stories) - Beattie Ann, 2010](#纽约客故事集-Beattie-Ann) | 短篇小说 · 小说 · 文学... | 3.79 | 1,362 |
-| 46 | [《即将到来的浪潮：技术、权力与21世纪的最大困境》(The Coming Wave Technology, Power, and the Twenty-first Centurys Greatest Dilemma) - Mustafa Suleyman, 2023](#即将到来的浪潮-技术-权力与21世纪的最大困境-Mustafa-Suleyman) | 非虚构 · AI · 科技... | 3.82 | 1.3万 |
-| 47 | [《平地而起：星巴克与绿围裙背后的承诺》(From the Ground Up_ A Journey to Reimagine the Promise of America) - Howard Schultz, 2019](#平地而起-星巴克与绿围裙背后的承诺-Howard-Schultz) | 传记 · 商业 · 非虚构... | 3.73 | 1,052 |
-| 48 | [《当我谈跑步时我谈些什么》(What I Talk About When I Talk About Running) - Haruki Murakami, 2008](#当我谈跑步时我谈些什么-Haruki-Murakami) |  | 3.87 | 19.7万 |
-| 49 | [《赌徒思维：不了解全部事实也能做出聪明的决策》(Thinking in Bets Making Smarter Decisions When You Dont Have All the Facts) - Annie Duke, 2018](#赌徒思维-不了解全部事实也能做出聪明的决策-Annie-Duke) | 商业 · 非虚构 · 心理学... | 3.82 | 2.2万 |
-| 50 | [《周四谋杀俱乐部》(The Thursday Murder Club) - Richard Osman, 2025](#周四谋杀俱乐部-Richard-Osman) | 小说 | 3.87 | 70.2万 |
-| 51 | [《镜子里的陌生人》(A stranger in the mirror) - Sheldon Sidney, 1976](#镜子里的陌生人-Sheldon-Sidney) | 小说 · 惊悚 · 悬疑... | 3.67 | 2.2万 |
-| 52 | [《廊桥遗梦》(The Bridges of Madison County) - Waller, Robert James, 1992](#廊桥遗梦-Waller-Robert-James) | 小说 · 爱情 · 经典... | 3.71 | 10.5万 |
-| 53 | [《在你之后》(After You) - Moyes Jojo, 2015](#在你之后-Moyes-Jojo) | 小说 | 3.74 | 41.2万 |
-| 54 | [《克拉拉与太阳》(Klara and The Sun) - Kazuo Ishiguro, 2021](#克拉拉与太阳-Kazuo-Ishiguro) | 小说 · 科幻 · 读书会... | 3.74 | 41.6万 |
-| 55 | [《裸脸》(The Naked Face) - Sidney Sheldon, 1970](#裸脸-Sidney-Sheldon) | 小说 · 惊悚 · 悬疑... | 3.58 | 2.1万 |
+| 6 | [《这会很痛》(This is Going to Hurt) - Adam Kay, 2017](#这会很痛-Adam-Kay) | 非虚构 · 回忆录 · 医学... | 4.4 | 32.5万 |
+| 7 | [《操盘手的秘诀：最懂输的人才能成为赢家》(Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader) - Tom Hougaard, 2022](#操盘手的秘诀-最懂输的人才能成为赢家-Tom-Hougaard) | 金融 · 心理学 · 非虚构... | 4.51 | 2,164 |
+| 8 | [《超越百岁：长寿的科学与艺术》(Outlive - The Science and Art of Longevity) - Peter Attia, MD, 2023](#超越百岁-长寿的科学与艺术-Peter-Attia-MD) | 健康 · 非虚构 · 科学... | 4.34 | 8.8万 |
+| 9 | [《无人生还》(And Then There Were None) - Agatha Christie, 1939](#无人生还-Agatha-Christie) | 悬疑 · 经典 · 小说... | 4.27 | 158.5万 |
+| 10 | [《金钱心理学》(The Psychology of Money) - Morgan Housel, 2020](#金钱心理学-Morgan-Housel) | 金融 · 非虚构 · 心理学... | 4.29 | 29.3万 |
+| 11 | [《遇见你之前》(Me Before You) - Moyes Jojo, 2012](#遇见你之前-Moyes-Jojo) | 爱情 · 小说 · 当代... | 4.26 | 177.2万 |
+| 12 | [《赚钱，再自然不过：交易心理师教你战胜心魔、培养赢家的习惯》(Trading in the Zone Master the Market with Confidence, Discipline, and a Winning Attitude) - Mark Douglas, 2000](#赚钱-再自然不过-交易心理师教你战胜心魔-培养赢家的习惯-Mark-Douglas) | 金融 · 非虚构 · 商业... | 4.31 | 9,307 |
+| 13 | [《我的朋友们》(My Friends) - Hisham Matar, 2024](#我的朋友们-Hisham-Matar) | 小说 · 历史小说 · 文学小说... | 4.3 | 1.2万 |
+| 14 | [《我所见的世界：好奇、探索与AI黎明之时的发现》(The Worlds I See Curiosity, Exploration,  Discorvery at Dawn of Ai) - Fei-Fei Li, 2023](#我所见的世界-好奇-探索与AI黎明之时的发现-Fei-Fei-Li) | 非虚构 · AI · 科学... | 4.32 | 4,536 |
+| 15 | [《趣事》(Funny Story) - Emily Henry, 2025](#趣事-Emily-Henry) | 小说 | 4.2 | 117.3万 |
+| 16 | [《高效能人士的七个习惯》(The 7 Habits of Highly Effective People) - Stephen R. Covey, 1989](#高效能人士的七个习惯-Stephen-R-Covey) | 自我提升 · 非虚构 · 商业... | 4.16 | 80.7万 |
+| 17 | [《最长的旅程》(The Longest Ride) - Sparks Nicholas, 2013](#最长的旅程-Sparks-Nicholas) | 小说 | 4.17 | 15.6万 |
+| 18 | [《坟场之书》(The Graveyard Book) - Neil Gaiman, 2008](#坟场之书-Neil-Gaiman) | 奇幻 · 青少年 · 小说... | 4.16 | 56.2万 |
+| 19 | [《接触》(Contact) - Carl Sagan, 2016](#接触-Carl-Sagan) | 小说 | 4.15 | 15.1万 |
+| 20 | [《交易游戏：一个告白》(The Trading Game A Confession) - Gary Stevenson, 2024](#交易游戏-一个告白-Gary-Stevenson) | 非虚构 · 金融 · 经济学... | 4.16 | 1.7万 |
+| 21 | [《公务员图鉴：被遗忘的政府真相》(Who Is Government) - Michael Lewis, 2025](#公务员图鉴-被遗忘的政府真相-Michael-Lewis) | 非虚构 · 政治 · 历史... | 4.16 | 8,634 |
+| 22 | [《退出：知道何时放弃的力量》(Quit) - Annie Duke, 2022](#退出-知道何时放弃的力量-Annie-Duke) | 非虚构 · 心理学 · 商业... | 4.16 | 6,406 |
+| 23 | [《真正无惧的身心防弹术：美国特勤局专家带你提升心理素质，面对各种挑战》(Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly) - Evy Poumpouras, 2020](#真正无惧的身心防弹术-美国特勤局专家带你提升心理素质-面对各种挑战-Evy-Poumpouras) | 非虚构 · 自我提升 · 心理学... | 4.15 | 8,105 |
+| 24 | [《瓜达尔卡纳尔 1942-43：日本摧毁亨德森机场的企图》(Guadalcanal 1942-43_ Japan's bid to knock out Henderson) - Mark Stille, 2019](#瓜达尔卡纳尔-1942-43-日本摧毁亨德森机场的企图-Mark-Stille) | 历史 | 4.23 | 71 |
+| 25 | [《中式英语之鉴》(The Translator's Guide to Chinglish) - Joan Pinkham, 2000](#中式英语之鉴-Joan-Pinkham) | 语言 | 4.23 | 35 |
+| 26 | [《依然是我》(Still Me) - Jojo Moyes, 2018](#依然是我-Jojo-Moyes) | 小说 | 4.11 | 22.9万 |
+| 27 | [《寡头的女儿》(The Oligarchs Daughter) - Joseph Finder, 2025](#寡头的女儿-Joseph-Finder) | 小说 · 惊悚 · 悬疑... | 4.12 | 1.3万 |
+| 28 | [《超级激励者：秘诀就是统一目标、统一行动、统一价值观》(Start With Why_ How Great Leaders Inspire Everyone to Take Action) - Simon Sinek, 2009](#超级激励者-秘诀就是统一目标-统一行动-统一价值观-Simon-Sinek) | 商业 · 领导力 · 非虚构... | 4.1 | 26.1万 |
+| 29 | [《日常卓越：有意义生活的启示》(Everyday Greatness Inspiration for a Meaningful Life) - Stephen R. Covey, 2006](#日常卓越-有意义生活的启示-Stephen-R-Covey) | 自我提升 · 非虚构 · 商业... | 4.12 | 953 |
+| 30 | [《西城故事》(West Side Story) - Irving Shulman, 1961](#西城故事-Irving-Shulman) | 经典 · 小说 · 爱情 | 4.1 | 2.0万 |
+| 31 | [《私人客户：遗嘱、信托和遗产规划》(Private Client Wills, Trusts and Estate Planning) - Lesley King, 2018](#私人客户-遗嘱-信托和遗产规划-Lesley-King) |  | 4.25 | 4 |
+| 32 | [《随他去理论》(The Let Them Theory • A Life-Changing Tool That Millions of People Can’t Stop Talking About) - Mel Robbins, 2024](#随他去理论-Mel-Robbins) | 自我提升 | 4.09 | 18.0万 |
+| 33 | [《灭绝：过时物品纲要》(Extinct - A Compendium of Obsolete Objects) - Barbara Penner, ‎Adrian Forty, ‎Olivia Horsfall Turne, 2021](#灭绝-过时物品纲要-Barbara-Penner-Adrian-Forty-Olivia-Horsfall-Turne) | 非虚构 · 艺术 · 随笔... | 4.13 | 38 |
+| 34 | [《恐惧的总和》(The Sum of All Fears) - Tom Clancy, 1991](#恐惧的总和-Tom-Clancy) | 小说 · 惊悚 · 间谍... | 4.08 | 6.6万 |
+| 35 | [《小小火花处处燃》(Little Fires Everywhere) - Celeste Ng, 2017](#小小火花处处燃-Celeste-Ng) | 小说 · 读书会 · 当代... | 4.07 | 130.0万 |
+| 36 | [《数字极简主义：选择之道》(Digital Minimalism Choosing_) - Cal Newport;, 2019](#数字极简主义-选择之道-Cal-Newport) | 非虚构 · 自我提升 · 心理学... | 4.05 | 9.4万 |
+| 37 | [《你不必拥有梦想》(You Don’t Have to Have a Dream) - Tim Minchin, 2024](#你不必拥有梦想-Tim-Minchin) | 非虚构 · 自我提升 · 随笔... | 4.04 | 2,260 |
+| 38 | [《征服市场的人：西蒙斯传》(The Man Who Solved the Market) - Gregory Zuckerman, 2019](#征服市场的人-西蒙斯传-Gregory-Zuckerman) | 金融 · 商业 · 非虚构... | 4.04 | 1.7万 |
+| 39 | [《梅赛德斯先生》(Mr. Mercedes) - Stephen King, 2014](#梅赛德斯先生-Stephen-King) | 恐怖 · 惊悚 · 小说... | 4.04 | 36.5万 |
+| 40 | [《分手信》(Dear John) - Sparks Nicholas, 2006](#分手信-Sparks-Nicholas) | 爱情 · 小说 · 都市女性... | 4.04 | 61.5万 |
+| 41 | [《家族办公室：顾问、从业者和学生综合指南》(The Family Office A Comprehensive Guide for Advisers, Practitioners, and Students) - William I. Woodson Edward V. Marshall, 2021](#家族办公室-顾问-从业者和学生综合指南-William-I-Woodson-Edward-V-Marshall) | 金融 · 商业 | 3.93 | 41 |
+| 42 | [《死钱之谜》(Dead Money) - Jakob Kerr, 2025](#死钱之谜-Jakob-Kerr) | 悬疑 · 惊悚 · 小说... | 4.01 | 7,005 |
+| 43 | [《航空港》(Airport) - Arthur Hailey, 1968](#航空港-Arthur-Hailey) | 小说 · 惊悚 · 悬念... | 4.0 | 4.2万 |
+| 44 | [《真诚的，卡特》(Sincerely, Carter) - Whitney G, 2015](#真诚的-卡特-Whitney-G) | 爱情 · 从朋友到恋人 · 年轻人... | 3.99 | 3.7万 |
+| 45 | [《圣诞时光》(Christmas Days) - Jeanette Winterson, 2016](#圣诞时光-Jeanette-Winterson) | 圣诞 · 短篇小说 · 小说... | 3.95 | 7,230 |
+| 46 | [《如果你敢说出去》(If You Tell) - Olsen, Gregg, 2019](#如果你敢说出去-Olsen-Gregg) | 真实犯罪 · 非虚构 · 犯罪... | 3.98 | 34.2万 |
+| 47 | [《喜乐俱乐部》(The Joy Luck Club) - Amy Tan, 1989](#喜乐俱乐部-Amy-Tan) | 小说 · 历史小说 · 经典... | 3.97 | 70.7万 |
+| 48 | [《犬年》(Dog Years) - Mark Doty, 2007](#犬年-Mark-Doty) | 回忆录 · 非虚构 · 狗... | 3.9 | 2,998 |
+| 49 | [《喜鹊谋杀案》(Magpie Murders) - Anthony Horowitz, 2016](#喜鹊谋杀案-Anthony-Horowitz) | 悬疑 · 小说 · 悬疑惊悚... | 3.95 | 16.3万 |
+| 50 | [《消失的亿万富翁：明智财务决策指南》(The Missing Billionaires A Guide to Better Financial Decisions) - Victor Haghani, 2023](#消失的亿万富翁-明智财务决策指南-Victor-Haghani) | 金融 · 非虚构 · 经济学... | 3.84 | 535 |
+| 51 | [《纠正你的英语：避免学习者常犯的99个错误》(Correct your English errors avoid 99 of the common mistakes made by learners of English) - Collins, Timothy G, 2008](#纠正你的英语-避免学习者常犯的99个错误-Collins-Timothy-G) | 工具书/参考书 | 3.67 | 48 |
+| 52 | [《天使与魔鬼：光明会的复仇》(Angels  Demons) - Brown Dan, 2000](#天使与魔鬼-光明会的复仇-Brown-Dan) | 小说 · 悬疑 · 惊悚... | 3.95 | 337.4万 |
+| 53 | [《美妆人生：你的美丽、风格与成功指南——线上与线下》(Make Up Your Life Guide to Beauty, Style, and Success--Online and Off) - Michelle phan, 2014](#美妆人生-你的美丽-风格与成功指南-线上与线下-Michelle-phan) | 非虚构 · 自我提升 · 传记... | 3.83 | 1,893 |
+| 54 | [《历史的正确一方：理性与道德目标如何成就西方辉煌》(The Right Side of History How Reason and Moral Purpose Made the West Great) - Ben Shapiro, 2019](#历史的正确一方-理性与道德目标如何成就西方辉煌-Ben-Shapiro) | 政治 · 历史 · 非虚构... | 3.86 | 8,981 |
+| 55 | [《如何不被一杯水淹死》(How Not to Drown in a Glass of Water) - Angie Cruz, 2022](#如何不被一杯水淹死-Angie-Cruz) | 小说 · 当代 · 文学小说... | 3.88 | 3.1万 |
+| 56 | [《纽约客故事集》(The New Yorker Stories) - Beattie Ann, 2010](#纽约客故事集-Beattie-Ann) | 短篇小说 · 小说 · 文学... | 3.79 | 1,362 |
+| 57 | [《即将到来的浪潮：技术、权力与21世纪的最大困境》(The Coming Wave Technology, Power, and the Twenty-first Centurys Greatest Dilemma) - Mustafa Suleyman, 2023](#即将到来的浪潮-技术-权力与21世纪的最大困境-Mustafa-Suleyman) | 非虚构 · AI · 科技... | 3.82 | 1.3万 |
+| 58 | [《平地而起：星巴克与绿围裙背后的承诺》(From the Ground Up_ A Journey to Reimagine the Promise of America) - Howard Schultz, 2019](#平地而起-星巴克与绿围裙背后的承诺-Howard-Schultz) | 传记 · 商业 · 非虚构... | 3.73 | 1,052 |
+| 59 | [《当我谈跑步时我谈些什么》(What I Talk About When I Talk About Running) - Haruki Murakami, 2008](#当我谈跑步时我谈些什么-Haruki-Murakami) |  | 3.87 | 19.7万 |
+| 60 | [《赌徒思维：不了解全部事实也能做出聪明的决策》(Thinking in Bets Making Smarter Decisions When You Dont Have All the Facts) - Annie Duke, 2018](#赌徒思维-不了解全部事实也能做出聪明的决策-Annie-Duke) | 商业 · 非虚构 · 心理学... | 3.82 | 2.2万 |
+| 61 | [《周四谋杀俱乐部》(The Thursday Murder Club) - Richard Osman, 2025](#周四谋杀俱乐部-Richard-Osman) | 小说 | 3.87 | 70.2万 |
+| 62 | [《镜子里的陌生人》(A stranger in the mirror) - Sheldon Sidney, 1976](#镜子里的陌生人-Sheldon-Sidney) | 小说 · 惊悚 · 悬疑... | 3.67 | 2.2万 |
+| 63 | [《廊桥遗梦》(The Bridges of Madison County) - Waller, Robert James, 1992](#廊桥遗梦-Waller-Robert-James) | 小说 · 爱情 · 经典... | 3.71 | 10.5万 |
+| 64 | [《在你之后》(After You) - Moyes Jojo, 2015](#在你之后-Moyes-Jojo) | 小说 | 3.74 | 41.2万 |
+| 65 | [《克拉拉与太阳》(Klara and The Sun) - Kazuo Ishiguro, 2021](#克拉拉与太阳-Kazuo-Ishiguro) | 小说 · 科幻 · 读书会... | 3.74 | 41.6万 |
+| 66 | [《裸脸》(The Naked Face) - Sidney Sheldon, 1970](#裸脸-Sidney-Sheldon) | 小说 · 惊悚 · 悬疑... | 3.58 | 2.1万 |
 
 ---
 
 ## 📖 电子书列表（按添加时间排序）
 
-1.  **(276页) <span id="分手信-Sparks-Nicholas">[《分手信》(Dear John) - Sparks Nicholas, 2006](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Dear%20John%20%28Sparks%20Nicholas%29.epub)</span>**  | ⭐Goodreads：4.04分 (61.5万人评分)
+1.  **(736页) <span id="天使与魔鬼-光明会的复仇-Brown-Dan">[《天使与魔鬼：光明会的复仇》(Angels  Demons) - Brown Dan, 2000](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Angels%20%20Demons%20%28Brown%20Dan%29.epub)</span>**  | ⭐Goodreads：3.95分 (337.4万人评分)
+    <br>📖 **类型**：小说 · 悬疑 · 惊悚 · 悬疑惊悚 · 悬念 · 冒险 · 犯罪
+    > 一个古老的秘密兄弟会。一种毁灭性的新武器。当世界著名的哈佛大学符号学家罗伯特·兰登被召唤到瑞士的一个研究机构，去分析一个神秘的符号——烧灼在一位被谋杀的物理学家的胸膛上——他发现了难以置信的证据：一个名为光照派的古老秘密兄弟会的复苏……这是有史以来最强大的地下组织。光照派如今浮出水面，准备执行其传奇复仇的最后一阶段，针对其最痛恨的敌人——天主教会。在梵蒂冈神圣会议前夕，兰登最糟糕的恐惧得到了证实，当时一位光照派的信使宣布，他们已经在梵蒂冈城的心脏地带隐藏了一枚无法阻止的定时炸弹。随着倒计时的开始，兰登飞往罗马，与维多利亚·维特拉——一位美丽而神秘的意大利科学家——联手，协助梵蒂冈进行绝望的生存斗争。他们踏上了一场疯狂的搜寻，穿越封闭的地下室、危险的地下墓穴、荒凉的教堂，甚至地球上最隐秘的金库，兰登和维特拉沿着一条400年历史的古老符号轨迹，蜿蜒穿过罗马，朝着被遗忘的光照派老巢前进……这个秘密地点包含了梵蒂冈获救的唯一希望。《天使与魔鬼》是一部爆炸性的国际惊悚小说，从启迪性的顿悟到黑暗的真相，科学与宗教之间的战斗变成了战争。
+
+    > **作者简介**: 丹·布朗是众多排名第一的畅销小说的作者，其作品不仅成为有史以来最畅销的小说之一，也引发了读者和学者间的智慧辩论。布朗的小说以56种语言在全球出版，累计发行量超过2亿册。2005年，他被《时代》杂志评为“世界百位最具影响力人物”之一，编辑们赞誉他“为出版业注入活力；重新点燃对莱昂纳多·达·芬奇及早期基督教历史的兴趣；带动巴黎和罗马的旅游业激增；秘密社团成员增多；引发罗马红衣主教的愤怒；八本书反驳小说中的观点，七本配套阅读指南；催生大量历史惊悚小说；以及一个重要的电影特许经营权。”作为数学教师和教堂风琴手之子，布朗在预科学校校园长大，对科学与宗教间的矛盾互动产生了浓厚兴趣，这些主题最终成为他作品的背景。他是阿默斯特学院和菲利普斯埃克塞特学院的毕业生，曾回母校教授英语，后全职投入写作。他与爱犬——一只黄色拉布拉多犬温斯顿，一同居住在新英格兰。布朗的最新小说《起源》探讨了人类两个基本问题：我们从哪里来？我们要去往何方？
+
+2.  **(285页) <span id="这会很痛-Adam-Kay">[《这会很痛》(This is Going to Hurt) - Adam Kay, 2017](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/This%20is%20Going%20to%20Hurt%20%28Adam%20Kay%29.epub)</span>**  | ⭐Goodreads：4.4分 (32.5万人评分)
+    <br>📖 **类型**：非虚构 · 回忆录 · 医学 · 传记 · 幽默
+    > 欢迎踏入初级医生的生活：每周工作97小时，面对生死攸关的抉择，体液如海啸般不断涌来，而医院的停车计费器收入竟比你还要高。在无尽的白昼、不眠的夜晚和错过的周末后，亚当·凯偷偷记录下了他在NHS前线毫无保留的亲身经历。这本日记既幽默又恐怖，更令人心碎，涵盖了你想知道的一切——以及一些你不想知道的——关于医院内外生活的点点滴滴。正如ITV佐伊·鲍尔书俱乐部所展示的那样，这一版还特别收录了额外的日记条目和作者的新后记。
+
+    > **作者简介**: 亚当·凯是一位屡获殊荣的喜剧演员兼作家。他曾在多年前担任初级医生。他的首部作品《这会很痛：初级医生的私密日记》在《星期日泰晤士报》畅销书排行榜上雄踞榜首超过一年，销量超过两百万册。该书已被译成37种语言，并荣获四项国家图书奖，包括年度图书奖，并将被BBC改编成一部重要的新喜剧剧集。他的第二本书《圣诞前夜的夜班》一上市便迅速登上《星期日泰晤士报》畅销书榜首，并在最初几周内售出超过五十万册。《亲爱的NHS》由亚当·凯编辑，同样迅速成为《星期日泰晤士报》畅销书第一名，所有利润均捐赠给慈善机构。他的首部儿童书籍《凯的解剖学》将于2020年10月面世。
+
+3.  **(336页) <span id="我所见的世界-好奇-探索与AI黎明之时的发现-Fei-Fei-Li">[《我所见的世界：好奇、探索与AI黎明之时的发现》(The Worlds I See Curiosity, Exploration,  Discorvery at Dawn of Ai) - Fei-Fei Li, 2023](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Worlds%20I%20See%20Curiosity%2C%20Exploration%2C%20%20Discorvery%20at%20Dawn%20of%20Ai%20%28Fei-Fei%20Li%29.epub)</span>**  | ⭐Goodreads：4.32分 (4536人评分)
+    <br>📖 **类型**：非虚构 · AI · 科学 · 回忆录 · 传记 · 科技
+    > 一位科学家作为移民在美国成长并找到她在人工智能革命前沿的使命的感人回忆录。《连线》杂志称李飞飞博士为“一小群科学家之一——这个群体可能小到可以围坐在厨房餐桌旁——他们负责了人工智能最近显著的进步。”作为ImageNet的创造者，现代人工智能的关键催化剂，李博士在该领域前沿工作了二十多年。但她的科学事业从一开始就不太可能。作为移民，她的家庭面临着从中国中产阶级到美国贫困的艰难转变。他们的生活变得更加艰难，因为他们努力照顾她生病的母亲，而她的母亲正在不知疲倦地帮助他们所有人在这片新土地上立足。然而，飞飞对物理学的青少年天赋持续了下来，使她能够对现在称为人工智能的突破做出关键贡献，将她置于全球变革的中心。在过去的几十年里，她的工作使她面对面地接触到她所热爱的技术的非凡可能性——以及非凡的危险。《我眼中的世界》是一部第一人称的科学故事，从内部记录了本世纪的一个决定性时刻。它提供了一个引人入胜的科学家工作故事，以及对人工智能实际是什么——以及它是如何形成的——的令人兴奋的清晰解释。情感真挚，智力上毫不妥协，这本书不仅是对即使是最技术性学术研究所需的热情的见证，也是对其永远处于核心的好奇心的见证。
+
+4.  **(477页) <span id="喜鹊谋杀案-Anthony-Horowitz">[《喜鹊谋杀案》(Magpie Murders) - Anthony Horowitz, 2016](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Magpie%20Murders%20%28Anthony%20Horowitz%29.epub)</span>**  | ⭐Goodreads：3.95分 (16.3万人评分)
+    <br>📖 **类型**：悬疑 · 小说 · 悬疑惊悚 · 犯罪 · 惊悚 · 读书会
+    > 艾伦·康威是一位畅销犯罪小说作家。他的编辑，苏珊·赖兰，已经与他合作多年，对他笔下的侦探阿提库斯·庞德了如指掌，这位侦探专门解决那些扰乱宁静英国村庄的谜团。艾伦的传统写作模式向经典英国犯罪小说女王阿加莎·克里斯蒂和多萝西·塞耶斯致敬，这种模式已被证明极为成功。成功到如果苏珊想保住饭碗，就必须继续忍受他令人头疼的行为。当苏珊收到艾伦的最新手稿，其中阿提库斯·庞德调查在派伊庄园——一座英国庄园发生的谋杀案时，她并未觉得这与以往作品有何不同。会有尸体、一系列引人入胜的嫌疑人，以及大量的误导和线索。但随着苏珊深入阅读，她逐渐意识到手稿的字里行间隐藏着另一个故事——一个关于野心、嫉妒和贪婪的故事，而且很快这将引发一场谋杀。《喜鹊谋杀案》巧妙、机智且无情地扣人心弦，是对经典犯罪小说的狡黠而黑暗的演绎。
+
+    > **作者简介**: 安东尼·霍洛维茨，OBE，与伊妮德·布莱顿和马克·A·库珀齐名，被誉为“本世纪最具原创性和最优秀的间谍儿童文学作家。”（《纽约时报》）。安东尼自八岁起开始写作，二十岁起成为职业作家。除了极为成功的《亚历克斯·莱德》系列书籍外，他还是获奖侦探系列《福伊尔的战争》的编剧和创作者，以及近期的事件剧《碰撞》。在他的其他电视作品中，他还为《波洛》、《谋杀之心》、《米德萨默谋杀案》和《最可怕的谋杀》撰写了剧集。安东尼于2009年成为东安格利亚儿童临终关怀院的赞助人。2011年1月19日，阿瑟·柯南·道尔遗产宣布霍洛维茨将撰写一部新的夏洛克·福尔摩斯小说，这是首次获得他们官方认可的作品，书名为《丝绸之屋》。http://us.macmillan.com/author/anthon...
+
+5.  **(288页) <span id="喜乐俱乐部-Amy-Tan">[《喜乐俱乐部》(The Joy Luck Club) - Amy Tan, 1989](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Joy%20Luck%20Club%20%28Amy%20Tan%29.epub)</span>**  | ⭐Goodreads：3.97分 (70.7万人评分)
+    <br>📖 **类型**：小说 · 历史小说 · 经典 · 当代 · 读书会
+    > 四位母亲，四位女儿，四个家庭，她们的故事随着讲述者的不同而随风变幻。1949年，四位刚移民至旧金山的中国女性，每周相聚打麻将，讲述她们在中国留下的往事。因共同的失去和对女儿未来的新希望而团结，她们自称“喜福会”。她们的女儿们从未听闻这些故事，认为母亲的忠告与她们现代的美国生活毫不相干——直到她们自身的内心危机揭示出她们无意中继承了母亲多少过去。艾米·谭以智慧和细腻，探讨了母亲与女儿之间时而痛苦、常常温柔且总是深刻的联系。随着每位女性揭开自己的秘密，试图解开生活的真相，线索愈发纠缠，愈发紧密。母亲们对女儿们或是夸耀或是绝望，而女儿们即便感受到母系纽带的不可避免地收紧，也翻着白眼。谭是一位敏锐的故事讲述者，吸引读者沉浸于这些复杂而神秘的生活之中。
+
+    > **作者简介**: 艾米·谭（中文：谭恩美；拼音：Tán Ēnměi；生于1952年2月19日）是一位美国作家，其小说作品包括《喜福会》、《灶神之妻》、《百种神秘感官》、《接骨师的女儿》、《拯救溺水的鱼》和《惊奇谷》。她还著有两部回忆录《命运的反面》和《过去的起点》，以及两部儿童书籍《中国暹罗猫》和《月亮女士》。此外，她还是电影版《喜福会》的联合编剧、歌剧《接骨师的女儿》的编剧，以及PBS动画系列《 Sagwa中国中国猫》的创意顾问。谭在MasterClass上担任写作、记忆和想象的讲师，并出现在美国大师纪录片《艾米·谭：非故意回忆录》中。她被选入美国艺术与文学学院，最近荣获国家人文奖章，并担任美国鸟类保护协会董事会成员。
+    > 
+    > 她的新书《后院鸟类编年史》始于2016年的日记，当时她投身自然以寻求平静。她还开始跟随约翰·缪尔·劳斯（著有《劳斯自然日记和绘画指南》和《劳斯鸟类绘画指南》）学习绘画。在疫情期间的封锁期间，她仅在后院绘制鸟类，记录下她感到困惑的行为。随着时间的推移，她识别出64种曾造访她在马林县后院的鸟类。到2022年，她已积累了九本以上的素描和笔记日记，她的Knopf出版社编辑建议她出版这本书。该书将于2024年4月出版，并已获得高度评价：
+    > 
+    > “伟大的写作很大程度上源于浓厚的兴趣，在《后院鸟类编年史》中，艾米·谭向我们展示了世界是如何吸引她的，尤其是鸟类。结果既出人意料又壮观。”——安·帕切特，《这些珍贵的日子》作者
+    > 
+    > “这是一本多么迷人且富有启发性的书啊！我们多么幸运，艾米·谭将她的天赋、深刻的同理心和洞察力、敏锐的观察力转向了鸟类。这些编年史的每一页都散发着温暖的好奇心、惊奇和喜悦。”——詹妮弗·阿克曼，《鸟类的天才》
+    > 
+    > “这是我读过的最具感染力和说服力的自然书籍之一。对于观鸟者、潜在的观鸟者或观鸟怀疑者来说，这本书提供了极大的乐趣和意想不到的吸引力。通过谭的狂喜之眼，原本可能枯燥的鸟类学论述变得更有趣、更深刻。这实际上是一本关于观察的书。”——戴夫·埃格斯，《忘恩负义的哺乳动物》作者
+    > 
+    > “任何对鸟类哪怕有一点点兴趣的人，或者考虑对鸟类产生兴趣的人（毕竟，鸟类是地球健康状况的指示属），都会希望这本书栖息在他们的书架上，哪怕只是为了艾米·谭的视角和她给我们树立的如何专注的榜样。这是一笔财富。”——罗伯特·哈斯，普利策奖获奖作品《夏日雪：新诗》作者
+    > 
+    > “《后院鸟类编年史》是趣味阅读。它展示了我们如何能够在情感上、字面上和艺术上与自然世界互动——愉快地了解最易接触却又野性的动物，那些选择靠近我们、有时与我们共处的稀有而美丽的鸟类。”——贝尔德·海因里希，《乌鸦之心》作者
+    > 
+    > “以这本书为指南，踏入艾米·谭的鸟类世界。这是一种亲密的视角，一种与鸟类及其行为的类似恋爱的关系，这是艾米多年来逐渐了解的。在她自己后院的绿叶宇宙中，她静静地注视，耐心地观察，并深入记录了多种鸟类。她以丰富多彩的细节描述了各种鸟类的行为，同时以精湛的插图捕捉它们的美。物种包括可怕的捕食者和警觉的猎物，长途迁徙者和家乡居民。通过她独特的洞察力和作为作家的天赋
+
+6.  **(302页) <span id="数字极简主义-选择之道-Cal-Newport">[《数字极简主义：选择之道》(Digital Minimalism Choosing_) - Cal Newport;, 2019](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Digital%20Minimalism%20Choosing_.epub)</span>**  | ⭐Goodreads：4.05分 (9.4万人评分)
+    <br>📖 **类型**：非虚构 · 自我提升 · 心理学 · 个人成长 · 科技
+    > 极简主义是一门懂得适可而止的艺术。数字极简主义将这一理念应用于我们的个人科技领域。在日益喧嚣的世界中，它成为过上专注生活的关键。在这本及时且富有启发性的书中，畅销书《深度工作》的作者介绍了一种已经改善无数人生活的科技使用哲学。
+    > 
+    > 数字极简主义者就在我们身边。他们是那些能够长时间交谈而不偷看手机、平静而快乐的人。他们可以沉浸在一本好书、一个木工项目或一次悠闲的晨跑中。他们可以与朋友和家人尽情玩乐，而不会有记录体验的强迫冲动。他们了解当天的新闻，但不会感到不知所措。他们不会经历“错失恐惧症”，因为他们已经清楚哪些活动能带来意义和满足感。
+    > 
+    > 如今，纽波特为这场悄然兴起的运动命名，并有力地论证了其在科技饱和世界中的紧迫性。像关闭通知这样的常识性建议，或偶尔的仪式如遵守数字安息日，并不能在很大程度上帮助我们夺回科技生活的控制权，而完全断网的尝试又因家庭、朋友和工作的需求而变得复杂。我们需要的其实是一种深思熟虑的方法，来决定使用哪些工具、出于什么目的以及在什么条件下使用。
+    > 
+    > 纽波特借鉴了从阿米什农民到忙碌的父母再到硅谷程序员的多种真实生活例子，识别了数字极简主义者的共同做法及其背后的理念。他展示了数字极简主义者如何重新思考他们与社交媒体的关系，重新发现线下世界的乐趣，并通过定期的独处时间与内心自我重新连接。随后，他分享了将这些做法融入生活的策略，从为期三十天的“数字清理”过程开始，这一过程已经帮助数千人感到不那么不知所措，更能掌控自己的生活。
+    > 
+    > 科技本身既不好也不坏。关键在于用它来支持你的目标和价值观，而不是让它利用你。这本书指明了道路。
+
+    > **作者简介**: 卡尔·纽波特是乔治城大学教务长杰出计算机科学教授，同时也是七本书的作者。他的思想与著作经常出现在各大出版物、电视和广播中。从他的个人网站上可以看到：“我专注于探讨数字技术与文化的交汇点。我特别关注我们如何努力运用这些工具，以支持而非颠覆我们在个人和职业生活中所珍视的事物。”
+
+7.  **(276页) <span id="分手信-Sparks-Nicholas">[《分手信》(Dear John) - Sparks Nicholas, 2006](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Dear%20John%20%28Sparks%20Nicholas%29.epub)</span>**  | ⭐Goodreads：4.04分 (61.5万人评分)
     <br>📖 **类型**：爱情 · 小说 · 都市女性 · 当代 · 当代爱情 · 青少年
     > 一个愤怒的叛逆者，约翰辍学参军，不知人生何去何从——直到遇见了他梦中的女孩，萨凡纳。他们之间的相互吸引迅速升华为一种深沉的爱，萨凡纳等待着约翰完成服役，而约翰也渴望与这位俘获他心扉的女子共度余生。然而，9/11事件改变了一切。约翰觉得自己有责任再次入伍。遗憾的是，长期的分离让萨凡纳爱上了别人。“亲爱的约翰”，信中写道……仅此二字，一颗心碎，两段人生从此改写。回到家乡，约翰必须面对一个残酷的现实：已为人妻的萨凡纳依然是他心中的真爱——并面临他人生中最艰难的抉择。
 
     > **作者简介**: 尼古拉斯·斯帕克斯是全球最受欢迎的故事讲述者之一。他的所有作品都曾登上《纽约时报》畅销书榜，全球销量超过1.3亿册，被翻译成50多种语言，仅在美国就售出超过9200万册。斯帕克斯在28岁时，耗时六个月创作了他最著名的故事之一《恋恋笔记本》。该书于1996年出版，随后他又陆续推出了《瓶中信》（1998年）、《记忆中的凡尔赛》（1999年）、《救援》（2000年）、《路的转弯处》（2001年）、《罗丹岛的夜晚》（2002年）、《守护者》（2003年）、《婚礼》（2003年）、《真信徒》（2005年）及其续集《初见》（2005年）、《亲爱的约翰》（2006年）、《选择》（2007年）、《幸运儿》（2008年）、《最后的歌》（2009年）、《安全港》（2010年）、《最好的我》（2011年）、《最长的一骑》（2013年）、《看见我》（2015年）、《二乘二》（2016年）、《每一息》（2018年）、《回归》（2020年）、《愿望》（2021年）和《梦境之地》（2022年），以及与兄弟米迦合著的2004年非虚构回忆录《与兄弟的三周》。他的第二十四部小说《数奇迹》将于2024年9月24日出版。尼古拉斯·斯帕克斯的小说被改编成电影，包括《选择》、《最长的一骑》、《最好的我》、《安全港》（他在这些电影中均担任制片人）、《幸运儿》、《瓶中信》、《记忆中的凡尔赛》、《恋恋笔记本》、《罗丹岛的夜晚》、《亲爱的约翰》和《最后的歌》，全球累计票房超过7.5亿美元。《恋恋笔记本》还被改编成百老汇音乐剧，音乐和歌词由英格丽·迈克尔森创作。斯帕克斯居住在北卡罗来纳州，积极参与各种地方和全国性慈善活动，并且是圣母大学创意写作项目（MFA）的主要捐助者，每年提供奖学金、实习机会和一项奖学金。他于2006年在北卡罗来纳州新伯尔尼共同创立了启示学校。作为一名曾经的全额奖学金运动员（他至今仍保持着圣母大学的田径纪录），他还花了四年时间在当地公立高中执教田径运动员。2009年，他执教的新伯尔尼高中队在4×400米项目中创造了世界青年室内纪录，以及800米混合和1600米混合的美国高中全国纪录。点击观看尼古拉斯的《跑者世界》视频。尼古拉斯·斯帕克斯基金会是一家501(c)(3)非营利组织，成立于2011年，旨在为贫困和弱势青年提供奖学金和资助教育项目。通过该基金会以及斯帕克斯家族的个人捐赠，超过1500万美元已分配给值得的慈善机构、奖学金项目和项目。由于斯帕克斯家族承担了基金会的所有运营费用，因此100%的捐款都用于项目。
 
-2.  **(240页) <span id="美妆人生-你的美丽-风格与成功指南-线上与线下-Michelle-phan">[《美妆人生：你的美丽、风格与成功指南——线上与线下》(Make Up Your Life Guide to Beauty, Style, and Success--Online and Off) - Michelle phan, 2014](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Make%20Up%20Your%20Life%20Guide%20to%20Beauty%2C%20Style%2C%20and%20Success--Online%20and%20Off%20%28Michelle%20phan%29.epub)</span>**
-    <br>📖 **类型**：自我提升
+8.  **(240页) <span id="美妆人生-你的美丽-风格与成功指南-线上与线下-Michelle-phan">[《美妆人生：你的美丽、风格与成功指南——线上与线下》(Make Up Your Life Guide to Beauty, Style, and Success--Online and Off) - Michelle phan, 2014](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Make%20Up%20Your%20Life%20Guide%20to%20Beauty%2C%20Style%2C%20and%20Success--Online%20and%20Off%20%28Michelle%20phan%29.epub)</span>**  | ⭐Goodreads：3.83分 (1893人评分)
+    <br>📖 **类型**：非虚构 · 自我提升 · 传记 · 回忆录 · 工具书/参考书
     > <b>全新视频和链接贯穿全书，包括米歇尔的独家内容！</b><br><br>米歇尔·潘自从第一次被允许尝试眼线笔以来，就深信化妆的力量。当她照镜子时，看到一个全新版本的自己回望，她爱上了化妆所能赋予的自信感。自从她在YouTube上发布了第一个化妆教程以来，她一直致力于通过化妆这一转变和自我表达的工具体验，激励了数百万人。<br><br>如今，米歇尔将她所有的智慧汇编成《化妆：你的美丽、风格和成功生活指南——线上线下》。从打造迷人的烟熏眼妆到理解修容技巧，再到发展线上个人形象，米歇尔提供了帮助您转变生活各个方面的建议。《化妆》一书充满了米歇尔标志性的美妆和风格教程，她个人生活中的故事和图片，以及她最常被问到的主题建议，包括礼仪、职业、创业和创造力。从日常（例如如何拥有光彩照人的肌肤）到大局（例如如何将激情转化为职业），《化妆》是一本实用且赋权的资源，帮助任何人展现出最好的自己。
 
-3.  **(368页) <span id="小小火花处处燃-Celeste-Ng">[《小小火花处处燃》(Little Fires Everywhere) - Celeste Ng, 2017](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Little%20Fires%20Everywhere%20%28Celeste%20Ng%29.epub)</span>**
-    <br>📖 **类型**：小说
+9.  **(338页) <span id="小小火花处处燃-Celeste-Ng">[《小小火花处处燃》(Little Fires Everywhere) - Celeste Ng, 2017](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Little%20Fires%20Everywhere%20%28Celeste%20Ng%29.epub)</span>**  | ⭐Goodreads：4.07分 (130.0万人评分)
+    <br>📖 **类型**：小说 · 读书会 · 当代 · 文学小说 · 悬疑
     > <b>《纽约时报》排名第一的畅销书•被《人物》、《华盛顿邮报》、《Bustle》、《Esquire》、《南方生活》、《每日野兽》、《GQ》、《娱乐周刊》、NPR、亚马逊、巴诺书店、iBooks、Audible、Goodreads、图书馆阅读、本月之书、《Paste》、《Kirkus评论》、《圣路易斯邮报》等多家媒体评为年度最佳图书</b><br><br><b>“说我喜欢这本书是低估了。这是一部关于母爱力量、青少年爱情强度和完美危险的深刻心理谜团。它让我感动得流泪。” —瑞茜·威瑟斯彭<br><br></b>从畅销书《我从未告诉你的所有事》和《我们缺失的心》的作者那里，来了一部扣人心弦的小说，追踪了完美无瑕的理查森家庭和颠覆他们生活的神秘母女交织的命运。<br><br>在克利夫兰一个平静、进步的郊区沙克尔高地，一切都是规划好的——从蜿蜒道路的布局，到房屋的颜色，到居民们将要过的成功生活。没有人比埃琳娜·理查森更能体现这种精神，她的指导原则是按规则行事。<br><br>米娅·沃伦——一位神秘的艺术家和单亲母亲——带着她十几岁的女儿珀尔来到这个田园诗般的泡沫中，并从理查森家租了一所房子。很快，米娅和珀尔不仅仅是房客：理查森家的四个孩子都被这对母女吸引。但米娅带着神秘的过去和对现状的不屑，威胁要颠覆这个精心安排的社区。<br><br>当理查森家的老朋友试图收养一个中美混血婴儿时，一场监护权争夺战爆发，戏剧性地分裂了小镇——并将米娅和埃琳娜置于对立面。埃琳娜对米娅及其动机持怀疑态度，决心揭开米娅过去的秘密。但她的痴迷将带来意想不到和毁灭性的代价。<br><br>《小火灾无处不在》探讨了秘密的重量、艺术和身份的本质，以及母爱的强烈吸引力——以及相信遵守规则可以避免灾难的危险。<br><b><br>被以下媒体评为年度最佳图书：《人物》、《华盛顿邮报》、《Bustle》、《Esquire》、《南方生活》、《每日野兽》、《GQ》、《娱乐周刊》、NPR、亚马逊、巴诺书店、iBooks、Audible、Goodreads、图书馆阅读、本月之书、《Paste》、《Kirkus评论》、《圣路易斯邮报》等</b>
 
-4.  **(160页) <span id="西城故事-Irving-Shulman">[《西城故事》(West Side Story) - Irving Shulman, 1990](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/West%20Side%20Story%20%28Irving%20Shulman%29.epub)</span>**
-    <br>📖 **类型**：小说
+10. **(160页) <span id="西城故事-Irving-Shulman">[《西城故事》(West Side Story) - Irving Shulman, 1961](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/West%20Side%20Story%20%28Irving%20Shulman%29.epub)</span>**  | ⭐Goodreads：4.1分 (2.0万人评分)
+    <br>📖 **类型**：经典 · 小说 · 爱情
     > <b>百老汇最经久不衰、备受喜爱的音乐剧之一——《西区故事》的经典小说改编。</b><br><br>玛丽亚年轻而纯真，从未体验过爱情——直到遇见托尼。而托尼，在追寻街头野蛮生活之外的人生时，也第一次与她共同发现了爱情。<br><br>然而，玛丽亚的哥哥是鲨鱼帮的领袖，而托尼曾领导过敌对的喷气机帮。如今，两个帮派争夺同一块地盘，紧张局势不断升级，似乎无法阻止一场激烈冲突。<br><br>托尼曾向玛丽亚承诺他会置身事外。但他能否信守诺言，还是他们的新恋情将被暴力甚至死亡摧毁？<br><br>这部小说改编作品引人入胜、难以忘怀，展现了美国戏剧史上最经久不衰的故事之一的所有深度、戏剧性和美感。
 
-5.  **(204页) <span id="无人生还-Agatha-Christie">[《无人生还》(And Then There Were None) - Agatha Christie, 2024](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/And%20Then%20There%20Were%20None%20%28Agatha%20Christie%29.epub)</span>**
-    <br>📖 **类型**：小说
+11. **(277页) <span id="历史的正确一方-理性与道德目标如何成就西方辉煌-Ben-Shapiro">[《历史的正确一方：理性与道德目标如何成就西方辉煌》(The Right Side of History How Reason and Moral Purpose Made the West Great) - Ben Shapiro, 2019](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Right%20Side%20of%20History%20How%20Reason%20and%20Moral%20Purpose%20Made%20the%20West%20Great%20%28Ben%20Shapiro%29.epub)</span>**  | ⭐Goodreads：3.86分 (8981人评分)
+    <br>📖 **类型**：政治 · 历史 · 非虚构 · 哲学
+    > 《纽约时报》畅销书排行榜第一名！在西方，人类从未像现在这样过得如此好。那么，我们为何濒临将这一切抛弃的边缘？2016年，《纽约时报》畅销书作者本·夏皮罗在加州大学伯克利分校发表演讲，数百名警察被要求保护他的演讲。夏皮罗究竟有何可怕之处？他来争论的是，西方文明正陷入一场目的和思想的危机；我们让不满取代了社区感，政治上的权宜之计限制了我们的个人权利；我们正在教导孩子们，他们的情感比理性辩论更重要；生活的唯一意义是任意和主观的。作为一个社会，我们正在忘记，历史上几乎所有伟大的成就都源于那些信仰犹太-基督教价值观和希腊理性力量的人们。在《历史的正确一侧》中，夏皮罗穿越了3500多年、数十位哲学家以及现代政治的丛林，展示了我们的自由是如何建立在每个人都是按照上帝形象被造，以及人类被赋予探索上帝世界的理性这一双重观念之上的。我们应当感谢这些价值观带来了科学的诞生、进步的梦想、人权、繁荣、和平和艺术美。耶路撒冷和雅典共同铸就了美国，结束了奴隶制，击败了纳粹和共产主义者，使数十亿人摆脱了贫困，并为更多人赋予了精神上的意义。然而，我们正在放弃犹太-基督教价值观和希腊自然法，眼睁睁地看着我们的文明崩溃为古老的部落主义、个人享乐主义和道德主观主义。我们以为可以通过交叉性、科学唯物主义、进步政治、威权治理或民族主义团结来满足自己。我们做不到。西方是独特的，在《历史的正确一侧》中，本·夏皮罗勇敢地解释了我们是怎样失去了驱动每个人变得更好的道德目的，以及为了更大的善而共同努力的神圣职责。
+
+    > **作者简介**: 本杰明·夏皮罗出生于1984年，16岁时进入加州大学洛杉矶分校（UCLA），并于2004年6月以最优等成绩（summa cum laude）和Phi Beta Kappa荣誉学会会员身份毕业，获得政治学学士学位。他于2007年6月以优异成绩（cum laude）从哈佛法学院毕业。夏皮罗在17岁时被创作者辛迪加（Creators Syndicate）聘用，成为美国最年轻的全国性专栏作家。他的专栏文章发表在包括Townhall、ABC新闻、WorldNet Daily、Human Events、FrontPage Mag、Family Security Matters、《河滨新闻企业报》和《保守派纪事报》等主要报纸和网站上。他的文章还出现在《基督教科学箴言报》、《芝加哥太阳时报》、《奥兰多前哨报》、《檀香山明星广告报》、RealClearPolitics.com、《亚利桑那共和报》和《克莱蒙特书评》等媒体上。他曾成为《华尔街日报》、《纽约时报》、美联社和《基督教科学箴言报》等媒体报道的主题；他的言论被引用在《拉什·林堡秀》、《劳拉博士秀》、CBS新闻、《纽约新闻报》、《华盛顿时报》和《美国保守派》杂志等众多节目中。夏皮罗是全国畅销书《洗脑：大学如何灌输美国青年》（WND Books，2004年5月）、《色情一代：社会自由主义如何腐蚀我们的未来》（Regnery，2005年6月）和《总统计划：通往白宫的糟糕发型和肉毒杆菌》（Thomas Nelson，2008年）的作者，他曾在全美数百个广播和电视节目中亮相，包括《奥赖利因素》（福克斯新闻）、《福克斯与朋友们》（福克斯新闻）、《金钱之中》（CNN财经）、《与琳达·维斯特的日间节目》（福克斯新闻）、《斯卡伯勒乡村》（MSNBC）、《丹尼斯·米勒秀》（CNBC）、《福克斯新闻直播》（福克斯新闻频道）、《格伦·贝克秀》（CNN）、《尼尔·卡武托的世界》（福克斯新闻）和《700俱乐部》（基督教广播网）、《劳拉·英格拉汉姆秀》、《迈克尔·梅德维德秀》、《G. 戈登·利迪秀》、《拉斯蒂·汉弗莱斯秀》、《拉尔斯·拉森秀》（全国性联播）、《拉里·埃尔德秀》、《休·休伊特秀》和《丹尼斯·普雷格秀》等。
+
+12. **(264页) <span id="无人生还-Agatha-Christie">[《无人生还》(And Then There Were None) - Agatha Christie, 1939](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/And%20Then%20There%20Were%20None%20%28Agatha%20Christie%29.epub)</span>**  | ⭐Goodreads：4.27分 (158.5万人评分)
+    <br>📖 **类型**：悬疑 · 经典 · 小说 · 惊悚 · 犯罪 · 悬疑惊悚
     > 首先，有十个人——一群古怪的陌生人，被召集到德文海岸附近的一个小私人岛屿上度过周末。他们的主人，一个他们都未曾谋面的古怪百万富翁，却无处可寻。这些客人唯一的共同点是他们不愿揭露的邪恶过去——以及一个将决定他们命运的秘密。因为每个人都已被标记为谋杀对象。一首著名的童谣被裱起来，挂在庄园的每个房间里：
     > 
     > “十个小孩去吃饭；一个噎死了自己，然后剩下九个。九个小孩熬夜很晚；一个睡过了头，然后剩下八个。八个小孩在德文旅行；一个说他要留下，然后剩下七个。七个小孩砍柴；一个把自己砍成两半，然后剩下六个。六个小孩玩蜂巢；一只大黄蜂蜇了一个，然后剩下五个。五个小孩去学法律；一个进了衡平法院，然后剩下四个。四个小孩出海；一条红鲱鱼吞了一个，然后剩下三个。三个小孩在动物园散步；一只大熊拥抱了一个，然后剩下两个。两个小孩坐在阳光下；一个被烤焦了，然后剩下一个。一个小孩孤零零地留下；他走出去上吊自杀，然后一个都不剩。”
     > 
     > 当他们意识到谋杀正如童谣所描述的发生时，恐惧加剧。他们一个接一个地成为猎物。在周末结束之前，将无人幸存。是谁策划了这卑鄙的阴谋？谁将留下来讲述这个故事？只有死者才能免于怀疑。
 
-6.  **(332页) <span id="即将到来的浪潮-技术-权力与21世纪的最大困境-Mustafa-Suleyman">[《即将到来的浪潮：技术、权力与21世纪的最大困境》(The Coming Wave Technology, Power, and the Twenty-first Centurys Greatest Dilemma) - Mustafa Suleyman, 2023](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Coming%20Wave%20Technology%2C%20Power%2C%20and%20the%20Twenty-first%20Centurys%20Greatest%20Dilemma%20%28Mustafa%20Suleyman%29.epub)</span>**  | ⭐Goodreads：3.82分 (1.3万人评分)
+    > **作者简介**: 阿加莎·玛丽·克拉丽莎·克里斯蒂，马洛温夫人，DBE（婚前姓米勒），是一位英国作家，以其66部侦探小说和14部短篇小说集而闻名，尤其是那些围绕虚构侦探赫尔克里·波洛和马普尔小姐的故事。她还创作了世界上连续上演时间最长的戏剧，谋杀悬疑剧《捕鼠器》，该剧自1952年以来一直在伦敦西区上演。作为“侦探小说黄金时代”的代表作家，克里斯蒂被誉为“犯罪小说女王”。她还以玛丽·韦斯特马科特的笔名创作了六部小说。1971年，她因对文学的杰出贡献被伊丽莎白二世女王授予女爵士（DBE）称号。吉尼斯世界纪录将她列为有史以来最畅销的小说家，其小说销量超过20亿册。这位史上最畅销的作者撰写了66部犯罪小说和故事集，14部戏剧，以及六部以笔名发表的浪漫小说。她的书籍在英语世界中销售超过10亿册，翻译版本同样超过10亿册。根据《翻译索引》的统计，她的作品至少被翻译成103种语言，是单个作者中最多的。在犯罪文学中最为经久不衰的人物中，她创造了赫尔克里·波洛和简·马普尔小姐。她创作的《捕鼠器》是现代戏剧史上连续上演时间最长的剧目。相关名称：Agata Christie、Agata Kristi、Агата Кристи（俄语）、Агата Крісті（乌克兰语）、Αγκάθα Κρίστι（希腊语）、アガサ クリスティ（日语）、阿嘉莎·克莉絲蒂（中文）。
+
+13. **(332页) <span id="即将到来的浪潮-技术-权力与21世纪的最大困境-Mustafa-Suleyman">[《即将到来的浪潮：技术、权力与21世纪的最大困境》(The Coming Wave Technology, Power, and the Twenty-first Centurys Greatest Dilemma) - Mustafa Suleyman, 2023](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Coming%20Wave%20Technology%2C%20Power%2C%20and%20the%20Twenty-first%20Centurys%20Greatest%20Dilemma%20%28Mustafa%20Suleyman%29.epub)</span>**  | ⭐Goodreads：3.82分 (1.3万人评分)
     <br>📖 **类型**：非虚构 · AI · 科技 · 科学 · 商业 · 政治
     > 人工智能是即将到来的浪潮，下一个不可阻挡的技术飞跃。我们正接近人类历史上的一个关键节点。尽管人工智能尚处于起步阶段，但浪潮正在积聚，而我们对此并未做好准备。穆斯塔法·苏莱曼是DeepMind的联合创始人，DeepMind作为人工智能领域的先锋，如今已成为谷歌母公司Alphabet的一部分。他是人工智能领域的终极内部人士。他的著作揭示了当前形势的利害关系，并探讨了如何从新技术中获益而不失去控制。不久的将来，我们的日常生活将被人工智能所包围。它将组织我们的日常生活，接管我们的商业世界乃至国家管理的核心任务。我们需要借助人工智能来应对诸如气候变化等挑战。然而，这项技术带来的风险是前所未有的，甚至可能导致国家解体和人类被取代。面对一股冲向海滩且不可阻挡的浪潮，人们会尝试将其疏导。这正是本书的核心议题：寻找一条狭窄的路径，让我们能够收获技术的成果而不成为其牺牲品。这是我们时代的核心使命。
 
     > **作者简介**: 穆斯塔法·苏莱曼是Inflection AI的联合创始人兼首席执行官。在此之前，他共同创立了DeepMind，这家公司是全球顶尖的人工智能企业之一。在DeepMind工作了十年之后，苏莱曼晋升为谷歌人工智能产品管理和人工智能政策副总裁。
 
-7.  **(320页) <span id="纠正你的英语-避免学习者常犯的99个错误-Collins-Timothy-G">[《纠正你的英语：避免学习者常犯的99个错误》(Correct your English errors avoid 99 of the common mistakes made by learners of English) - Collins, Timothy G, 2008](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Correct%20your%20English%20errors%20avoid%2099%20of%20the%20common%20mistakes%20made%20by%20learners%20of%20English%28Collins%2C%20Timothy%20G%29.epub)</span>**  | ⭐Goodreads：3.67分 (48人评分)
+14. **(320页) <span id="纠正你的英语-避免学习者常犯的99个错误-Collins-Timothy-G">[《纠正你的英语：避免学习者常犯的99个错误》(Correct your English errors avoid 99 of the common mistakes made by learners of English) - Collins, Timothy G, 2008](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Correct%20your%20English%20errors%20avoid%2099%20of%20the%20common%20mistakes%20made%20by%20learners%20of%20English%28Collins%2C%20Timothy%20G%29.epub)</span>**  | ⭐Goodreads：3.67分 (48人评分)
     <br>📖 **类型**：工具书/参考书
     > 像说母语一样说和写英语！你是否厌倦了在英语中反复犯同样的错误？改掉那些会让与你交谈的人感到困惑的坏习惯。《纠正你的英语错误》警示你学习者常犯的数百个典型错误，并解释了错误背后的原因，这样你就能在未来自我纠正。通过这本有趣且全面的指南提升你的英语水平，避免所有常见错误，例如
 
-8.  **(432页) <span id="接触-Carl-Sagan">[《接触》(Contact) - Carl Sagan, 2016](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Contact%20%28Carl%20Sagan%29%20.epub)</span>**  | ⭐Goodreads：4.15分 (15.1万人评分)
+15. **(432页) <span id="接触-Carl-Sagan">[《接触》(Contact) - Carl Sagan, 2016](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Contact%20%28Carl%20Sagan%29%20.epub)</span>**  | ⭐Goodreads：4.15分 (15.1万人评分)
     <br>📖 **类型**：小说
     > 普利策奖得主、天文学家卡尔·萨根构想了一场最为宏大的冒险——在宇宙深处的先进文明发现之旅。1999年12月，一支跨国团队踏上了前往星际的征途，经历了人类历史上最为震撼的遭遇。那里究竟是谁——抑或是何物？在《宇宙》一书中，卡尔·萨根阐释了宇宙的奥秘；而在《接触》中，他预言了宇宙的未来——以及我们自身的未来。
 
     > **作者简介**: 1934年，科学家卡尔·萨根（Carl Sagan）在纽约布鲁克林出生。在康奈尔大学获得学士和硕士学位后，萨根于1960年在芝加哥大学获得了双博士学位。他成为康奈尔大学天文学和空间科学教授，以及行星研究实验室主任，并共同创立了行星学会。作为科学普及的大师，萨根制作了PBS系列节目《宇宙》（Cosmos），该节目获得了艾美奖和皮博迪奖，并在60个国家被5亿人观看。同名书籍于1980年出版，并在《纽约时报》畅销书排行榜上停留了7周。萨根是20本书的作者、合著者或编辑，包括获得普利策奖的《伊甸园的龙》（1977年）、《暗淡蓝点》（1995年）和《鬼魅世界：科学作为黑暗中的蜡烛》（1996年），后者是他对宗教最猛烈的抨击。与妻子安·德鲁扬（Ann Druyan）共同制作了热门电影《接触》（Contact），该电影由朱迪·福斯特（Jodie Foster）饰演的女权主义、无神论主角（1997年）。这部电影在萨根去世后上映，此前他经历了两年的骨髓病斗争。萨根在NASA的水手号、海盗号、旅行者号和伽利略号行星探测任务中发挥了重要作用。安·德鲁扬在萨根最后一本书《数十亿与数十亿：千年之交的生命与死亡思考》（1997年死后出版）的跋中，动人地描述了卡尔最后的日子：“与原教旨主义者的幻想相反，没有临终皈依，没有在最后一刻寻求安慰的天堂或来世幻象。对卡尔来说，最重要的是真实，而不仅仅是让我们感觉更好。即使在任何人都会被原谅逃避我们处境现实的那一刻，卡尔也毫不退缩。当我们深深凝视彼此的眼睛时，我们共同坚信我们奇妙的共同生活将永远结束。”因他的工作，萨根博士获得了NASA杰出科学成就奖章和（两次）杰出公共服务奖章，以及NASA阿波罗成就奖。小行星2709萨根以他的名字命名。他还获得了美国宇航学会的约翰·F·肯尼迪宇航奖、探险者俱乐部75周年纪念奖、苏联宇航员联合会的康斯坦丁·齐奥尔科夫斯基奖章，以及美国天文学会的马苏尔斯基奖（“因他对行星科学发展的非凡贡献……作为一名同时接受天文学和生物学训练的科学家，萨根博士对行星大气、行星表面、地球历史和天体生物学的研究做出了开创性贡献。当今许多最有成效的行星科学家都是他的现在和过去的学生及同事”）。他还是美国国家科学院最高奖项——公共福利奖章的获得者。萨根博士被选为美国天文学会行星科学分会主席、美国地球物理联盟行星学分会主席，以及美国科学促进会天文学分会主席。他担任了十二年《伊卡洛斯》（Icarus）的主编，这是致力于行星研究的主要专业期刊。他是行星学会的联合创始人兼会长，该组织拥有10万名成员，是世界上最大的太空兴趣团体；并担任加州理工学院喷气推进实验室的杰出访问科学家。在他们向萨根博士颁发的最高荣誉的追授奖项中，美国国家科学基金会宣布，他的“研究改变了行星科学……他对人类的贡献是无限的。”卒于1996年。更多信息：https://ffrf.org/news/day/dayitems/it...
 
-9.  **(264页) <span id="操盘手的秘诀-最懂输的人才能成为赢家-Tom-Hougaard">[《操盘手的秘诀：最懂输的人才能成为赢家》(Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader) - Tom Hougaard, 2022](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Best%20Loser%20Wins%20Why%20Normal%20Thinking%20Never%20Wins%20the%20Trading%20Game%20%E2%80%93%20written%20by%20a%20high-stake%20day%20trader%20%28Tom%20Hougaard%29.epub)</span>**  | ⭐Goodreads：4.51分 (2164人评分)
+16. **(264页) <span id="操盘手的秘诀-最懂输的人才能成为赢家-Tom-Hougaard">[《操盘手的秘诀：最懂输的人才能成为赢家》(Best Loser Wins Why Normal Thinking Never Wins the Trading Game – written by a high-stake day trader) - Tom Hougaard, 2022](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Best%20Loser%20Wins%20Why%20Normal%20Thinking%20Never%20Wins%20the%20Trading%20Game%20%E2%80%93%20written%20by%20a%20high-stake%20day%20trader%20%28Tom%20Hougaard%29.epub)</span>**  | ⭐Goodreads：4.51分 (2164人评分)
     <br>📖 **类型**：金融 · 心理学 · 非虚构 · 商业 · 自我提升 · 经济学 · 个人成长
     > 《最佳输家赢》深入剖析了全球最杰出的一位高风险零售交易员。汤姆·侯高多次荣获交易竞赛冠军，曾有一次在一年内将3万美元的资金交易成超过130万美元。普通零售交易员在标的资产上每点风险10美元，而汤姆·侯高经常每点风险高达3500美元。这种风险敞口需要一种超乎寻常的心态。常规思维只能带来普通结果，要获得非凡成果，交易员必须具备不同的思维方式。这本书将以其他交易书籍从未有过的方式指导和激励你。它不涉及策略和资金管理，而是专注于心态管理。汤姆·侯高提供了一个独特而令人耳目一新的个人叙述，讲述了一个普通交易员如何通过同样重视心态和技术分析，将他的交易水平提升到令人难以置信的高度。《最佳输家赢》解释了你在交易时如何通过不同的思考方式，将你的交易水平从平庸和零星提升到卓越和一致。再多的技术分析也无法做到这一点。汤姆·侯高说：“人们失败不是因为对技术分析了解不够，而是因为他们不理解市场对他们的心态产生了什么影响。”《最佳输家赢》是对交易中传统且错误的思维的解毒剂，也是为那些希望将成果提升到他们从未梦想过的水平的交易员的新信念体系的蓝图。
 
-10. **(320页) <span id="真正无惧的身心防弹术-美国特勤局专家带你提升心理素质-面对各种挑战-Evy-Poumpouras">[《真正无惧的身心防弹术：美国特勤局专家带你提升心理素质，面对各种挑战》(Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly) - Evy Poumpouras, 2020](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Becoming%20Bulletproof%20Protect%20Yourself%2C%20Read%20People%2C%20Influence%20Situations%2C%20and%20Live%20Fearlessly%20%28Evy%20Poumpouras%29%20.epub)</span>**  | ⭐Goodreads：4.15分 (8105人评分)
+17. **(320页) <span id="真正无惧的身心防弹术-美国特勤局专家带你提升心理素质-面对各种挑战-Evy-Poumpouras">[《真正无惧的身心防弹术：美国特勤局专家带你提升心理素质，面对各种挑战》(Becoming Bulletproof Protect Yourself, Read People, Influence Situations, and Live Fearlessly) - Evy Poumpouras, 2020](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Becoming%20Bulletproof%20Protect%20Yourself%2C%20Read%20People%2C%20Influence%20Situations%2C%20and%20Live%20Fearlessly%20%28Evy%20Poumpouras%29%20.epub)</span>**  | ⭐Goodreads：4.15分 (8105人评分)
     <br>📖 **类型**：非虚构 · 自我提升 · 心理学 · 个人成长 · 领导力 · 商业
     > 前美国特勤局特工、Bravo电视台《间谍游戏》节目明星Evy Poumpouras分享了她在保护总统过程中学到的宝贵经验，以及来自全球最古老、最精英的安全部队的深刻见解和实用技能，旨在帮助您应对压力情境，瞬间洞悉人心，影响他人对您的看法，从而过上更加无畏的生活。《成为防弹》意味着将自己塑造成一个更强大、更自信、更有力量的人。Evy Poumpouras——曾为三位总统服务的特勤局特工，也是仅有的五位获得英勇勋章的女性之一——展示了我们如何克服日常恐惧，进行艰难对话，辨别值得信赖的人以及可能心怀不轨者，影响局势，并为意外情况做好准备。当您变得防弹时，您将成为最优秀、最勇敢、最有力的自己。Poumpouras向我们揭示，真正的力量源自心灵而非肉体。勇气不仅在于直面恐惧，更在于坚韧不拔、毅力十足，以及拥有内置的“胡说探测器”并懂得如何运用它。在《成为防弹》一书中，Poumpouras教导我们如何提升自身本能，运用所有这些品质，从恐惧走向无畏。
 
     > **作者简介**: 埃维·普穆普拉斯曾是美国特工处的一名特别探员，同时也是Bravo电视台《间谍游戏》节目的联合主持人、《成为防弹》一书的作者，以及报道国家安全、执法和犯罪领域的国家级媒体撰稿人。埃维拥有哥伦比亚大学法医心理学硕士学位和新闻学硕士学位。她在纽约市立大学担任兼职讲师，教授刑事司法和犯罪学课程。此外，埃维还荣获了英勇勋章——这是特工处为表彰她在9月11日英勇行为所颁发的最高荣誉。
 
-11. **(476页) <span id="航空港-Arthur-Hailey">[《航空港》(Airport) - Arthur Hailey, 1968](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Airport%28Arthur%20Hailey%29.epub)</span>**  | ⭐Goodreads：4.0分 (4.2万人评分)
+18. **(476页) <span id="航空港-Arthur-Hailey">[《航空港》(Airport) - Arthur Hailey, 1968](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Airport%28Arthur%20Hailey%29.epub)</span>**  | ⭐Goodreads：4.0分 (4.2万人评分)
     <br>📖 **类型**：小说 · 惊悚 · 悬念 · 经典 · 冒险 · 悬疑 · 航空
     > 正当一场肆虐的暴风雪在芝加哥外的林肯国际机场造成严重破坏时，机场和航空公司人员试图应对这股不可阻挡的自然力量，它正危及着数千人的生命。而在空中，一架孤零零的飞机奋力飞向目的地。在七个令人心跳加速的小时里，一场紧张的人性戏剧上演了，一位才华横溢的机场经理、一位傲慢的飞行员、一位坚韧的维修工和一位美丽的空姐都在努力避免灾难的发生。《机场》以其丰富多彩的角色阵容为特色，既是对航空业的真实描绘，又是一部扣人心弦的悬疑小说。
 
     > **作者简介**: 阿瑟·黑利是一位英加双重国籍的小说家。在从事过多种工作并兼职写作后，他在1956年成为全职作家，这是受到了加拿大广播公司电视剧《飞行危机》（印刷版名为《跑道零八》）成功的鼓舞。继1965年《酒店》一书成功后，他搬到了加利福尼亚；随后在1969年永久移居巴哈马。他的每部小说都有不同的工业或商业背景，除了戏剧性的人际冲突外，还包含了关于特定环境和系统运作方式的精心研究信息，以及这些如何影响社会及其居民。评论家们常常将黑利的成功归因于一种公式化的“煽情小说”风格，在这种风格中，他让一个普通角色卷入危机，然后通过切换多个相关情节线来增加悬念。黑利通常会花大约一年的时间研究一个主题，接着用六个月的时间复习笔记，最后大约用18个月的时间写书。他的许多书籍登上《纽约时报》畅销书排行榜第一名，全球以40种语言销售超过1.7亿册。许多作品被改编成电影，《酒店》还被改编成一部长期播出的电视剧。《机场》成为一部视觉效果戏剧性的成功电影。作为一名加拿大公民，其子女生活在加拿大和加利福尼亚，黑利与第二任妻子希拉在巴哈马新普罗维登斯岛的莱福德凯伊——一个专属住宅度假村安家。2002年，黑利告诉巴哈马主要日报《论坛报》的编辑约翰·马奎斯，他幸运地拥有支持他的父母，他们鼓励他相信自己。在工人阶级家庭长大的黑利，在取得巨大成功后从未失去与普通人的联系。他说：“我努力工作，但也非常幸运。”
 
-12. **(368页) <span id="在你之后-Moyes-Jojo">[《在你之后》(After You) - Moyes Jojo, 2015](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/After%20You%20%28Moyes%20Jojo%29.epub)</span>**  | ⭐Goodreads：3.74分 (41.2万人评分)
+19. **(368页) <span id="在你之后-Moyes-Jojo">[《在你之后》(After You) - Moyes Jojo, 2015](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/After%20You%20%28Moyes%20Jojo%29.epub)</span>**  | ⭐Goodreads：3.74分 (41.2万人评分)
     <br>📖 **类型**：小说
     > 来自《纽约时报》畅销书《星之赠予者》的作者，发现一个在《遇见你之前》、《遇见你之后》和《依然是你》中俘获了超过2000万颗心的爱情故事。“你会在你的新世界中感到一阵不适。但我希望你也感到一丝兴奋。大胆地生活。推动自己。不要安于现状。只是好好生活。只是活着。爱你的，威尔。”在失去你所爱的人之后，你如何继续前行。你如何构建一个值得过的生活。路易莎·克拉克不再是那个过着平凡生活的普通女孩。在与威尔·特雷诺度过的改变人生的六个月后，她在他不在的情况下挣扎。当一个不同寻常的事故迫使路易回到她的家庭时，她不禁觉得自己又回到了起点。她的身体痊愈了，但路易自己知道她需要被重新启动回到生活中。这就是她最终出现在教堂地下室与“继续前行”支持小组成员在一起的原因，他们分享见解、笑声、挫败感和糟糕的饼干。他们还会带她认识坚强、能干的萨姆·菲尔丁——那位生死攸关的急救员，也是唯一可能理解她的男人。然后，威尔过去的一个人物出现，打乱了她的所有计划，将她推进了一个截然不同的未来。对路易·克拉克来说，威尔·特雷诺之后的生活意味着重新学习如何坠入爱河，以及这带来的一切风险。但在这里，乔乔·莫伊斯给了我们两个家庭，就像我们自己的家庭一样真实，他们的欢乐和悲伤将深深打动你，并且那里既有变化也有惊喜在等待。
 
     > **作者简介**: 乔乔·莫伊斯是一位英国著名小说家。她曾在伦敦大学皇家霍洛威学院深造。凭借《独立报》提供的奖学金，她在伦敦城市大学攻读新闻学，并在之后为《独立报》效力了十年。2001年，她转型为全职小说家。莫伊斯的代表作《异国水果》在2004年荣获浪漫小说家协会（RNA）年度最佳浪漫小说奖。她与记者查尔斯·亚瑟结为连理，并育有三子。
 
-13. **(352页) <span id="镜子里的陌生人-Sheldon-Sidney">[《镜子里的陌生人》(A stranger in the mirror) - Sheldon Sidney, 1976](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/A%20stranger%20in%20the%20mirror%20%28Sheldon%20Sidney%29%20.epub)</span>**  | ⭐Goodreads：3.67分 (2.2万人评分)
+20. **(352页) <span id="镜子里的陌生人-Sheldon-Sidney">[《镜子里的陌生人》(A stranger in the mirror) - Sheldon Sidney, 1976](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/A%20stranger%20in%20the%20mirror%20%28Sheldon%20Sidney%29%20.epub)</span>**  | ⭐Goodreads：3.67分 (2.2万人评分)
     <br>📖 **类型**：小说 · 惊悚 · 悬疑 · 爱情 · 悬念 · 悬疑惊悚 · 当代
     > 托比·坦普尔是一位超级巨星，被誉为全球最风趣的男人。他能够得到任何他心仪的女性，然而在这巨星的光环之下，他却是一个孤独的灵魂。吉尔·卡斯尔则是一位风情万种的小明星，她背负着阴暗而神秘的过去，且心怀比托比更为宏大的野心。两人携手，共同主宰着好莱坞的舞台。
 
     > **作者简介**: 西德尼·谢尔顿（1917-2007）是一位美国作家，曾在三个领域荣获奖项——百老汇剧作家、好莱坞电视和电影编剧，以及畅销小说家。他的电视作品横跨二十年，期间创作了《我梦见了珍妮》（1965-70）、《哈特对哈特》（1979-84）和《帕蒂·杜克秀》（1963-66）。然而，直到年过五十并开始撰写畅销小说，如《游戏大师》（1982）、《午夜的另一面》（1973）和《天使的愤怒》（1980），他才真正声名鹊起。
 
-14. **(272页) <span id="公务员图鉴-被遗忘的政府真相-Michael-Lewis">[《公务员图鉴：被遗忘的政府真相》(Who Is Government) - Michael Lewis, 2025](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Who%20Is%20Government%20%28Michael%20Lewis%29.epub)</span>**  | ⭐Goodreads：4.16分 (8634人评分)
+21. **(272页) <span id="公务员图鉴-被遗忘的政府真相-Michael-Lewis">[《公务员图鉴：被遗忘的政府真相》(Who Is Government) - Michael Lewis, 2025](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Who%20Is%20Government%20%28Michael%20Lewis%29.epub)</span>**  | ⭐Goodreads：4.16分 (8634人评分)
     <br>📖 **类型**：非虚构 · 政治 · 历史 · 随笔 · 政府 · 传记
     > 谁在为政府工作，他们又在做些什么？这是一堂由全明星作家和故事讲述者团队带来的及时且引人入胜的公民课。政府是一个庞大而复杂的系统，美国人既为之付费，又反抗它，依赖它，忽视它，同时也庆祝它。它也是我们共同应对社会最大问题的资源。而且，它由一群人组成，这些人大多默默无闻，做着可能对每个人都产生深远影响和益处的工作。迈克尔·刘易斯邀请了他最喜欢的作家去寻找在政府中做着有趣工作的人，并撰写关于他们的文章。他们发现的故事出人意料、扣人心弦且鼓舞人心，包括一位致力于使矿顶更不易坍塌的前煤矿工人，挽救了数千人的生命；一位仿佛直接来自犯罪惊悚小说的国税局特工；以及那位将国家公墓管理局打造成全国最优秀组织的经理，无论是公共还是私人机构。每篇文章都聚焦于那些杰出的联邦雇员背后不可或缺的工作。无论他们是在数字化档案、追捕网络犯罪分子，还是发现新行星，这些工作者都全身心投入自己的工作，并且普遍不愿居功。《值班》中的生动描绘打破了无关紧要的官僚刻板印象。它们展示了政府的基本事务如何使我们的生活成为可能，以及这有多么重要。
 
     > **作者简介**: 迈克尔·门罗·刘易斯是一位美国作家和财经记者。自2009年起，他一直是《名利场》的特约编辑，主要撰写商业、金融和经济领域的文章。他以非虚构作品闻名，尤其是对金融危机和行为金融的深入报道。刘易斯出生于新奥尔良，就读于普林斯顿大学，并获得艺术史学位。在伦敦经济学院深造后，他在20世纪80年代进入华尔街，在所罗门兄弟公司担任债券销售员。这段经历激发他写下了首部著作《说谎者的扑克牌》（1989年）。十四年后，刘易斯创作了《点球成金：不公平游戏的获胜艺术》（2003年），探讨了比利·比恩和奥克兰运动家队的成功之道。他的2006年作品《盲点：一场游戏的演变》首次被改编成电影，即《盲点》（2009年）。2010年，他出版了《大空头：末日机器内部》。《点球成金》的电影版于2011年上映，随后《大空头》于2015年登上银幕。刘易斯的书籍两次荣获洛杉矶时报图书奖，多部作品登上《纽约时报》畅销书排行榜榜首，包括他最新的著作《无限游戏》（2023年）。
 
-15. **(240页) <span id="当我谈跑步时我谈些什么-Haruki-Murakami">[《当我谈跑步时我谈些什么》(What I Talk About When I Talk About Running) - Haruki Murakami, 2008](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/What%20I%20Talk%20About%20When%20I%20Talk%20About%20Running%28Haruki%20Murakami%29.epub)</span>**  | ⭐Goodreads：3.87分 (19.7万人评分)
+22. **(240页) <span id="当我谈跑步时我谈些什么-Haruki-Murakami">[《当我谈跑步时我谈些什么》(What I Talk About When I Talk About Running) - Haruki Murakami, 2008](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/What%20I%20Talk%20About%20When%20I%20Talk%20About%20Running%28Haruki%20Murakami%29.epub)</span>**  | ⭐Goodreads：3.87分 (19.7万人评分)
     > 在1982年，村上春树卖掉了他的爵士酒吧，全身心投入写作，并开始跑步以保持健康。一年后，他独自完成了从雅典到马拉松的跑程。如今，在参加了数十场这样的比赛，更不用说铁人三项和十几本备受好评的书籍之后，他反思了这项运动对他生活的影响，以及——更为重要的——对他写作的影响。这本揭示性的回忆录既是训练日志、旅行记，也是回忆录，涵盖了他在2005年纽约市马拉松赛前四个月的准备过程，并带我们游览了从东京的新宿御苑公园（他曾与一位奥运选手同跑）到波士顿查尔斯河畔（在那里他被年轻女性超越）的各个地方。通过这个奇妙的运动镜头，展现出一幅记忆与洞察的全景：他决定成为作家的顿悟时刻，他最大的成就与失望，他对老式黑胶唱片的热爱，以及他在五十岁后目睹自己比赛成绩提高又回落的经历。《当我谈跑步时我谈些什么》时而幽默、时而严肃，既轻松又富有哲理，对于这位技艺高超却保持谨慎私密的作家的粉丝，以及那些在跑步中找到类似满足感的日益增多的运动员来说，都是丰富而启发的。
 
     > **作者简介**: 村上春树（Haruki Murakami）是一位日本作家。他的小说、散文和短篇小说在日本及国际上都广受欢迎，作品被翻译成50种语言，并在日本以外销售了数百万册。他因自己的作品获得了众多奖项，包括群像新人奖、世界奇幻奖、谷崎奖、读卖文学奖、弗兰克·奥康纳国际短篇小说奖、野间文艺奖、弗朗茨·卡夫卡奖、桐山奖、Goodreads最佳小说选择奖、耶路撒冷奖和阿斯图里亚斯公主奖。他在靠近神户的芦屋长大，之后搬到东京就读早稻田大学，在经营一家小型爵士酒吧七年后，出版了第一本小说《且听风吟》（1979年）。他的著名作品包括小说《挪威的森林》（1987年）、《奇鸟行状录》（1994-95年）、《海边的卡夫卡》（2002年）和《1Q84》（2009-10年）；最后一部作品被《朝日新闻》的文学专家调查评为日本平成时代（1989-2019年）最佳作品。他的作品涵盖科幻、奇幻和犯罪小说等类型，并以使用魔幻现实主义元素而闻名。他的官方网站引用雷蒙德·钱德勒、库尔特·冯内古特和理查德·布劳提根作为其作品的主要灵感来源，而村上本人则将石黑一雄、科马克·麦卡锡和达格·索尔塔作为他最喜欢的当前活跃作家。村上还出版了五部短篇小说集，包括《第一人称单数》（2020年），以及非虚构作品，包括《地下》（1997年），这是东京地铁沙林毒气袭击的口述历史，和《当我谈跑步时我谈些什么》（2007年），一本关于他作为长跑运动员经历的回忆录。他的小说在文学评论家和读者公众中产生了两极分化。他有时被日本文学界批评为“非日本”，导致村上回忆起他是“日本文学世界中的黑羊”。同时，村上被《大象消失》（1993年）的编辑加里·菲斯克特琼描述为“真正非凡的作家”，而《卫报》的史蒂文·普尔则称赞村上为“世界上最伟大的在世小说家”之一。
 
-16. **(240页) <span id="赚钱-再自然不过-交易心理师教你战胜心魔-培养赢家的习惯-Mark-Douglas">[《赚钱，再自然不过：交易心理师教你战胜心魔、培养赢家的习惯》(Trading in the Zone Master the Market with Confidence, Discipline, and a Winning Attitude) - Mark Douglas, 2000](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Trading%20in%20the%20Zone%20Master%20the%20Market%20with%20Confidence%2C%20Discipline%2C%20and%20a%20Winning%20Attitude%20%28Mark%20Douglas%29.epub)</span>**  | ⭐Goodreads：4.31分 (9307人评分)
+23. **(240页) <span id="赚钱-再自然不过-交易心理师教你战胜心魔-培养赢家的习惯-Mark-Douglas">[《赚钱，再自然不过：交易心理师教你战胜心魔、培养赢家的习惯》(Trading in the Zone Master the Market with Confidence, Discipline, and a Winning Attitude) - Mark Douglas, 2000](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Trading%20in%20the%20Zone%20Master%20the%20Market%20with%20Confidence%2C%20Discipline%2C%20and%20a%20Winning%20Attitude%20%28Mark%20Douglas%29.epub)</span>**  | ⭐Goodreads：4.31分 (9307人评分)
     <br>📖 **类型**：金融 · 非虚构 · 商业 · 心理学 · 经济学 · 金钱 · 自我提升
     > 道格拉斯深入剖析了缺乏一致性的根本原因，并协助交易者摆脱那些导致亏损的根深蒂固的心理定势。他直面市场中的种种迷思，逐一揭示其本质，教导交易者超越随机结果，洞悉风险的真实面貌，并坦然接受支配所有市场投机的“市场运动概率”。
 
-17. **(288页) <span id="赌徒思维-不了解全部事实也能做出聪明的决策-Annie-Duke">[《赌徒思维：不了解全部事实也能做出聪明的决策》(Thinking in Bets Making Smarter Decisions When You Dont Have All the Facts) - Annie Duke, 2018](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Thinking%20in%20Bets%20Making%20Smarter%20Decisions%20When%20You%20Dont%20Have%20All%20the%20Facts%20%28Annie%20Duke%29.epub)</span>**  | ⭐Goodreads：3.82分 (2.2万人评分)
+24. **(288页) <span id="赌徒思维-不了解全部事实也能做出聪明的决策-Annie-Duke">[《赌徒思维：不了解全部事实也能做出聪明的决策》(Thinking in Bets Making Smarter Decisions When You Dont Have All the Facts) - Annie Duke, 2018](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Thinking%20in%20Bets%20Making%20Smarter%20Decisions%20When%20You%20Dont%20Have%20All%20the%20Facts%20%28Annie%20Duke%29.epub)</span>**  | ⭐Goodreads：3.82分 (2.2万人评分)
     <br>📖 **类型**：商业 · 非虚构 · 心理学 · 自我提升 · 个人成长 · 领导力
     > 在超级碗XLIX中，西雅图海鹰队教练皮特·卡罗尔做出了足球历史上最具争议的决策之一：比赛仅剩26秒，且球队在爱国者队一码线处落后四分的情况下，他选择传球而非将球交给明星跑卫。结果传球被截，海鹰队因此败北。批评者称这是史上最愚蠢的战术。但这个决策真的如此糟糕吗？还是卡罗尔其实做出了一个高明的举动，只是被坏运气所毁？即使是最明智的决策，也未必每次都能带来最佳结果。总有一些不可控的运气因素，总有一些隐藏的信息。因此，长期成功的关键（以及避免让自己焦虑至死）是以赌注的方式思考：我有多确定？事情可能有哪些结果？哪个决策成功的几率最高？我是不是在那种90%时间有效的策略中，不幸地落入了那10%？还是我的成功应归功于愚蠢的运气，而非英明的决策？前世界扑克系列赛冠军、现为商业顾问的安妮·杜克，从商业、体育、政治以及（当然）扑克中汲取例子，分享任何人都可以使用的工具，以拥抱不确定性并做出更好的决策。对大多数人来说，在一个重视甚至奖励确定性表象的世界里，很难说出“我不确定”。但职业扑克选手能够接受一个事实：伟大的决策并不总是带来伟大的结果，糟糕的决策也不总是导致糟糕的结局。通过将你的思维从对确定性的需求转变为准确评估你所知和所不知的目标，你将不那么容易受到情绪反应、本能偏见和破坏性习惯的影响。从长远来看，你将变得更加自信、平静、富有同情心且成功。
 
     > **作者简介**: 安妮是决策教育联盟的联合创始人，该非营利组织致力于通过决策技能教育赋予学生力量，从而改善他们的生活。她同时也是课后全明星国家委员会和富兰克林研究所董事会的成员。2020年，她加入了复兴民主倡议的董事会。
 
-18. **(页) <span id="中式英语之鉴-Joan-Pinkham">[《中式英语之鉴》(The Translator's Guide to Chinglish) - Joan Pinkham](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Translator%27s%20Guide%20to%20Chinglish%28Joan%20Pinkham%29.epub)</span>**  | ⭐Goodreads：4.23分 (35人评分)
+25. **(561页) <span id="中式英语之鉴-Joan-Pinkham">[《中式英语之鉴》(The Translator's Guide to Chinglish) - Joan Pinkham, 2000](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Translator%27s%20Guide%20to%20Chinglish%28Joan%20Pinkham%29.epub)</span>**  | ⭐Goodreads：4.23分 (35人评分)
     <br>📖 **类型**：语言
     > 在《中式英语翻译指南》一书中，作者系统地剖析了中国人在英语写作中常见的错误。她将这些错误划分为不同类别，并提供了大量实例，这些实例选自《毛泽东选集》、《邓小平文选》以及中国翻译的重要官方文件，还包括中国英语报纸和期刊上的文章。作者对每个实例都进行了批判性分析。每章后均附有练习，并提出了修改建议。对于中国的英语学习者和从事汉译英的翻译人员而言，这是一本极具参考价值的书籍。
 
-19. **(352页) <span id="交易游戏-一个告白-Gary-Stevenson">[《交易游戏：一个告白》(The Trading Game A Confession) - Gary Stevenson, 2024](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Trading%20Game%20A%20Confession%20%28Gary%20Stevenson%29%20.epub)</span>**  | ⭐Goodreads：4.16分 (1.7万人评分)
+26. **(352页) <span id="交易游戏-一个告白-Gary-Stevenson">[《交易游戏：一个告白》(The Trading Game A Confession) - Gary Stevenson, 2024](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Trading%20Game%20A%20Confession%20%28Gary%20Stevenson%29%20.epub)</span>**  | ⭐Goodreads：4.16分 (1.7万人评分)
     <br>📖 **类型**：非虚构 · 金融 · 经济学 · 商业 · 传记 · 回忆录
     > 一段荒诞离奇、扣人心弦的旅程，深入一个令人沉迷的世界的黑暗核心——这是一个在交易游戏中幸存并最终将其彻底揭开的人的故事。“如果你打算抢劫银行，看到金库门敞开着，你会怎么做？你会干等着吗？”自从他还是个孩子，在东伦敦的街道上踢着破烂的足球，在金丝雀码头摩天大楼的阴影下，加里就渴望更好的生活。一个远大得多的梦想。后来，他赢得了一场由“交易游戏”举办的比赛，这张黄金门票带他进入了新生活，成为全城最年轻的交易员。在这里，你能赚到你从未想象过的财富。你的同事是那些功能失调的数学天才、被宠坏的公立学校男生和边缘型精神病患者，但他们渐渐让你感觉像家人一样。很快，你成了银行最赚钱的交易员，每天交易额近万亿美元。一个让你梦中都充斥着数字的地方——然后彻底失眠。但是，当胜利开始变得像失败时，会发生什么？当赚钱最简单的方式就是赌上数百万人越来越贫穷——而且，当经济开始滑向悬崖边缘时，你自己的理智也随之滑落？你想停下来，但你做不到。因为没有人会离开。你会坚持，还是放弃？即使这意味着冒着失去一切的风险？
 
     > **作者简介**: 加里·史蒂文森毅然放弃了交易生涯，深信解决不平等问题是修复世界经济的唯一途径。此后，他在牛津大学攻读理学硕士学位，与多家经济智库合作，并创办了YouTube频道“GarysEconomics”，向大众传授现实生活中的经济学知识。他频繁亮相于电视和广播节目，并为《卫报》和OpenDemocracy等媒体撰写文章。
 
-20. **(384页) <span id="周四谋杀俱乐部-Richard-Osman">[《周四谋杀俱乐部》(The Thursday Murder Club) - Richard Osman, 2025](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Thursday%20Murder%20Club%20%28Richard%20Osman%29.epub)</span>**  | ⭐Goodreads：3.87分 (70.2万人评分)
+27. **(384页) <span id="周四谋杀俱乐部-Richard-Osman">[《周四谋杀俱乐部》(The Thursday Murder Club) - Richard Osman, 2025](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Thursday%20Murder%20Club%20%28Richard%20Osman%29.epub)</span>**  | ⭐Goodreads：3.87分 (70.2万人评分)
     <br>📖 **类型**：小说
     > 在一个宁静的退休村里，四位看似不太可能成为朋友的人每周相聚一次，探讨未解的谋杀案。然而，当一起残忍的凶杀案就发生在他们家门口时，周四谋杀俱乐部发现自己正置身于他们的首个真实案件之中。伊丽莎白、乔伊斯、易卜拉欣和罗恩虽然都已年近八十，但他们仍有一些高招在身。我们这个非正统却才华横溢的团队能否在为时已晚之前抓住凶手？替代封面版本可以在此处找到。
 
     > **作者简介**: 一位英国电视节目主持人、制片人、导演兼小说家。
 
-21. **(914页) <span id="恐惧的总和-Tom-Clancy">[《恐惧的总和》(The Sum of All Fears) - Tom Clancy, 1991](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Sum%20of%20All%20Fears%20%28Tom%20Clancy%29%20.epub)</span>**  | ⭐Goodreads：4.08分 (6.6万人评分)
+28. **(914页) <span id="恐惧的总和-Tom-Clancy">[《恐惧的总和》(The Sum of All Fears) - Tom Clancy, 1991](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Sum%20of%20All%20Fears%20%28Tom%20Clancy%29%20.epub)</span>**  | ⭐Goodreads：4.08分 (6.6万人评分)
     <br>📖 **类型**：小说 · 惊悚 · 间谍 · 动作 · 军事小说 · 悬念 · 冒险
     > 你该如何拯救美国总统，使其免受自身之害？如果总统无力应对前所未有的最大危机，又该如何是好？杰克·瑞安从未想过自己会提出这样的问题。随着世界秩序的变迁，他正在为中东和平计划铺路，这个计划或许最终能够奏效。然而，太多团体已经付出了太多的血腥代价。被曾经的苏联赞助者所抛弃，因中东重新结盟而日益孤立，这些恐怖分子还有最后一张绝望的底牌，其残忍程度前所未有。随着一个可怕的行为，世界瞬间陷入核危机——而陷入困境的总统也坠入了终极噩梦。力量碰撞，枪声四起。原本看似孤立且可怕的事件，在双方眼中都成了对方煽动的恶作剧。在世界濒临核战争边缘之际，瑞安和他的FBI搭档丹·默里疯狂地寻找解决方案，以免各国首脑失去对自己——以及整个世界的控制。
 
     > **作者简介**: 托马斯·利奥·克兰西·小是美国小说家，也是军事政治惊悚小说的先驱。他在一个中产阶级的爱尔兰裔美国家庭中长大，从小就对军事历史产生了浓厚的兴趣。尽管最初在洛约拉学院学习物理，但他后来转学英语文学，于1969年以平平的GPA毕业。由于严重的近视，他服兵役的愿望破灭了，这使他转而投身保险业。在一家小型保险代理公司工作时，克兰西利用业余时间写下了后来成为《猎杀红十月》（1984年）的作品。该书由海军学会出版社以5000美元的预付款出版，当罗纳德·里根总统称赞它为“最好的故事”时，该书意外地获得了巨大的推动力。这使克兰西一跃成为全国名人，售出数百万册，并确立了他对军事和情报事务技术准确性的声誉。他细致的研究和讲故事的能力使他得以接触美国高级军事官员，进一步丰富了他的小说。克兰西的作品常常以杰克·瑞安和约翰·克拉克等英雄主角为特色，强调爱国主义、军事专长和政治阴谋的主题。在整个20世纪80年代末和90年代，他成为美国最畅销的作家之一，作品如《红潮风暴》（1986年）、《爱国者游戏》（1987年）、《迫切的危机》（1989年）和《恐惧的总和》（1991年）长期占据畅销书排行榜。其中几部被改编成商业上成功的电影。除了小说，克兰西还合著了关于军事主题的非虚构作品，并将他的名字借给了许多书籍系列和视频游戏特许经营，包括《彩虹六号》、《幽灵行动》和《细胞分裂》。他的影响力超出了文学领域，他成为了巴尔的摩金莺棒球队的股东之一，并参与了各种商业冒险，包括一次失败的购买明尼苏达维京人队的尝试。在政治上，克兰西是一个坚定的保守派，经常将他的观点编织进书中，并公开批评左倾政策。在9月11日袭击事件后，他进一步引起了关注，在新闻平台上讨论情报失败和反恐策略。克兰西的财务成功是巨大的。到20世纪90年代末，他的出版合同价值数千万美元。他住在一座广阔的马里兰庄园，庄园内有一辆二战时期的谢尔曼坦克，后来又在巴尔的摩内港购买了一套豪华顶层公寓。他结过两次婚，第一次是和万达·托马斯·金，育有四个孩子，后来和记者亚历山德拉·玛丽·卢埃林结婚，育有一个女儿。汤姆·克兰西于2013年10月1日因心力衰竭去世，享年66岁。他的遗产通过他的小说、它们的改编作品以及由其他作家继续创作的杰克·瑞安系列得以延续。
 
-22. **(242页) <span id="金钱心理学-Morgan-Housel">[《金钱心理学》(The Psychology of Money) - Morgan Housel, 2020](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Psychology%20of%20Money%20%28Morgan%20Housel%29%20.epub)</span>**  | ⭐Goodreads：4.29分 (29.3万人评分)
+29. **(242页) <span id="金钱心理学-Morgan-Housel">[《金钱心理学》(The Psychology of Money) - Morgan Housel, 2020](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Psychology%20of%20Money%20%28Morgan%20Housel%29%20.epub)</span>**  | ⭐Goodreads：4.29分 (29.3万人评分)
     <br>📖 **类型**：金融 · 非虚构 · 心理学 · 自我提升 · 商业 · 金钱 · 个人理财
     > 擅长理财并不完全取决于你所知，而在于你的行为方式。行为模式难以传授，即便对聪明绝顶之人亦是如此。金钱——无论是投资、个人理财还是商业决策——通常被视为一个以数学为基础的领域，数据和公式似乎能精确指导我们该怎么做。然而，在现实世界中，人们并非在电子表格上做出财务决策。他们往往在餐桌旁或会议室里，将个人经历、对世界的独特见解、自我意识、骄傲、市场营销以及各种奇怪的激励因素交织在一起，做出这些决策。在《金钱心理学》一书中，获奖作家摩根·豪塞尔通过19个短篇故事，探讨了人们思考金钱的奇特方式，并教你如何更好地理解这一人生重要课题。
 
     > **作者简介**: 摩根·豪塞尔是协作基金的合伙人。他曾两度荣获美国商业编辑和作家协会颁发的最佳商业奖，获得《纽约时报》西德尼奖，并两次入围杰拉尔德·洛布杰出商业与金融新闻奖决赛。他与妻子和两个孩子现居西雅图。
 
-23. **(447页) <span id="寡头的女儿-Joseph-Finder">[《寡头的女儿》(The Oligarchs Daughter) - Joseph Finder, 2025](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Oligarchs%20Daughter%20%28Joseph%20Finder%29.epub)</span>**  | ⭐Goodreads：4.12分 (1.3万人评分)
+30. **(447页) <span id="寡头的女儿-Joseph-Finder">[《寡头的女儿》(The Oligarchs Daughter) - Joseph Finder, 2025](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Oligarchs%20Daughter%20%28Joseph%20Finder%29.epub)</span>**  | ⭐Goodreads：4.12分 (1.3万人评分)
     <br>📖 **类型**：小说 · 惊悚 · 悬疑 · 悬念 · 间谍 · 悬疑惊悚
     > 来自《纽约时报》畅销书《火宅》的作者，一部扣人心弦的惊悚小说，将《继承之战》中的家族奢华与《美国谍梦》中的紧张迷离的间谍手法相结合。保罗·布莱特曼是一个在逃之人，隐姓埋名生活在新英格兰的一个小镇上，头上有百万美元的悬赏。当他的安全防线被突破时，保罗被迫逃入新罕布什尔州的荒野，以躲避似乎能预知他每一步行动的俄罗斯特工。六年前，保罗是华尔街的冉冉新星，爱上了一位名叫塔蒂亚娜的美丽摄影师——却不知她的父亲是一位俄罗斯寡头，并且是多个美国情报机构重点关注的目标。如今，为了保住自己的性命，保罗必须揭开一个延续数十年的阴谋，这个阴谋触及政府最高层。《寡头之女》堪比冷战经典间谍小说，是一部为现今这个令人恐惧的世界量身打造的极速惊悚小说。
 
     > **作者简介**: 约瑟夫·芬德是即将面世的小说《审判》以及另外十四部小说的作者，其中多部作品荣登《纽约时报》畅销书榜，在全球三十五个国家出版发行。他的著作《高犯罪》被改编成电影，由摩根·弗里曼和阿什莉·贾德联袂主演；《偏执》则被搬上银幕，由哈里森·福特和加里·奥德曼领衔。他出生于芝加哥，曾旅居菲律宾、阿富汗、华盛顿州及纽约上州。其小说作品屡获殊荣，包括斯特兰德评论家奖、巴里奖以及国际惊悚作家协会颁发的最佳小说惊悚奖。他的处女作《莫斯科俱乐部》被《出版周刊》评为史上十大最佳间谍小说之一。他与妻子现居波士顿和科德角，在那里他为红袜队摇旗呐喊，同时深切缅怀他的金毛寻回犬救援犬米娅。目前，他正努力说服妻子再养一只狗狗。
 
-24. **(528页) <span id="纽约客故事集-Beattie-Ann">[《纽约客故事集》(The New Yorker Stories) - Beattie Ann, 2010](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20New%20Yorker%20Stories%20%28Beattie%20Ann%29%20.epub)</span>**  | ⭐Goodreads：3.79分 (1362人评分)
+31. **(528页) <span id="纽约客故事集-Beattie-Ann">[《纽约客故事集》(The New Yorker Stories) - Beattie Ann, 2010](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20New%20Yorker%20Stories%20%28Beattie%20Ann%29%20.epub)</span>**  | ⭐Goodreads：3.79分 (1362人评分)
     <br>📖 **类型**：短篇小说 · 小说 · 文学 · 美国 · 奇幻 · 文学小说
     > 当安·贝蒂在七十年代中期开始在《纽约客》上发表短篇小说时，她以一种极具原创性、精准且富有预见性的笔触，深刻描绘了笔下人物的漂泊与自恋，迅速被誉为她这一代人的代言人。她的名字甚至成了一个形容词：“贝蒂式的”。她细腻、诙谐而又令人不安的笔触，使她成为美国家庭解体以及那些将我们紧密相连的无数细微事件和情感的敏锐观察者。在近四十年的创作中，她的人物从多变欲望的生活走向成年人的重负与压抑，进而经历失败的抱负、草率的离婚，有时甚至迎来启迪与恩典。玛格丽特·阿特伍德评价道，每一个贝蒂的故事都“如同来自前线的最新战报：我们迫不及待地抓住它，渴望了解在那片被称为人际关系的变幻莫测的无人地带边缘究竟发生了什么。”凭借无与伦比的对话天赋和锐利的智慧，她对她时代的文化风貌进行了生动的速写。《安·贝蒂：纽约客故事集》既是新读者了解这位标志性美国作家的完美入门，也是多年来喜爱她作品的读者的辉煌回归。
 
     > **作者简介**: 安·贝蒂（1947年9月8日生）是一位美国短篇小说家及小说家。她曾荣获美国艺术与文学学院颁发的卓越奖，以及PEN/伯纳德·马拉默德短篇小说杰出奖。其作品常被拿来与艾丽斯·亚当斯、J.D.塞林格、约翰·契弗和约翰·厄普代克等人的作品相媲美。她拥有美国大学的本科学位和康涅狄格大学的硕士学位。
 
-25. **(316页) <span id="裸脸-Sidney-Sheldon">[《裸脸》(The Naked Face) - Sidney Sheldon, 1970](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Naked%20Face%20%28Sidney%20Sheldon%29%20.epub)</span>**  | ⭐Goodreads：3.58分 (2.1万人评分)
+32. **(316页) <span id="裸脸-Sidney-Sheldon">[《裸脸》(The Naked Face) - Sidney Sheldon, 1970](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Naked%20Face%20%28Sidney%20Sheldon%29%20.epub)</span>**  | ⭐Goodreads：3.58分 (2.1万人评分)
     <br>📖 **类型**：小说 · 惊悚 · 悬疑 · 悬念 · 犯罪 · 悬疑惊悚 · 爱情
     > 朱德·史蒂文斯博士是一位心理分析师，正面临人生中最关键的一个案例。他必须洞察一名谋杀犯的内心。若做不到，他可能会因谋杀罪被逮捕，甚至自己也可能遭遇不测。已有两位与史蒂文斯博士亲近的人惨遭杀害。是某位病人所为吗？是一个被问题压垮的人？还是一个被强迫症驱使的神经质者？抑或是个疯子？在凶手再次行动之前，史蒂文斯必须剥去罪犯伪装的清白面具，揭示其内心的情感、恐惧和欲望，揭露其隐藏的真实面目。但这个人究竟是谁呢？
 
     > **作者简介**: 西德尼·谢尔顿（1917-2007）是一位美国作家，曾在三个领域荣获奖项——百老汇剧作家、好莱坞电视和电影编剧，以及畅销小说家。他的电视作品横跨二十年，期间创作了《我梦见了珍妮》（1965-70）、《哈特对哈特》（1979-84）和《帕蒂·杜克秀》（1963-66）。然而，直到他年过五十，开始撰写如《游戏大师》（1982）、《午夜的另一面》（1973）和《天使的愤怒》（1980）等畅销小说后，他才真正声名大噪。
 
-26. **(416页) <span id="消失的亿万富翁-明智财务决策指南-Victor-Haghani">[《消失的亿万富翁：明智财务决策指南》(The Missing Billionaires A Guide to Better Financial Decisions) - Victor Haghani, 2023](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Missing%20Billionaires%20A%20Guide%20to%20Better%20Financial%20Decisions%28Victor%20Haghani%29.epub)</span>**  | ⭐Goodreads：3.84分 (535人评分)
+33. **(416页) <span id="消失的亿万富翁-明智财务决策指南-Victor-Haghani">[《消失的亿万富翁：明智财务决策指南》(The Missing Billionaires A Guide to Better Financial Decisions) - Victor Haghani, 2023](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Missing%20Billionaires%20A%20Guide%20to%20Better%20Financial%20Decisions%28Victor%20Haghani%29.epub)</span>**  | ⭐Goodreads：3.84分 (535人评分)
     <br>📖 **类型**：金融 · 非虚构 · 经济学 · 商业 · 个人理财 · 金钱 · 历史
     > 在过去的一个世纪里，如果最富有的家庭能够合理地花费他们财富的一部分，缴纳税款，投资股市，并将财富传承给下一代，那么今天就会有数以万计的亿万富翁继承者，拥有世代相传的财富。然而，《失踪的亿万富翁》之谜在于，为何在当前的任何富豪榜上都找不到这样一位亿万富翁。对此有多种解释，但本书聚焦于一个对所有糟糕的风险决策（无论是在投资还是消费方面）都至关重要的错误。许多这样的家庭并非选择了糟糕的投资——而是对投资规模估计错误——并让他们的消费决策放大了这一错误。《失踪的亿万富翁》一书提供了一个简单而强大的框架，用于以系统和理性的方式做出重要的终身财务决策。这本书面向具备基本财务知识水平的读者，但不需要拥有博士学位。它填补了个人理财书籍与学术文献之间的空白，将学术金融的宝贵见解带给非专业人士。第一部分从第一性原理出发，构建了最优投资规模的理论，从对偏置硬币的投注开始。第二部分涵盖了终身财务决策，重点在于投资、储蓄和消费决策的整合。第三部分涵盖了实际操作细节，包括如何校准你的个人风险厌恶水平，以及如何估计广泛投资领域的预期回报和风险。书中充满了案例研究和轶事，包括关于维克多作为合伙人投资LTCM的故事，以及关于《说谎者的扑克牌》的额外章节。作者广泛借鉴了他们作为Elm Wealth（一家管理数十亿美元财富的实践公司）主要负责人的经验，以及在此之前的套利交易员经历——维克多在所罗门兄弟和LTCM，詹姆斯在Nationsbank/CRT和Citadel。无论你是年轻人正在积累财富，还是企业家大量投资于自己的企业，或者处于主要关注投资和消费的阶段，《失踪的亿万富翁：更好的财务决策指南》都是你进行深思熟虑财务决策的必备资源。
 
-27. **(359页) <span id="征服市场的人-西蒙斯传-Gregory-Zuckerman">[《征服市场的人：西蒙斯传》(The Man Who Solved the Market) - Gregory Zuckerman, 2019](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Man%20Who%20Solved%20the%20Market%20%28Gregory%20Zuckerman%29.epub)</span>**  | ⭐Goodreads：4.04分 (1.7万人评分)
+34. **(359页) <span id="征服市场的人-西蒙斯传-Gregory-Zuckerman">[《征服市场的人：西蒙斯传》(The Man Who Solved the Market) - Gregory Zuckerman, 2019](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Man%20Who%20Solved%20the%20Market%20%28Gregory%20Zuckerman%29.epub)</span>**  | ⭐Goodreads：4.04分 (1.7万人评分)
     <br>📖 **类型**：金融 · 商业 · 非虚构 · 传记 · 经济学 · 历史
     > 格雷戈里·祖克曼，畅销书《史上最伟大的交易》和《页岩革命》的作者，回答了投资者们数十年来一直追问的问题：吉姆·西蒙斯是如何做到的？该书入围《金融时报》/麦肯锡年度商业图书奖。吉姆·西蒙斯是现代金融史上最伟大的财富创造者。无论是沃伦·巴菲特、彼得·林奇、雷·达里奥、史蒂夫·科恩还是乔治·索罗斯，都无法企及他的成就。自1988年以来，文艺复兴公司的标志性大奖章基金平均年回报率高达66%。该公司赚取的利润超过1000亿美元；西蒙斯个人净资产达230亿美元。凭借对西蒙斯以及数十位现任和前任员工的独家访问，资深《华尔街日报》调查记者祖克曼讲述了这位世界级数学家兼前密码破解者如何掌控市场的扣人心弦的故事。西蒙斯开创了一种数据驱动、算法化的方法，这种方法正在席卷全球。随着文艺复兴公司成为市场巨头，其高管们开始影响金融领域之外的世界。西蒙斯成为了科学研究、教育和自由政治中的重要人物。高级执行官罗伯特·默瑟对特朗普总统的当选负有最大责任，他将史蒂夫·班农安排进竞选团队，并资助了特朗普2016年的胜选活动。默瑟还影响了英国脱欧背后的竞选。《解决市场的人》描绘了一位现代版点石成金的迈达斯，他按照自己的形象重塑了市场，却未能预料到他的成功将如何影响他的公司和国家。这也是一个关于西蒙斯的革命对我们其他人意味着什么的故事。
 
     > **作者简介**: 格雷戈里·祖克曼是《华尔街日报》的特约撰稿人，在该报工作了25年，并三次荣获杰拉尔德·洛布奖——这是商业新闻界的最高荣誉。格雷格著有六本书：《拯救世界的注射：COVID-19疫苗生死竞赛的内幕》；《解决市场的人：吉姆·西蒙斯如何掀起量化革命》；《页岩气革命者：新亿万富翁野猫钻井者的惊人内幕》；《史上最伟大的交易：约翰·保尔森如何挑战华尔街并创造金融历史的幕后故事》；《超越：11位运动员如何克服青年时期的挑战成为明星》；《超越：体育中的励志女性》。格雷格与妻子和两个儿子居住在新泽西州的西奥兰治，他们在夏天欣赏洋基队的比赛，秋天为巨人队加油，冬天则回忆林疯狂的辉煌时刻。
 
-28. **(432页) <span id="最长的旅程-Sparks-Nicholas">[《最长的旅程》(The Longest Ride) - Sparks Nicholas, 2013](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Longest%20Ride%20%28Sparks%20Nicholas%29%20.epub)</span>**  | ⭐Goodreads：4.17分 (15.6万人评分)
+35. **(432页) <span id="最长的旅程-Sparks-Nicholas">[《最长的旅程》(The Longest Ride) - Sparks Nicholas, 2013](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Longest%20Ride%20%28Sparks%20Nicholas%29%20.epub)</span>**  | ⭐Goodreads：4.17分 (15.6万人评分)
     <br>📖 **类型**：小说
     > 艾拉·莱文森陷入了困境。九十一岁高龄的他，健康状况不佳，孤身一人，在一场车祸后被困在了一个偏僻的河岸上。身受多处伤势，他努力保持清醒，直到一个模糊的身影在他身边显现并逐渐清晰：那是他深爱的妻子露丝，她已于九年前离世。她敦促他坚持下去，通过讲述他们共同生活的故事来强迫他保持警觉——他们是如何相遇的，他们一起收藏的珍贵画作，二战的黑暗岁月以及对他们和家人的影响。艾拉知道露丝不可能真的和他一起在车里，但他紧紧抓住她的话语和自己的记忆，重温那些定义了他们婚姻的悲伤与日常喜悦。
     > 
@@ -262,7 +337,7 @@
 
     > **作者简介**: 尼古拉斯·斯帕克斯是全球最受欢迎的故事讲述者之一。他的所有作品都曾登上《纽约时报》畅销书榜，全球销量超过1.3亿册，被翻译成50多种语言，仅在美国就售出超过9200万册。斯帕克斯在28岁时，耗时六个月创作了他最著名的故事之一《恋恋笔记本》。该书于1996年出版，随后他又陆续推出了《瓶中信》（1998年）、《记忆中的凡尔赛》（1999年）、《救援》（2000年）、《路的转弯处》（2001年）、《罗丹岛的夜晚》（2002年）、《守护者》（2003年）、《婚礼》（2003年）、《真信徒》（2005年）及其续集《初见》（2005年）、《亲爱的约翰》（2006年）、《选择》（2007年）、《幸运儿》（2008年）、《最后的歌》（2009年）、《安全港》（2010年）、《最好的我》（2011年）、《最长的一骑》（2013年）、《看见我》（2015年）、《二重奏》（2016年）、《每一息》（2018年）、《回归》（2020年）、《愿望》（2021年）和《梦境之地》（2022年），以及与兄弟米迦合著的2004年非虚构回忆录《与兄弟的三周》。他的第二十四部小说《数奇迹》将于2024年9月24日出版。尼古拉斯·斯帕克斯的小说被改编成电影，包括《选择》、《最长的一骑》、《最好的我》、《安全港》（他在这些电影中均担任制片人）、《幸运儿》、《瓶中信》、《记忆中的凡尔赛》、《恋恋笔记本》、《罗丹岛的夜晚》、《亲爱的约翰》和《最后的歌》，全球累计票房超过7.5亿美元。《恋恋笔记本》还被改编成百老汇音乐剧，音乐和歌词由英格丽·迈克尔森创作。斯帕克斯居住在北卡罗来纳州，他为各种地方和全国性慈善机构捐款，并且是圣母大学创意写作项目（MFA）的主要捐助者，每年提供奖学金、实习机会和一项奖学金。他于2006年在北卡罗来纳州新伯尔尼共同创立了启示学校。作为一名曾经的全额奖学金运动员（他至今仍保持着圣母大学的田径纪录），他还花了四年时间在当地公立高中执教田径运动员。2009年，他执教的新伯尔尼高中队在4×400米项目中创造了世界青年室内纪录，以及800米混合和1600米混合的美国高中全国纪录。点击观看与尼古拉斯一起的《跑者世界》视频。尼古拉斯·斯帕克斯基金会是一家501(c)(3)非营利组织，成立于2011年，旨在为贫困和弱势青年提供奖学金和资助教育项目。通过该基金会以及斯帕克斯家族的个人捐赠，超过1500万美元已分配给值得的慈善机构、奖学金项目和项目。由于斯帕克斯家族承担了基金会的所有运营费用，因此100%的捐款都用于项目。
 
-29. **(257页) <span id="随他去理论-Mel-Robbins">[《随他去理论》(The Let Them Theory • A Life-Changing Tool That Millions of People Can’t Stop Talking About) - Mel Robbins, 2024](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Let%20Them%20Theory%20%E2%80%A2%20A%20Life-Changing%20Tool%20That%20Millions%20of%20People%20Can%E2%80%99t%20Stop%20Talking%20About%20%28Mel%20Robbins%29%20.epub)</span>**  | ⭐Goodreads：4.09分 (18.0万人评分)
+36. **(257页) <span id="随他去理论-Mel-Robbins">[《随他去理论》(The Let Them Theory • A Life-Changing Tool That Millions of People Can’t Stop Talking About) - Mel Robbins, 2024](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Let%20Them%20Theory%20%E2%80%A2%20A%20Life-Changing%20Tool%20That%20Millions%20of%20People%20Can%E2%80%99t%20Stop%20Talking%20About%20%28Mel%20Robbins%29%20.epub)</span>**  | ⭐Goodreads：4.09分 (18.0万人评分)
     <br>📖 **类型**：自我提升
     > 如果幸福、成功和爱的关键仅在于两个字，那会怎样？如果你曾感到停滞不前、不知所措或对现状感到沮丧，问题不在于你，而在于你赋予他人的权力。两个字——“让他们”——将让你获得自由。摆脱他人的意见、戏剧和评判，摆脱试图管理周围一切和每个人的疲惫循环。“让他们理论”将创造你热爱生活的权力重新交回你手中，这本书将确切地告诉你如何做到这一点。
     > 
@@ -285,11 +360,11 @@
 
     > **作者简介**: 梅尔·罗宾斯是一位拥有常春藤盟校教育背景的刑事辩护律师兼企业家，以其敏捷的思维和独到的时事见解，成功跻身备受追捧的评论员、国际知名演讲者、《成功》杂志特约编辑、畅销书作家、关系专家及常识活动家行列。她的建议和激昂观点在全国范围内通过《菲尔博士》、《安德森·库珀》、《今日秀》、《脱口秀》、《奥普拉》、CNBC和福克斯商业等节目，为数千万观众所熟知。梅尔的首部著作《别再说你很好——获取你想要的无废话指南》现已推出平装版，由皇冠出版社出版。这本畅销书教导读者如何利用最新的神经科学研究和高明策略，摆脱拖延，实现目标。梅尔热爱面向大众演讲，并在全球各大商业会议和领导力论坛上发表激励人心的主题演讲和工作坊。她还为包括强生、富达、合作伙伴医疗、富国银行等知名企业，以及美国各地的顶尖律师事务所、家族企业和私营公司主持领导力和培训项目。梅尔毕业于达特茅斯学院和波士顿学院法学院，是一位有三个学龄孩子的职场妈妈，与同为企业家、Stone Hearth Pizza联合创始人克里斯托弗·罗宾斯结为夫妻。
 
-30. **(312页) <span id="坟场之书-Neil-Gaiman">[《坟场之书》(The Graveyard Book) - Neil Gaiman, 2008](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Graveyard%20Book%20%28Neil%20Gaiman%29%20.epub)</span>**  | ⭐Goodreads：4.16分 (56.2万人评分)
+37. **(312页) <span id="坟场之书-Neil-Gaiman">[《坟场之书》(The Graveyard Book) - Neil Gaiman, 2008](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Graveyard%20Book%20%28Neil%20Gaiman%29%20.epub)</span>**  | ⭐Goodreads：4.16分 (56.2万人评分)
     <br>📖 **类型**：奇幻 · 青少年 · 小说 · 恐怖 · 少年儿童 · 超自然
     > 诺布迪·欧文斯，朋友们称他为博德，本是个再普通不过的男孩。然而，若非他居住在墓地，由鬼魂抚养教育，还有一个既不属于生者也不属于死者的孤独守护者，他或许真会是个普通的男孩。在墓地里，博德面临着种种危险与冒险：斯利尔的诡异与恐怖威胁；一座通往沙漠的墓碑入口，引领至食尸鬼之城；与女巫的友谊，以及其他诸多奇遇。但真正的危险潜藏在生者之地，因为那里住着杰克，他已经杀害了博德的全家。这是畅销书作家尼尔·盖曼的一部令人着迷的黑暗杰作，配有获奖插画家戴夫·麦基恩的插图。
 
-31. **(433页) <span id="教父-Mario-Puzo">[《教父》(The Godfather) - Mario Puzo, 2005](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Godfather%20%28Mario%20Puzo%29%20.epub)</span>**  | ⭐Goodreads：4.4分 (45.6万人评分)
+38. **(433页) <span id="教父-Mario-Puzo">[《教父》(The Godfather) - Mario Puzo, 2005](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Godfather%20%28Mario%20Puzo%29%20.epub)</span>**  | ⭐Goodreads：4.4分 (45.6万人评分)
     <br>📖 **类型**：小说
     > 《教父》——这部关于犯罪与背叛的史诗故事，已然成为全球瞩目的现象。近五十年前，一部经典之作横空出世。作为对黑手党地下世界入木三分的刻画，《教父》引领读者走进了美国犯罪小说的第一家族——科莱昂家族，以及他们那强大而深厚的传统、血脉与荣誉的传承。权力的诱惑、贪婪的陷阱，以及对家族的忠诚——这些主题在全球数百万读者心中引起了强烈共鸣，使得《教父》成为描绘暴力亚文化的标志性小说。这部小说沉浸在阴谋与争议之中，却在我们集体意识中留下了不可磨灭的印记。
 
@@ -303,41 +378,41 @@
     > 
     > 普佐于1999年7月2日在纽约长岛贝肖尔的家中因心力衰竭去世，他的家人现居住在纽约东伊斯利普。
 
-32. **(368页) <span id="家族办公室-顾问-从业者和学生综合指南-William-I-Woodson-Edward-V-Marshall">[《家族办公室：顾问、从业者和学生综合指南》(The Family Office A Comprehensive Guide for Advisers, Practitioners, and Students) - William I. Woodson Edward V. Marshall, 2021](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Family%20Office%20A%20Comprehensive%20Guide%20for%20Advisers%2C%20Practitioners%2C%20and%20Students%20%28William%20I.%20Woodson%20Edward%20V.%20Marshall%29.epub)</span>**  | ⭐Goodreads：3.93分 (41人评分)
+39. **(368页) <span id="家族办公室-顾问-从业者和学生综合指南-William-I-Woodson-Edward-V-Marshall">[《家族办公室：顾问、从业者和学生综合指南》(The Family Office A Comprehensive Guide for Advisers, Practitioners, and Students) - William I. Woodson Edward V. Marshall, 2021](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Family%20Office%20A%20Comprehensive%20Guide%20for%20Advisers%2C%20Practitioners%2C%20and%20Students%20%28William%20I.%20Woodson%20Edward%20V.%20Marshall%29.epub)</span>**  | ⭐Goodreads：3.93分 (41人评分)
     <br>📖 **类型**：金融 · 商业
     > 家族办公室是负责管理富裕家庭日常个人和财务事务的私人机构。历史上，这些巨额财富的保管机构一直笼罩在神秘之中，其活动在幕后悄然进行。近年来，家族办公室受到了更高的公众关注——尽管它们仅代表全球超高净值人口的7%，却掌控着惊人的50%的财富。由于只有少数精选家庭持有不成比例的全球财富，因此这些资产的管理和使用方式对社会具有重大影响。本书为希望了解家族办公室以及如何最佳服务和指导它们的人提供了内部视角。资深从业者威廉·I·伍德森和爱德华·V·马歇尔提供了一份全面的指南，深入探讨富裕家庭为何创建家族办公室、它们的具体职能以及如何高效管理。他们通过一系列基于问题的学习案例，展现这些见解，追踪一个家族从重大流动性事件开始的旅程，历经家族办公室的创建、人员配置和管理，直至其继承。每个案例研究都配有详细的背景参考资料。这些案例和背景资料源自作者的实际知识、行业专家网络以及为大小家族办公室提供咨询的经验。它们揭示了超高净值家庭面临的独特问题及其在家族办公室生命周期中采取的解决方案。本书是从业者、学生、家族负责人、顾问、服务提供商以及所有参与家族办公室领域人士的权威资源。
 
-33. **(182页) <span id="廊桥遗梦-Waller-Robert-James">[《廊桥遗梦》(The Bridges of Madison County) - Waller, Robert James, 1992](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Bridges%20of%20Madison%20County%20%28Waller%2C%20Robert%20James%29%20.epub)</span>**  | ⭐Goodreads：3.71分 (10.5万人评分)
+40. **(182页) <span id="廊桥遗梦-Waller-Robert-James">[《廊桥遗梦》(The Bridges of Madison County) - Waller, Robert James, 1992](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%20Bridges%20of%20Madison%20County%20%28Waller%2C%20Robert%20James%29%20.epub)</span>**  | ⭐Goodreads：3.71分 (10.5万人评分)
     <br>📖 **类型**：小说 · 爱情 · 经典 · 都市女性 · 当代 · 长篇小说 · 历史小说
     > 罗伯特·金凯德的故事，这位摄影师和自由奔放的灵魂，追寻着麦迪逊县的廊桥，以及弗朗西斯卡·约翰逊，这位农场主妇期盼着少女时代的梦想成真，《麦迪逊县的桥》赋予了各地男女内心渴望的声音——并向我们展示了何为深情相爱，爱得如此炽烈，以至于生活从此焕然一新。
 
     > **作者简介**: 罗伯特·詹姆斯·沃勒是一位美国作家，同时以其摄影师和音乐家的身份而闻名。他的多部作品曾登上《纽约时报》畅销书排行榜，其中包括1992年出版的《廊桥遗梦》，该书在1993年成为年度最畅销书籍。这部小说以及他1995年的作品《波多黎各瓦拉塔挤压》都被改编成了电影。
 
-34. **(416页) <span id="依然是我-Jojo-Moyes">[《依然是我》(Still Me) - Jojo Moyes, 2018](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Still%20Me%20%28Jojo%20Moyes%29.epub)</span>**  | ⭐Goodreads：4.11分 (22.9万人评分)
+41. **(416页) <span id="依然是我-Jojo-Moyes">[《依然是我》(Still Me) - Jojo Moyes, 2018](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Still%20Me%20%28Jojo%20Moyes%29.epub)</span>**  | ⭐Goodreads：4.11分 (22.9万人评分)
     <br>📖 **类型**：小说
     > 来自《纽约时报》排名第一的畅销书作家乔乔·莫伊斯的新作，书中讲述了她标志性的女主角——《遇见你之前》和《遇见你之后》中的路易莎·克拉克。路易莎抵达纽约，准备开启新生活，她自信能够拥抱这次新冒险，并在数千英里之外维系与救护车司机萨姆的感情。她踏入超级富豪的世界，为伦纳德·戈普尼克和他年轻许多的第二任妻子阿格尼丝工作。路易决心充分利用这次经历，全身心投入新工作和纽约的生活。当她开始融入纽约上流社会时，遇到了约书亚·瑞安，一个带着她过去一丝痕迹的男人。不久，路易发现自己徘徊在工作地点第五大道和那家让她真正感到宾至如归的宝藏般的复古服装店之间。当事情发展到紧要关头时，她不得不问自己：路易莎·克拉克究竟是谁？你如何找到勇气跟随自己的心——无论它指向何方。《依然是我》既幽默又浪漫，还带有一丝伤感，讲述了路易如何在保持真实自我的同时，勇敢地在她崭新的世界中大胆生活。
 
     > **作者简介**: 乔乔·莫伊斯是一位英国小说家。她在伦敦大学皇家霍洛威学院求学，凭借《独立报》资助的奖学金进入城市大学学习新闻学，之后在《独立报》工作了十年。2001年，她成为全职小说家。莫伊斯的小说《异国果实》在2004年荣获浪漫小说家协会（RNA）年度浪漫小说奖。她与记者查尔斯·亚瑟结为夫妻，育有三子。
 
-35. **(256页) <span id="超级激励者-秘诀就是统一目标-统一行动-统一价值观-Simon-Sinek">[《超级激励者：秘诀就是统一目标、统一行动、统一价值观》(Start With Why_ How Great Leaders Inspire Everyone to Take Action) - Simon Sinek, 2009](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Start%20With%20Why_%20How%20Great%20Leaders%20Inspire%20Everyone%20to%20Take%20Action%28Simon%20Sinek%29.epub)</span>**  | ⭐Goodreads：4.1分 (26.1万人评分)
+42. **(256页) <span id="超级激励者-秘诀就是统一目标-统一行动-统一价值观-Simon-Sinek">[《超级激励者：秘诀就是统一目标、统一行动、统一价值观》(Start With Why_ How Great Leaders Inspire Everyone to Take Action) - Simon Sinek, 2009](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Start%20With%20Why_%20How%20Great%20Leaders%20Inspire%20Everyone%20to%20Take%20Action%28Simon%20Sinek%29.epub)</span>**  | ⭐Goodreads：4.1分 (26.1万人评分)
     <br>📖 **类型**：商业 · 领导力 · 非虚构 · 自我提升 · 个人成长 · 管理 · 心理学
     > 你为何从事你现在的事业？为何有些人和组织比其他人更具创新力、影响力和盈利能力？为何有些能够同时赢得客户和员工更大的忠诚？即便在成功者中，为何鲜少有人能不断重复他们的成功？像马丁·路德·金、史蒂夫·乔布斯和莱特兄弟这样的人或许看似没有太多共同点，但他们都始于“为何”。正是他们从“为何”出发的天赋，使他们能够激励周围的人并取得非凡成就。在研究全球最具影响力的领导者时，西蒙·斯涅克发现，他们的思考、行动和沟通方式完全一致——而这与大多数人的做法截然不同。斯涅克将这一强大理念称为“黄金圈”，它提供了一个框架，组织可以在此基础上建立，运动可以由此引领，人们可以因此受到激励。而这一切都始于“为何”。任何组织都能解释它“做什么”；有些能解释它“怎么做”；但极少有组织能清晰地阐述它“为何”这么做。“为何”并非金钱或利润——那些只是结果。你的组织为何存在？它为何要做它所做的事情？顾客为何真的选择从这家公司而非另一家公司购买？人们为何忠于某些领导者，而不忠于其他人？从“为何”开始适用于大型企业和小型企业、非营利领域和政治领域。那些从“为何”开始的人从不操纵，他们激励。而跟随他们的人并非因为必须这么做；他们跟随是因为他们愿意这么做。通过广泛的真实故事，斯涅克编织了一个清晰的愿景，展示了真正领导和激励所需的要素。这本书适用于任何想要激励他人或寻找激励的人。
 
     > **作者简介**: 西蒙·斯涅克是一位乐观主义者。他坚信未来的光明以及我们共同创造未来的能力。被誉为“拥有罕见智慧的远见思想家”，斯涅克教导领导者和组织如何激励人心。他怀揣着一个宏伟目标，即帮助构建一个大多数人每天下班后都感到工作充实的世界。斯涅克正引领一场运动，激励人们去做那些激励他们的事情。斯涅克对商业和领导力的非传统与创新观点吸引了国际关注，为他赢得了与众多领导者和组织会面的邀请，包括微软、玛氏、SAP、英特尔、3M、美国军方、美国国会成员、多个政府机构以及企业家。斯涅克还荣幸地向巴林和伊拉克的大使、在联合国以及美国空军高级领导层展示他的理念。他是兰德公司的一名兼职工作人员，兰德公司是全球最受尊敬的智库之一。他还在艺术和非营利领域活跃，与教育就业基金会合作，帮助为中东地区的青年男女创造机会。不在酒店时，他居住在纽约，并在哥伦比亚大学教授研究生级别的战略传播课程。
 
-36. **(246页) <span id="真诚的-卡特-Whitney-G">[《真诚的，卡特》(Sincerely, Carter) - Whitney G, 2015](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Sincerely%2C%20Carter%20%28Whitney%20G%29%20.epub)</span>**  | ⭐Goodreads：3.99分 (3.7万人评分)
+43. **(246页) <span id="真诚的-卡特-Whitney-G">[《真诚的，卡特》(Sincerely, Carter) - Whitney G, 2015](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Sincerely%2C%20Carter%20%28Whitney%20G%29%20.epub)</span>**  | ⭐Goodreads：3.99分 (3.7万人评分)
     <br>📖 **类型**：爱情 · 从朋友到恋人 · 年轻人 · 当代 · 当代爱情 · 大学 · 校园爱情
     > 只是朋友。我们只是朋友。不，真的。她只是我最好的朋友……亚利桑那·特纳从四年级起就是我的最好的朋友，即使在我们“讨厌”对方的时候。我们一起经历了初吻、第一次“那事”，在美好的关系变坏时，我们一直是彼此的依靠。（我们甚至上了相隔几分钟路程的大学……）多年来，不管别人怎么说，我们从未越界。从未想过。从未想要。直到一夜之间改变了一切。至少，本该如此……只是朋友。我们只是朋友。我只是在我弄清楚她是否仍然“只是”我最好的朋友之前这么说……
 
     > **作者简介**: 惠特尼·G. 是《纽约时报》和《今日美国》的畅销书作家。她的作品已被翻译成十多种语言。她居住在田纳西州的深林之中，大部分时间都在品咖啡的同时创作那些言语粗犷的alpha男性角色。想了解更多关于她下一个项目的详情，请访问www.whitneygbooks.com（一定要注册“The F.L.Y. List”，这是获取新书更新的最佳方式。链接：eepurl.com/hbhVOf）。你也可以在Instagram和Facebook上与惠特尼互动。
 
-37. **(400页) <span id="鞋狗-耐克创始人回忆录-Knight-Phil">[《鞋狗：耐克创始人回忆录》(Shoe Dog A Memoir by the Creator of Nike) - Knight, Phil, 2016](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Shoe%20Dog%20A%20Memoir%20by%20the%20Creator%20of%20Nike%20%28Knight%2C%20Phil%29%20.epub)</span>**  | ⭐Goodreads：4.46分 (35.5万人评分)
+44. **(400页) <span id="鞋狗-耐克创始人回忆录-Knight-Phil">[《鞋狗：耐克创始人回忆录》(Shoe Dog A Memoir by the Creator of Nike) - Knight, Phil, 2016](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Shoe%20Dog%20A%20Memoir%20by%20the%20Creator%20of%20Nike%20%28Knight%2C%20Phil%29%20.epub)</span>**  | ⭐Goodreads：4.46分 (35.5万人评分)
     <br>📖 **类型**：商业 · 传记 · 非虚构 · 回忆录 · 体育 · 自传
     > 在这本坦诚而引人入胜的回忆录中，耐克创始人兼首席执行官菲尔·奈特首次披露了公司早期作为无畏初创企业的内幕故事，以及它如何发展成为全球最具标志性的、颠覆性的、盈利能力最强的品牌之一。1962年，刚从商学院毕业的菲尔·奈特从他父亲那里借了50美元，创立了一家公司，其简单使命是从日本进口高质量、低成本的运动鞋。奈特从他那辆石灰绿色的普利茅斯勇士车后备箱里卖鞋，第一年的总收入为8000美元。如今，耐克的年销售额超过300亿美元。在初创企业风起云涌的时代，耐克是所有初创企业的极致典范，而“Swoosh”标志已成为革命性的、跨越全球的象征，是当今世界上最普遍、最易识别的符号之一。然而，这位“Swoosh”背后的男人奈特一直是个谜。现在，他首次在一本坦诚、谦逊、勇敢而风趣的回忆录中讲述了自己的故事，从他的十字路口时刻开始。24岁时，在环游世界背包旅行后，他决定走一条非传统的道路，创办自己的企业——一个充满活力、与众不同的企业。奈特详细描述了他在追求梦想过程中所面临的众多风险和令人畏惧的挫折，以及他早期的成功。最重要的是，他回忆了与第一批合作伙伴和员工之间形成的决定性关系，这群不拘一格的异类和探索者最终成为了一个紧密团结的兄弟团队。他们一起，凭借共同使命的超越力量，以及对体育精神的深刻信念，打造了一个改变一切的品牌。
 
     > **作者简介**: 菲利普·汉普森·奈特，人称“巴克”，是一位美国商界巨擘和慈善家。他是耐克公司的联合创始人及现任名誉董事长，曾长期担任公司董事长兼首席执行官，为公司的辉煌发展奠定了坚实基础。
 
-38. **(336页) <span id="退出-知道何时放弃的力量-Annie-Duke">[《退出：知道何时放弃的力量》(Quit) - Annie Duke, 2022](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Quit%20%28Annie%20Duke%29%20.epub)</span>**  | ⭐Goodreads：4.16分 (6406人评分)
+45. **(336页) <span id="退出-知道何时放弃的力量-Annie-Duke">[《退出：知道何时放弃的力量》(Quit) - Annie Duke, 2022](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Quit%20%28Annie%20Duke%29%20.epub)</span>**  | ⭐Goodreads：4.16分 (6406人评分)
     <br>📖 **类型**：非虚构 · 心理学 · 商业 · 自我提升 · 个人成长 · 领导力
     > 来自畅销书《思考快与慢》的作者，为您提供一套掌握放弃技巧的工具包，助您实现更大的成功。商业领袖们在数百万美元付诸东流后，仍难以放弃一个根本不起作用的新应用或产品。政府陷入无望的冲突中，坚信下一个策略终将赢得战争。而在我们自己的生活中，我们坚持着那些不再服务于我们的关系或职业。为何如此？安妮·杜克指出，面对艰难抉择时，我们都是糟糕的放弃者，而这极大地阻碍了我们的发展。
     > 
@@ -352,28 +427,28 @@
 
     > **作者简介**: 安妮是决策教育联盟的联合创始人，该非营利组织致力于通过决策技能教育赋予学生力量，从而改善他们的生活。她同时也是课后全明星国家委员会和富兰克林研究所董事会的成员。2020年，她加入了复兴民主倡议的董事会。
 
-39. **(496页) <span id="挽救计划-Andy-Weir">[《挽救计划》(Project Hail Mary) - Andy Weir, 2021](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Project%20Hail%20Mary%20%28Andy%20Weir%29%20.epub)</span>**  | ⭐Goodreads：4.5分 (93.5万人评分)
+46. **(496页) <span id="挽救计划-Andy-Weir">[《挽救计划》(Project Hail Mary) - Andy Weir, 2021](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Project%20Hail%20Mary%20%28Andy%20Weir%29%20.epub)</span>**  | ⭐Goodreads：4.5分 (93.5万人评分)
     <br>📖 **类型**：科幻 · 小说 · 读书会 · 奇幻 · 太空 · 惊悚
     > 一位孤独的宇航员，一项看似不可能完成的任务，一个他从未料到的盟友。瑞兰德·格蕾丝是这场绝望的、最后一线生机的任务中唯一的幸存者——如果他失败了，人类和地球都将走向灭亡。然而此刻，他对此一无所知。他甚至连自己的名字都记不起来，更别提任务的内容或如何完成它了。他所知道的只是自己睡了很久、很久。刚刚被唤醒时，他发现自己身处离家数百万英里的地方，身边只有两具尸体相伴。队友们已逝，记忆模糊地复苏，瑞兰德意识到一个不可能的任务正摆在他面前。在这艘小小的飞船上穿梭于太空，他必须解开一个看似无解的科学谜团——并战胜对我们物种的灭绝级威胁。随着时间一分一秒地流逝，最近的人类也在光年之外，他似乎必须独自完成这一切。但，他真的只能孤军奋战吗？
 
     > **作者简介**: 安迪·威尔曾以软件工程师的身份开启职业生涯，直到他的首部小说《火星救援》大获成功，使他得以全职投入写作，实现毕生梦想。他是一位对太空充满热情的终身爱好者，热衷于研究相对论物理学、轨道力学以及载人航天史等领域。此外，他还能调制出令人称赞的鸡尾酒。现居加利福尼亚。安迪的新作《阿耳特弥斯》现已上市。
 
-40. **(328页) <span id="私人客户-遗嘱-信托和遗产规划-Lesley-King">[《私人客户：遗嘱、信托和遗产规划》(Private Client Wills, Trusts and Estate Planning) - Lesley King, 2018](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Private%20Client%20Wills%2C%20Trusts%20and%20Estate%20Planning%20%28Lesley%20King%29%20.epub)</span>**  | ⭐Goodreads：4.25分 (4人评分)
+47. **(328页) <span id="私人客户-遗嘱-信托和遗产规划-Lesley-King">[《私人客户：遗嘱、信托和遗产规划》(Private Client Wills, Trusts and Estate Planning) - Lesley King, 2018](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Private%20Client%20Wills%2C%20Trusts%20and%20Estate%20Planning%20%28Lesley%20King%29%20.epub)</span>**  | ⭐Goodreads：4.25分 (4人评分)
     > 《私人遗嘱、信托与遗产规划》是对律师事务所私人客户部门进行的遗产规划工作中产生的法律和税务影响进行全面且用户友好的考察。该指南以实用方式处理从业者日常面临的所有领域，从税务和财务规划到信托管理。全文通过实际案例说明如何计算客户的税务状况。这一新版本包括了Vigne诉HMRC和Graham诉HMRC关于商业财产减免的最新裁决。它还涉及2019年财政法案中关于非居民在英国不动产上获得的收益的税务变化。此外，还考虑了资本利得税主要住所豁免的变更。
 
-41. **(496页) <span id="超越百岁-长寿的科学与艺术-Peter-Attia-MD">[《超越百岁：长寿的科学与艺术》(Outlive - The Science and Art of Longevity) - Peter Attia, MD, 2023](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Outlive%20-%20The%20Science%20and%20Art%20of%20Longevity%20%28Peter%20Attia%2C%20MD%29%20.epub)</span>**  | ⭐Goodreads：4.34分 (8.8万人评分)
+48. **(496页) <span id="超越百岁-长寿的科学与艺术-Peter-Attia-MD">[《超越百岁：长寿的科学与艺术》(Outlive - The Science and Art of Longevity) - Peter Attia, MD, 2023](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Outlive%20-%20The%20Science%20and%20Art%20of%20Longevity%20%28Peter%20Attia%2C%20MD%29%20.epub)</span>**  | ⭐Goodreads：4.34分 (8.8万人评分)
     <br>📖 **类型**：健康 · 非虚构 · 科学 · 自我提升 · 医学 · 个人成长
     > 《纽约时报》畅销书排行榜第一•一本颠覆性的宣言，探讨如何更好地、更长久地生活，挑战传统医学对衰老的看法，并揭示了一种预防慢性疾病和延长长期健康的新方法，由一位富有远见的医生和领先的寿命专家撰写。你不想活得更久、更好吗？在这本关于长寿的操作手册中，彼得·阿蒂亚博士依托最新科学成果，提供了创新的营养干预措施、优化锻炼和睡眠的技巧，以及解决情感和心理健康的工具。尽管主流医学取得了诸多成就，但在对抗导致大多数人死亡的衰老疾病方面却进展甚微：心脏病、癌症、阿尔茨海默病和2型糖尿病。通常情况下，其干预治疗为时已晚，无法提供帮助，以牺牲健康寿命或生活质量为代价来延长寿命。阿蒂亚博士认为，我们必须用一种个性化的、积极主动的长寿策略来取代这种过时的框架，即我们现在就采取行动，而不是等待。这不是“生物黑客”，这是科学：一种有充分依据的战略和战术方法，旨在延长寿命的同时，也改善我们的身体、认知和情感健康。阿蒂亚博士的目标不是告诉你该做什么，而是更多地帮助你学会如何思考长期健康，以便为你个人制定最佳计划。在《超越寿命》一书中，读者将发现：•为什么你年度体检中的胆固醇测试并不能充分告诉你实际死于心脏病的风险.•你可能已经患有极其常见但未被诊断的肝脏疾病，这可能是衰老慢性疾病的先兆.•为什么锻炼是最有效的促长寿“药物”——以及如何开始训练“百岁老人十项全能”。•为什么你应该忘记节食，转而关注营养生物化学，利用技术和数据来个性化你的饮食模式.•为什么追求身体健康和长寿，但忽视情感健康，可能是所有诅咒中的终极诅咒。衰老和长寿比我们想象的要灵活得多；我们的命运并非一成不变。有了正确的路线图，你可以为你的生活规划一条不同的道路，让你超越基因，让每一个十年都比前一个十年更好。
 
     > **作者简介**: 彼得·阿蒂亚（医学博士）是早期医疗的创始人，这家医疗机构应用医学3.0原则，旨在同时延长患者的寿命和提升其健康寿命。他是广受欢迎的健康与医学主题播客《驱动》的主持人。此外，他还是《纽约时报》畅销书排行榜第一的《超越：长寿的科学与艺术》的作者。阿蒂亚博士从斯坦福大学医学院获得医学学位，并在约翰霍普金斯医院接受了五年的普通外科培训，期间荣获多项殊荣，包括年度住院医师奖。他在国家卫生研究院担任国家癌症研究所的外科肿瘤学研究员两年，其研究重点是基于免疫的黑色素瘤疗法。
 
-42. **(399页) <span id="我的朋友们-Hisham-Matar">[《我的朋友们》(My Friends) - Hisham Matar, 2024](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/My%20Friends%20%28Hisham%20Matar%29.epub)</span>**  | ⭐Goodreads：4.3分 (1.2万人评分)
+49. **(399页) <span id="我的朋友们-Hisham-Matar">[《我的朋友们》(My Friends) - Hisham Matar, 2024](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/My%20Friends%20%28Hisham%20Matar%29.epub)</span>**  | ⭐Goodreads：4.3分 (1.2万人评分)
     <br>📖 **类型**：小说 · 历史小说 · 文学小说 · 利比亚 · 非洲 · 当代 · 长篇小说
     > 来自普利策奖得主、《回归》一书的作者，一部关于友谊、家庭和流亡不可思议现实的璀璨小说。时间玩的把戏是让我们相信一切永恒，尽管没有什么是永恒的，我们仍在梦中继续。一天晚上，在班加西长大的小男孩哈立德从广播中听到一个奇怪的短篇小说，讲述一个男人被猫活活吃掉的故事。哈立德被这些文字的力量以及它们神秘的作者侯赛姆·佐瓦所吸引，最终踏上一段远离家乡的旅程，去爱丁堡大学追求精神生活。在那里，他被抛入一个与他在利比亚所知世界相去甚远的社会，哈立德开始发生变化。他参加了在伦敦反对卡扎菲政权的抗议活动，却目睹了悲剧的爆发。一瞬间，哈立德发现自己受伤，命悬一线，成为流亡者，无法离开英国，更不用说回到他的出生国了。甚至通过被监听的电话线告诉家里的父母他所做的事，也会危及他们的安全。当一次在酒店的偶然相遇让哈立德与那位命运短篇小说的作者侯赛姆·佐瓦面对面时，他陷入了人生中最深厚的友谊。这段友谊不仅支撑着他，而且最终在阿拉伯之春爆发时，迫使他面对革命与安全、家庭与流亡之间的痛苦张力，以及如何在与他最亲近的人定义自己的自我意识。《我的朋友们》是对友谊和家庭的深刻沉思，探讨了时间如何考验并磨损这些纽带，这是一部令人心碎的美丽文学作品，出自一位处于巅峰状态的作者之手。
 
     > **作者简介**: 希沙姆·马塔尔出生于纽约市，当时他的父亲正在为利比亚驻联合国代表团工作。三岁时，他随家人回到利比亚的黎波里，度过了童年早期。由于卡扎菲政权的政治迫害，1979年，他的父亲被指控为利比亚革命政权的反动派，被迫与家人一同逃离该国。他们流亡埃及，希沙姆和他的兄弟在开罗完成了学业。1986年，他移居英国伦敦，继续深造并获得建筑学学位。1990年，当他还住在伦敦时，他的父亲——一位政治异见人士——在开罗被绑架，此后一直下落不明。然而，1996年，家人收到了两封带有他父亲笔迹的信，信中称他被埃及秘密警察绑架，移交给了利比亚政权，并被关押在黎波里市中心的臭名昭著的阿布萨利姆监狱。自那以后，关于他父亲的行踪再无任何消息。希沙姆·马塔尔开始创作诗歌，并尝试戏剧创作。他在2000年初开始撰写他的第一部小说《在男人的国家里》。2005年秋天，企鹅国际出版社与他签订了两本书的合约，这部小说取得了巨大成功。
 
-43. **(437页) <span id="梅赛德斯先生-Stephen-King">[《梅赛德斯先生》(Mr. Mercedes) - Stephen King, 2014](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Mr.%20Mercedes%20%28Stephen%20King%29%20.epub)</span>**  | ⭐Goodreads：4.04分 (36.5万人评分)
+50. **(437页) <span id="梅赛德斯先生-Stephen-King">[《梅赛德斯先生》(Mr. Mercedes) - Stephen King, 2014](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Mr.%20Mercedes%20%28Stephen%20King%29%20.epub)</span>**  | ⭐Goodreads：4.04分 (36.5万人评分)
     <br>📖 **类型**：恐怖 · 惊悚 · 小说 · 悬疑 · 犯罪 · 悬疑惊悚
     > 在黎明前的黑暗中，一座陷入困境的美国城市里，数百名失业的男女排着长队，等待着一场招聘会的开启。他们疲惫不堪，寒意透骨，绝望笼罩心头。浓雾中突然冲出一辆偷来的奔驰车，司机孤身一人，直到最后一刻才被发现。他驾车冲入人群，碾过无辜者，倒车后再一次猛撞。八人丧命，十五人受伤。凶手逃之夭夭。
     > 
@@ -391,19 +466,19 @@
     > 
     > 斯蒂芬在1967年向《惊悚神秘故事》杂志出售了他的第一个专业短篇小说《玻璃地板》。在婚姻的早期岁月里，他继续向男性杂志出售故事。许多故事被收录在《夜班》集或其他选集中。1971年秋季，斯蒂芬开始在缅因州汉普登的公立高中汉普登学院教授英语。他在晚上和周末继续创作短篇小说和小说。
 
-44. **(369页) <span id="遇见你之前-Moyes-Jojo">[《遇见你之前》(Me Before You) - Moyes Jojo, 2012](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Me%20Before%20You%28Moyes%20Jojo%29.epub)</span>**  | ⭐Goodreads：4.26分 (177.2万人评分)
+51. **(369页) <span id="遇见你之前-Moyes-Jojo">[《遇见你之前》(Me Before You) - Moyes Jojo, 2012](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Me%20Before%20You%28Moyes%20Jojo%29.epub)</span>**  | ⭐Goodreads：4.26分 (177.2万人评分)
     <br>📖 **类型**：爱情 · 小说 · 当代 · 读书会 · 都市女性
     > 来自《纽约时报》排名第一的畅销书《星之赠予者》的作者，发现一个在《遇见你之前》、《遇见你之后》和《依然是你》中俘获了超过2000万颗心的爱情故事。他们本无交集，直到爱情让他们有了失去一切的代价。路易莎·克拉克是一个过着极其平凡生活的普通女孩——有稳定的男友，亲密的家庭——她几乎从未离开过他们的小村庄。她接受了一份急需的工作，为前“宇宙之王”威尔·特雷诺服务，他在一次事故后坐上了轮椅。威尔曾过着精彩纷呈的生活——大交易、极限运动、全球旅行——而现在他确信自己无法再这样继续下去。威尔尖酸刻薄、情绪多变、专横跋扈——但路易莎拒绝对他小心翼翼，很快他的幸福对她来说变得比她预期的更重要。当她得知威尔有自己的惊人计划时，她决心向他展示生活依然值得继续。这是一部属于这一代人的爱情故事，非常适合约翰·格林的《星运里的错》的粉丝，《遇见你之前》让两个毫无共同之处的人栩栩如生——一部令人心碎的浪漫小说，它问道：当你让所爱的人幸福也意味着打破自己的心时，你会怎么做？
 
     > **作者简介**: 乔乔·莫伊斯是一位英国著名小说家。她曾在伦敦大学皇家霍洛威学院深造。凭借《独立报》提供的奖学金，她在伦敦城市大学攻读新闻学，并在之后为《独立报》效力了十年。2001年，她转型为全职小说家。莫伊斯的代表作《异国水果》在2004年荣获浪漫小说家协会（RNA）年度最佳浪漫小说奖。她与记者查尔斯·亚瑟结为连理，并育有三子。
 
-45. **(303页) <span id="克拉拉与太阳-Kazuo-Ishiguro">[《克拉拉与太阳》(Klara and The Sun) - Kazuo Ishiguro, 2021](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Klara%20and%20The%20Sun%20%28Kazuo%20Ishiguro%29%20.epub)</span>**  | ⭐Goodreads：3.74分 (41.6万人评分)
+52. **(303页) <span id="克拉拉与太阳-Kazuo-Ishiguro">[《克拉拉与太阳》(Klara and The Sun) - Kazuo Ishiguro, 2021](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Klara%20and%20The%20Sun%20%28Kazuo%20Ishiguro%29%20.epub)</span>**  | ⭐Goodreads：3.74分 (41.6万人评分)
     <br>📖 **类型**：小说 · 科幻 · 读书会 · 反乌托邦 · 文学小说 · 奇幻
     > 在商店的角落里，克拉拉——一个拥有卓越观察力的人工朋友，细心地观察着那些进店浏览的顾客，以及那些在街边走过的行人。她心中仍怀揣着希望，期待不久后会有顾客选择她。然而，当可能出现永远改变她处境的契机时，有人提醒克拉拉，不要对人类的承诺寄予过多期望。在《克拉拉与太阳》中，石黑一雄通过一个令人难以忘怀的叙述者的视角，审视我们瞬息万变的现代世界，探讨一个根本性的问题：爱，究竟意味着什么？
 
     > **作者简介**: 石黑一雄爵士（カズオ・イシグロ 或 石黒 一雄），OBE，FRSA，FRSL，是一位日裔英国小说家，2017年诺贝尔文学奖得主。他的家庭于1960年移居英国。石黑一雄于1978年获得肯特大学的学士学位，1980年获得东英吉利大学创意写作课程的硕士学位。他于1982年成为英国公民，现居伦敦。他的第一部小说《远山淡影》赢得了1982年的威妮弗雷德·霍尔特比纪念奖。他的第二部小说《浮世画家》获得了1986年的惠特bread奖。石黑一雄凭借他的第三部小说《长日将尽》获得了1989年的布克奖。他的第四部小说《无可慰藉》赢得了1995年的切尔滕纳姆奖。他的最新小说《被掩埋的巨人》是《纽约时报》的畅销书。他于2017年被授予诺贝尔文学奖。他的小说《浮世画家》（1986年）、《当我们是孤儿时》（2000年）和《别让我走》（2005年）均入围布克奖。2008年，《泰晤士报》在其“1945年以来最伟大的50位英国作家”名单中将石黑一雄排在第32位。2017年，瑞典学院授予他诺贝尔文学奖，并在颁奖词中将他描述为“在其情感力量巨大的小说中，揭示了我们对世界虚幻联系感之下的深渊”的作家。
 
-46. **(431页) <span id="如果你敢说出去-Olsen-Gregg">[《如果你敢说出去》(If You Tell) - Olsen, Gregg, 2019](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/If%20You%20Tell%20%28Olsen%2C%20Gregg%29%20.epub)</span>**  | ⭐Goodreads：3.98分 (34.2万人评分)
+53. **(431页) <span id="如果你敢说出去-Olsen-Gregg">[《如果你敢说出去》(If You Tell) - Olsen, Gregg, 2019](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/If%20You%20Tell%20%28Olsen%2C%20Gregg%29%20.epub)</span>**  | ⭐Goodreads：3.98分 (34.2万人评分)
     <br>📖 **类型**：真实犯罪 · 非虚构 · 犯罪 · 惊悚 · 读书会 · 悬疑
     > 一个关于谋杀、家庭秘辛与姐妹间坚不可摧情谊的真实故事
     > 十多年后，当妮基、萨米和托里·诺特克姐妹听到“妈妈”这个词时，它如同鹰爪般撕扯着她们的心，唤起了自童年起便深藏心底的秘密记忆。直到现在。
@@ -411,17 +486,17 @@
 
     > **作者简介**: 在格雷格·奥尔森的整个职业生涯中，他展现出了创作细腻叙事的才华，为读者提供了对陷入非凡境遇的人们生活的深刻洞察。作为《纽约时报》排名第一的畅销书作家，奥尔森撰写了十部非虚构作品、十部小说，并为李·查尔德编辑的合集贡献了一篇短篇小说。这位屡获殊荣的作家曾作为嘉宾出现在数十个国家和地方电视节目中，包括为历史频道、学习频道和探索频道制作的教育节目。他还曾亮相于《早安美国》、《早间秀》、《今日秀》、福克斯新闻、CNN、《安德森·库珀360》、MSNBC、《娱乐今晚》、CBS《48小时》、氧气频道的《Snapped》、法庭电视的《Crier Live》、《Inside Edition》、《Extra》、《Access Hollywood》和A&E的《传记》等节目。除了电视和广播节目外，这位获奖作者还曾在《红皮书》、《今日美国》、《人物》、沙龙杂志、《西雅图时报》、《洛杉矶时报》和《纽约邮报》等媒体上亮相。《深暗》被ILA评为爱达荷年度图书，《饥饿高地》因对华盛顿州历史和文化的贡献而受到华盛顿州秘书长的表彰。奥尔森是西雅图本地人，现与妻子和苏里（一只被宠坏的迷你腊肠犬，穿着毛衣）住在华盛顿州的奥拉拉。
 
-47. **(195页) <span id="如何不被一杯水淹死-Angie-Cruz">[《如何不被一杯水淹死》(How Not to Drown in a Glass of Water) - Angie Cruz, 2022](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/How%20Not%20to%20Drown%20in%20a%20Glass%20of%20Water%20%28Angie%20Cruz%29%20.epub)</span>**  | ⭐Goodreads：3.88分 (3.1万人评分)
+54. **(195页) <span id="如何不被一杯水淹死-Angie-Cruz">[《如何不被一杯水淹死》(How Not to Drown in a Glass of Water) - Angie Cruz, 2022](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/How%20Not%20to%20Drown%20in%20a%20Glass%20of%20Water%20%28Angie%20Cruz%29%20.epub)</span>**  | ⭐Goodreads：3.88分 (3.1万人评分)
     <br>📖 **类型**：小说 · 当代 · 文学小说 · 读书会 · 历史小说 · 女权
     > 卡拉·罗梅罗曾以为自己会在小灯泡工厂里工作一辈子。然而，在她五十多岁时，因大萧条而失业，她被迫在数十年后首次重返职场。在职业顾问的安排下，卡拉却开始讲述她的人生故事。在十二次会面中，她回顾了自己跌宕起伏的爱情经历，与邻居露露和妹妹安吉拉时而尖锐时而亲密的关系，她在债务、绅士化进程和失去中的挣扎，以及最终与疏远儿子费尔南多之间真正发生的事情。随着卡拉直面她最黑暗的秘密和遗憾，我们看到的是一个虽受生活打击却依然斗志昂扬的女性。《如何在玻璃杯中不溺水》结构新颖、情感斑斓，是安吉·克鲁兹迄今为止最雄心勃勃、最动人的小说，而卡拉则是一位跨越时代的女英雄。
 
     > **作者简介**: 安吉·克鲁兹在多米尼加共和国受孕，1972年出生于纽约市华盛顿高地。她每年夏天往返于两地，直到十六岁。她就读于拉瓜迪亚高中，主修视觉艺术，并自然而然地选择了在时尚技术学院学习时尚设计的道路。大学四年间，她曾在麦迪逊大道上的一家高档精品店担任销售员、经理，后来成为橱窗设计师。1993年，她的四个儿童故事在BET的“故事门廊”节目中播出。不久后，她放弃了时尚达人的生活，成为纽约州立大学宾汉姆顿分校的全日制学生，在那里她开始了对文学和历史的热爱。1999年，她从纽约大学的MFA项目毕业。对文学的热爱激发了她积极参与社区活动的愿望。1997年，她与阿德利娜·安东尼和玛尔塔·露西亚共同创立了WILL：女性文学与书信组织，该组织通过举办读书会、研讨会和会议，利用文学作为建设社区和改造社会的工具。2000年，由于资源匮乏以及这些女性希望有更多时间写作，WILL暂时搁置。安吉·克鲁兹为《拉丁杂志》、《卡拉鲁》和《纽约时报》等众多期刊贡献了短篇作品。她因写作和/或社会活动获得了多项奖项，包括纽约艺术基金会奖学金、芭芭拉·德明奖、雅多奖和卡马戈奖学金。她出版了兩部小说，《索莱达德》和《让咖啡下雨》。目前，她正在制作《索莱达德》的电影剧本，该剧本由纽约制作公司选中，并正在创作她的第三部小说。
 
-48. **(96页) <span id="瓜达尔卡纳尔-1942-43-日本摧毁亨德森机场的企图-Mark-Stille">[《瓜达尔卡纳尔 1942-43：日本摧毁亨德森机场的企图》(Guadalcanal 1942-43_ Japan's bid to knock out Henderson) - Mark Stille, 2019](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Guadalcanal%201942-43_%20Japan%27s%20bid%20to%20knock%20out%20Henderson%28Mark%20Stille%29.epub)</span>**  | ⭐Goodreads：4.23分 (71人评分)
+55. **(96页) <span id="瓜达尔卡纳尔-1942-43-日本摧毁亨德森机场的企图-Mark-Stille">[《瓜达尔卡纳尔 1942-43：日本摧毁亨德森机场的企图》(Guadalcanal 1942-43_ Japan's bid to knock out Henderson) - Mark Stille, 2019](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Guadalcanal%201942-43_%20Japan%27s%20bid%20to%20knock%20out%20Henderson%28Mark%20Stille%29.epub)</span>**  | ⭐Goodreads：4.23分 (71人评分)
     <br>📖 **类型**：历史
     > 瓜达尔卡纳尔战役自1942年8月持续至1943年2月，核心战场为亨德森机场。该机场于8月8日被美军占领，并于8月20日正式启用。只要机场保持运转并配备充足的打击力量，日军就无法通过重型装备和大量补给品的护航队向该岛输送物资。相反，他们只能依赖驱逐舰夜间航行，而这些驱逐舰无法携带足够的人员或物资，以决定性地改变岛上美军驻守的平衡。岛上的美国空中力量，名为“仙人掌空军”，由海军陆战队、海军和陆军航空兵组成。他们肩负着保卫机场免受日军持续攻击的重任，更重要的是，打击日军大规模增援该岛的行动。摧毁亨德森机场的任务主要由从拉包尔地区机场起飞的帝国海军航空兵承担。负责这一任务的部队在整个帝国海军中最为出色，拥有大量经验丰富的飞行员和一架卓越的空中优势战斗机（著名的“零式”）。然而，从拉包尔到瓜达尔卡纳尔的距离限制了日军的行动，他们的主要轰炸机极易被拦截。本书追溯了双方的空中战役，探讨了美军胜利和日军失败背后的原因。正文配有全彩插图和当代摄影作品。
 
-49. **(592页) <span id="绿里奇迹-King-Stephen">[《绿里奇迹》(Green Mile) - King Stephen, 1996](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Green%20Mile%20%28King%20Stephen%29%20.epub)</span>**  | ⭐Goodreads：4.49分 (35.4万人评分)
+56. **(592页) <span id="绿里奇迹-King-Stephen">[《绿里奇迹》(Green Mile) - King Stephen, 1996](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Green%20Mile%20%28King%20Stephen%29%20.epub)</span>**  | ⭐Goodreads：4.49分 (35.4万人评分)
     <br>📖 **类型**：恐怖 · 小说 · 奇幻 · 惊悚 · 悬疑 · 经典 · 犯罪
     > 在冷山监狱，沿着那条被称为“绿里”的孤寂牢房区，诸如“比利小子”沃顿和被附身的埃德华·德拉科鲁瓦之类的死刑犯，等待着在“老斯帕基”上被处决。然而，无论是善是恶，有罪还是无辜，囚犯还是看守，从未有人见过像新囚犯约翰·科菲这般残忍之人，他因强奸并杀害两名年轻女孩而被判处死刑。科菲是披着人皮的恶魔吗？还是说他是一种截然不同的存在？天堂与地狱中的奇迹，远超冷山任何人的想象，而其中一个奇迹或许已然悄然降临在他们之中。
 
@@ -433,49 +508,49 @@
     > 
     > 1971年秋季，斯蒂芬开始在缅因州汉普登的公立高中汉普登学院教授英语。他在晚上和周末继续创作短篇小说和小说。
 
-50. **(345页) <span id="平地而起-星巴克与绿围裙背后的承诺-Howard-Schultz">[《平地而起：星巴克与绿围裙背后的承诺》(From the Ground Up_ A Journey to Reimagine the Promise of America) - Howard Schultz, 2019](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/From%20the%20Ground%20Up_%20A%20Journey%20to%20Reimagine%20the%20Promise%20of%20America%28Howard%20Schultz%29.epub)</span>**  | ⭐Goodreads：3.73分 (1052人评分)
+57. **(345页) <span id="平地而起-星巴克与绿围裙背后的承诺-Howard-Schultz">[《平地而起：星巴克与绿围裙背后的承诺》(From the Ground Up_ A Journey to Reimagine the Promise of America) - Howard Schultz, 2019](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/From%20the%20Ground%20Up_%20A%20Journey%20to%20Reimagine%20the%20Promise%20of%20America%28Howard%20Schultz%29.epub)</span>**  | ⭐Goodreads：3.73分 (1052人评分)
     <br>📖 **类型**：传记 · 商业 · 非虚构 · 政治 · 领导力 · 回忆录 · 历史
     > 《纽约时报》畅销书•来自星巴克长期首席执行官和董事长的力作，一部大胆而戏剧性的作品，探讨了当今美国社会中领导者、企业和公民共同承担的新责任——通过一个男人生活和工作的私密视角来观察。我们彼此亏欠什么？我们如何将动力、创造力，甚至痛苦，转化为比个人成功更有意义的东西？在我们生活、工作和娱乐的地方，我们的责任是什么？这些问题是美国旅程的核心。它们也是霍华德·舒尔茨自从小在布鲁克林住房项目中长大，以及将星巴克从11家门店发展成为全球最具标志性的品牌之一的过程中，个人一直在努力解决的问题。在《从头开始》中，舒尔茨在两个交织的叙事中寻找答案。一个故事展示了他矛盾重重的童年——包括他从未透露过的经历——如何激励舒尔茨成为家中第一个大学毕业生，然后建立他父亲（一个工薪阶层劳动者）从未有机会工作的那种公司，一个试图平衡利润和人类尊严的企业。另一个并行故事提供了对舒尔茨非传统努力挑战关于商业在社会中角色的旧观念的幕后观察。从为兼职咖啡师提供健康保险和免费大学学费，到关于种族和难民的争议性倡议，舒尔茨和他的团队以他们改变世界消费咖啡方式的同样创造力和严谨态度，解决了社会问题。在整本书中，舒尔茨介绍了将共同挣扎转化为共享成功的美国人的横截面。在这些页面上，迷失的青年找到了第一份工作，有抱负的大学生克服了债务的重担，9/11后的勇士们用不屈不挠的精神取代了失去的肢体，前煤矿工人和鸦片类药物成瘾者铺平了新的道路，企业家们启动了梦想，更好的天使从国家的各个角落涌现。《从头开始》既是坦率的回忆录，又是振奋人心的相互责任蓝图，也是普通人可以做非凡事情的证明。在其核心，它是一个乐观、鼓舞人心的记述，讲述了当我们站起来、大声疾呼并为了比自身更大的目标而团结一致时会发生什么。这里有一个新的愿景，展示了当我们尽力通过人性的镜头来引领生活时，可能实现的景象。“霍华德·舒尔茨的故事清楚地提醒我们，成功不是仅通过个人决心就能实现的，而是通过合作和社区。霍华德对这两者的承诺帮助他建立了一个全球最知名的品牌。看到他接下来会取得什么成就将令人兴奋。”——比尔·盖茨
 
     > **作者简介**: 舒尔茨是一位作家兼商人。他于1953年7月19日出生。他最为人所熟知的是拥有星巴克，同时他也是该公司的首席执行官和董事长。他毕业于北密歇根大学，获得传播学学士学位。1997年，舒尔茨与多丽·琼斯·杨合著了《将心注入：星巴克如何一杯一杯地打造公司》一书。他的第二本书《前进：星巴克如何为生存而战不失灵魂》是与乔安妮·戈登合著，于2011年出版。
 
-51. **(390页) <span id="灭绝-过时物品纲要-Barbara-Penner-Adrian-Forty-Olivia-Horsfall-Turne">[《灭绝：过时物品纲要》(Extinct - A Compendium of Obsolete Objects) - Barbara Penner, ‎Adrian Forty, ‎Olivia Horsfall Turne, 2021](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Extinct%20-%20A%20Compendium%20of%20Obsolete%20Objects%20%28Barbara%20Penner%2C%20%E2%80%8EAdrian%20Forty%2C%20%E2%80%8EOlivia%20Horsfall%20Turne%29.epub)</span>**  | ⭐Goodreads：4.13分 (38人评分)
+58. **(390页) <span id="灭绝-过时物品纲要-Barbara-Penner-Adrian-Forty-Olivia-Horsfall-Turne">[《灭绝：过时物品纲要》(Extinct - A Compendium of Obsolete Objects) - Barbara Penner, ‎Adrian Forty, ‎Olivia Horsfall Turne, 2021](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Extinct%20-%20A%20Compendium%20of%20Obsolete%20Objects%20%28Barbara%20Penner%2C%20%E2%80%8EAdrian%20Forty%2C%20%E2%80%8EOlivia%20Horsfall%20Turne%29.epub)</span>**  | ⭐Goodreads：4.13分 (38人评分)
     <br>📖 **类型**：非虚构 · 艺术 · 随笔 · 历史 · 教育 · 人类学 · 设计
     > 融合建筑、设计与科技，通过我们替换、遗弃和遗忘的物品，展开一场穿越过去未来的视觉之旅。所谓“灭绝”物品，是指那些曾被构想却从未投入使用，或曾存在如今却闲置不用的——被取代的、过时的，或仅仅是被遗忘的。Extinct汇集了一批卓越的艺术家、策展人、建筑师、评论家和学者，包括Hal Foster、Barry Bergdoll、Deyan Sudjic、Tacita Dean、Emily Orr、Richard Wentworth等众多人士。在85篇论文中，贡献者们提名“灭绝”物品，并以一系列简短、生动、有时带有个人色彩的叙述来探讨它们，不仅谈及淘汰的技术，还涉及其他思考、制作和与世界互动的方式。Extinct充满了引人好奇、半遗忘的物品，每一件都唤起了一个未曾实现的未来。它也是一场视觉盛宴，充满趣味与愉悦。
 
     > **作者简介**: 芭芭拉·彭纳是伦敦大学学院巴特利特建筑学院建筑史高级讲师。她著有《浴室》（Reaktion出版社，2014年——入围RIBA主席杰出大学研究奖）、《新婚夫妇环游：十九世纪美国的蜜月旅行》（UPNE出版社，2009年），并与他人合编了《性别空间建筑》（Routledge出版社，2000年）。芭芭拉经常在英国、日本和北美的各大机构进行讲座，是《场所》和《建筑评论》等建筑杂志的专栏作家。她担任《建筑杂志》（2011年至今）和《室内：建筑、设计、文化》（2009年至今）的编辑委员会成员，同时也是大不列颠建筑历史学家协会的董事会成员。
 
-52. **(105页) <span id="你不必拥有梦想-Tim-Minchin">[《你不必拥有梦想》(You Don’t Have to Have a Dream) - Tim Minchin, 2024](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/You%20Don%E2%80%99t%20Have%20to%20Have%20a%20Dream%20%28Tim%20Minchin%29.epub)</span>**  | ⭐Goodreads：4.04分 (2260人评分)
+59. **(105页) <span id="你不必拥有梦想-Tim-Minchin">[《你不必拥有梦想》(You Don’t Have to Have a Dream) - Tim Minchin, 2024](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/You%20Don%E2%80%99t%20Have%20to%20Have%20a%20Dream%20%28Tim%20Minchin%29.epub)</span>**  | ⭐Goodreads：4.04分 (2260人评分)
     <br>📖 **类型**：非虚构 · 自我提升 · 随笔 · 回忆录 · 个人成长 · 心理学
     > “这是我对浪漫的理解：你很快就会死去。生活有时会显得漫长而艰难，天哪，真是累人。你有时会快乐，有时会悲伤。然后你会变老。然后你会死去。对于这种空虚的存在，只有一件明智的事情可以做，那就是：填满它。”蒂姆·明钦（Tim Minchin）以其擅长撰写优秀演讲稿而闻名，并多次受邀撰写。本书精选自蒂姆最受欢迎的三次大学毕业生典礼演讲，《你不必拥有梦想》提供了他对生活、艺术、成功、善良、爱情以及在无意义宇宙中茁壮成长的独到见解和建议。全书配有特别委托的插图，《你不必拥有梦想》是我们日常生活中创造力和同情心的集结号，告诉我们将美好事物带入世界永远不会太晚。57分钟。
 
     > **作者简介**: 蒂莫西·大卫·“蒂姆”·明钦是一位澳英双籍的喜剧演员、影视演员兼音乐家。来源：http://en.wikipedia.org/wiki/Tim_Minchin
 
-53. **(372页) <span id="高效能人士的七个习惯-Stephen-R-Covey">[《高效能人士的七个习惯》(The 7 Habits of Highly Effective People) - Stephen R. Covey, 1989](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%207%20Habits%20of%20Highly%20Effective%20People%20%28Stephen%20R.%20Covey%29.epub)</span>**  | ⭐Goodreads：4.16分 (80.7万人评分)
+60. **(372页) <span id="高效能人士的七个习惯-Stephen-R-Covey">[《高效能人士的七个习惯》(The 7 Habits of Highly Effective People) - Stephen R. Covey, 1989](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/The%207%20Habits%20of%20Highly%20Effective%20People%20%28Stephen%20R.%20Covey%29.epub)</span>**  | ⭐Goodreads：4.16分 (80.7万人评分)
     <br>📖 **类型**：自我提升 · 非虚构 · 商业 · 个人成长 · 心理学 · 领导力
     > 《高效能人士的七个习惯：个人变革的强大教训》在1990年首次出版时具有开创性意义，并且至今仍然是商业领域的畅销书，销量超过1000万册。斯蒂芬·柯维是一位享誉国际的领导力权威，他深知真正的成功在于个人与职业效能的平衡，因此这本书成为在两大领域提升表现的实用指南。他的故事既源自家庭生活的点滴，也来自商业挑战的磨砺。在践行这七个习惯之前，你需要完成柯维所说的“范式转变”——即对世界运作方式的认知和解读的深刻改变。柯维将引领你经历这一转变，它将影响你对生产力、时间管理、积极思维、培养“主动肌”（主动出击而非被动应对）等方面的认知和行为，乃至更多。这并非一本提供快速技巧、明日即用的书籍。书中的概念有时颇为复杂，你需要深入研读，而非草草浏览。当你读完这本书时，每一章可能都贴满了便利贴或写满了手写批注，你会感觉仿佛亲临了一场柯维的精彩研讨会。
 
     > **作者简介**: 斯蒂芬·理查兹·柯维是一位杰出的美国教育家、作家、商人和演讲家。他最著名的作品是《高效能人士的七个习惯》。此外，他的其他著作还包括《要事第一》、《以原则为中心的领导力》、《高效能家庭的七个习惯》、《第八个习惯》，以及《我心中的领导者：全球各地学校和家长如何激励伟大，一次一个孩子》。1996年，《时代》杂志将他评为全球25位最具影响力的人物之一。他去世时，担任犹他州立大学（USU）乔恩·M·亨茨曼商学院的教授。
 
-54. **(416页) <span id="趣事-Emily-Henry">[《趣事》(Funny Story) - Emily Henry, 2025](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Funny%20Story%20%28Emily%20Henry%29.epub)</span>**  | ⭐Goodreads：4.2分 (117.3万人评分)
+61. **(416页) <span id="趣事-Emily-Henry">[《趣事》(Funny Story) - Emily Henry, 2025](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Funny%20Story%20%28Emily%20Henry%29.epub)</span>**  | ⭐Goodreads：4.2分 (117.3万人评分)
     <br>📖 **类型**：小说
     > 一本闪耀着快乐光芒的新小说，讲述了一对有着错误共同点的对立人物，出自排名第一的畅销书作家艾米莉·亨利之手。达芙妮总是喜欢她的未婚夫彼得讲述他们故事的方式。他们如何相遇（在一个狂风大作的日子），坠入爱河（因为一顶飘落的帽子），并搬回他的湖畔故乡开始共同生活。他真的很擅长讲述这个故事……直到他意识到自己实际上爱上了他的童年挚友佩特拉的那一刻。这就是达芙妮开始她的新故事的方式：被困在美丽的密歇根州韦宁湾，没有朋友或家人，但有一份梦想中的儿童图书馆员工作（薪水勉强糊口），并提出与唯一可能理解她困境的人——佩特拉的前男友迈尔斯·诺瓦克——合租。迈尔斯蓬头垢面、生活混乱——喜欢在心碎情歌中寻求慰藉——与务实、严谨的达芙妮截然相反，她的同事们对她的了解少到以至于他们有一个持续的赌注，认为她要么是FBI特工，要么在证人保护计划中。室友们主要互相回避，直到有一天，在借酒消愁时，他们建立了一段脆弱的友谊并制定了一个计划。如果这个计划还涉及发布他们夏季冒险的故意误导照片，那么，谁又能责怪他们呢？但这当然只是为了做做样子，因为达芙妮不可能真的通过爱上她前未婚夫的新未婚妻的前男友来开始她的新篇章……对吧？
 
     > **作者简介**: 艾米莉·亨利是《纽约时报》排名第一的畅销书作家，著有《书迷》、《我们在假期相遇的人》和《海滩读物》，以及即将出版的《快乐之地》。她居住并在辛辛那提以及它下方的那部分肯塔基州进行写作。在Instagram上关注她@EmilyHenryWrites。
 
-55. **(445页) <span id="日常卓越-有意义生活的启示-Stephen-R-Covey">[《日常卓越：有意义生活的启示》(Everyday Greatness Inspiration for a Meaningful Life) - Stephen R. Covey, 2006](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Everyday%20Greatness%20Inspiration%20for%20a%20Meaningful%20Life%20%28Stephen%20R.%20Covey%29.epub)</span>**  | ⭐Goodreads：4.12分 (953人评分)
+62. **(445页) <span id="日常卓越-有意义生活的启示-Stephen-R-Covey">[《日常卓越：有意义生活的启示》(Everyday Greatness Inspiration for a Meaningful Life) - Stephen R. Covey, 2006](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Everyday%20Greatness%20Inspiration%20for%20a%20Meaningful%20Life%20%28Stephen%20R.%20Covey%29.epub)</span>**  | ⭐Goodreads：4.12分 (953人评分)
     <br>📖 **类型**：自我提升 · 非虚构 · 商业 · 个人成长 · 领导力 · 哲学
     > 汇集了一系列激励人心的故事，生动展现了人们在逆境和挑战中如何竭尽全力生活，为那些渴望从生活中获得更多的人们提供了充满启发且能改变人生的重要资源。
 
     > **作者简介**: 斯蒂芬·理查兹·柯维是一位杰出的美国教育家、作家、商人和演讲家。他最著名的作品是《高效能人士的七个习惯》。此外，他的其他著作还包括《要事第一》、《以原则为中心的领导力》、《高效能家庭的七个习惯》、《第八个习惯》，以及《我心中的领导者：全球各地学校和家长如何激励伟大，一次一个孩子》。1996年，《时代》杂志将他评为全球25位最具影响力人物之一。他去世时，担任犹他州立大学（USU）乔恩·M·亨茨曼商学院的教授。
 
-56. **(228页) <span id="犬年-Mark-Doty">[《犬年》(Dog Years) - Mark Doty, 2007](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Dog%20Years%20%28Mark%20Doty%29.epub)</span>**  | ⭐Goodreads：3.9分 (2998人评分)
+63. **(228页) <span id="犬年-Mark-Doty">[《犬年》(Dog Years) - Mark Doty, 2007](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Dog%20Years%20%28Mark%20Doty%29.epub)</span>**  | ⭐Goodreads：3.9分 (2998人评分)
     <br>📖 **类型**：回忆录 · 非虚构 · 狗 · 动物 · 诗歌 · 传记与回忆录 · 传记
     > 为什么狗能如此深刻地触动我们的内心世界？当马克·多蒂决定收养一只狗来陪伴他垂死的伴侣时，他意外地带回了博，一只体型庞大、营养不良且急需关爱的金毛寻回犬。博加入了阿登，一只黑色的寻回犬，使他们的家庭更加完整。随着博重拾活力，这两只狗成为了马克·多蒂亲密的伙伴，他的慰藉，最终更是在最黑暗的日子里，支撑他未曾放弃所有希望的生命力量。它们的坚韧、忠诚和爱，在他绝望时给予他无尽的灵感。《狗年》是一部非凡之作：一本感人至深、充满温情的回忆录，交织着对我们对动物情感的深刻反思，以及它们教给我们的关于生活、爱与失去的宝贵教训。马克·多蒂笔下的狗，既脆弱得令人心碎，又带来积极的能量和快乐，更赋予我们无条件爱的珍贵礼物。这本书独树一帜，马克·多蒂那令人惊叹的沉思，既光彩夺目又不落俗套，却深深打动人心。文笔优美，《狗年》正逐渐成为一部经典之作。
 
     > **作者简介**: 马克·多蒂是一位集诗人、散文家和回忆录作家于一身的文学创作者。他著有十部诗集，其中包括《深巷》和荣获国家图书奖的《火与火：新诗与选诗》。他现居于美国纽约州的纽约市。
 
-57. **(407页) <span id="死钱之谜-Jakob-Kerr">[《死钱之谜》(Dead Money) - Jakob Kerr, 2025](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Dead%20Money%20%28Jakob%20Kerr%29.epub)</span>**  | ⭐Goodreads：4.01分 (7005人评分)
+64. **(407页) <span id="死钱之谜-Jakob-Kerr">[《死钱之谜》(Dead Money) - Jakob Kerr, 2025](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Dead%20Money%20%28Jakob%20Kerr%29.epub)</span>**  | ⭐Goodreads：4.01分 (7005人评分)
     <br>📖 **类型**：悬疑 · 惊悚 · 小说 · 悬疑惊悚 · 犯罪 · 当代
     > “一本冷酷到底的炸裂小说——一段蜿蜒穿越硅谷黑暗面的旅程，包裹在一个令人惊叹的神秘包裹中，沿途还有些许疯狂的惊喜。”——布莱克·克劳奇，《暗物质》畅销书作者
     > 别叫我修复者。这不是HBO。
@@ -490,13 +565,13 @@
 
     > **作者简介**: 雅各布·克尔是即将由班坦图书出版的《死钱》一书的作者，班坦图书是企鹅兰登书屋旗下的出版品牌。除了作家身份，雅各布还是旧金山科技行业的一名律师和通信主管。他是爱彼迎公司的首批员工之一，花费了十年时间将这家公司从一个小型初创企业发展成为全球知名企业。此外，雅各布还曾担任过酒保、体育记者，以及在一个灾难性的下午，短暂地成为了一辆冰淇淋车的司机。
 
-58. **(293页) <span id="圣诞时光-Jeanette-Winterson">[《圣诞时光》(Christmas Days) - Jeanette Winterson, 2016](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Christmas%20Days%20%28Jeanette%20Winterson%29.epub)</span>**  | ⭐Goodreads：3.95分 (7230人评分)
+65. **(293页) <span id="圣诞时光-Jeanette-Winterson">[《圣诞时光》(Christmas Days) - Jeanette Winterson, 2016](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/Christmas%20Days%20%28Jeanette%20Winterson%29.epub)</span>**  | ⭐Goodreads：3.95分 (7230人评分)
     <br>📖 **类型**：圣诞 · 短篇小说 · 小说 · 节日 · 奇幻 · 读书会
     > 来自《纽约时报》畅销书《为何幸福时你却想平凡？》的作者，带来了一本迷人的假日故事集。多年来，珍妮特·温特森喜欢在圣诞节期间创作新故事，如今她汇集了十二个充满想象力、幽默与大胆的精彩篇章。为庆祝圣诞十二日——这个充满欢庆、分享与给予的时节——她不仅奉上这十二个故事，还额外加上了自己的圣诞回忆录。这些故事为读者开启了一扇通往节日精神的大门，在这里时间变得缓慢，魔法悄然降临。从拥有神秘力量的树木到会说话的闪光婴儿，从哲学小精灵到飞翔的狗狗，再到鬼屋和消失的火车，温特森的创新故事融合了圣诞节的童真与诡谲之美。无论是与亲人在炉火旁共读，还是在归家旅途上翻阅，皆宜。在这个充满和平、善意、神秘与少许魔法的季节里，感谢我们最无畏、最杰出的作家之一，带给我们如此美妙的享受。
 
     > **作者简介**: 小说家珍妮特·温特森于1959年出生于英国曼彻斯特。她被收养并在英格兰北部的兰开夏郡阿克林顿长大。她严格的五旬节派福音派教养为她备受赞誉的首部小说提供了背景，该小说于1985年出版。她毕业于牛津大学的圣凯瑟琳学院，随后搬到伦敦，在潘多拉出版社担任助理编辑。作为20世纪80年代英国小说界最具原创性的声音之一，温特森被文学杂志《格兰塔》和图书营销委员会联合举办的活动评为“20位最佳年轻英国作家”之一。1990年，她将《橘子不是唯一的水果》改编为BBC电视剧，并于1994年为BBC2撰写了由比班·基德龙执导的电视剧本《航空伟大时刻》。她是英国维京出版社出版的弗吉尼亚·伍尔夫小说新系列的编辑。她是多家报纸和期刊的定期撰稿人，并在《卫报》上拥有一个固定专栏。她的广播剧作品包括2001年11月由BBC广播电台播出的《短信》。温特森现居住在格洛斯特郡和伦敦，其作品在28个国家出版。
 
-59. **(337页) <span id="一个叫欧维的男人决定去死-Fredrik-Backman">[《一个叫欧维的男人决定去死》(A Man Called Ove) - Fredrik Backman, 2012](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/A%20Man%20Called%20Ove%28Fredrik%20Backman%29%20.epub)</span>**  | ⭐Goodreads：4.38分 (117.7万人评分)
+66. **(337页) <span id="一个叫欧维的男人决定去死-Fredrik-Backman">[《一个叫欧维的男人决定去死》(A Man Called Ove) - Fredrik Backman, 2012](https://stevenspage.github.io/english_ebooks/reader.html?book=./ebooks/A%20Man%20Called%20Ove%28Fredrik%20Backman%29%20.epub)</span>**  | ⭐Goodreads：4.38分 (117.7万人评分)
     <br>📖 **类型**：小说 · 读书会 · 当代 · 幽默 · 文学小说
     > 认识奥弗吧。他是一个脾气古怪的老头，那种会指着他不喜欢的仿佛他们是刚在他卧室窗外被抓住的窃贼的人。他有着坚定的原则，严格的日常习惯，还有一点就着的暴脾气。人们称他为来自地狱的刻薄邻居，但奥弗就一定得刻薄吗？就因为他不是整天脸上都挂着笑容四处走动？在暴躁的外表背后，隐藏着一个故事和一份悲伤。所以，当十一月的某个早晨，一对健谈的年轻夫妇带着两个同样健谈的年轻女儿搬到了隔壁，并且意外地压扁了奥弗的信箱，这便引出了一个既滑稽又温馨的故事，关于邋遢的猫、意想不到的友谊，以及倒车驾驶U-Haul的古老艺术。所有这些都将彻底改变一个暴躁的老头和一个当地居民协会的根基。
 
@@ -507,7 +582,7 @@
 
 ## 📊 统计信息
 
-- **总图书数量**: 60 本
-- **显示图书数量**: 59 本
-- **最后更新**: 2025-10-03T11:03:52.441987Z
+- **总图书数量**: 66 本
+- **显示图书数量**: 66 本
+- **最后更新**: 2025-11-18T14:15:32.974583+00:00
 - **数据来源**: book_info.json
